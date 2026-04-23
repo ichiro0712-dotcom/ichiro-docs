@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FULFULL 事業計画 2026–2031</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0f1f2e;
+  --navy-light: #1a2f42;
+  --teal: #1D9E75;
+  --teal-light: #e8f7f2;
+  --teal-mid: #a8dfc9;
+  --amber: #d4830a;
+  --amber-light: #fef3e2;
+  --red: #c0392b;
+  --red-light: #fdecea;
+  --gray-50: #f8f9fa;
+  --gray-100: #f0f2f4;
+  --gray-200: #e2e6ea;
+  --gray-400: #8a9bb0;
+  --gray-600: #4a5568;
+  --gray-800: #1f2937;
+  --white: #ffffff;
+  --text: #1a2332;
+  --text-muted: #5a6b7d;
+  --border: #dde3ea;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); background: var(--gray-50); font-size: 14px; line-height: 1.7; }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: var(--navy); padding: 0 2rem; display: flex; align-items: center; gap: 0; height: 48px; overflow-x: auto; }
+nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 12px; font-weight: 500; white-space: nowrap; padding: 0 14px; height: 48px; display: flex; align-items: center; border-bottom: 2px solid transparent; transition: .2s; }
+nav a:hover, nav a.active { color: var(--teal-mid); border-bottom-color: var(--teal); }
+
+/* HERO */
+.hero { background: var(--navy); color: white; padding: 56px 2rem 48px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -60px; right: -60px; width: 280px; height: 280px; border-radius: 50%; background: rgba(29,158,117,0.08); }
+.hero::after { content: ''; position: absolute; bottom: -40px; left: 40%; width: 180px; height: 180px; border-radius: 50%; background: rgba(29,158,117,0.05); }
+.hero-inner { max-width: 860px; margin: 0 auto; position: relative; }
+.hero-tag { display: inline-block; background: rgba(29,158,117,0.2); color: var(--teal-mid); font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; letter-spacing: .5px; margin-bottom: 16px; border: 1px solid rgba(29,158,117,0.3); }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 8px; }
+.hero h1 span { color: var(--teal-mid); }
+.hero-sub { color: rgba(255,255,255,0.55); font-size: 13px; margin-bottom: 28px; }
+.hero-metrics { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-metric { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 12px 18px; }
+.hero-metric .val { font-size: 22px; font-weight: 700; color: var(--teal-mid); }
+.hero-metric .lbl { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+/* MAIN */
+main { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+/* SECTION */
+section { margin-top: 2.5rem; }
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--teal); }
+.section-num { width: 26px; height: 26px; background: var(--teal); color: white; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; }
+.section-title { font-size: 17px; font-weight: 700; color: var(--navy); }
+
+/* CARDS */
+.card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 12px; }
+.card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+@media(max-width:640px){ .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; } }
+.card-title { font-size: 12px; font-weight: 700; color: var(--teal); letter-spacing: .4px; margin-bottom: 8px; text-transform: uppercase; }
+.card p { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+.metric-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }
+.metric-val { font-size: 26px; font-weight: 700; color: var(--navy); line-height: 1; }
+.metric-lbl { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+.metric-sub { font-size: 11px; color: var(--teal); margin-top: 2px; }
+
+/* PHASE TIMELINE */
+.phase-wrap { display: flex; gap: 0; margin-bottom: 8px; }
+.phase-item { flex: 1; position: relative; }
+.phase-item:not(:last-child)::after { content: ''; position: absolute; right: -1px; top: 20px; width: 2px; height: calc(100% - 40px); background: var(--border); z-index: 1; }
+.phase-box { margin: 0 4px; border: 1.5px solid var(--border); border-radius: 10px; padding: 14px 12px; background: white; height: 100%; transition: .2s; }
+.phase-box.done { opacity: .55; }
+.phase-box.now { border-color: var(--teal); background: var(--teal-light); }
+.phase-box.upcoming { opacity: .7; }
+.phase-label { font-size: 10px; font-weight: 700; letter-spacing: .5px; color: var(--text-muted); margin-bottom: 4px; }
+.phase-box.now .phase-label { color: var(--teal); }
+.now-badge { display: inline-block; background: var(--teal); color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-bottom: 6px; }
+.phase-name { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.phase-desc { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+
+/* WITHDRAW LINE */
+.withdraw-box { background: var(--red-light); border: 1px solid #f5c6c2; border-radius: 10px; padding: 14px 18px; }
+.withdraw-box .wd-title { font-size: 12px; font-weight: 700; color: var(--red); margin-bottom: 8px; }
+.withdraw-box ul { padding-left: 16px; }
+.withdraw-box li { font-size: 12px; color: #7a2020; margin-bottom: 4px; }
+
+/* MARKET BULLETS */
+.bullet-list { list-style: none; padding: 0; }
+.bullet-list li { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--gray-100); font-size: 13px; }
+.bullet-list li:last-child { border-bottom: none; }
+.bullet-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 7px; }
+
+/* HIGHLIGHT BOX */
+.highlight-box { background: var(--teal-light); border-left: 3px solid var(--teal); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 10px; font-size: 13px; color: var(--navy); }
+
+/* COMPETITOR */
+.competitor-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; margin-bottom: 10px; }
+.comp-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.comp-name { font-size: 14px; font-weight: 700; color: var(--navy); }
+.comp-tag { font-size: 10px; background: var(--gray-100); color: var(--gray-600); padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+.comp-stats { display: flex; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+.comp-stat { font-size: 11px; color: var(--text-muted); }
+.comp-stat strong { color: var(--navy); font-weight: 600; }
+.comp-weakness { background: var(--red-light); border-radius: 6px; padding: 6px 10px; font-size: 11px; color: #7a2020; }
+
+/* STRENGTHS */
+.strength-item { display: flex; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--gray-100); }
+.strength-item:last-child { border-bottom: none; }
+.strength-num { width: 28px; height: 28px; background: var(--teal-light); color: var(--teal); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+.strength-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+.strength-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
+
+/* TABLES */
+.table-wrap { overflow-x: auto; margin-top: 4px; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { background: var(--navy); color: white; font-weight: 600; padding: 8px 10px; text-align: right; font-size: 11px; white-space: nowrap; }
+th:first-child { text-align: left; }
+td { padding: 7px 10px; text-align: right; border-bottom: 1px solid var(--gray-100); }
+td:first-child { text-align: left; color: var(--text-muted); font-size: 11px; }
+tr.separator td { padding: 0; height: 10px; background: var(--gray-50); border: none; }
+tr.section-head td { background: var(--gray-50); font-weight: 700; font-size: 11px; color: var(--navy); letter-spacing: .3px; padding: 5px 10px; }
+tr.highlight-row td { background: var(--teal-light); font-weight: 600; }
+tr.highlight-row td:first-child { color: var(--teal); font-weight: 700; }
+.neg { color: var(--red); }
+.pos { color: var(--teal); }
+.tilde { color: var(--amber); }
+
+/* TAB */
+.tab-row { display: flex; gap: 4px; margin-bottom: 14px; }
+.tab-btn { padding: 7px 16px; border-radius: 8px; border: 1.5px solid var(--border); font-size: 12px; font-weight: 600; cursor: pointer; background: white; color: var(--text-muted); transition: .15s; }
+.tab-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+
+/* COMPARE TABLE */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.compare-table th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; font-weight: 600; }
+.compare-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.compare-table td:not(:first-child) { text-align: center; font-weight: 600; }
+.compare-table tr:nth-child(even) td { background: var(--gray-50); }
+
+/* KPI SECTION */
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.kpi-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+.kpi-label { font-size: 10px; color: var(--text-muted); font-weight: 600; letter-spacing: .3px; text-transform: uppercase; margin-bottom: 6px; }
+.kpi-value { font-size: 20px; font-weight: 700; color: var(--navy); }
+.kpi-arrow { font-size: 11px; color: var(--teal); margin-top: 3px; }
+
+/* MILESTONE */
+.milestone-list { list-style: none; padding: 0; }
+.milestone-list li { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--gray-100); align-items: flex-start; }
+.milestone-list li:last-child { border-bottom: none; }
+.milestone-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 6px; }
+.milestone-list li strong { color: var(--navy); }
+
+/* SUMMARY BOX */
+.summary-box { background: var(--navy); color: white; border-radius: 12px; padding: 20px 24px; margin-top: 14px; }
+.summary-box h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--teal-mid); }
+.summary-box p { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.7; }
+
+/* ASIDE NOTE */
+.note { font-size: 11px; color: var(--text-muted); margin-top: 8px; padding-left: 4px; }
+
+/* UPSIDE NOTE */
+.upside-note { background: var(--amber-light); border-left: 3px solid var(--amber); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 10px; }
+.upside-note ul { padding-left: 16px; }
+.upside-note li { font-size: 12px; color: #6b4c0a; margin-bottom: 4px; }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#overview">事業概要</a>
+  <a href="#market">市場</a>
+  <a href="#purpose">意義</a>
+  <a href="#competition">競合</a>
+  <a href="#strengths">強み</a>
+  <a href="#finance">財務予測</a>
+  <a href="#kpi">投資KPI</a>
+  <a href="#fulltext">テキスト</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">投資家向け資料 2026–2031</div>
+    <h1>FULFULL<span>（フルフル）</span></h1>
+    <p class="hero-sub">60代からの健康美オンラインコミュニティ</p>
+    <div class="hero-metrics">
+      <div class="hero-metric"><div class="val">¥1,980</div><div class="lbl">月額サブスク</div></div>
+      <div class="hero-metric"><div class="val">434%</div><div class="lbl">LTV / CPA（計画）</div></div>
+      <div class="hero-metric"><div class="val">6.3x</div><div class="lbl">5年間投資倍率</div></div>
+      <div class="hero-metric"><div class="val">3年3ヶ月</div><div class="lbl">投資回収期間</div></div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- 1. 事業概要 -->
+<section id="overview">
+  <div class="section-header">
+    <div class="section-num">1</div>
+    <div class="section-title">事業概要</div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <p style="font-size:14px;line-height:1.8;color:var(--text)">
+      60代以上を対象としたオンライン健康コミュニティを運営。運動・美容・仲間づくりを軸に、月額1,980円のサブスクリプションモデルで継続的な収益を確保。将来的には、60代以上のマーケティングデータ・アンケート販売、シニア向け商品の販売や広告などに展開。東京大学との認知症共同研究を基盤とした、社会課題解決型のビジネスモデル。
+    </p>
+  </div>
+
+  <div style="margin-bottom:14px">
+    <div style="font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:.3px;margin-bottom:10px;">フェーズ概要</div>
+    <div class="phase-wrap">
+      <div class="phase-item">
+        <div class="phase-box done">
+          <div class="phase-label">PHASE 0</div>
+          <div class="phase-name">実験フェーズ</div>
+          <div class="phase-desc">〜2026年4月<br>月100〜200万円で運用<br>会員500人・CPA ¥40,000<br>LTV ¥45,000</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-box now">
+          <div class="phase-label">PHASE 1</div>
+          <div class="now-badge">★ NOW</div>
+          <div class="phase-name">KPI検証フェーズ</div>
+          <div class="phase-desc">2026年<br>会員1,800人を目標<br>CPA ¥20,000へ改善<br>会員拡大可能か検証中</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-box upcoming">
+          <div class="phase-label">PHASE 2</div>
+          <div class="phase-name">黒字化・成長</div>
+          <div class="phase-desc">2027年<br>黒字化達成<br>会員5,000人へ<br>LTV ¥60,000以上へ</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-box upcoming">
+          <div class="phase-label">PHASE 3</div>
+          <div class="phase-name">スケール</div>
+          <div class="phase-desc">2028年〜<br>スケール・<br>複合収益化</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="withdraw-box">
+    <div class="wd-title">撤退ライン</div>
+    <ul>
+      <li><strong>2026年10月：</strong>LTV/CPA（ユニットエコノミクス）が200%以下 or 有料会員600人以下</li>
+      <li><strong>2027年8月：</strong>LTV/CPA（ユニットエコノミクス）が200%以下 or 有料会員1,500人以下</li>
+      <li>その他、市況や環境の変化による判断</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. 市場 -->
+<section id="market">
+  <div class="section-header">
+    <div class="section-num">2</div>
+    <div class="section-title">市場規模・ポテンシャル</div>
+  </div>
+
+  <div class="card-grid-3" style="margin-bottom:12px">
+    <div class="metric-card">
+      <div class="metric-val">4,400<span style="font-size:14px">万人</span></div>
+      <div class="metric-lbl">60歳以上人口</div>
+      <div class="metric-sub">国内最大の人口セグメント</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">30〜40<span style="font-size:14px">兆円</span></div>
+      <div class="metric-lbl">生きがい消費市場</div>
+      <div class="metric-sub">医療・基礎生活費を除く</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">19.4<span style="font-size:14px">兆円</span></div>
+      <div class="metric-lbl">認知症の社会的コスト</div>
+      <div class="metric-sub">2025年・国の年間所得税収に匹敵</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <ul class="bullet-list">
+      <li>個人金融資産の6割超・約1,200〜1,400兆円を保有。シニア関連市場全体は100兆円超（みずほ銀行推計）</li>
+      <li>認知症患者数は2025年の約470万人から2040年には584万人へ拡大確実。MCIを含めると2040年に1,197万人、高齢者の約3人に1人が該当</li>
+      <li>認知症の社会的コストはすでに19.4兆円（2025年）。「最もなりたくない病気」調査でがんを抜いて1位</li>
+      <li>老後2,000万円問題・健康寿命延伸政策・コロナ禍を経て「健康は自分で守る」意識が定着。予防への需要は構造的に伸び続ける</li>
+      <li>60代のスマートフォン普及率は80%超。シニアのデジタルリテラシーは10年前と根本的に異なり、オンラインコミュニティへの参加が日常化</li>
+      <li><strong>「有料×健康特化×オンライン×60代女性コミュニティ」の定義で、現時点で覇者は存在しない</strong></li>
+    </ul>
+    <div class="highlight-box">
+      参考：業界リーダー・ハルメクは無料会員50万人で年商350億円・営業利益15億円を達成。物販・デジタルコンテンツの複合モデル。フルフルが同規模に達した場合、年商70億円超が視野に入る。
+    </div>
+  </div>
+</section>
+
+<!-- 3. 意義 -->
+<section id="purpose">
+  <div class="section-header">
+    <div class="section-num">3</div>
+    <div class="section-title">事業の目的・社会的意義</div>
+  </div>
+  <div class="card-grid-2">
+    <div class="card">
+      <div class="card-title">認知症・孤独問題への挑戦</div>
+      <p>孤独と認知症には強い相関があり、因果関係を示唆するエビデンスも蓄積。コミュニケーション量を増やすことで脳の健康寿命を延ばす可能性を追求。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">東京大学との共同研究</div>
+      <p>東京大学との認知症共同研究を背景に事業を推進。科学的エビデンスと社会実装を組み合わせた、信頼性の高いブランドを構築。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">社会的孤立の解消</div>
+      <p>単身世帯の急増に伴い「孤独の解消」へのニーズが高まる中、100年時代のウェルビーイングを向上させるインフラを構築。</p>
+    </div>
+    <div class="card">
+      <div class="card-title">シニアビジネスへの昇華</div>
+      <p>派遣事業から高LTV×高継続率のシニアサブスクへ転換。既存ビジネスで培ったシニア顧客接点を活用。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 競合 -->
+<section id="competition">
+  <div class="section-header">
+    <div class="section-num">4</div>
+    <div class="section-title">競合分析</div>
+  </div>
+  <div class="highlight-box" style="margin-bottom:14px;font-weight:600">直接競合は存在しない。最も近い3社との比較：</div>
+
+  <div class="competitor-card">
+    <div class="comp-header">
+      <span class="comp-name">ハルメク</span>
+      <span class="comp-tag">ライフスタイル × オンライン+誌面</span>
+    </div>
+    <div class="comp-stats">
+      <div class="comp-stat">無料会員 <strong>50万人</strong></div>
+      <div class="comp-stat">年商 <strong>350億円</strong></div>
+      <div class="comp-stat">営業利益 <strong>15億円</strong></div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">雑誌・物販・デジタルコンテンツの複合モデルで収益化。50〜60代女性向けメディアの最大手</p>
+    <div class="comp-weakness">弱点：情報消費・物販が中心でコミュニティの深さがなく、健康・認知症予防を正面から訴求していない</div>
+  </div>
+
+  <div class="competitor-card">
+    <div class="comp-header">
+      <span class="comp-name">カーブス</span>
+      <span class="comp-tag">健康 × オフライン</span>
+    </div>
+    <div class="comp-stats">
+      <div class="comp-stat">会員 <strong>91.5万人</strong></div>
+      <div class="comp-stat">全国 <strong>2,001店舗</strong></div>
+      <div class="comp-stat">売上 <strong>375億円</strong></div>
+      <div class="comp-stat">月次退会率 <strong>2.07%</strong></div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">東北大学との認知機能改善研究も保有。シニア女性向け有料サブスクの成立を証明。成長に20年かかったのは時代の問題。健康意識・デジタル化が整った今なら成長速度は全く異なる</p>
+    <div class="comp-weakness">弱点：オフライン限定・月会費6,000〜8,000円・地方や外出困難者には届かない</div>
+  </div>
+
+  <div class="competitor-card">
+    <div class="comp-header">
+      <span class="comp-name">趣味人倶楽部</span>
+      <span class="comp-tag">趣味交流 × オンライン</span>
+    </div>
+    <div class="comp-stats">
+      <div class="comp-stat">会員 <strong>42万人</strong></div>
+      <div class="comp-stat">男性比率 <strong>63%</strong></div>
+      <div class="comp-stat">料金 <strong>無料SNS</strong></div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-bottom:8px">創業2007年はシニアのデジタルリテラシーが極めて低い時代。今なら成長速度は異なる</p>
+    <div class="comp-weakness">弱点：無料・健康特化なし・コミュニティの深さがない・収益は法人マーケ支援頼み</div>
+  </div>
+</section>
+
+<!-- 5. 強み -->
+<section id="strengths">
+  <div class="section-header">
+    <div class="section-num">5</div>
+    <div class="section-title">競争優位性・強み</div>
+  </div>
+  <div class="card">
+    <div class="strength-item">
+      <div class="strength-num">1</div>
+      <div>
+        <div class="strength-title">目標2.6万人は、隣接3社合計のUUが110万人でも2.4%</div>
+        <div class="strength-desc">カーブス91.5万人・趣味人倶楽部42万人・ハルメク50万人。3サービスのうち1/3が2つ使っていると仮定してもUUは約110万人。同じニーズの利用者が少なくとも100万人以上存在する。カーブス単体でも2030年に120万人を目標としており、市場の成長余地は明確</div>
+      </div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">2</div>
+      <div>
+        <div class="strength-title">オンライン×オフ会の「濃いコミュニティ」</div>
+        <div class="strength-desc">オンラインで日常的につながり、オフ会でリアルな人間関係を築くハイブリッド構造。仲間関係が深まるほど解約コストが上がり、高継続率が構造的に維持される</div>
+      </div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">3</div>
+      <div>
+        <div class="strength-title">価格×アクセシビリティ</div>
+        <div class="strength-desc">月額1,980円はカーブス（月6,000〜8,000円）の約3分の1。場所を選ばず。地方在住者・外出困難者にも届く</div>
+      </div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">4</div>
+      <div>
+        <div class="strength-title">東大との研究連携による「信頼」の独占</div>
+        <div class="strength-desc">認知症予防の科学的裏付けを持つ唯一のシニアコミュニティ</div>
+      </div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">5</div>
+      <div>
+        <div class="strength-title">実証済みのユニットエコノミクス</div>
+        <div class="strength-desc">有料転換率62%（目標60%を達成済）・退会率3.5%（目標水準内）。LTV/CPA比率289〜434%（計画）。スケール時も収益性が担保される構造が数字で確認されつつある</div>
+      </div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">6</div>
+      <div>
+        <div class="strength-title">複合収益化への拡張性</div>
+        <div class="strength-desc">サブスク → マーケティングデータ・アンケート販売 → サプリ・美容医療・保険・広告へ展開。趣味人倶楽部が無料42万人で法人向けマーケティングを収益化しているように、フルフルは「有料2〜3万人」という少数精鋭で同様の複合収益を狙える。会員基盤が大きくなるほどLTVが倍増する二重構造</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 財務予測 -->
+<section id="finance">
+  <div class="section-header">
+    <div class="section-num">6</div>
+    <div class="section-title">財務予測サマリー（年次）</div>
+  </div>
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="showTab('base',this)">ベースケース</button>
+    <button class="tab-btn" onclick="showTab('up',this)">アップサイドケース</button>
+    <button class="tab-btn" onclick="showTab('compare',this)">2ケース比較</button>
+  </div>
+
+  <!-- BASE -->
+  <div id="tab-base">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>1年目</th><th>2年目</th><th>3年目</th><th>4年目</th><th>5年目</th>
+          </tr>
+          <tr style="background:#162535">
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">期間</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2025/10–2026/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2026/10–2027/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2027/10–2028/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2028/10–2029/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2029/10–2030/09</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-head"><td colspan="6">損益計算書（万円）</td></tr>
+          <tr><td>売上</td><td>1,246</td><td>6,946</td><td>19,069</td><td>33,188</td><td>47,324</td></tr>
+          <tr><td>売上総利益</td><td>835</td><td>6,226</td><td>18,349</td><td>32,468</td><td>46,604</td></tr>
+          <tr><td>販管費</td><td>4,074</td><td>10,413</td><td>14,207</td><td>14,312</td><td>13,962</td></tr>
+          <tr class="highlight-row"><td>営業利益</td><td class="neg">▲3,236</td><td class="neg">▲4,187</td><td class="pos">+4,141</td><td class="pos">+18,156</td><td class="pos">+32,642</td></tr>
+          <tr><td>営業利益率</td><td>—</td><td>—</td><td class="pos">+21.7%</td><td class="pos">+54.7%</td><td class="pos">+69.0%</td></tr>
+          <tr><td>累積営業利益</td><td class="neg">▲3,236</td><td class="neg">▲7,423</td><td class="neg">▲3,282</td><td class="pos">+14,874</td><td class="pos">+47,516</td></tr>
+          <tr class="separator"><td colspan="6"></td></tr>
+          <tr class="section-head"><td colspan="6">KPI</td></tr>
+          <tr><td>会員数（期末）</td><td>1,229人</td><td>4,610人</td><td>9,696人</td><td>14,858人</td><td>20,019人</td></tr>
+          <tr><td>有料会員数（期末）</td><td>978人</td><td>4,081人</td><td>9,084人</td><td>14,245人</td><td>19,407人</td></tr>
+          <tr><td>有料会員CPA</td><td>¥17,857</td><td>¥17,045</td><td>¥17,045</td><td>¥17,045</td><td>¥17,045</td></tr>
+          <tr><td>有料会員LTV</td><td>¥54,410</td><td>¥73,958</td><td>¥73,903</td><td>¥73,860</td><td>¥73,840</td></tr>
+          <tr class="highlight-row"><td>LTV / CPA</td><td>305%</td><td>434%</td><td>433%</td><td>433%</td><td>433%</td></tr>
+          <tr class="separator"><td colspan="6"></td></tr>
+          <tr class="highlight-row"><td>累積ROI</td><td>—</td><td>—</td><td>—</td><td class="pos">+97%</td><td class="pos">+529%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">※累積ROIは最大累積損失額（▲7,556万円）を投資元本として算出</p>
+  </div>
+
+  <!-- UPSIDE -->
+  <div id="tab-up" style="display:none">
+    <div class="upside-note" style="margin-bottom:12px">
+      <strong style="font-size:12px;color:#6b4c0a">前提：</strong>
+      <ul style="margin-top:6px">
+        <li>2年目末（2027年10月）KPI確認後スケール開始</li>
+        <li>3年目：広告効率が一時悪化（CPA¥50,000）しながら年末に¥20,000へ回復。損失を▲5,000万円以内に抑制。システム刷新¥1,000万円・人員増強を実施</li>
+        <li>4年目：CPA¥20,000→¥17,045へ改善しながら広告3倍</li>
+        <li>5年目：CPA¥17,045で広告5倍にスケール。数値は試算</li>
+      </ul>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>1年目</th><th>2年目</th><th>3年目</th><th>4年目</th><th>5年目</th>
+          </tr>
+          <tr style="background:#162535">
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">期間</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2025/10–2026/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2026/10–2027/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2027/10–2028/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2028/10–2029/09</th>
+            <th style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.5)">2029/10–2030/09</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="section-head"><td colspan="6">損益計算書（万円）</td></tr>
+          <tr><td>売上</td><td>1,246</td><td>6,946</td><td class="tilde">~21,000</td><td class="tilde">~34,000</td><td class="tilde">~63,000</td></tr>
+          <tr><td>売上総利益</td><td>835</td><td>6,226</td><td class="tilde">~20,300</td><td class="tilde">~33,300</td><td class="tilde">~62,300</td></tr>
+          <tr><td>販管費</td><td>4,074</td><td>10,413</td><td class="tilde">~25,300</td><td class="tilde">~33,800</td><td class="tilde">~51,300</td></tr>
+          <tr class="highlight-row"><td>営業利益</td><td class="neg">▲3,236</td><td class="neg">▲4,187</td><td class="neg">~▲5,000</td><td class="neg">~▲500</td><td class="pos">~+11,000</td></tr>
+          <tr><td>営業利益率</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="pos">~+17%</td></tr>
+          <tr><td>累積営業利益</td><td class="neg">▲3,236</td><td class="neg">▲7,423</td><td class="neg">~▲12,423</td><td class="neg">~▲12,923</td><td class="neg">~▲1,923</td></tr>
+          <tr class="separator"><td colspan="6"></td></tr>
+          <tr class="section-head"><td colspan="6">KPI</td></tr>
+          <tr><td>会員数（期末）</td><td>1,229人</td><td>4,610人</td><td class="tilde">~10,600人</td><td class="tilde">~20,000人</td><td class="tilde">~37,000人</td></tr>
+          <tr><td>有料会員数（期末）</td><td>978人</td><td>4,081人</td><td class="tilde">~9,500人</td><td class="tilde">~18,000人</td><td class="tilde">~33,000人</td></tr>
+          <tr><td>有料会員CPA</td><td>¥17,857</td><td>¥17,045</td><td>¥50,000→¥20,000</td><td>¥20,000→¥17,045</td><td>¥17,045</td></tr>
+          <tr><td>有料会員LTV</td><td>¥54,410</td><td>¥73,958</td><td>¥73,900</td><td>¥73,860</td><td>¥73,840</td></tr>
+          <tr class="highlight-row"><td>LTV / CPA</td><td>305%</td><td>434%</td><td>211%→370%</td><td>370%→433%</td><td>433%</td></tr>
+          <tr class="separator"><td colspan="6"></td></tr>
+          <tr class="highlight-row"><td>累積ROI</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="color:var(--amber)">累積回収は6年目前半</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">※最大必要資金：~▲12,923万円（4年目末時点）</p>
+    <div class="upside-note" style="margin-top:12px">
+      <strong style="font-size:12px;color:#6b4c0a">アップサイドケースの読み方</strong>
+      <ul style="margin-top:6px">
+        <li>5年以内の累積ROIはベースを大きく下回り、回収は6年目前半にずれ込む</li>
+        <li>これはLTV¥74,000を2〜3年かけて回収するモデルで、重い広告投資が先行するため構造的に避けられない</li>
+        <li>ただし5年末時点の有料会員33,000人はベースの1.7倍。CPA¥17,045・退会率3.5%が安定している状態で迎える6年目以降は、広告投資を維持するだけで月次利益が急拡大する</li>
+        <li><strong>5年以内のリターンではなく、5年末の事業規模と6年目以降のキャッシュフローに投資する選択肢として提示</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- COMPARE -->
+  <div id="tab-compare" style="display:none">
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th></th><th>ベースケース</th><th>アップサイドケース</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>必要最大資金</td><td class="neg">▲7,556万円</td><td class="neg">~▲12,923万円</td></tr>
+          <tr><td>5年間累積利益</td><td class="pos">+47,516万円</td><td class="neg">~▲1,923万円</td></tr>
+          <tr><td>5年間ROI</td><td class="pos">529%</td><td style="color:var(--amber);text-align:center">累積回収は6年目前半</td></tr>
+          <tr><td>5年末有料会員数</td><td>19,407人</td><td style="text-align:center">~33,000人（1.7倍）</td></tr>
+          <tr><td>5年末月次営業利益</td><td class="pos">+3,260万円/月</td><td class="pos">~+1,400万円/月</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 7. KPI -->
+<section id="kpi">
+  <div class="section-header">
+    <div class="section-num">7</div>
+    <div class="section-title">投資検討に関わるKPI</div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:.3px;margin-bottom:10px;">収益性の検証</div>
+  <div class="kpi-grid" style="margin-bottom:20px">
+    <div class="kpi-card">
+      <div class="kpi-label">有料転換率</div>
+      <div class="kpi-value">62%</div>
+      <div class="kpi-arrow">目標60%を達成済</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">月次退会率</div>
+      <div class="kpi-value">3.5%</div>
+      <div class="kpi-arrow">カーブス2%台に次ぐ水準</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">LTV（現状→計画）</div>
+      <div class="kpi-value">¥51,637</div>
+      <div class="kpi-arrow">→ ¥73,976（2027/10）</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-label">CPA（現状→計画）</div>
+      <div class="kpi-value">¥17,857</div>
+      <div class="kpi-arrow">→ ¥17,045（2027年以降）</div>
+    </div>
+    <div class="kpi-card" style="border-color:var(--teal);background:var(--teal-light)">
+      <div class="kpi-label">LTV / CPA比率</div>
+      <div class="kpi-value" style="color:var(--teal)">289%</div>
+      <div class="kpi-arrow">→ 434%（2027/10）</div>
+    </div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:.3px;margin-bottom:10px;">財務マイルストーン</div>
+  <div class="card" style="margin-bottom:14px">
+    <ul class="milestone-list">
+      <li><div class="milestone-dot"></div><div><span>単月黒字化：</span><strong>2027年12月</strong></div></li>
+      <li><div class="milestone-dot"></div><div><span>営業利益黒字転換（年次）：</span><strong>3年目（2027/10〜2028/09）</strong>　営業利益+4,141万円・利益率21.7%</div></li>
+      <li><div class="milestone-dot"></div><div><span>最大累積赤字（2025/10起点）：</span><strong>▲7,556万円</strong>（2027年11月時点）</div></li>
+      <li><div class="milestone-dot"></div><div><span>累積損失の完全回収：</span><strong>2029年1月</strong>（着手から約3年3か月）</div></li>
+    </ul>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:.3px;margin-bottom:10px;">5年間ROI（2025/10〜2030/09）</div>
+  <div class="card-grid-2" style="margin-bottom:14px">
+    <div class="metric-card">
+      <div class="metric-val">約4.75億円</div>
+      <div class="metric-lbl">5年間累積営業利益</div>
+      <div class="metric-sub">1・2年目▲7,423万円の損失を経て3〜5年目で回収</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-val">約7,600万円</div>
+      <div class="metric-lbl">必要投資額（最大累積損失）</div>
+      <div class="metric-sub"></div>
+    </div>
+    <div class="metric-card" style="border-color:var(--teal);background:var(--teal-light)">
+      <div class="metric-val" style="color:var(--teal)">約6.3倍</div>
+      <div class="metric-lbl">投資倍率</div>
+      <div class="metric-sub">5年間での純利益÷投資額</div>
+    </div>
+    <div class="metric-card" style="border-color:var(--teal);background:var(--teal-light)">
+      <div class="metric-val" style="color:var(--teal)">約3年3ヶ月</div>
+      <div class="metric-lbl">投資回収期間</div>
+      <div class="metric-sub">業種平均5〜7年を大幅に下回る</div>
+    </div>
+  </div>
+
+  <div style="font-size:12px;font-weight:700;color:var(--text-muted);letter-spacing:.3px;margin-bottom:10px;">スケールの根拠</div>
+  <div class="card" style="margin-bottom:14px">
+    <ul class="bullet-list">
+      <li>体験会申込CPA：¥5,000（計画）。広告効率が担保されればスケール可能</li>
+      <li>月間純増数：現状約60人 → 広告投資拡大で250〜300人/月を目指す</li>
+      <li>2027年10月のKPI達成確認後に広告費3〜5倍投下へ移行</li>
+      <li>重複を最大限考慮しても、カーブス・趣味人倶楽部・ハルメク3社のユニークユーザーは約110万人。フルフルの5年目目標（2.6万人）はその2.4%以下に過ぎない</li>
+    </ul>
+  </div>
+
+  <div class="summary-box">
+    <h3>総評</h3>
+    <p>現時点でLTV/CPAは289%と投資基準（200%）を大きく上回っており、ユニットエコノミクスはすでに成立しつつある。必要資金約7,600万円に対し5年間で累積約4.75億円（投資倍率約6.3倍）の利益が計画されており、投資回収は約3年3か月と短い。撤退ラインが数値で明示されており、投資リスクの管理が事前に可能な構造になっている。</p>
+  </div>
+</section>
+
+<!-- 全文テキスト -->
+<section id="fulltext">
+  <div class="section-header">
+    <div class="section-num" style="background:var(--gray-600)">全</div>
+    <div class="section-title">テキスト（全文）</div>
+  </div>
+  <div class="card">
+    <pre style="white-space:pre-wrap;font-family:'Noto Sans JP',sans-serif;font-size:13px;line-height:1.9;color:var(--text)">
+FULFULL（フルフル）事業計画 2026–2031
+60代からの健康美オンラインコミュニティ｜投資家向け資料
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+事業概要
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+60代以上を対象としたオンライン健康コミュニティを運営。運動・美容・仲間づくりを軸に、月額1,980円のサブスクリプションモデルで継続的な収益を確保。将来的には、60代以上のマーケティングデータ・アンケート販売、シニア向け商品の販売や広告などに展開。東京大学との認知症共同研究を基盤とした、社会課題解決型のビジネスモデル。
+
+フェーズ概要：
+・PHASE 0（〜2026年4月）：実験フェーズ。月100〜200万円のコストで運用。現会員500人、CPA ¥40,000、LTV ¥45,000
+・PHASE 1（2026年）：★NOW★ KPI検証フェーズ。会員1,800人を目標、CPA ¥20,000へ改善、会員拡大可能か検証中
+・PHASE 2（2027年）：黒字化達成・会員5,000人へ、LTV ¥60,000以上へ
+・PHASE 3（2028年〜）：スケール・複合収益化
+
+撤退ライン：
+・2026年10月：LTV/CPA（ユニットエコノミクス）が200%以下 or 有料会員600人以下
+・2027年8月：LTV/CPA（ユニットエコノミクス）が200%以下 or 有料会員1,500人以下
+・その他、市況や環境の変化による判断
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+市場規模・ポテンシャル
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+・60歳以上人口：約4,400万人。個人金融資産の6割超・約1,200〜1,400兆円を保有
+・「楽しみ・生きがい」消費だけで約30〜40兆円。シニア関連市場全体は100兆円超（みずほ銀行推計）
+・認知症患者数は2025年の約470万人から2040年には584万人へ拡大確実。MCI（軽度認知障害）を含めると2040年に1,197万人、高齢者の約3人に1人が該当
+・認知症の社会的コストはすでに19.4兆円（2025年）。「最もなりたくない病気」調査でがんを抜いて1位
+・老後2,000万円問題・健康寿命延伸政策・コロナ禍を経て「健康は自分で守る」意識が定着。予防への需要は構造的に伸び続ける
+・60代のスマートフォン普及率は80%超。シニアのデジタルリテラシーは10年前と根本的に異なり、オンラインコミュニティへの参加が日常化
+・「有料×健康特化×オンライン×60代女性コミュニティ」の定義で、現時点で覇者は存在しない
+
+参考：業界リーダー・ハルメクは無料会員50万人で年商350億円・営業利益15億円を達成。物販・デジタルコンテンツの複合モデル。フルフルが同規模に達した場合、年商70億円超が視野に入る。
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+事業の目的・社会的意義
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 認知症・孤独問題への挑戦
+孤独と認知症には強い相関があり、因果関係を示唆するエビデンスも蓄積。コミュニケーション量を増やすことで脳の健康寿命を延ばす可能性を追求。
+
+2. 東京大学との共同研究
+東京大学との認知症共同研究を背景に事業を推進。科学的エビデンスと社会実装を組み合わせた、信頼性の高いブランドを構築。
+
+3. 社会的孤立の解消
+単身世帯の急増に伴い「孤独の解消」へのニーズが高まる中、100年時代のウェルビーイングを向上させるインフラを構築。
+
+4. シニアビジネスへの昇華
+派遣事業から高LTV×高継続率のシニアサブスクへ転換。既存ビジネスで培ったシニア顧客接点を活用。
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+競合分析
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+直接競合は存在しない。最も近い3社との比較：
+
+■ ハルメク（ライフスタイル×オンライン+誌面）
+・無料会員50万人・年商350億円・営業利益15億円
+・雑誌・物販・デジタルコンテンツの複合モデルで収益化。50〜60代女性向けメディアの最大手
+・弱点：情報消費・物販が中心でコミュニティの深さがなく、健康・認知症予防を正面から訴求していない
+
+■ カーブス（健康×オフライン）
+・会員91.5万人・全国2,001店舗・売上375億円・月次退会率2.07%
+・東北大学との認知機能改善研究も保有。シニア女性向け有料サブスクの成立を証明
+・成長に20年かかったのは時代の問題。健康意識・デジタル化が整った今なら成長速度は全く異なる
+・弱点：オフライン限定・月会費6,000〜8,000円・地方や外出困難者には届かない
+
+■ 趣味人倶楽部（趣味交流×オンライン）
+・会員42万人・無料SNS・男性63%・趣味全般が対象
+・創業2007年はシニアのデジタルリテラシーが極めて低い時代。今なら成長速度は異なる
+・弱点：無料・健康特化なし・コミュニティの深さがない・収益は法人マーケ支援頼み
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+競争優位性・強み
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 目標2.6万人は、隣接3社合計のUUが110万人でも2.4%
+・カーブス91.5万人・趣味人倶楽部42万人・ハルメク50万人。3サービスのうち1/3が2つ使っていると仮定してもUUは約110万人。同じニーズの利用者が少なくとも100万人以上存在する
+・カーブス単体でも2030年に120万人を目標としており、市場の成長余地は明確
+
+2. オンライン×オフ会の「濃いコミュニティ」
+・オンラインで日常的につながり、オフ会でリアルな人間関係を築くハイブリッド構造
+・仲間関係が深まるほど解約コストが上がり、高継続率が構造的に維持される
+
+3. 価格×アクセシビリティ
+・月額1,980円はカーブス（月6,000〜8,000円）の約3分の1
+・場所を選ばず。地方在住者・外出困難者にも届く
+
+4. 東大との研究連携による「信頼」の独占
+・認知症予防の科学的裏付けを持つ唯一のシニアコミュニティ
+
+5. 実証済みのユニットエコノミクス
+・有料転換率62%（目標60%を達成済）・退会率3.5%（目標水準内）
+・LTV/CPA比率289〜434%（計画）。スケール時も収益性が担保される構造が数字で確認されつつある
+
+6. 複合収益化への拡張性
+・サブスク → マーケティングデータ・アンケート販売 → サプリ・美容医療・保険・広告へ展開
+・趣味人倶楽部が無料42万人で法人向けマーケティングを収益化しているように、フルフルは「有料2〜3万人」という少数精鋭で同様の複合収益を狙える
+・会員基盤が大きくなるほどLTVが倍増する二重構造
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+財務予測サマリー（年次）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+単位：万円
+
+【ベースケース】
+
+                    1年目            2年目            3年目            4年目            5年目
+期間          2025/10–2026/09  2026/10–2027/09  2027/10–2028/09  2028/10–2029/09  2029/10–2030/09
+売上                1,246            6,946           19,069           33,188           47,324
+売上総利益            835            6,226           18,349           32,468           46,604
+販管費              4,074           10,413           14,207           14,312           13,962
+営業利益           ▲3,236          ▲4,187           +4,141          +18,156          +32,642
+営業利益率              —                —            +21.7%           +54.7%           +69.0%
+累積営業利益        ▲3,236          ▲7,423           ▲3,282          +14,874          +47,516
+
+会員数（期末）       1,229人          4,610人          9,696人         14,858人         20,019人
+有料会員数（期末）      978人          4,081人          9,084人         14,245人         19,407人
+有料会員CPA        ¥17,857          ¥17,045          ¥17,045          ¥17,045          ¥17,045
+有料会員LTV        ¥54,410          ¥73,958          ¥73,903          ¥73,860          ¥73,840
+LTV / CPA            305%             434%             433%             433%             433%
+
+累積ROI                —                —                —             +97%            +529%
+
+※累積ROIは最大累積損失額（▲7,556万円）を投資元本として算出
+
+
+【アップサイドケース】
+
+前提：
+・2年目末（2027年10月）KPI確認後スケール開始
+・3年目：広告効率が一時悪化（CPA¥50,000）しながら年末に¥20,000へ回復。損失を▲5,000万円以内に抑制。システム刷新¥1,000万円・人員増強を実施
+・4年目：CPA¥20,000→¥17,045へ改善しながら広告3倍
+・5年目：CPA¥17,045で広告5倍にスケール。数値は試算
+
+                    1年目            2年目            3年目            4年目            5年目
+期間          2025/10–2026/09  2026/10–2027/09  2027/10–2028/09  2028/10–2029/09  2029/10–2030/09
+売上                1,246            6,946          ~21,000          ~34,000          ~63,000
+売上総利益            835            6,226          ~20,300          ~33,300          ~62,300
+販管費              4,074           10,413          ~25,300          ~33,800          ~51,300
+営業利益           ▲3,236          ▲4,187          ~▲5,000           ~▲500          ~+11,000
+営業利益率              —                —                —                —            ~+17%
+累積営業利益        ▲3,236          ▲7,423         ~▲12,423         ~▲12,923          ~▲1,923
+
+会員数（期末）       1,229人          4,610人        ~10,600人        ~20,000人        ~37,000人
+有料会員数（期末）      978人          4,081人         ~9,500人        ~18,000人        ~33,000人
+有料会員CPA        ¥17,857          ¥17,045  ¥50,000→¥20,000  ¥20,000→¥17,045          ¥17,045
+有料会員LTV        ¥54,410          ¥73,958          ¥73,900          ¥73,860          ¥73,840
+LTV / CPA            305%             434%      211%→370%       370%→433%             433%
+
+累積ROI                —                —                —                —    累積回収は6年目前半
+
+※最大必要資金：~▲12,923万円（4年目末時点）
+
+アップサイドケースの読み方：
+・5年以内の累積ROIはベースを大きく下回り、回収は6年目前半にずれ込む
+・これはLTV¥74,000を2〜3年かけて回収するモデルで、重い広告投資が先行するため構造的に避けられない
+・ただし5年末時点の有料会員33,000人はベースの1.7倍。CPA¥17,045・退会率3.5%が安定している状態で迎える6年目以降は、広告投資を維持するだけで月次利益が急拡大する
+・5年以内のリターンではなく、5年末の事業規模と6年目以降のキャッシュフローに投資する選択肢として提示
+
+
+【2ケース比較】
+
+                    ベースケース      アップサイドケース
+必要最大資金          ▲7,556万円        ~▲12,923万円
+5年間累積利益        +47,516万円          ~▲1,923万円
+5年間ROI                529%          累積回収は6年目前半
+5年末有料会員数         19,407人        ~33,000人（1.7倍）
+5年末月次営業利益    +3,260万円/月       ~+1,400万円/月
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+投資検討に関わるKPI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+収益性の検証
+・有料転換率：62%（目標60%を達成済）
+・月次退会率：3.5%（目標水準内。カーブスの業界最優良2%台に次ぐ水準）
+・LTV：¥51,637（現状・2026年4月）→ ¥73,976（2027/10計画）
+・CPA：¥17,857（現状・2026年4月）→ ¥17,045（2027年以降計画）
+・LTV/CPA比率：289%（2026/04）→ 434%（2027/10）。スケールしても収益性が改善する構造
+
+財務マイルストーン
+・単月黒字化：2027年12月
+・営業利益黒字転換（年次）：3年目（2027/10〜2028/09）　営業利益+4,141万円・利益率21.7%
+・最大累積赤字（2025/10起点）：▲7,556万円（2027年11月時点）
+・累積損失の完全回収：2029年1月（着手から約3年3か月）
+
+5年間ROI（2025/10〜2030/09）
+・5年間累積営業利益：約4.75億円（+47,516万円）（内訳：1・2年目▲7,423万円の損失を経て、3年目+4,141万円・4年目+1.82億円・5年目+3.26億円）
+・必要投資額（最大累積損失）：約7,600万円
+・投資倍率：約6.3倍
+・投資回収期間：約3年3か月（業種平均の5〜7年を大幅に下回る）
+
+スケールの根拠
+・体験会申込CPA：¥5,000（計画）。広告効率が担保されればスケール可能
+・月間純増数：現状約60人 → 広告投資拡大で250〜300人/月を目指す
+・2027年10月のKPI達成確認後に広告費3〜5倍投下へ移行
+・重複を最大限考慮しても、カーブス・趣味人倶楽部・ハルメク3社のユニークユーザーは約110万人。フルフルの5年目目標（2.6万人）はその2.4%以下に過ぎない
+
+総評
+現時点でLTV/CPAは289%と投資基準（200%）を大きく上回っており、ユニットエコノミクスはすでに成立しつつある。必要資金約7,600万円に対し5年間で累積約4.75億円（投資倍率約6.3倍）の利益が計画されており、投資回収は約3年3か月と短い。撤退ラインが数値で明示されており、投資リスクの管理が事前に可能な構造になっている。
+    </pre>
+  </div>
+</section>
+
+</main>
+
+<script>
+function showTab(id, btn) {
+  ['base','up','compare'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = t===id ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#'+cur);
+  });
+});
+</script>
+</body>
+</html>
