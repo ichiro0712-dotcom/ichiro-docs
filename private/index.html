@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<!-- TASTAS LP40 / パープルクリーン（参考デザイン忠実再現 / 生成画像使用） -->
+<html lang="ja">
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MSBWVNVB');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="タスタス - 看護師・介護士のスポットワーク。スキマ時間で、ちゃんと稼ぐ。1日1時間〜OK／スマホで応募／最短当日勤務。">
+  <title>タスタス | スキマ時間で、ちゃんと稼ぐ。看護師・介護士のスポットワーク</title>
+  <meta property="og:title" content="タスタス | スキマ時間で、ちゃんと稼ぐ。看護師・介護士のスポットワーク">
+  <meta property="og:description" content="1日1時間〜OK／スマホで応募／最短当日勤務。看護師・介護士のためのスポットワーク。">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --pu: #8B72D6;
+      --pu-deep: #6E54C8;
+      --pu-mid: #A491E2;
+      --pu-soft: #E9E3FA;
+      --pu-bg: #F4F0FC;
+      --ink: #2B2740;
+      --ink-soft: #6E6880;
+      --yellow: #FCE9A6;
+      --yellow-ink: #6B5A1E;
+      --white: #fff;
+      --grad: linear-gradient(135deg, #9A82E0 0%, #8266D2 100%);
+      --grad-cta: linear-gradient(100deg, #A38EE0 0%, #B2A0E8 100%);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; -webkit-font-smoothing:antialiased; }
+    body { font-family:'Noto Sans JP',sans-serif; color:var(--ink); background:var(--white);
+      line-height:1.8; overflow-x:hidden; padding-bottom:96px; }
+    img { max-width:100%; display:block; }
+    a { text-decoration:none; color:inherit; }
+    h1,h2,h3 { font-family:'Zen Maru Gothic',sans-serif; line-height:1.28; }
+
+    /* ===== Header ===== */
+    .hdr { position:fixed; top:0; left:0; width:100%; z-index:1000; display:flex;
+      align-items:center; justify-content:space-between; padding:14px 22px;
+      background:rgba(255,255,255,.94); backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(139,114,214,.10); }
+    .hdr__logo { display:flex; align-items:center; gap:10px; font-family:'Zen Maru Gothic';
+      font-weight:700; font-size:23px; color:var(--ink); letter-spacing:.01em; }
+    .hdr__mark { width:28px; height:28px; flex-shrink:0; }
+    .hdr__cta { display:inline-flex; align-items:center; gap:12px; padding:11px 12px 11px 22px;
+      background:var(--grad); color:#fff; font-weight:700; font-size:14px; border-radius:999px;
+      box-shadow:0 6px 16px rgba(139,114,214,.34); }
+    .hdr__cta i { width:26px; height:26px; border-radius:50%; background:#fff; color:var(--pu);
+      font-style:normal; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; }
+    @media (max-width:560px){ .hdr__cta span{ display:none; } .hdr__cta{ padding:9px; gap:0; } }
+
+    /* ===== HERO : 背景画像(コピー焼き込み済み) + アイコン3つを重ねる ===== */
+    .hero { position:relative; overflow:hidden;
+      background:linear-gradient(180deg,#FCFBFF 0%, #F4F0FC 100%);
+      padding-top:64px; }
+    /* 背景画像：上下の白余白はトリミング済み。全幅で表示 */
+    .hero__img { width:100%; height:auto; display:block; }
+    /* アイコン3つ：画像の下部・左寄りに重ねる（スクショの位置） */
+    .hero__feats { position:absolute; z-index:2;
+      left:5.5%; bottom:6%;
+      display:flex; gap:3.2vw; }
+    .hfeat { text-align:center; }
+    .hfeat__ic { width:15vw; max-width:84px; aspect-ratio:1/1; margin:0 auto 6px;
+      border-radius:50%; background:#fff;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 8px 18px rgba(139,114,214,.16); }
+    .hfeat__ic svg { width:46%; height:46%; }
+    .hfeat__t { font-size:3.1vw; font-weight:700; line-height:1.35; color:var(--ink);
+      text-shadow:0 1px 3px rgba(255,255,255,.8); }
+    .hfeat__t b{ display:block; font-weight:700; }
+    /* large screens : cap sizes, keep within the image content area */
+    @media (min-width:560px){
+      .hero{ padding-top:74px; }
+      .hero__img{ max-width:920px; margin:0 auto; }
+      .hero__feats{ left:max(5.5%, calc((100% - 920px)/2 + 50px)); gap:18px; }
+      .hfeat__ic{ width:84px; }
+      .hfeat__t{ font-size:14px; }
+    }
+    @media (min-width:769px){
+      .hero__feats{ bottom:8%; }
+    }
+    @media (max-width:360px){
+      .hfeat__t{ font-size:11px; } .hero__feats{ gap:3vw; left:4.5%; }
+    }
+
+    /* ===== CTA bar (shared) ===== */
+    .ctabar { display:flex; align-items:center; gap:18px; width:100%; padding:13px 20px;
+      background:var(--grad-cta); border-radius:999px; color:#fff;
+      box-shadow:0 12px 26px rgba(163,142,224,.30); }
+    .ctabar__badge { flex-shrink:0; padding:8px 16px; background:var(--yellow); color:var(--yellow-ink);
+      font-weight:700; font-size:13px; border-radius:999px; line-height:1; }
+    .ctabar__txt { flex:1; font-size:22px; font-weight:700; letter-spacing:.04em; text-align:center; }
+    .ctabar__arrow { flex-shrink:0; width:46px; height:46px; border-radius:50%; background:#fff; color:var(--pu);
+      display:flex; align-items:center; justify-content:center; }
+    .ctabar__arrow svg{ width:18px; height:18px; }
+    @media (max-width:560px){ .ctabar{ gap:10px; padding:14px 14px; } .ctabar__txt{ font-size:18px; text-align:left; } .ctabar__badge{ padding:6px 11px; font-size:11px; } }
+    .herocta { padding:6px 22px 56px; background:linear-gradient(180deg,#F4F0FC 0%,#FFFFFF 60%); }
+    .herocta__in { max-width:1016px; margin:0 auto; }
+
+    /* ===== Section title (dotted lines around) ===== */
+    .sec { padding:64px 22px; }
+    .sechead { text-align:center; margin:0 auto 38px; }
+    .sectitle { display:inline-flex; align-items:center; gap:16px; font-family:'Zen Maru Gothic';
+      font-size:26px; font-weight:700; color:var(--ink); letter-spacing:.02em; }
+    .sectitle::before, .sectitle::after { content:""; width:54px; height:7px; flex-shrink:0;
+      background-image:radial-gradient(var(--pu-mid) 2.2px, transparent 2.4px);
+      background-size:11px 7px; background-repeat:repeat-x; background-position:center; }
+    .sectitle .num{ color:var(--pu-deep); font-size:1.5em; line-height:1; margin:0 1px; }
+    .sectitle b{ color:var(--pu-deep); }
+    @media (min-width:769px){ .sectitle{ font-size:32px; } }
+    @media (max-width:480px){ .sectitle::before,.sectitle::after{ width:28px; } .sectitle{ font-size:22px; gap:9px; } }
+
+    /* steps heading : one line, "3ステップ" large (with quote marks), rest small */
+    .steptitle { font-family:'Zen Maru Gothic',sans-serif; font-weight:700; color:var(--ink);
+      font-size:16px; letter-spacing:-.01em; white-space:nowrap; line-height:1.2; }
+    .steptitle__big { color:var(--pu-deep); font-size:1.58em; }
+    @media (min-width:430px){ .steptitle{ font-size:19px; } }
+    @media (min-width:560px){ .steptitle{ font-size:24px; } }
+    @media (min-width:769px){ .steptitle{ font-size:34px; } }
+    @media (max-width:340px){ .steptitle{ font-size:14px; } }
+
+    /* ===== REASONS : horizontal numbered cards ===== */
+    .reasons { background:linear-gradient(180deg,#F4F0FC 0%, #FBFAFE 100%); }
+    .rlist { max-width:840px; margin:0 auto; display:grid; gap:18px; }
+    .rcard { display:grid; grid-template-columns:140px 1fr; gap:0; align-items:stretch;
+      background:#fff; border-radius:18px; overflow:hidden; box-shadow:0 12px 30px rgba(139,114,214,.1);
+      position:relative; }
+    .rcard__media { position:relative; }
+    .rcard__media img { width:100%; height:100%; object-fit:cover; }
+    .rcard__no { position:absolute; top:10px; left:10px; width:36px; height:36px; border-radius:50%;
+      background:var(--pu); color:#fff; font-weight:700; font-size:14px; display:flex;
+      align-items:center; justify-content:center; box-shadow:0 4px 10px rgba(110,84,200,.45); z-index:2;
+      font-family:'Zen Maru Gothic'; }
+    .rcard__body { padding:18px 44px 18px 20px; display:flex; flex-direction:column; justify-content:center; }
+    .rcard__h { font-size:19px; font-weight:700; color:var(--pu-deep); margin-bottom:6px; }
+    .rcard__p { font-size:13.5px; color:var(--ink-soft); line-height:1.7; }
+    .rcard__dots { position:absolute; right:18px; bottom:14px; color:var(--pu-mid); font-weight:700;
+      letter-spacing:3px; font-size:16px; }
+    @media (min-width:600px){ .rcard{ grid-template-columns:220px 1fr; }
+      .rcard__h{ font-size:23px; } .rcard__p{ font-size:15px; } .rcard__body{ padding:24px 50px 24px 26px; } }
+
+    /* ===== APP SHOWCASE : 斜めスマホ(左) + 説明テキスト(右)。全幅で横並び維持 ===== */
+    .showcase { background:#EFE9FB; overflow:hidden; }
+    .showcase.sec{ padding-left:12px; padding-right:10px; }   /* モバイルの左右余白を詰める */
+    /* モバイルでも左:スマホ / 右:テキスト を維持（縦積みにしない） */
+    .showcase__wrap { max-width:1000px; margin:0 auto; display:grid;
+      grid-template-columns:29% 1fr; gap:8px; align-items:center; }
+    @media (min-width:560px){ .showcase__wrap{ grid-template-columns:38% 1fr; gap:24px; } }
+    @media (min-width:840px){ .showcase__wrap{ grid-template-columns:.95fr 1.05fr; gap:40px; } }
+    /* 実機スマホ画像（すでに斜め・枠付き・透過PNG）。モバイルは小さめ */
+    .showcase__phone { display:flex; justify-content:center; }
+    .showcase__phone img { width:100%; max-width:118px; height:auto; display:block;
+      filter:drop-shadow(0 16px 26px rgba(43,39,64,.26)); }
+    @media (min-width:560px){ .showcase__phone img{ max-width:220px; } }
+    @media (min-width:840px){ .showcase__phone img{ max-width:360px; } }
+    /* テキスト側：モバイルは小さめでバランス調整 */
+    .showcase__copy { min-width:0; }
+    /* 見出し：3ステップ見出しと同じ作り（小さい黒文字 + "カンタン"を大きく紫＋引用符） */
+    .showcase__copy h2 { font-family:'Zen Maru Gothic',sans-serif; font-weight:700; color:var(--ink);
+      font-size:13px; line-height:1.25; margin-bottom:8px; letter-spacing:-.01em; white-space:nowrap; }
+    .showcase__big { color:var(--pu-deep); font-size:1.58em; }
+    .showcase__copy p { color:var(--ink-soft); margin-bottom:12px; font-size:10.5px; line-height:1.5;
+      letter-spacing:-.01em; }
+    .showcase__list { display:grid; gap:8px; }
+    .showcase__list li { list-style:none; display:flex; align-items:flex-start; gap:6px; font-weight:700;
+      font-size:10px; line-height:1.4; letter-spacing:-.03em; white-space:nowrap; }
+    .showcase__list li i { width:16px; height:16px; border-radius:50%; background:var(--grad); color:#fff;
+      font-style:normal; flex-shrink:0; display:flex; align-items:center; justify-content:center;
+      font-size:9.5px; margin-top:1px; }
+    @media (min-width:560px){
+      .showcase__copy h2{ font-size:17px; } .showcase__copy p{ font-size:14px; }
+      .showcase__list{ gap:13px; } .showcase__list li{ font-size:14px; align-items:center; white-space:normal; }
+      .showcase__list li i{ width:24px; height:24px; font-size:13px; }
+    }
+    @media (min-width:769px){ .showcase__copy h2{ font-size:21px; } .showcase__copy p{ font-size:15px; }
+      .showcase__list li{ font-size:15.5px; } }
+
+    /* ===== JOBS ===== */
+    .jobs { background:#fff; }
+    .jobcat { max-width:980px; margin:0 auto 46px; }
+    .jobcat__head { display:flex; align-items:center; gap:14px; margin-bottom:16px; }
+    .jobcat__thumb { width:70px; aspect-ratio:1/1; border-radius:50%; overflow:hidden; flex-shrink:0;
+      border:3px solid var(--pu-soft); }
+    .jobcat__thumb img{ width:100%; height:100%; object-fit:cover; }
+    .jobcat__name { font-size:21px; font-weight:700; }
+    .jobcat__sub { font-family:'Caveat'; font-size:19px; color:var(--pu-deep); line-height:1; }
+    .jobgrid { display:grid; gap:16px; }
+    @media (min-width:700px){ .jobgrid{ grid-template-columns:repeat(3,1fr); } }
+    .jcard { border:1px solid rgba(139,114,214,.14); border-radius:18px; padding:18px;
+      box-shadow:0 10px 24px rgba(139,114,214,.07); background:#fff; display:flex; flex-direction:column; gap:8px; }
+    .jcard__tags { display:flex; flex-wrap:wrap; gap:6px; }
+    .jtag { font-size:11px; font-weight:800; padding:4px 10px; border-radius:7px; }
+    .jtag--pu{ background:var(--grad); color:#fff; }
+    .jtag--soft{ background:var(--pu-soft); color:var(--pu-deep); }
+    .jtag--mute{ background:#F1EEF6; color:var(--ink-soft); }
+    .jcard__t { font-size:16px; font-weight:700; }
+    .jcard__d { font-size:12.5px; color:var(--ink-soft); }
+    .jcard__pay { margin-top:auto; padding-top:10px; border-top:1px dashed var(--pu-soft);
+      font-size:13px; color:var(--ink-soft); font-weight:700; }
+    .jcard__pay b { display:block; font-size:20px; color:var(--pu-deep); }
+
+    /* ===== STEPS : reference-accurate (all content INSIDE each circle) =====
+       Reference (≈850px wide): 3 circles + 2 short dashed arrows across full width.
+       Circle ≈ 210px (24.7%). Everything — STEP/no/caption/icon/description — sits inside. */
+    .steps-sec { background:linear-gradient(180deg,#FBFAFE 0%, #F4F0FC 100%); padding-top:48px; }
+    .steps { max-width:760px; margin:0 auto; display:flex; align-items:center; justify-content:center;
+      gap:0; }
+    .step { flex:0 0 28.5%; }                 /* 3 circles ≈ 85.5%, 2 arrows fill rest */
+    .step__circle { width:100%; aspect-ratio:1/1; border-radius:50%; background:#fff;
+      border:1.5px solid var(--pu-soft); box-shadow:0 12px 28px rgba(139,114,214,.10);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center; padding:6%; gap:2%; }
+    /* top row: [STEP / 01](stacked)  会員登録(right) */
+    .step__top { display:flex; align-items:center; justify-content:center; gap:5px; line-height:1; }
+    .step__numwrap { display:flex; flex-direction:column; align-items:center; line-height:1; }
+    .step__lab { font-size:9px; font-weight:700; letter-spacing:.1em; color:var(--ink-soft);
+      font-family:'Zen Maru Gothic'; }
+    .step__no { font-size:26px; font-weight:700; color:var(--pu-deep); line-height:1;
+      font-family:'Zen Maru Gothic'; }
+    .step__capt { font-size:12px; font-weight:700; color:var(--ink); white-space:nowrap; }
+    .step__ic { margin-top:6%; line-height:0; }
+    .step__ic svg { width:30px; height:30px; }
+    .step__desc { margin-top:5%; font-size:10.5px; color:var(--ink); font-weight:700; line-height:1.45; }
+    /* short dashed arrow between circles, vertically centered on the circles */
+    .step__arrow { flex:1 1 auto; display:flex; align-items:center; justify-content:center;
+      align-self:flex-start; margin-top:13%; }
+    .step__arrow svg{ width:80%; max-width:34px; height:14px; }
+    @media (min-width:480px){
+      .step__lab{ font-size:10px; } .step__no{ font-size:30px; } .step__capt{ font-size:13px; }
+      .step__ic svg{ width:34px; height:34px; } .step__desc{ font-size:12px; }
+    }
+    @media (min-width:769px){
+      .steps{ max-width:820px; }
+      .step__lab{ font-size:11px; } .step__no{ font-size:38px; } .step__capt{ font-size:15px; }
+      .step__ic svg{ width:42px; height:42px; } .step__desc{ font-size:13px; }
+    }
+    @media (max-width:340px){ .step__no{ font-size:22px; } .step__capt{ font-size:10.5px; } .step__ic svg{ width:26px; height:26px; } }
+
+    /* ===== CTA ===== */
+    .cta { padding:56px 22px 66px; background:#F4F0FC; }
+    .cta__in { max-width:1016px; margin:0 auto; }
+
+    /* ===== Footer ===== */
+    .ftr { background:#2B2740; color:#ADA4C4; text-align:center; padding:30px; font-size:12px; }
+    .ftr a { color:#ADA4C4; margin:0 10px; }
+
+    /* fixed mobile cta : 全体のパープル基調は保ちつつ、ここだけ濃いめ＆動きで目立たせる */
+    .fixcta { position:fixed; left:12px; right:12px; bottom:14px; z-index:9999; display:flex;
+      flex-direction:column; align-items:center; pointer-events:none;
+      animation:fixBounce 2.6s ease-in-out infinite; }
+    /* バッジ：黄色を強めにして視認性UP */
+    .fixcta__badge { padding:6px 18px; background:linear-gradient(135deg,#FFE066,#FFD23D);
+      color:#5A4A1E; font-weight:700; font-size:13px; border-radius:999px; margin-bottom:-9px;
+      z-index:2; pointer-events:auto; box-shadow:0 3px 10px rgba(214,170,40,.4);
+      border:1.5px solid #fff; }
+    /* メイン：濃いパープルグラデ＋矢印＋強いグロー（背景の淡い紫から浮き上がる） */
+    .fixcta__main { position:relative; overflow:hidden; width:100%;
+      display:flex; align-items:center; justify-content:center; gap:9px;
+      padding:17px 18px;
+      background:linear-gradient(100deg,#7B5FD0 0%, #8E73DD 50%, #6E54C8 100%);
+      color:#fff; font-weight:700; font-size:16px; letter-spacing:.02em;
+      text-align:center; border-radius:16px; pointer-events:auto;
+      box-shadow:0 10px 28px rgba(110,84,200,.5), 0 2px 8px rgba(43,39,64,.18);
+      border:2px solid rgba(255,255,255,.55);
+      animation:pulseGlow 2.2s ease-in-out infinite; }
+    /* 丸い矢印（テキストの直後・インライン配置で確実に表示） */
+    .fixcta__main .arr { flex-shrink:0; width:28px; height:28px;
+      border-radius:50%; background:#fff; color:#6E54C8;
+      display:inline-flex; align-items:center; justify-content:center; z-index:4;
+      box-shadow:0 2px 6px rgba(43,39,64,.2); }
+    .fixcta__main .arr svg{ width:13px; height:13px; }
+    /* 光沢のスイープ（さらに目を引く） */
+    .fixcta__main::before { content:""; position:absolute; inset:0; z-index:0;
+      background:linear-gradient(100deg, transparent 30%, rgba(255,255,255,.30) 48%, transparent 66%);
+      background-size:220% 100%; animation:shine 3.2s ease-in-out infinite; pointer-events:none; }
+    @keyframes pulseGlow{
+      0%,100%{ box-shadow:0 10px 28px rgba(110,84,200,.5), 0 2px 8px rgba(43,39,64,.18); }
+      50%{ box-shadow:0 14px 38px rgba(110,84,200,.72), 0 0 0 4px rgba(142,115,221,.22), 0 2px 8px rgba(43,39,64,.18); }
+    }
+    @keyframes shine{ 0%{background-position:140% 0;} 55%,100%{background-position:-40% 0;} }
+    @keyframes fixBounce{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-3px);} }
+    @media (prefers-reduced-motion:reduce){
+      .fixcta,.fixcta__main,.fixcta__main::before{ animation:none; }
+    }
+    @media (min-width:769px){ .fixcta{ display:none; } body{ padding-bottom:0; } }
+  </style>
+</head>
+
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MSBWVNVB" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="hdr">
+    <div class="hdr__logo">
+      <svg class="hdr__mark" viewBox="0 0 28 28" aria-hidden="true">
+        <rect x="11" y="2.5" width="6" height="23" rx="3" fill="#8B72D6"/>
+        <rect x="2.5" y="11" width="23" height="6" rx="3" fill="#A491E2"/>
+      </svg>
+      タスタス
+    </div>
+    <a href="https://tastas.work/register/worker" class="hdr__cta" data-cats="tastasRegisterLink">
+      <span>タスタスに登録する</span>
+      <i><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+    </a>
+  </header>
+
+  <main>
+    <!-- HERO : 背景画像(hero-2 / コピー焼き込み済み) + アイコン3つを重ねて完成 -->
+    <section class="hero" aria-label="スキマ時間で、ちゃんと稼ぐ。看護師・介護士のスポットワーク">
+      <img class="hero__img" src="images/hero-2-trimmed.png" alt="スキマ時間で、ちゃんと稼ぐ。看護師・介護士のスポットワーク" loading="eager">
+      <div class="hero__feats">
+        <div class="hfeat">
+          <div class="hfeat__ic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="9.2" stroke="#8B72D6" stroke-width="1.7"/>
+              <path d="M12 7.2V12l3.4 2" stroke="#8B72D6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="hfeat__t">1日1時間〜<b>OK</b></div>
+        </div>
+        <div class="hfeat">
+          <div class="hfeat__ic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="7.2" y="2.8" width="9.6" height="18.4" rx="2.4" stroke="#8B72D6" stroke-width="1.7"/>
+              <circle cx="12" cy="18.2" r="1" fill="#8B72D6"/>
+            </svg>
+          </div>
+          <div class="hfeat__t">スマホで<b>応募</b></div>
+        </div>
+        <div class="hfeat">
+          <div class="hfeat__ic">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3.6" y="5" width="16.8" height="15" rx="2.4" stroke="#8B72D6" stroke-width="1.7"/>
+              <path d="M3.6 9.4h16.8M8 3.2v3.2M16 3.2v3.2" stroke="#8B72D6" stroke-width="1.7" stroke-linecap="round"/>
+              <rect x="6.4" y="11.6" width="2.4" height="2.2" rx="0.5" fill="#8B72D6"/>
+              <rect x="10.8" y="11.6" width="2.4" height="2.2" rx="0.5" fill="#8B72D6"/>
+              <rect x="15.2" y="11.6" width="2.4" height="2.2" rx="0.5" fill="#8B72D6"/>
+              <rect x="6.4" y="15.4" width="2.4" height="2.2" rx="0.5" fill="#8B72D6"/>
+              <rect x="10.8" y="15.4" width="2.4" height="2.2" rx="0.5" fill="#8B72D6"/>
+            </svg>
+          </div>
+          <div class="hfeat__t">最短<b>当日勤務</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO CTA -->
+    <section class="herocta">
+      <div class="herocta__in">
+        <a href="https://tastas.work/register/worker" class="ctabar" data-cats="tastasRegisterLink">
+          <span class="ctabar__badge">カンタン30秒</span>
+          <span class="ctabar__txt">タスタスに登録する</span>
+          <span class="ctabar__arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- REASONS -->
+    <section class="sec reasons">
+      <div class="sechead">
+        <h2 class="sectitle">タスタスが選ばれる<span class="num">3</span>つの理由</h2>
+      </div>
+      <div class="rlist">
+        <article class="rcard">
+          <div class="rcard__media"><span class="rcard__no">01</span><img src="images/reason1.png" alt="スキマ時間を有効活用"></div>
+          <div class="rcard__body">
+            <h3 class="rcard__h">スキマ時間を有効活用</h3>
+            <p class="rcard__p">1日1時間〜OK！ライフスタイルに合わせて働きたいときだけ働けます。</p>
+          </div>
+          <span class="rcard__dots">…</span>
+        </article>
+        <article class="rcard">
+          <div class="rcard__media"><span class="rcard__no">02</span><img src="images/reason2.png" alt="スマホで完結"></div>
+          <div class="rcard__body">
+            <h3 class="rcard__h">スマホで完結</h3>
+            <p class="rcard__p">応募からシフト管理、給与確認まですべてアプリで完結。</p>
+          </div>
+          <span class="rcard__dots">…</span>
+        </article>
+        <article class="rcard">
+          <div class="rcard__media"><span class="rcard__no">03</span><img src="images/reason3.png" alt="安心・安全のサポート体制"></div>
+          <div class="rcard__body">
+            <h3 class="rcard__h">安心・安全のサポート体制</h3>
+            <p class="rcard__p">充実したサポートで、初めての方でも安心して始められます。</p>
+          </div>
+          <span class="rcard__dots">…</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- STEPS -->
+    <section class="sec steps-sec">
+      <div class="sechead">
+        <h2 class="steptitle">カンタン<span class="steptitle__big">“3ステップ”</span>でお仕事開始！</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__circle">
+            <div class="step__top">
+              <span class="step__numwrap"><span class="step__lab">STEP</span><span class="step__no">01</span></span>
+              <span class="step__capt">会員登録</span>
+            </div>
+            <div class="step__ic">
+              <!-- スマホ + 丸チェックバッジ（右下に重なる） -->
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect x="6" y="3" width="15" height="24" rx="3" stroke="#8B72D6" stroke-width="1.8"/>
+                <line x1="11.5" y1="23.5" x2="15.5" y2="23.5" stroke="#8B72D6" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="22.5" cy="22.5" r="6.2" fill="#fff" stroke="#8B72D6" stroke-width="1.8"/>
+                <path d="M19.7 22.6l2 2 3.4-3.7" stroke="#8B72D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p class="step__desc">カンタン30秒で<br>無料登録！</p>
+          </div>
+        </div>
+        <div class="step__arrow">
+          <svg viewBox="0 0 34 14" fill="none" aria-hidden="true"><path d="M1 7h26M24 3l5 4-5 4" stroke="#B7A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.5 4.5"/></svg>
+        </div>
+        <div class="step">
+          <div class="step__circle">
+            <div class="step__top">
+              <span class="step__numwrap"><span class="step__lab">STEP</span><span class="step__no">02</span></span>
+              <span class="step__capt">お仕事を探す</span>
+            </div>
+            <div class="step__ic">
+              <!-- 虫眼鏡 -->
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="14" cy="14" r="8.4" stroke="#8B72D6" stroke-width="1.8"/>
+                <line x1="20.2" y1="20.2" x2="27" y2="27" stroke="#8B72D6" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="step__desc">希望の条件で<br>お仕事を検索</p>
+          </div>
+        </div>
+        <div class="step__arrow">
+          <svg viewBox="0 0 34 14" fill="none" aria-hidden="true"><path d="M1 7h26M24 3l5 4-5 4" stroke="#B7A6E6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2.5 4.5"/></svg>
+        </div>
+        <div class="step">
+          <div class="step__circle">
+            <div class="step__top">
+              <span class="step__numwrap"><span class="step__lab">STEP</span><span class="step__no">03</span></span>
+              <span class="step__capt">勤務する</span>
+            </div>
+            <div class="step__ic">
+              <!-- カレンダー + 丸チェックバッジ（右下に重なる） -->
+              <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect x="3.5" y="5.5" width="20" height="18" rx="3" stroke="#8B72D6" stroke-width="1.8"/>
+                <line x1="3.5" y1="10.5" x2="23.5" y2="10.5" stroke="#8B72D6" stroke-width="1.8"/>
+                <line x1="9" y1="3.5" x2="9" y2="7.5" stroke="#8B72D6" stroke-width="1.8" stroke-linecap="round"/>
+                <line x1="18" y1="3.5" x2="18" y2="7.5" stroke="#8B72D6" stroke-width="1.8" stroke-linecap="round"/>
+                <circle cx="8.5" cy="15" r="1.1" fill="#8B72D6"/>
+                <circle cx="13.5" cy="15" r="1.1" fill="#8B72D6"/>
+                <circle cx="8.5" cy="19" r="1.1" fill="#8B72D6"/>
+                <circle cx="13.5" cy="19" r="1.1" fill="#8B72D6"/>
+                <circle cx="24" cy="22.5" r="6.4" fill="#fff" stroke="#8B72D6" stroke-width="1.8"/>
+                <path d="M21.1 22.6l2 2 3.5-3.8" stroke="#8B72D6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <p class="step__desc">最短当日から<br>お仕事OK！</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP SHOWCASE -->
+    <section class="sec showcase">
+      <div class="showcase__wrap">
+        <div class="showcase__phone">
+          <img src="images/appscreen-trim.png" alt="タスタスのアプリ画面">
+        </div>
+        <div class="showcase__copy">
+          <h2 class="showcase__h">ぜんぶスマホで<span class="showcase__big">“カンタン”</span></h2>
+          <p>応募・シフト・給与確認までスマホで完結</p>
+          <ul class="showcase__list">
+            <li><i>✓</i>近くの案件をカンタン検索</li>
+            <li><i>✓</i>行きたい日付をカレンダー検索</li>
+            <li><i>✓</i>施設と会わずに、チャット連絡</li>
+            <li><i>✓</i>勤務後はアプリで給与・レビューチェック</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOBS -->
+    <section class="sec jobs">
+      <div class="sechead"><h2 class="sectitle">求人の例</h2></div>
+
+      <div class="jobcat">
+        <div class="jobcat__head">
+          <div class="jobcat__thumb"><img src="images/category-nurse.png" alt="看護師"></div>
+          <div><div class="jobcat__sub">for nurses</div><div class="jobcat__name">看護師</div></div>
+        </div>
+        <div class="jobgrid">
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--pu">午前のみ</span><span class="jtag jtag--soft">高時給</span><span class="jtag jtag--mute">駅チカ</span></div>
+            <h3 class="jcard__t">健診センターでの採血スタッフ</h3>
+            <p class="jcard__d">半日でサクッと稼げる！お子様が学校の間にピッタリ。</p>
+            <p class="jcard__pay">8:30〜12:30（実働4h）<b>日給 8,400円〜</b></p>
+          </article>
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--soft">人間関係の悩みなし</span><span class="jtag jtag--mute">ゆったり</span></div>
+            <h3 class="jcard__t">デイサービスでのバイタルチェック</h3>
+            <p class="jcard__d">医療処置少なめ！ブランクがある方やゆったり働きたい方に。</p>
+            <p class="jcard__pay">10:00〜16:00（実働6h）<b>日給 12,000円〜</b></p>
+          </article>
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--pu">レア求人</span><span class="jtag jtag--soft">体力負担少なめ</span></div>
+            <h3 class="jcard__t">イベント会場での救護所待機</h3>
+            <p class="jcard__d">基本は待機のみ！休日の空き日程でサクッと稼げます。</p>
+            <p class="jcard__pay">9:00〜18:00（実働8h）<b>日給 17,600円〜</b></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="jobcat">
+        <div class="jobcat__head">
+          <div class="jobcat__thumb"><img src="images/category-assistant.png" alt="看護助手"></div>
+          <div><div class="jobcat__sub">for assistants</div><div class="jobcat__name">看護助手</div></div>
+        </div>
+        <div class="jobgrid">
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--pu">未経験歓迎</span><span class="jtag jtag--soft">駅チカ</span><span class="jtag jtag--mute">土日祝休み</span></div>
+            <h3 class="jcard__t">総合病院でのシーツ交換・清掃</h3>
+            <p class="jcard__d">カンタンな作業が中心！病院の環境を整える大切なお仕事。</p>
+            <p class="jcard__pay">8:30〜17:30（実働8h）<b>日給 11,200円〜</b></p>
+          </article>
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--soft">短時間OK</span><span class="jtag jtag--mute">残業なし</span></div>
+            <h3 class="jcard__t">クリニックでの診療補助・片付け</h3>
+            <p class="jcard__d">夕方の数時間だけ！近所でサクッと働きたい方にピッタリ。</p>
+            <p class="jcard__pay">16:00〜20:00（実働4h）<b>日給 5,400円〜</b></p>
+          </article>
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--pu">安定収入</span><span class="jtag jtag--soft">交通費全額</span></div>
+            <h3 class="jcard__t">療養型病院での患者様サポート</h3>
+            <p class="jcard__d">看護師さんの指示に従って動くだけ。安心スタート。</p>
+            <p class="jcard__pay">9:00〜16:00（実働6h）<b>日給 7,800円〜</b></p>
+          </article>
+        </div>
+      </div>
+
+      <div class="jobcat">
+        <div class="jobcat__head">
+          <div class="jobcat__thumb"><img src="images/category-caregiver.png" alt="介護士"></div>
+          <div><div class="jobcat__sub">for caregivers</div><div class="jobcat__name">介護士</div></div>
+        </div>
+        <div class="jobgrid">
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--soft">高時給</span><span class="jtag jtag--mute">車通勤OK</span></div>
+            <h3 class="jcard__t">有料老人ホームでの生活支援</h3>
+            <p class="jcard__d">食事の配膳や見守りがメイン。資格を活かして活躍。</p>
+            <p class="jcard__pay">9:00〜18:00（実働8h）<b>日給 12,000円〜</b></p>
+          </article>
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--pu">週1〜可</span><span class="jtag jtag--soft">入浴介助なし</span></div>
+            <h3 class="jcard__t">デイサービスでのレク・介助</h3>
+            <p class="jcard__d">利用者様と一緒にレクを楽しみながら働けます。</p>
+            <p class="jcard__pay">9:00〜16:00（実働6h）<b>日給 8,400円〜</b></p>
+          </article>
+          <article class="jcard">
+            <div class="jcard__tags"><span class="jtag jtag--pu">短時間</span><span class="jtag jtag--soft">駅チカ</span></div>
+            <h3 class="jcard__t">グループホームでの食事介助</h3>
+            <p class="jcard__d">夕方の食事介助メイン。短時間で効率よく稼ぎたい方に。</p>
+            <p class="jcard__pay">16:00〜20:00（実働4h）<b>日給 5,400円〜</b></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="cta__in">
+        <a href="https://tastas.work/register/worker" class="ctabar" data-cats="tastasRegisterLink">
+          <span class="ctabar__badge">カンタン30秒</span>
+          <span class="ctabar__txt">今すぐタスタスに登録する</span>
+          <span class="ctabar__arrow"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ftr">
+    <nav>
+      <a href="https://tastas.work/terms" target="_blank" rel="noopener noreferrer">利用規約</a>
+      <a href="https://tastas.work/privacy" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
+      <a href="https://www.careergift.co.jp" target="_blank" rel="noopener noreferrer">運営会社</a>
+    </nav>
+    <p style="margin-top:10px;">2025 ©️ タスタス</p>
+  </footer>
+
+  <div class="fixcta">
+    <span class="fixcta__badge">最短当日勤務／最短当日入金</span>
+    <a href="https://tastas.work/register/worker" class="fixcta__main" data-cats="tastasRegisterLink">タスタスに登録（カンタン30秒）<span class="arr"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+  </div>
+
+  <script src="https://qcovuuqxyihbpjlgccxz.supabase.co/storage/v1/object/public/lp-assets/1/tracking.js"></script>
+</body>
+</html>
