@@ -61,18 +61,19 @@
     .hdr__cta i { width:20px; height:20px; border-radius:50%; background:var(--grad); color:#fff;
       font-style:normal; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
     .hdr__cta i svg{ width:10px; height:10px; }
-    /* PC：1行 / スマホ：テキストを2行にして横幅を節約 */
-    .hdr__cta span{ line-height:1.2; text-align:center; }
+    /* 常に1行表示（改行しない） */
+    .hdr__cta span{ line-height:1.2; text-align:center; white-space:nowrap; }
     .hdr__cta span .br2{ display:none; }
     @media (max-width:600px){
-      .hdr{ padding:9px 10px; }
-      .hdr__logo{ font-size:18px; gap:6px; } .hdr__mark{ width:22px; height:22px; }
-      .hdr__cta{ gap:7px; padding:6px 12px; font-size:11px; }
-      .hdr__cta span{ white-space:normal; }   /* 折り返し許可 */
-      .hdr__cta span .br2{ display:block; }    /* 2行に改行して横幅を節約 */
-      .hdr__cta i{ width:23px; height:23px; }
+      .hdr{ padding:9px 9px; }
+      .hdr__logo{ font-size:17px; gap:6px; } .hdr__mark{ width:21px; height:21px; }
+      .hdr__cta{ gap:6px; padding:7px 11px; font-size:10.5px; }
+      .hdr__cta i{ width:19px; height:19px; }
     }
-    @media (max-width:360px){ .hdr__cta{ font-size:10.5px; padding:6px 10px; } .hdr__logo{ font-size:16px; } }
+    @media (max-width:360px){
+      .hdr__logo{ font-size:15px; } .hdr__mark{ width:19px; height:19px; }
+      .hdr__cta{ font-size:9.5px; padding:6px 9px; gap:5px; } .hdr__cta i{ width:17px; height:17px; }
+    }
 
     /* ===== HERO : 背景画像(コピー焼き込み済み) + アイコン3つを重ねる ===== */
     .hero { position:relative; overflow:hidden;
