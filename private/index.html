@@ -126,7 +126,8 @@
     /* ===== Section title (dotted lines around) ===== */
     .sec { padding:64px 22px; }
     .sechead { text-align:center; margin:0 auto 38px; }
-    .sectitle { display:inline-flex; align-items:center; gap:16px; font-family:'Zen Maru Gothic';
+    .sectitle { display:inline-flex; align-items:center; justify-content:center; gap:16px;
+      font-family:'Zen Maru Gothic'; white-space:nowrap;
       font-size:26px; font-weight:700; color:var(--ink); letter-spacing:.02em; }
     .sectitle::before, .sectitle::after { content:""; width:54px; height:7px; flex-shrink:0;
       background-image:radial-gradient(var(--pu-mid) 2.2px, transparent 2.4px);
@@ -134,7 +135,11 @@
     .sectitle .num{ color:var(--pu-deep); font-size:1.5em; line-height:1; margin:0 1px; }
     .sectitle b{ color:var(--pu-deep); }
     @media (min-width:769px){ .sectitle{ font-size:32px; } }
-    @media (max-width:480px){ .sectitle::before,.sectitle::after{ width:28px; } .sectitle{ font-size:22px; gap:9px; } }
+    /* スマホ：2段にせず1行 + 両端ドットを半分サイズに */
+    @media (max-width:480px){ .sectitle{ font-size:20px; gap:8px; }
+      .sectitle::before,.sectitle::after{ width:26px; height:5px; background-size:8px 5px; } }
+    @media (max-width:360px){ .sectitle{ font-size:18px; gap:6px; }
+      .sectitle::before,.sectitle::after{ width:20px; } }
 
     /* steps heading : one line, "3ステップ" large (with quote marks), rest small */
     .steptitle { font-family:'Zen Maru Gothic',sans-serif; font-weight:700; color:var(--ink);
@@ -383,7 +388,7 @@
     <!-- REASONS -->
     <section class="sec reasons">
       <div class="sechead">
-        <h2 class="sectitle">タスタスが選ばれる<span class="num">3</span>つの理由</h2>
+        <h2 class="sectitle">選ばれる<span class="num">3</span>つの理由</h2>
       </div>
       <div class="rlist">
         <article class="rcard">
