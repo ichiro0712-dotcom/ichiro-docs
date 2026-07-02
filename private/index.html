@@ -51,14 +51,28 @@
       background:rgba(255,255,255,.94); backdrop-filter:blur(12px);
       border-bottom:1px solid rgba(139,114,214,.10); }
     .hdr__logo { display:flex; align-items:center; gap:10px; font-family:'Zen Maru Gothic';
-      font-weight:700; font-size:23px; color:var(--ink); letter-spacing:.01em; }
+      font-weight:700; font-size:23px; color:var(--ink); letter-spacing:.01em; flex-shrink:1; min-width:0; }
     .hdr__mark { width:28px; height:28px; flex-shrink:0; }
-    .hdr__cta { display:inline-flex; align-items:center; gap:12px; padding:11px 12px 11px 22px;
-      background:var(--grad); color:#fff; font-weight:700; font-size:14px; border-radius:999px;
-      box-shadow:0 6px 16px rgba(139,114,214,.34); }
-    .hdr__cta i { width:26px; height:26px; border-radius:50%; background:#fff; color:var(--pu);
-      font-style:normal; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; }
-    @media (max-width:560px){ .hdr__cta span{ display:none; } .hdr__cta{ padding:9px; gap:0; } }
+    /* ヘッダー右CTA：求人担当者さま向けリンク（アウトライン系で控えめ＆読みやすく） */
+    .hdr__cta { flex-shrink:0; max-width:52vw; display:inline-flex; align-items:center; gap:8px; padding:8px 15px;
+      background:#fff; color:var(--pu-deep); font-weight:700; font-size:13px; border-radius:999px;
+      border:1.5px solid var(--pu-mid);
+      box-shadow:0 3px 10px rgba(139,114,214,.16); white-space:nowrap; }
+    .hdr__cta i { width:20px; height:20px; border-radius:50%; background:var(--grad); color:#fff;
+      font-style:normal; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .hdr__cta i svg{ width:10px; height:10px; }
+    /* PC：1行 / スマホ：テキストを2行にして横幅を節約 */
+    .hdr__cta span{ line-height:1.2; text-align:center; }
+    .hdr__cta span .br2{ display:none; }
+    @media (max-width:600px){
+      .hdr{ padding:9px 10px; }
+      .hdr__logo{ font-size:18px; gap:6px; } .hdr__mark{ width:22px; height:22px; }
+      .hdr__cta{ gap:7px; padding:6px 12px; font-size:11px; }
+      .hdr__cta span{ white-space:normal; }   /* 折り返し許可 */
+      .hdr__cta span .br2{ display:block; }    /* 2行に改行して横幅を節約 */
+      .hdr__cta i{ width:23px; height:23px; }
+    }
+    @media (max-width:360px){ .hdr__cta{ font-size:10.5px; padding:6px 10px; } .hdr__logo{ font-size:16px; } }
 
     /* ===== HERO : 背景画像(コピー焼き込み済み) + アイコン3つを重ねる ===== */
     .hero { position:relative; overflow:hidden;
@@ -308,9 +322,9 @@
       </svg>
       タスタス
     </div>
-    <a href="https://tastas.work/register/worker" class="hdr__cta" data-cats="tastasRegisterLink">
-      <span>タスタスに登録する</span>
-      <i><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
+    <a href="https://lp.tastas.work/nurse_business_worker/index.html" class="hdr__cta" target="_blank" rel="noopener noreferrer" aria-label="求人担当者さまはこちら">
+      <span>求人担当者<br class="br2">さまはこちら</span>
+      <i><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
     </a>
   </header>
 
