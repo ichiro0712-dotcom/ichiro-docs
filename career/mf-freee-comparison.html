@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MFクラウド会計Plus × freee 比較｜AI自動化とAPI連携</title>
+<meta name="description" content="マネーフォワード クラウド会計Plus と freee を、AIによる自動入力・出力の範囲と、社内独自システムとのAPI連携可否で比較した資料。">
+<style>
+:root{--bg:#0e1013;--panel:#15181d;--panel2:#1b1f26;--line:#272c34;--line2:#333a44;
+ --tx:#d7dce3;--mut:#8b95a3;--dim:#5d6776;--wh:#f4f6f9;--grn:#34d399;--grn-d:#0f8f6b;--grn-soft:#16241f;
+ --red:#f87171;--red-soft:#241618;--amb:#fbbf24;--amb-soft:#241f14;--blu:#60a5fa;--blu-soft:#141d2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic Medium",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-feature-settings:"tnum" 1,"lnum" 1;-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px 90px}
+
+/* ヘッダー */
+.navbar{position:sticky;top:0;z-index:50;background:rgba(14,16,19,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.navbar-in{max-width:1180px;margin:0 auto;padding:0 26px;height:54px;display:flex;align-items:center;gap:22px}
+.brand{font-size:13px;font-weight:700;color:var(--wh);white-space:nowrap}
+.brand span{color:var(--dim);font-weight:500;margin-left:6px}
+.navbar nav{margin-left:auto;display:flex;gap:20px;overflow-x:auto}
+.navbar nav a{font-size:12.5px;color:var(--mut);text-decoration:none;font-weight:600;white-space:nowrap;padding:18px 0}
+.navbar nav a:hover{color:var(--wh)}
+
+header.hero{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+h1{font-size:27px;line-height:1.35;margin:0 0 12px;color:var(--wh);letter-spacing:.01em}
+.lede{font-size:14.5px;color:var(--mut);max-width:78ch;margin:0 0 18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+
+h2{font-size:18.5px;color:var(--wh);margin:52px 0 6px;letter-spacing:.01em}
+h2 .n{color:var(--grn);font-size:13px;font-weight:700;margin-right:9px;font-feature-settings:"tnum" 1}
+h3{font-size:15px;color:var(--wh);margin:30px 0 8px}
+.sub{font-size:13.5px;color:var(--mut);margin:0 0 16px;max-width:82ch}
+p{font-size:14px;max-width:82ch}
+
+/* 注意書き */
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blu);border-radius:8px;padding:14px 17px;margin:18px 0;font-size:13.5px;color:var(--mut)}
+.note.warn{border-left-color:var(--amb)}
+.note b{color:var(--wh);font-weight:600}
+
+/* サマリカード */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:13px;margin:22px 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 17px}
+.card .k{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:7px}
+.card .v{font-size:14.5px;color:var(--wh);font-weight:600;line-height:1.5;margin-bottom:6px}
+.card .d{font-size:12.5px;color:var(--mut);line-height:1.55}
+
+/* 表 */
+.tw{overflow-x:auto;margin:14px 0 6px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:780px;font-size:13.5px}
+th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+thead th{background:var(--panel2);color:var(--wh);font-size:12px;font-weight:700;letter-spacing:.02em;position:sticky;top:54px;z-index:5}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#181c22}
+td.item{color:var(--wh);font-weight:600;width:24%}
+td small{display:block;color:var(--dim);font-size:11.5px;font-weight:400;margin-top:3px;line-height:1.5}
+col.c-mf,col.c-fr{width:28%}
+
+/* 判定バッジ */
+.j{display:inline-block;font-size:11.5px;font-weight:700;border-radius:5px;padding:2px 7px;margin-right:7px;white-space:nowrap;vertical-align:1px}
+.j.ok{background:var(--grn-soft);color:var(--grn);border:1px solid #1d4d3d}
+.j.pt{background:var(--amb-soft);color:var(--amb);border:1px solid #4a3a16}
+.j.ng{background:var(--red-soft);color:var(--red);border:1px solid #4d2226}
+.j.un{background:var(--blu-soft);color:var(--blu);border:1px solid #1e3a5c}
+.legend{display:flex;flex-wrap:wrap;gap:15px;margin:12px 0 0;font-size:12.5px;color:var(--mut)}
+
+/* 出典 */
+ol.src{font-size:13px;color:var(--mut);padding-left:20px;max-width:88ch}
+ol.src li{margin-bottom:7px}
+a{color:var(--grn);text-decoration:none;border-bottom:1px solid rgba(52,211,153,.3)}
+a:hover{border-bottom-color:var(--grn)}
+ul.pts{font-size:14px;max-width:82ch;padding-left:20px}
+ul.pts li{margin-bottom:9px}
+ul.pts b{color:var(--wh);font-weight:600}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim)}
+
+@media(max-width:700px){
+ .wrap,.navbar-in{padding-left:16px;padding-right:16px}
+ h1{font-size:21px} thead th{top:54px}
+ .navbar nav{display:none}
+}
+</style></head>
+<body>
+
+<div class="navbar"><div class="navbar-in">
+  <div class="brand">会計ソフト比較<span>MF会計Plus × freee</span></div>
+  <nav>
+    <a href="#summary">結論</a><a href="#ai">AI自動化</a><a href="#api-acc">会計API</a>
+    <a href="#api-hr">人事・給与API</a><a href="#infra">連携基盤</a><a href="#gap">APIの穴</a><a href="#todo">要確認</a>
+  </nav>
+</div></div>
+
+<div class="wrap">
+
+<header class="hero">
+  <h1>マネーフォワード クラウド会計Plus × freee<br>AI自動化とAPI連携の比較</h1>
+  <p class="lede">社内独自システムとつなぎ、AIで経理業務を自動化できるかという観点で両製品を整理したもの。
+  「AIがどこまで標準でやれるか」と「APIで外部システムからどこまで操作できるか」の2軸で比較する。</p>
+  <div class="meta">
+    <span class="chip">作成 2026-09-26</span>
+    <span class="chip">MF側＝ベンダー回答ベース</span>
+    <span class="chip">freee側＝公開ドキュメント・公式発表ベース</span>
+    <span class="chip">想定規模：上場・約300名・複数事業</span>
+  </div>
+</header>
+
+<div class="note warn">
+  <b>この資料の前提と限界。</b>
+  MF の欄は同社からの個別回答に基づく。freee の欄は公開ドキュメントと公式発表を調べたもので、<b>ベンダー回答を取得していない</b>。
+  したがって freee 側は「公開情報からはこう読める」という水準であり、同じ質問状を freee にも投げて突き合わせることを前提にしてほしい。
+  確度が低い項目には <span class="j un">要確認</span> を付けてある。
+</div>
+
+<h2 id="summary"><span class="n">01</span>結論</h2>
+<p class="sub">両者の差は「会計ソフトとしての機能」ではなく、<b>外部から機械的に叩ける範囲の広さ</b>に出る。</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="k">AIエージェント連携</div>
+    <div class="v">freee が先行</div>
+    <div class="d">freee は 2026年3月に MCP サーバーを OSS 公開済み（5領域・約270API）。MF は会計（SMB版）で提供中だが、<b>会計Plus は「2026年中を想定」で未提供</b>。</div>
+  </div>
+  <div class="card">
+    <div class="k">マスタの自動登録</div>
+    <div class="v">freee が広い</div>
+    <div class="d">勘定科目・部門・品目を freee は API で作成できる。MF会計Plus は<b>取得のみで新規登録不可</b>（今後開発予定）。</div>
+  </div>
+  <div class="card">
+    <div class="k">人事・勤怠・給与のAPI</div>
+    <div class="v">MF に大きな制約</div>
+    <div class="d">MF は外部公開APIが<b>勤怠Plusのみ</b>。給与・人事は自社／提携製品との連携に限られる。freee は人事労務APIを公開。</div>
+  </div>
+  <div class="card">
+    <div class="k">標準のAI仕訳</div>
+    <div class="v">ほぼ互角</div>
+    <div class="d">AI-OCR による証憑の自動仕訳、銀行明細の自動取込と学習は両社とも標準。ここで差はつきにくい。</div>
+  </div>
+</div>
+
+<ul class="pts">
+  <li><b>会計単体で見れば MF会計Plus でも足りる。</b>仕訳の登録・取得・修正・削除と取引先の登録が API でできるので、基幹システムから仕訳を流し込む用途は成立する。</li>
+  <li><b>詰まるのは周辺。</b>勘定科目や部門を増やすたびに人が画面で登録する必要があり、人事・勤怠・給与を独自システムと双方向に同期する経路が実質ない。</li>
+  <li><b>AIエージェントに業務を任せる前提なら、現時点では freee。</b>MCP が公開済みで対象領域が広く、会計以外（人事労務・請求・工数・販売）まで同じ仕組みで触れる。</li>
+  <li><b>ただし MF は会計Plus の MCP を年内予定としている。</b>導入時期が2027年以降なら、この差は縮む可能性がある。選定時に最新状況の再確認が要る。</li>
+</ul>
+
+<h2 id="ai"><span class="n">02</span>AIによる自動入力・出力</h2>
+<p class="sub">「デフォルトでどこまでできるか」を、標準搭載のAI機能と、AIエージェント（MCP）連携に分けて見る。</p>
+
+<div class="tw"><table>
+<colgroup><col><col class="c-mf"><col class="c-fr"></colgroup>
+<thead><tr><th>項目</th><th>MF クラウド会計Plus</th><th>freee</th></tr></thead>
+<tbody>
+<tr>
+  <td class="item">AI-OCRによる証憑の自動仕訳</td>
+  <td><span class="j ok">標準</span>請求書・領収書を読み取り自動仕訳。クラウドBoxと連携<small>電帳法・インボイス対応として提供</small></td>
+  <td><span class="j ok">標準</span>ファイルボックスに証憑を入れると自動で仕訳候補を生成</td>
+</tr>
+<tr>
+  <td class="item">銀行・カード明細の自動取込と自動仕訳</td>
+  <td><span class="j ok">標準</span>銀行連携あり。学習による勘定科目推測</td>
+  <td><span class="j ok">標準</span>同様に自動同期・推測・自動登録ルール</td>
+</tr>
+<tr>
+  <td class="item">AIエージェント連携（MCPサーバー）</td>
+  <td><span class="j pt">製品による</span><b>クラウド会計（SMB版）は 2026-03-26 に全プランでリモートMCP提供開始</b>。追加料金なし。<small>会計Plus を対象と名指しした公式情報は確認できず。MF回答では「会計plusのMCP公開は2026年中を想定」</small></td>
+  <td><span class="j ok">提供中</span><b>freee-mcp を 2026-03-02 に OSS公開（Apache-2.0）</b>。会計・人事労務・請求書・工数管理・販売の5領域、約270API。リモート接続（mcp.freee.co.jp/mcp）にも対応<small>公式サイトでは7領域・380超APIと記載。認証は OAuth 2.0 + PKCE</small></td>
+</tr>
+<tr>
+  <td class="item">MCP経由でできる操作の範囲</td>
+  <td><span class="j pt">会計に限定</span>仕訳の参照・登録・更新、残高試算表・推移表の取得、勘定科目／補助科目／取引先／部門／税区分の取得、入出金明細の作成<small>Copilot Cowork 経由では仕訳の新規作成・更新・入出金明細作成は不可</small></td>
+  <td><span class="j ok">広い</span>会計以外の領域も同じ仕組みで操作可能。取引先登録から請求書発行までを一連で自動実行できる</td>
+</tr>
+<tr>
+  <td class="item">自律型AIサービス</td>
+  <td><span class="j pt">提供予定</span>『マネーフォワード AI Cowork』を 2026年7月提供開始予定として発表（4月時点）<small>MCPの設定・管理を不要にし、AIがバックオフィス業務を自律遂行する位置づけ</small></td>
+  <td><span class="j pt">対象限定</span>『freee顧問先管理｜AIエージェント』を 2026-09-15 提供開始。記帳・月次チェック・申告書チェックの各エージェント<small>会計事務所・税理士事務所向けであり、事業会社が自社で使うものではない</small></td>
+</tr>
+<tr>
+  <td class="item">AIが使うための前提</td>
+  <td><span class="j pt">条件あり</span>アプリポータル利用開始に「全権管理」権限が必要。OAuth と APIキーに対応<small>APIキー認証は Claude Desktop・Claude Web では未対応（2026年9月時点）。alpha URL は1時間ごとの再認証が必要</small></td>
+  <td><span class="j pt">条件あり</span>OSS 自体は無償だが会計ソフト本体の契約が必要。生成AIサービスは別途必要</td>
+</tr>
+</tbody></table></div>
+<div class="legend">
+  <span><span class="j ok">標準／可</span>追加開発なしで利用できる</span>
+  <span><span class="j pt">条件付き</span>一部のみ、または前提条件がある</span>
+  <span><span class="j ng">不可</span>提供されていない</span>
+  <span><span class="j un">要確認</span>公開情報で確証が取れていない</span>
+</div>
+
+<h2 id="api-acc"><span class="n">03</span>API連携｜会計領域</h2>
+<p class="sub">社内の独自システムから「登録・取得・検索・修正・削除」がどこまでできるか。MF列は同社回答、freee列は公開ドキュメントに基づく。</p>
+
+<div class="tw"><table>
+<colgroup><col><col class="c-mf"><col class="c-fr"></colgroup>
+<thead><tr><th>操作対象</th><th>MF クラウド会計Plus</th><th>freee</th></tr></thead>
+<tbody>
+<tr>
+  <td class="item">仕訳の新規登録</td>
+  <td><span class="j ok">可</span>API公開済み</td>
+  <td><span class="j ok">可</span>POST /api/1/deals、POST /api/1/manual_journals</td>
+</tr>
+<tr>
+  <td class="item">仕訳の取得・検索</td>
+  <td><span class="j ok">可</span></td>
+  <td><span class="j ok">可</span>GET（一覧・個別）</td>
+</tr>
+<tr>
+  <td class="item">仕訳の修正</td>
+  <td><span class="j ok">可</span></td>
+  <td><span class="j ok">可</span>PUT</td>
+</tr>
+<tr>
+  <td class="item">仕訳の削除・取消</td>
+  <td><span class="j ok">可</span></td>
+  <td><span class="j ok">可</span>DELETE /api/1/manual_journals/{id} ほか</td>
+</tr>
+<tr>
+  <td class="item">取引先の登録・修正・取得</td>
+  <td><span class="j ok">可</span>マスタの中で取引先だけは新規登録に対応</td>
+  <td><span class="j ok">可</span>GET / POST / PUT / DELETE</td>
+</tr>
+<tr>
+  <td class="item">勘定科目・補助科目マスタ</td>
+  <td><span class="j pt">取得のみ</span><b>取得はできるが新規登録は非対応。</b>今後開発予定とのこと</td>
+  <td><span class="j ok">可</span>POST /api/1/account_items で作成可能。GET / PUT / DELETE も提供</td>
+</tr>
+<tr>
+  <td class="item">部門・プロジェクト・タグ</td>
+  <td><span class="j pt">取得のみ</span>勘定科目と同じく取得のみ。<b>登録不可</b></td>
+  <td><span class="j ok">可</span>部門（sections）・品目（items）・メモタグ（tags）とも登録可能</td>
+</tr>
+<tr>
+  <td class="item">税区分マスタ</td>
+  <td><span class="j pt">取得のみ</span></td>
+  <td><span class="j pt">取得のみ</span>taxes は参照系</td>
+</tr>
+<tr>
+  <td class="item">添付ファイル・証憑</td>
+  <td><span class="j ok">可</span>証憑ファイルの取得機能あり。銀行連携と併用</td>
+  <td><span class="j ok">可</span>receipts のアップロード・取得</td>
+</tr>
+<tr>
+  <td class="item">決算・残高・試算表・元帳</td>
+  <td><span class="j ok">可</span></td>
+  <td><span class="j ok">可</span>reports 系（試算表など）</td>
+</tr>
+<tr>
+  <td class="item">請求書・支払・入出金</td>
+  <td><span class="j ok">可</span>証憑取得と銀行連携で対応。<b>請求書受領システム併用でFBデータ作成まで可能</b>（クラウド債務支払API）</td>
+  <td><span class="j pt">縮小あり</span><b>請求書・見積書の更新／削除（PUT・DELETE）と取得（GET）は廃止</b>された経緯がある。現行仕様を要確認<span class="j un">要確認</span></td>
+</tr>
+</tbody></table></div>
+
+<div class="note">
+  <b>読みどころ。</b>会計の中核（仕訳）はどちらも一通り揃っている。差が出るのは<b>マスタを外部から増やせるか</b>で、
+  MF会計Plus は取引先以外のマスタを API で作れない。新規事業・新拠点の立ち上げで部門やプロジェクトが頻繁に増える運用だと、
+  ここが手作業として残り続ける。逆に freee は請求書系 API を縮小した経緯があるため、請求書を API で回す設計なら現行仕様の確認が要る。
+</div>
+
+<h2 id="api-hr"><span class="n">04</span>API連携｜人事・勤怠・給与領域</h2>
+<p class="sub">「他システムを社員マスタの正本とし、自動で同期できるか」が論点。ここが両社で最も大きく割れる。</p>
+
+<div class="tw"><table>
+<colgroup><col><col class="c-mf"><col class="c-fr"></colgroup>
+<thead><tr><th>操作対象</th><th>MF クラウド会計Plus / 労務系</th><th>freee</th></tr></thead>
+<tbody>
+<tr>
+  <td class="item">外部公開APIの有無</td>
+  <td><span class="j ng">限定的</span><b>労務領域で外部APIを公開しているのは「勤怠Plus」のみ。</b>
+  人事・給与は自社製品または提携済み他社製品とのAPI連携で対応する方式<small>連携可能な人事DB・勤怠システムは同社『HRソリューション』資料 p22 に記載</small></td>
+  <td><span class="j ok">あり</span>人事労務APIを公開（従業員情報・勤怠・給与明細・賞与明細）</td>
+</tr>
+<tr>
+  <td class="item">社員情報の登録・修正・取得</td>
+  <td><span class="j ng">不可</span>外部システムから直接の同期経路がない<small>提携済みの人事DBを経由する形になる</small></td>
+  <td><span class="j ok">可</span>employees 系API。他システムを正本とした同期の余地あり</td>
+</tr>
+<tr>
+  <td class="item">勤怠実績の外部からの登録</td>
+  <td><span class="j pt">勤怠Plusのみ</span>勤怠Plus の API 経由なら可能</td>
+  <td><span class="j ok">可</span>work_records。複数回打刻は work_record_segments で対応</td>
+</tr>
+<tr>
+  <td class="item">給与計算の実行</td>
+  <td><span class="j ng">不可</span>外部APIが公開されていないため、API経由での実行はできない</td>
+  <td><span class="j un">要確認</span>公開APIは明細・賞与などの<b>取得が中心</b>で、計算処理そのものを外部から起動できるかは公開情報で確証が取れない</td>
+</tr>
+<tr>
+  <td class="item">給与・賞与明細の取得</td>
+  <td><span class="j ng">不可</span>同上</td>
+  <td><span class="j ok">可</span>給与明細・賞与明細APIを公開済み</td>
+</tr>
+<tr>
+  <td class="item">給与計算結果の会計仕訳への連携</td>
+  <td><span class="j pt">製品間連携</span>MF製品同士なら連携。外部システム起点は不可</td>
+  <td><span class="j ok">可</span>freee人事労務と freee会計の連携。API でも仕訳を投入可能</td>
+</tr>
+<tr>
+  <td class="item">社会保険・雇用保険・税のデータ</td>
+  <td><span class="j ng">不可</span>外部API非公開</td>
+  <td><span class="j un">要確認</span>明細に含まれる範囲は取得可能と思われるが、個別項目の粒度は要確認</td>
+</tr>
+</tbody></table></div>
+
+<div class="note warn">
+  <b>ここが実質的な分岐点。</b>「他システムを社員マスタの正本にして自動同期したい」という要件に対して、
+  MF は<b>そもそも外部APIが無いので要件を満たせない</b>（勤怠Plusを除く）。提携済み製品の組み合わせに寄せる前提になる。
+  独自システムを正本にする構想があるなら、この一点だけで選定結果が変わりうる。
+</div>
+
+<h2 id="infra"><span class="n">05</span>連携基盤（認証・制限・通知）</h2>
+
+<div class="tw"><table>
+<colgroup><col><col class="c-mf"><col class="c-fr"></colgroup>
+<thead><tr><th>項目</th><th>MF クラウド会計Plus</th><th>freee</th></tr></thead>
+<tbody>
+<tr>
+  <td class="item">API仕様書</td>
+  <td><span class="j ok">公開</span>会計Plus API仕様書（v3）／クラウド債務支払API／開発者サイト</td>
+  <td><span class="j ok">公開</span>会計・人事労務それぞれのAPIリファレンス。Postman コレクションもあり</td>
+</tr>
+<tr>
+  <td class="item">認証方式</td>
+  <td><span class="j ok">OAuth / APIキー</span>MCP は OAuth と APIキーに対応。複数事業者利用時は APIキー推奨</td>
+  <td><span class="j ok">OAuth 2.0</span>MCP は OAuth 2.0 + PKCE</td>
+</tr>
+<tr>
+  <td class="item">レート制限</td>
+  <td><span class="j un">要確認</span>回答に含まれていない。仕様書での確認が必要<small>MCP経由の仕訳登録数は有償プランの制限に準じる、との記載あり</small></td>
+  <td><span class="j ok">公開</span>同一IPから概ね5リクエスト/秒。/reports は10/秒、証憑ダウンロードは3/秒。超過時 429 と x-ratelimit-* ヘッダを返す</td>
+</tr>
+<tr>
+  <td class="item">Webhook（変更通知）</td>
+  <td><span class="j un">要確認</span>回答に含まれていない</td>
+  <td><span class="j pt">β提供</span>各種申請操作の際に外部アプリへ通知する Webhook をβ版で提供</td>
+</tr>
+<tr>
+  <td class="item">CSV・ファイル連携</td>
+  <td><span class="j ok">可</span>従来どおり利用可能</td>
+  <td><span class="j ok">可</span>API とCSVインポートを併用する構成が一般的</td>
+</tr>
+<tr>
+  <td class="item">サポート範囲</td>
+  <td><span class="j pt">限定</span>API・MCPサーバーの仕様や実装に関する問い合わせは<b>原則対応なし</b></td>
+  <td><span class="j pt">限定</span>OSSのため自己解決前提。開発者コミュニティあり</td>
+</tr>
+</tbody></table></div>
+
+<h2 id="gap"><span class="n">06</span>「画面ではできるが API ではできない」一覧</h2>
+<p class="sub">今回いちばん知りたかった論点。自動化の設計時に人手が残る箇所としてそのまま読める。</p>
+
+<div class="tw"><table>
+<colgroup><col style="width:24%"><col><col style="width:22%"></colgroup>
+<thead><tr><th>製品</th><th>APIでできないこと</th><th>影響</th></tr></thead>
+<tbody>
+<tr><td class="item">MF会計Plus</td><td>勘定科目・補助科目の新規登録</td><td>科目追加は画面作業として残る</td></tr>
+<tr><td class="item">MF会計Plus</td><td>部門・プロジェクト・タグの新規登録</td><td>組織変更・新規案件のたびに手作業</td></tr>
+<tr><td class="item">MF会計Plus</td><td>税区分マスタの登録・変更</td><td>制度改正時はベンダー対応待ち</td></tr>
+<tr><td class="item">MF 労務系</td><td>社員情報の登録・修正（外部から）</td><td>社員マスタを独自システムで正本管理できない</td></tr>
+<tr><td class="item">MF 労務系</td><td>給与計算の実行、計算結果の取得</td><td>給与まわりの自動化は提携製品の枠内に限られる</td></tr>
+<tr><td class="item">MF会計Plus</td><td>会計Plus での MCP 利用（2026-09時点）</td><td>AIエージェント活用は年内の提供待ち</td></tr>
+<tr><td class="item">freee</td><td>請求書・見積書の更新／削除／取得</td><td>過去に廃止。請求書をAPIで回す設計は要再確認</td></tr>
+<tr><td class="item">freee</td><td>税区分マスタの登録</td><td>参照のみ。MFと同条件</td></tr>
+<tr><td class="item">freee</td><td>給与計算処理そのものの外部起動<span class="j un">要確認</span></td><td>確証なし。ベンダー確認が必要</td></tr>
+</tbody></table></div>
+
+<h2 id="todo"><span class="n">07</span>次にやること</h2>
+<p class="sub">この比較を確定させるために埋めるべき穴。</p>
+<ul class="pts">
+  <li><b>freee に同じ質問状を送る。</b>今回 freee 側は公開情報のみで、ベンダー回答がない。MF に投げたものと同じ設問で回答を取れば、同じ土俵で比較できる。</li>
+  <li><b>MF に追加で確認する。</b>①API のレート制限・件数上限 ②Webhook の有無 ③会計Plus の MCP 提供時期の確度 ④取引先以外のマスタ登録APIの開発時期 ⑤システム間で共通利用できるID体系の有無。いずれも今回の回答に含まれていない。</li>
+  <li><b>人事・勤怠・給与の要件を先に固める。</b>ここが最も差が大きい。独自システムを社員マスタの正本にするのかどうかを決めれば、選定はかなり絞れる。</li>
+  <li><b>導入時期との突き合わせ。</b>MF会計Plus の MCP が年内に出るなら AI 面の差は縮む。2027年以降の稼働なら、現時点の差だけで判断しないほうがよい。</li>
+</ul>
+
+<h2><span class="n">08</span>出典</h2>
+<ol class="src">
+  <li>MF会計Plus API仕様書 — <a href="https://api-doc-enterprise-accounting.moneyforward.com/v3/index.html" target="_blank" rel="noopener">api-doc-enterprise-accounting.moneyforward.com</a></li>
+  <li>MF クラウド債務支払API — <a href="https://payable.moneyforward.com/api/index.html" target="_blank" rel="noopener">payable.moneyforward.com/api</a></li>
+  <li>マネーフォワード クラウド開発者サイト — <a href="https://developers.biz.moneyforward.com/" target="_blank" rel="noopener">developers.biz.moneyforward.com</a></li>
+  <li>『マネーフォワード クラウド会計』リモートMCPサーバー提供開始（2026-03-26） — <a href="https://corp.moneyforward.com/news/release/service/20260326-mf-press-1/" target="_blank" rel="noopener">corp.moneyforward.com</a></li>
+  <li>マネーフォワード クラウド会計MCPサーバーについて（サポート） — <a href="https://biz.moneyforward.com/support/account/guide/others/ot10.html" target="_blank" rel="noopener">biz.moneyforward.com</a></li>
+  <li>『マネーフォワード AI Cowork』2026年7月提供開始予定 — <a href="https://corp.moneyforward.com/news/release/service/20260407-mf-press-1/" target="_blank" rel="noopener">corp.moneyforward.com</a></li>
+  <li>freee 会計APIリファレンス — <a href="https://developer.freee.co.jp/reference/accounting" target="_blank" rel="noopener">developer.freee.co.jp/reference/accounting</a></li>
+  <li>freee 人事労務APIリファレンス — <a href="https://developer.freee.co.jp/reference/hr" target="_blank" rel="noopener">developer.freee.co.jp/reference/hr</a></li>
+  <li>freee-mcp を OSS として公開（2026-03-02） — <a href="https://corp.freee.co.jp/news/20260302freee_mcp.html" target="_blank" rel="noopener">corp.freee.co.jp</a></li>
+  <li>freee MCP 製品ページ — <a href="https://www.freee.co.jp/ai/mcp/" target="_blank" rel="noopener">freee.co.jp/ai/mcp</a></li>
+  <li>freee会計API「請求書」「見積書」の更新・削除・取得の廃止について — <a href="https://developer.freee.co.jp/news/7169" target="_blank" rel="noopener">developer.freee.co.jp/news/7169</a></li>
+  <li>会計freee Webhook β版リリース — <a href="https://corp.freee.co.jp/news/webhook_Betaversion.html" target="_blank" rel="noopener">corp.freee.co.jp</a></li>
+</ol>
+
+<footer>
+  作成 2026-09-26／MF欄は同社からの個別回答、freee欄は公開情報に基づく調査。<br>
+  freee のベンダー回答取得後に更新すること。判定は当社の要件（上場・約300名・複数事業・独自システム連携）を前提とした読みであり、一般的な製品優劣を示すものではない。
+</footer>
+
+</div>
+</body></html>
