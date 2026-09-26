@@ -109,6 +109,7 @@ var COLORS=['#f87171','#fb923c','#fbbf24','#a3e635','#34d399','#2dd4bf','#60a5fa
 // 旧形式 cost-review-dots:<ファイル名> は読むだけで消さない (初回に新しいキーへ写す)
 var PAGE=(location.pathname.split('/').pop()||'').replace('.html','');
 var KEY='cost-review-colors:'+PAGE;
+var SYNC="https://script.google.com/macros/s/AKfycbwftKcGwvgCBMJ3GIUoPtx2u9hf61ni7eOheqA9B20J7DGdU1Emj_ByjuziE-Vgt7NG/exec";
 function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')||{};}catch(e){return {};}}
 var saved=load(KEY);
 var old=Object.assign({},load('cost-review-dots:'+PAGE),load('cost-review-dots:'+PAGE+'.html'));
@@ -146,9 +147,42 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   });
   if(moved)save();
+  var push=function(){};
   // 色の件数 (このブラウザ)。「保存」より「表示」が少なければ、どこかの行と対応が取れていない
   var ft=document.querySelector('footer');
   if(ft){var st=document.createElement('div');st.className='dotstat';st.textContent='行の色 (このブラウザに保存): 表示 '+shown+'件 / 保存 '+Object.keys(saved).length+'件'+(Object.keys(old).length?' (旧形式 '+Object.keys(old).length+'件から引き継ぎ)':'');ft.appendChild(st);}
+  // 行の色の共有 (Google スプレッドシート。gas/Code.gs) 2026-09-27
+  // ・開いたらシートの色を読んで表示する (シートを正とする)
+  // ・このブラウザで初めて共有につないだときだけ、ブラウザにしか無い色をシートへ送る (今までの色の引き継ぎ)。
+  //   2回目からは送らない (他の人が消した色を、古いブラウザの保存で戻さないため)
+  // ・色を変えるたびに、その1件を送る。送れなくてもブラウザには保存してある
+  if(SYNC){
+    var SYNCED='cost-review-synced:'+PAGE;
+    // 件数は今の表示から数える (シートを読む前の件数のままにしない)
+    var setSync=function(t){if(st)st.textContent='行の色 (共有): 表示 '+document.querySelectorAll('.dot[data-c]').length+'件 / 共有: '+t;};
+    var dots={};[].forEach.call(document.querySelectorAll('.dot'),function(d){dots[d.dataset.k]=d;});
+    push=function(items){
+      if(!items.length)return Promise.resolve(true);
+      return fetch(SYNC,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({page:PAGE,items:items})})
+        .then(function(r){return r.json();}).then(function(j){if(!j.ok)setSync('保存に失敗 (このブラウザには保存済み)');return !!j.ok;})
+        .catch(function(){setSync('保存に失敗 (このブラウザには保存済み)');return false;});
+    };
+    setSync('読み込み中…');
+    fetch(SYNC+'?page='+encodeURIComponent(PAGE)).then(function(r){return r.json();}).then(function(j){
+      var m=j.marks||{};var first=true;try{first=!localStorage.getItem(SYNCED);}catch(e){}
+      // 初めてつなぐ前の色の控え (万一のときに戻せるように。消さない)
+      if(first){try{if(!localStorage.getItem('cost-review-backup:'+PAGE))localStorage.setItem('cost-review-backup:'+PAGE,JSON.stringify(saved));}catch(e){}}
+      var up=[],n=0;
+      for(var k in dots){
+        if(m[k]){paint(dots[k],m[k]);saved[k]=m[k];n++;}
+        else if(saved[k]){if(first){up.push({key:k,color:saved[k]});n++;}else{paint(dots[k],'');delete saved[k];}}
+      }
+      save();setSync(n+'件'+(up.length?' (このブラウザの '+up.length+'件を引き継ぎ中…)':''));
+      // 引き継ぎ済みの印は、送れたのを確かめてから付ける (送れないまま印を付けると、次に開いたとき自分の色が消える)
+      push(up).then(function(ok){if(!ok)return;try{localStorage.setItem(SYNCED,'1');}catch(e){}setSync(n+'件'+(up.length?' (このブラウザの '+up.length+'件を引き継いだ)':''));});
+    }).catch(function(){setSync('読めなかった (このブラウザの色を表示)');});
+  }
+
   // 表をコピー (スプレッドシートに貼れる形) 2026-09-27
   // ●の色は番号 01〜10 (COLORS の順) に置き換え、貼り付け先のセルにも同じ背景色を付ける。
   // 親の略称は「所属」列に分ける。金額は単位がそろった列だけ数値にして、単位を見出しに移す (計算できるように)
@@ -215,7 +249,7 @@ document.addEventListener('DOMContentLoaded',function(){
   function open(d){cur=d;var r=d.getBoundingClientRect();pal.style.display='flex';var x=r.left,y=r.bottom+6;if(x+pal.offsetWidth>innerWidth-8)x=innerWidth-pal.offsetWidth-8;if(y+pal.offsetHeight>innerHeight-8)y=r.top-pal.offsetHeight-6;pal.style.left=x+'px';pal.style.top=y+'px';}
   document.addEventListener('click',function(ev){
     var d=ev.target.closest&&ev.target.closest('.dot');if(d){ev.stopPropagation();open(d);return;}
-    var b=ev.target.closest&&ev.target.closest('.pal button');if(b&&cur){var c=b.dataset.c;paint(cur,c);if(c)saved[cur.dataset.k]=c;else delete saved[cur.dataset.k];save();pal.style.display='none';cur=null;return;}
+    var b=ev.target.closest&&ev.target.closest('.pal button');if(b&&cur){var c=b.dataset.c;paint(cur,c);if(c)saved[cur.dataset.k]=c;else delete saved[cur.dataset.k];save();push([{key:cur.dataset.k,color:c||''}]);pal.style.display='none';cur=null;return;}
     if(!(ev.target.closest&&ev.target.closest('.pal'))){pal.style.display='none';cur=null;}
   });
   document.addEventListener('keydown',function(ev){var d=ev.target.closest&&ev.target.closest('.dot');if(d&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();open(d);}if(ev.key==='Escape'){pal.style.display='none';cur=null;}});
