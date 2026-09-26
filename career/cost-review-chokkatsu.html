@@ -95,6 +95,7 @@ tr:hover .dot:not([data-c]){border-color:var(--line2)}
 .pal{position:fixed;z-index:210;display:none;gap:7px;flex-wrap:wrap;width:188px;padding:10px;background:#20252d;border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45)}
 .pal button{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
 .pal button:hover,.pal button:focus-visible{border-color:var(--wh);outline:none}
+.dotstat{margin-top:6px;font-size:11.5px;color:var(--dim)}
 .cpbar{display:flex;justify-content:flex-end;margin:0 0 -4px}
 .cpbtn{font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:3px 10px;cursor:pointer}
 .cpbtn:hover,.cpbtn:focus-visible{color:var(--wh);border-color:var(--grn-d);outline:none}
@@ -104,8 +105,13 @@ tr:hover .dot:not([data-c]){border-color:var(--line2)}
 (function(){
 var G=[["直近差","予算 − 直近ペース (年額)。赤 = 予算で増える / 緑 = 予算で減る。「同じ範囲の前期」がある表では、予算 − 同じ範囲の前期。"],["同じ範囲の前期","前期の実績を、来期の組織の範囲にそろえ直した直近ペース。来期は看護・保育が事業推進本部、介護が事業本部に分かれるため、前期の支店の数字を売上の比率で振り分け、コードの取り違え (C821・B001) も直した推定値。"],["直近ペース","前期の直近3か月 (26/06〜08) の月平均 × 12。最近の水準を1年分に延ばした値。直近3か月に一時的な費用 (6月の賞与など) があると引っ張られる。"],["11か月換算","前期11か月 (25/10〜26/08) の合計 ÷ 11 × 12。季節の波や一時的な費用をならした水準。年の途中の組織・人数の変化は薄まる。"],["実績比","来期予算 − 前期実績の年換算。"],["削減の目安","年額の概算の幅。公開相場・前期実績からの目安で見積ではない。候補どうしで重なるものがある。"],["今の支出","直近の実績を年額にした値。"],["実績 (年","前期実績の年額。科目の合計は PL 11か月 × 12/11、取引先別は仕訳10か月 (2026-06 は仕訳未着) × 12/10。"],["支出 (11か月)","勘定奉行の仕訳の広告宣伝費 (取引先別、25/10〜26/08)。"],["新規稼働1人あたり","広告費 ÷ 新規稼働 (応募から60日以内に初めて勤務した人)。広告の効率の目安。"],["1人あたり","人件費予算 ÷ 人数。"],["FIX率","FIX した人 ÷ 応募人数。応募から30日以内に FIX した人で数える。"],["応募単価","広告費 ÷ 応募人数。"],["新規稼働","応募から60日以内に初めて勤務した人数 (ORDIA の勤怠)。26/07・08 の応募はまだ60日たっておらず今後増える。"],["8月在籍","2026年8月に給与が出た人数 (給与奉行)。派遣は含まない。"],["10/1 組織図","20261001_組織図 (人員配置表) に載っている人数。取締役は載っていない。"],["うち管理職","10/1 組織図の支店長・課長・UM・GM・DM の人数。"],["予算人員","予算シートの予算人員 (12か月の平均)。SC・SW などは元シートが未入力。"],["人件費予算","来期予算の人員関連費 (年)。"],["営業利益率","来期予算の営業利益 ÷ 来期予算の売上。"],["判定","必須 = 削れない / 見直し余地あり = 単価・契約の見直し / 削減候補 = やめる・大きく減らす / 要確認 = 中身の確認が先 / 少額 = 対象外。"],["推移","前期の月別の動き (前半と後半の比べなど)。"],["予算","来期予算 (26/10〜27/09) の12か月の合計。"],["差","来期予算 − 前期実績の年換算。赤 = 予算で増える / 緑 = 予算で減る。"]];
 var COLORS=['#f87171','#fb923c','#fbbf24','#a3e635','#34d399','#2dd4bf','#60a5fa','#818cf8','#c084fc','#f472b6'];
-var KEY='cost-review-dots:'+location.pathname.split('/').pop();
-var saved={};try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){}
+// 色の保存先 (2026-09-27 作り替え): ページ名から .html を外した名前で1つ (GitHub Pages は .html なしの URL でも開けるため)。
+// 旧形式 cost-review-dots:<ファイル名> は読むだけで消さない (初回に新しいキーへ写す)
+var PAGE=(location.pathname.split('/').pop()||'').replace('.html','');
+var KEY='cost-review-colors:'+PAGE;
+function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')||{};}catch(e){return {};}}
+var saved=load(KEY);
+var old=Object.assign({},load('cost-review-dots:'+PAGE),load('cost-review-dots:'+PAGE+'.html'));
 function save(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}}
 document.addEventListener('DOMContentLoaded',function(){
   var box=document.createElement('div');box.className='tipbox';document.body.appendChild(box);
@@ -120,15 +126,29 @@ document.addEventListener('DOMContentLoaded',function(){
   var clr=document.createElement('button');clr.type='button';clr.className='clr';clr.textContent='色を消す';clr.dataset.c='';pal.appendChild(clr);
   document.body.appendChild(pal);var cur=null;
   function paint(d,c){if(c){d.style.background=c;d.setAttribute('data-c',c);}else{d.style.background='';d.removeAttribute('data-c');}}
+  // 行のキー = 表の見出し (直前の h2/h3/summary。id があれば id、無ければ数字を除いた文字) + 同じ見出しの中で何番目の表
+  //   + 先頭セル (data-k があればそれ) + 最初の文字の欄 (科目・何の費用か など。更新で変わるメモ欄は使わない)。同じものが複数あれば #n。
+  // 旧キー (表の番号|先頭セル#n) は表の追加・行の並べ替えでずれるので使わない。旧キーで保存された色は初回に写す
+  var heads=[].slice.call(document.querySelectorAll('h2,h3,summary'));var hn={};var moved=0,shown=0;
   document.querySelectorAll('table').forEach(function(tb,ti){
-    var seen={};
+    var h='';for(var i=heads.length-1;i>=0;i--){if(heads[i].compareDocumentPosition(tb)&4){h=heads[i].id||heads[i].textContent.replace(/[0-9,.]/g,'').trim().slice(0,40);break;}}
+    hn[h]=(hn[h]||0)+1;var tid=h+'#'+hn[h];
+    var seen={},seen2={};
     tb.querySelectorAll('tbody tr').forEach(function(tr){
-      var td=tr.querySelector('td');if(!td)return;
-      var k=ti+'|'+(td.getAttribute('data-k')||td.textContent).trim().slice(0,80);seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
-      var d=document.createElement('span');d.className='dot';d.tabIndex=0;d.setAttribute('role','button');d.setAttribute('aria-label','行の色を選ぶ');d.dataset.k=k;
-      if(saved[k])paint(d,saved[k]);td.insertBefore(d,td.firstChild);
+      var tds=tr.querySelectorAll('td');var td=tds[0];if(!td)return;
+      var first=(td.getAttribute('data-k')||td.textContent).trim().slice(0,80);
+      var k=ti+'|'+first;seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
+      var sub='';for(var j=1;j<tds.length;j++){if(!tds[j].classList.contains('num')&&!tds[j].classList.contains('memo')){sub=tds[j].textContent.trim().slice(0,40);break;}}
+      var k2=tid+'|'+first+'|'+sub;seen2[k2]=(seen2[k2]||0)+1;if(seen2[k2]>1)k2+='#'+seen2[k2];
+      if(!saved[k2]&&old[k]){saved[k2]=old[k];moved++;}
+      var d=document.createElement('span');d.className='dot';d.tabIndex=0;d.setAttribute('role','button');d.setAttribute('aria-label','行の色を選ぶ');d.dataset.k=k2;
+      if(saved[k2]){paint(d,saved[k2]);shown++;}td.insertBefore(d,td.firstChild);
     });
   });
+  if(moved)save();
+  // 色の件数 (このブラウザ)。「保存」より「表示」が少なければ、どこかの行と対応が取れていない
+  var ft=document.querySelector('footer');
+  if(ft){var st=document.createElement('div');st.className='dotstat';st.textContent='行の色 (このブラウザに保存): 表示 '+shown+'件 / 保存 '+Object.keys(saved).length+'件'+(Object.keys(old).length?' (旧形式 '+Object.keys(old).length+'件から引き継ぎ)':'');ft.appendChild(st);}
   // 表をコピー (スプレッドシートに貼れる形) 2026-09-27
   // ●の色は番号 01〜10 (COLORS の順) に置き換え、貼り付け先のセルにも同じ背景色を付ける。
   // 親の略称は「所属」列に分ける。金額は単位がそろった列だけ数値にして、単位を見出しに移す (計算できるように)
