@@ -71,7 +71,10 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 .j.dim{background:var(--panel2);color:var(--mut);border:1px solid var(--line2)}
 .up{color:var(--red);font-weight:650} .down{color:var(--grn);font-weight:650}
 td.num,th.num{text-align:right;white-space:nowrap;font-feature-settings:"tnum" 1}
-table.v{min-width:1080px} .par{font-size:11px;color:var(--dim);margin-right:5px;white-space:nowrap} table.v td{font-size:13px} table.v td.item{width:17%} table.v td.item.h{width:auto;white-space:nowrap} table.v td.item.h+td{min-width:7em}
+/* 表は画面幅に押し込まない (列幅は table-layout.js が中身の文字数で決める。はみ出しは .tw の横スクロール) */
+table{width:auto;min-width:100%}
+/* 表の枠の中で横スクロールさせると、長い表ではスクロールバーが表の一番下にしか出ない → 枠を表に合わせて伸ばし、ページ (ブラウザ) の横スクロールで見る 2026-09-27 */
+.tw{overflow-x:visible;width:max-content;min-width:100%} .par{font-size:11px;color:var(--dim);margin-right:5px;white-space:nowrap} table.v td{font-size:13px}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px;margin:22px 0 8px}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .kpi .k{font-size:11px;color:var(--dim);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
@@ -92,7 +95,6 @@ tr:hover .dot:not([data-c]){border-color:var(--line2)}
 .pal{position:fixed;z-index:210;display:none;gap:7px;flex-wrap:wrap;width:188px;padding:10px;background:#20252d;border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45)}
 .pal button{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
 .pal button:hover,.pal button:focus-visible{border-color:var(--wh);outline:none}
-td.memo{min-width:300px} table.v td.item[data-k]{min-width:13em}
 .cpbar{display:flex;justify-content:flex-end;margin:0 0 -4px}
 .cpbtn{font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:3px 10px;cursor:pointer}
 .cpbtn:hover,.cpbtn:focus-visible{color:var(--wh);border-color:var(--grn-d);outline:none}
@@ -173,6 +175,21 @@ document.addEventListener('DOMContentLoaded',function(){
     var b=document.createElement('button');b.type='button';b.className='cpbtn';b.textContent='表をコピー';b.setAttribute('aria-label','この表をスプレッドシート用にコピー');
     b.addEventListener('click',function(ev){ev.stopPropagation();copyTable(tb,b);});
     bar.appendChild(b);box.parentNode.insertBefore(bar,box);
+  });
+
+  // 表の列幅を中身の文字数で決める (2026-09-27 Ichiro「無理に横幅をそろえず横に伸ばす。表としてきれいなほうが大事」)
+  // 画面幅に押し込むと 理由・メモの列が細くなり、行が縦に長くなる → 短い列は折り返さず、
+  // 長い文の列は 90% の行が2〜3行・いちばん長い行も5行前後に収まる幅を確保する (上限 42em)。取引先名など32文字までの列は折り返さない。はみ出した分は .tw の横スクロールで見る
+  document.querySelectorAll('table').forEach(function(tb){
+    var ths=tb.querySelectorAll('thead th');if(!ths.length)return;
+    var rows=[].map.call(tb.querySelectorAll('tbody tr'),function(tr){return tr.querySelectorAll('td');});
+    [].forEach.call(ths,function(th,j){
+      var lens=rows.map(function(tds){return tds[j]?tds[j].textContent.replace(/\s+/g,' ').trim().length:0;}).sort(function(a,b){return a-b;});
+      var mx=lens.length?lens[lens.length-1]:0,p90=lens.length?lens[Math.floor((lens.length-1)*0.9)]:0;
+      if(mx<=32){th.style.whiteSpace='nowrap';rows.forEach(function(tds){if(tds[j])tds[j].style.whiteSpace='nowrap';});return;}
+      var em=Math.max(12,Math.min(42,Math.max(Math.round(p90/2.5),Math.round(mx/5))));
+      th.style.width=em+'em';th.style.minWidth=em+'em';
+    });
   });
 
   function open(d){cur=d;var r=d.getBoundingClientRect();pal.style.display='flex';var x=r.left,y=r.bottom+6;if(x+pal.offsetWidth>innerWidth-8)x=innerWidth-pal.offsetWidth-8;if(y+pal.offsetHeight>innerHeight-8)y=r.top-pal.offsetHeight-6;pal.style.left=x+'px';pal.style.top=y+'px';}
