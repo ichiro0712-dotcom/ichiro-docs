@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>販管費5項目の支払先レビュー｜キャリア</title>
+<style>
+:root{--bg:#0e1013;--panel:#15181d;--panel2:#1b1f26;--line:#272c34;--line2:#333a44;
+ --tx:#d7dce3;--mut:#8b95a3;--dim:#5d6776;--wh:#f4f6f9;--grn:#34d399;--grn-d:#0f8f6b;--grn-soft:#16241f;
+ --red:#f87171;--red-soft:#241618;--amb:#fbbf24;--amb-soft:#241f14;--blu:#60a5fa;--blu-soft:#141d2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic Medium",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-feature-settings:"tnum" 1,"lnum" 1;-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px 90px}
+.navbar{position:sticky;top:0;z-index:50;background:rgba(14,16,19,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.navbar-in{max-width:1180px;margin:0 auto;padding:0 26px;height:54px;display:flex;align-items:center;gap:22px}
+.brand{font-size:13px;font-weight:700;color:var(--wh);white-space:nowrap}
+.brand span{color:var(--dim);font-weight:500;margin-left:6px}
+.navbar nav{margin-left:auto;display:flex;gap:18px;overflow-x:auto}
+.navbar nav a{font-size:12.5px;color:var(--mut);text-decoration:none;font-weight:600;white-space:nowrap;padding:18px 0}
+.navbar nav a:hover{color:var(--wh)}
+header.hero{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+h1{font-size:27px;line-height:1.35;margin:0 0 12px;color:var(--wh);letter-spacing:.01em}
+.lede{font-size:14.5px;color:var(--mut);max-width:78ch;margin:0 0 18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+h2{font-size:18.5px;color:var(--wh);margin:52px 0 6px;letter-spacing:.01em}
+h2 .n{color:var(--grn);font-size:13px;font-weight:700;margin-right:9px;font-feature-settings:"tnum" 1}
+h3{font-size:15px;color:var(--wh);margin:30px 0 8px}
+.sub{font-size:13.5px;color:var(--mut);margin:0 0 16px;max-width:82ch}
+p{font-size:14px;max-width:82ch}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blu);border-radius:8px;padding:14px 17px;margin:18px 0;font-size:13.5px;color:var(--mut)}
+.note.warn{border-left-color:var(--amb)}
+.note.good{border-left-color:var(--grn)}
+.note b{color:var(--wh);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:13px;margin:22px 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 17px}
+.card .k{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:7px}
+.card .v{font-size:14.5px;color:var(--wh);font-weight:600;line-height:1.5;margin-bottom:6px}
+.card .d{font-size:12.5px;color:var(--mut);line-height:1.55}
+.tw{overflow-x:auto;margin:14px 0 6px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+/* thead は sticky にしない。overflow-x:auto のラッパー内だと
+   スクロールコンテナが .tw になり、ヘッダーが下にずれて本文行に重なるため */
+thead th{background:var(--panel2);color:var(--wh);font-size:12px;font-weight:700;border-bottom:2px solid var(--line2)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#181c22}
+td.item{color:var(--wh);font-weight:600}
+td small{display:block;color:var(--dim);font-size:11.5px;font-weight:400;margin-top:3px;line-height:1.5}
+/* ○△× マーク */
+.m{display:inline-block;width:22px;text-align:center;font-size:15px;font-weight:700;line-height:1}
+.m.o{color:var(--grn)} .m.t{color:var(--amb)} .m.x{color:var(--red)}
+table.auto{min-width:840px}
+table.auto td.mk{width:7%;text-align:center;white-space:nowrap}
+table.auto td.item{width:26%}
+.j{display:inline-block;font-size:11.5px;font-weight:700;border-radius:5px;padding:2px 7px;margin-right:7px;white-space:nowrap;vertical-align:1px}
+.j.ok{background:var(--grn-soft);color:var(--grn);border:1px solid #1d4d3d}
+.j.pt{background:var(--amb-soft);color:var(--amb);border:1px solid #4a3a16}
+.j.ng{background:var(--red-soft);color:var(--red);border:1px solid #4d2226}
+.j.un{background:var(--blu-soft);color:var(--blu);border:1px solid #1e3a5c}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0 0;font-size:12.5px;color:var(--mut)}
+ol.src{font-size:13px;color:var(--mut);padding-left:20px;max-width:88ch}
+ol.src li{margin-bottom:7px}
+a{color:var(--grn);text-decoration:none;border-bottom:1px solid rgba(52,211,153,.3)}
+a:hover{border-bottom-color:var(--grn)}
+ul.pts{font-size:14px;max-width:82ch;padding-left:20px}
+ul.pts li{margin-bottom:9px}
+ul.pts b{color:var(--wh);font-weight:600}
+pre.q{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:16px 18px;overflow-x:auto;font-size:12.5px;line-height:1.75;color:var(--tx);white-space:pre-wrap;font-family:"SFMono-Regular",Consolas,"Hiragino Kaku Gothic ProN",monospace}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim)}
+@media(max-width:700px){.wrap,.navbar-in{padding-left:16px;padding-right:16px}h1{font-size:21px}.navbar nav{display:none}}
+
+.j.dim{background:var(--panel2);color:var(--mut);border:1px solid var(--line2)}
+.up{color:var(--red);font-weight:650} .down{color:var(--grn);font-weight:650}
+td.num,th.num{text-align:right;white-space:nowrap;font-feature-settings:"tnum" 1}
+table.v{min-width:1080px} table.v td{font-size:13px} table.v td.item{width:17%}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px;margin:22px 0 8px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.kpi .k{font-size:11px;color:var(--dim);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.kpi .v{font-size:22px;color:var(--wh);font-weight:700;font-feature-settings:"tnum" 1}
+.kpi .d{font-size:12px;color:var(--mut);margin-top:4px}
+details{margin:10px 0}
+summary{cursor:pointer;color:var(--mut);font-size:13px}
+</style></head>
+<body>
+<div class="navbar"><div class="navbar-in">
+  <div class="brand">販管費レビュー<span>キャリア単体</span></div>
+  <nav><a href="#top">削減候補</a><a href="#comm">通信費・荷造運賃</a><a href="#facility">設備・投資関連費</a><a href="#outsourcing">業務委託費</a><a href="#fees">支払報酬</a><a href="#charges">支払手数料</a><a href="#limits">データの限界</a></nav>
+</div></div>
+<div class="wrap">
+<header class="hero">
+  <h1>販管費5項目 — 何に払っているか、必要か、安くできるか</h1>
+  <p class="lede">株式会社キャリア (単体) の 通信費・荷造運賃 / 設備・投資関連費 / 業務委託費 / 支払報酬 / 支払手数料 について、前期の実績を取引先とサービス内容の単位で洗い出し、必要度と代替案、削減の目安をまとめた。</p>
+  <div class="meta"><span class="chip">実績 2025-10〜2026-08 (年換算)</span><span class="chip">予算 26/10〜27/09</span><span class="chip">出典: 勘定奉行の仕訳・PL / MF 債務</span><span class="chip">作成 2026-09-26</span></div>
+  <div class="kpis">
+    <div class="kpi"><div class="k">5項目の実績 (年換算)</div><div class="v">65,997万円</div><div class="d">PL 11か月 × 12/11</div></div>
+    <div class="kpi"><div class="k">来期予算 (年)</div><div class="v">52,492万円</div><div class="d">実績より 13,505万円 少ない (家賃の計上漏れの疑いを含む)</div></div>
+    <div class="kpi"><div class="k">削減の目安 (上位14件)</div><div class="v">5,100〜12,280万円</div><div class="d">年額。見積ではなく公開相場からの目安</div></div>
+  </div>
+</header>
+
+<h2 id="top"><span class="n">01</span>削減候補 (金額の大きい順)</h2>
+<p class="sub">年額の目安。上から順に効果が大きい。各項目の詳細は下の科目別の表。</p>
+<div class="tw"><table><thead><tr><th>#</th><th>候補</th><th>科目</th><th class="num">今の支出 (年)</th><th class="num">削減の目安 (年)</th><th>確認すること</th></tr></thead><tbody>
+<tr><td>1</td><td class="item">都内2拠点 (本社 三軒茶屋キャロットタワー / 渋谷 MFPR) の統合検討</td><td>設備・投資関連費</td><td class="num">9,190万円</td><td class="num">1,000〜2,800万円</td><td>契約満了・解約予告期間、渋谷の空き席、移転・原状回復費</td></tr>
+<tr><td>2</td><td class="item">ネクスウェイ FAX 送信 (シニアケア) の単価見直し・メール/LINE への切替</td><td>支払手数料</td><td class="num">2,340万円</td><td class="num">500〜1,000万円</td><td>送信枚数×単価、8月の急減理由</td></tr>
+<tr><td>3</td><td class="item">管理本部の外部委託 (アスター・ケアラボ・思考合同会社・個人委託) の業務棚卸し</td><td>業務委託費</td><td class="num">4,400万円</td><td class="num">500〜1,400万円</td><td>成果物・稼働、業務の重複、関連当事者か</td></tr>
+<tr><td>4</td><td class="item">コンサル・Web 委託 (Lien・フルスピード) の成果確認と終了/成果報酬化</td><td>業務委託費</td><td class="num">2,230万円</td><td class="num">600〜1,600万円</td><td>成果指標、契約期間</td></tr>
+<tr><td>5</td><td class="item">Zoom を Google Meet に一本化</td><td>通信費</td><td class="num">1,110万円</td><td class="num">500〜900万円</td><td>契約種別 (Zoom Phone 等か)・ライセンス数</td></tr>
+<tr><td>6</td><td class="item">クラウド4社 (AWS / GCP / Azure+運用支援 / さくら) の集約・割引プラン適用</td><td>通信費・支払手数料・業務委託費</td><td class="num">3,750万円</td><td class="num">650〜1,500万円</td><td>各クラウドに載っているシステムの一覧</td></tr>
+<tr><td>7</td><td class="item">SMS (アクリート) の拠点別契約・基本料の整理と単価見直し</td><td>通信費</td><td class="num">1,660万円</td><td class="num">300〜600万円</td><td>通数・単価、LINE 移行の進み具合</td></tr>
+<tr><td>8</td><td class="item">Wunderbar タレント画像使用料 (月75万円) の広告効果確認</td><td>支払手数料</td><td class="num">450万円</td><td class="num">200〜450万円</td><td>契約期間と効果</td></tr>
+<tr><td>9</td><td class="item">電話 (インボイス一括請求) の回線棚卸し・プラン見直し</td><td>通信費</td><td class="num">1,390万円</td><td class="num">200〜400万円</td><td>回線数・未使用回線</td></tr>
+<tr><td>10</td><td class="item">銀行手数料 (振込・EB・API 振込) の見直し</td><td>支払手数料</td><td class="num">890万円</td><td class="num">150〜430万円</td><td>2026-02 の振込手数料 152万円の中身、API 振込 月15万円の必要性</td></tr>
+<tr><td>11</td><td class="item">重複 SaaS の整理 (LINE ツール4〜5社、営業リスト2社、日経テレコン2契約、formrun→Google フォーム、AI ツールの個人契約)</td><td>支払手数料・通信費・業務委託費</td><td class="num">800万円</td><td class="num">200〜450万円</td><td>契約一覧と利用者</td></tr>
+<tr><td>12</td><td class="item">郵便の電子化 (給与明細・帳票の Web 交付)</td><td>通信費</td><td class="num">900万円</td><td class="num">100〜250万円</td><td>郵送物の内訳</td></tr>
+<tr><td>13</td><td class="item">リスクモンスター (月26万円) を都度課金の信用調査に一本化</td><td>支払手数料</td><td class="num">320万円</td><td class="num">100〜200万円</td><td>検索件数</td></tr>
+<tr><td>14</td><td class="item">社用車 (リース・駐車場) の台数見直しとカーシェア併用</td><td>設備・投資関連費</td><td class="num">790万円</td><td class="num">100〜300万円</td><td>車両ごとの稼働</td></tr>
+</tbody></table></div>
+<div class="legend"><span><span class="j ok">必須</span> 削れない</span><span><span class="j pt">見直し余地あり</span> 単価・契約の見直し</span><span><span class="j ng">削減候補</span> やめる・大きく減らす</span><span><span class="j un">要確認</span> 中身の確認が先</span><span><span class="j dim">少額</span> 対象外</span></div>
+
+<h2 id="comm"><span class="n">02</span>通信費・荷造運賃</h2>
+<p class="sub">勘定科目: 727 通信費 / 720 荷造運賃</p>
+<div class="kpis">
+  <div class="kpi"><div class="k">実績 (年換算)</div><div class="v">7,347万円</div></div>
+  <div class="kpi"><div class="k">来期予算 (年)</div><div class="v">8,858万円</div><div class="d">実績比 <span class="up">+1,510万円</span></div></div>
+  <div class="kpi"><div class="k">削減の目安 (年)</div><div class="v">1,510〜3,165万円</div></div>
+</div>
+<div class="note"><b>要点</b><ul class="pts"><li>SMS (アクリート)・電話 (インボイス)・Zoom・AWS・郵便の5つで年換算の約8割。</li><li>Zoom は月約90万円をシニアケアDiv が Visa デビットで決済。Google Workspace の Meet と重複しており最大の削減候補。</li><li>SMS は 2026-04 以降急減し、HRモンスター (LINE) が増加 — 応募者連絡の手段が移っている途中。SMS の拠点別契約・月額基本料の整理余地。</li><li>クラウドは AWS (通信費) / GCP・Azure (支払手数料) / さくら と科目をまたいで4社。合計 年約3,700万円 (Azure 運用支援・Cloud One 含む)。</li><li>ネクスウェイは 2025-12 の二重計上の取消 (▲295万円) が通信費に入っているため、この科目ではマイナス表示。</li></ul></div>
+<h3>取引先別 (実績の年換算の大きい順)</h3>
+<div class="tw"><table class="v"><thead><tr><th>取引先</th><th>何の費用か</th><th>部門</th><th class="num">実績 (年)</th><th>推移</th><th>判定</th><th>代替・見直し案</th><th class="num">削減の目安</th><th>確認すること</th></tr></thead><tbody>
+<tr><td class="item">アクリート</td><td>SMS 送受信 (求職者・スタッフ連絡)</td><td><small>事業本部/SC 72% / 事業推進本部/MC 21% / ジョブコラボ 2%</small></td><td class="num">1,664万円</td><td><small>減少 (後半/前半 0.6倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>従量課金型 SMS (1通6〜10円・基本料0円が相場: KDDI Message Cast / Media4u 空電プッシュ / Twilio 等) へ相見積。求職者連絡は LINE 公式アカウント (HRモンスター等) への寄せも進行中</td><td class="num">300〜600万円</td><td><small>拠点ごと (約40) の個別契約と SC・SW 各月額基本料 3万円の二重持ち。通数×単価を確認。 2026-04以降急減 (8月 31万円) は HRモンスター (LINE) への移行か、8月請求の未計上か</small></td></tr>
+<tr><td class="item">インボイス (電話料金一括請求)</td><td>固定電話・携帯電話 (ソフトバンク等) 料金の一括請求代行</td><td><small>事業本部/SC 42% / 管理本部/コーポレート 35% / 事業推進本部/MC 11%</small></td><td class="num">1,394万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>法人携帯のプラン・キャリア見直し (1回線 1,000〜2,000円台の法人向けプラン)、固定電話はクラウド PBX (MOT/TEL・Dialpad 等) へ</td><td class="num">200〜400万円</td><td><small>回線数・1回線あたり単価・退職者/未使用回線の有無。インボイス社の請求代行手数料の有無</small></td></tr>
+<tr><td class="item">Zoom</td><td>Web会議 (Zoom) ライセンス</td><td><small>事業本部/SC 99% / 管理本部 1% / 管理本部/コーポレート 0%</small></td><td class="num">1,099万円</td><td><small>横ばい</small></td><td><span class="j ng">削減候補</span></td><td>Google Workspace に含まれる Google Meet に一本化 (追加費用0)。残すなら必要アカウントだけ Pro (年約2.3万円/人)</td><td class="num">500〜900万円</td><td><small>月約90万円はシニアケアDiv の Visa デビット決済。契約種別 (Zoom Phone / Contact Center / Webinar 等か)・ライセンス数・利用実態。面接・研修で Zoom でなければならない理由があるか</small></td></tr>
+<tr><td class="item">Amazon Web Services</td><td>クラウドサーバー (AWS)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">1,082万円</td><td><small>増加 (後半/前半 1.3倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>Savings Plans / リザーブド (1年で2〜4割減)、不要インスタンス・ストレージの棚卸し。GCP・Azure と3社併用なので集約も検討</td><td class="num">200〜400万円</td><td><small>どのシステムが載っているか (ORDIA/IRUCA 等)、開発・検証環境の常時起動、請求の推移 (月100万円前後で横ばい)</small></td></tr>
+<tr><td class="item">日本郵便</td><td>郵便料金 (後納・レターパック等)</td><td><small>事業本部/SC 40% / 管理本部/コーポレート 24% / 事業推進本部/MC 13%</small></td><td class="num">899万円</td><td><small>増加 (後半/前半 1.3倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>給与明細・源泉徴収票・請求書等の電子交付 (Web 明細) に切替。2024年の郵便料金値上げ分の抑制</td><td class="num">100〜250万円</td><td><small>何を郵送しているか (事務センター・渋谷・福岡の後納が大半)。月80〜100万円</small></td></tr>
+<tr><td class="item">ソフトクリエイト (IIJ Omnibus / IIJモバイル)</td><td>ネットワーク・セキュアアクセス / モバイル回線 (IIJ 経由)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">690万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>SASE/セキュアアクセスの相見積 (Cato Networks / Zscaler 等)。IIJ 直契約との比較</td><td class="num">50〜150万円</td><td><small>回線・拠点数と契約単価。販売店経由の上乗せ。2026-03 に移行作業 60万円 (単発)</small></td></tr>
+<tr><td class="item">さくらインターネット</td><td>レンタル/クラウドサーバー</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">146万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>AWS/GCP/Azure に集約するか、不要サーバーの解約</td><td class="num">30〜100万円</td><td><small>何のサーバーか。大手クラウド3社と併用している理由</small></td></tr>
+<tr><td class="item">robottte (HRモンスター)</td><td>応募者対応の自動化 SaaS (通信費用・利用料)</td><td><small>事業本部/SC 76% / 事業推進本部/MC 15% / 事業推進本部 6%</small></td><td class="num">134万円</td><td><small>増加 (後半/前半 8.9倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>SMS・LINE ツールの一本化の受け皿として残すなら、他の LINE ツール (Liny / ラクーン / CATS) を解約</td><td class="num">0〜50万円</td><td><small>通信費・業務委託費・支払手数料の3科目に分散 (合計 年約320万円) し月々増加中。SMS 削減と相殺できているか</small></td></tr>
+<tr><td class="item">HRクラウド</td><td>採用管理システム</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">130万円</td><td><small>単発</small></td><td><span class="j pt">見直し余地あり</span></td><td>ビズリーチ (HRMOS 採用) 等と採用管理が重複していないか。無料/低価格の ATS</td><td class="num">50〜130万円</td><td><small>2025-10 に年額108万円を一括計上。更新時に継続要否</small></td></tr>
+<tr><td class="item">NTT / クロスチェック 等 (光回線)</td><td>光回線・ひかり電話 (各拠点)</td><td><small>管理本部/コーポレート 97% / 事業本部/SC 2% / 管理本部 1%</small></td><td class="num">126万円</td><td><small>増加 (後半/前半 6.2倍)</small></td><td><span class="j ok">必須</span></td><td>光回線の代理店 (クロスチェック) 経由契約の見直し、拠点統廃合に合わせた解約漏れ確認</td><td class="num">20〜50万円</td><td><small>2026-03 から月3万円→20万円に増加 (支払手数料にも同種あり)。移転・新拠点か</small></td></tr>
+<tr><td class="item">formrun</td><td>Web フォーム作成 SaaS</td><td><small>事業本部/SC 100%</small></td><td class="num">122万円</td><td><small>横ばい</small></td><td><span class="j ng">削減候補</span></td><td>Google フォーム (Workspace に含まれる)。応募フォームなら既存の求人システム (jobMAKER 等) のフォーム機能</td><td class="num">60〜120万円</td><td><small>シニアケアDiv が Visa デビットで月約10万円。プランと利用フォーム数</small></td></tr>
+<tr><td class="item">日本テレネット (MOVFAX)</td><td>インターネット FAX (各拠点)</td><td><small>事業本部/SC 69% / 事業推進本部/MC 15% / 事業本部/SW 13%</small></td><td class="num">55万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>インターネット FAX は相場並み。拠点統廃合時に解約</td><td class="num">0〜15万円</td><td><small>拠点ごとの契約数</small></td></tr>
+<tr><td class="item">佐川急便</td><td>宅配便</td><td><small>管理本部/コーポレート 67% / 事業本部/SC 14% / 事業推進本部/MC 8%</small></td><td class="num">29万円</td><td><small>横ばい</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ヤマト運輸</td><td>宅配便</td><td><small>管理本部/コーポレート 62% / 事業本部/SC 32% / 事業本部/SW 3%</small></td><td class="num">26万円</td><td><small>増加 (後半/前半 1.8倍)</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">少額 SaaS (Canva / Adobe / 日経 等)</td><td>デザイン・情報サービス (カード決済)</td><td><small>管理本部/コーポレート 50% / (来期に無い) 50%</small></td><td class="num">20万円</td><td><small>減少 (後半/前半 0.5倍)</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">Xserver / お名前.com / Web 保守業者</td><td>レンタルサーバー・ドメイン・SSL・Web サーバ保守 (少額)</td><td><small>管理本部 98% / 管理本部/コーポレート 2%</small></td><td class="num">17万円</td><td><small>横ばい</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">その他 (少額・個人立替等)</td><td>少額の立替・カード決済等</td><td><small>事業本部/SC 80% / 事業本部 24% / 事業本部/SW 23%</small></td><td class="num">8万円</td><td><small>増加 (期中に開始)</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">赤帽 (配送業者)</td><td>スポット配送</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">4万円</td><td><small>単発</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ネクスウェイ</td><td>FAX 一斉送信 / e-急便 (FAX・DM 配信) / SMS 認証</td><td><small>(来期に無い) 0% / 事業本部/SC 100%</small></td><td class="num">-353万円</td><td><small>取消・回収 (マイナス)</small></td><td><span class="j un">要確認</span></td><td>(支払手数料側を参照)</td><td class="num">-</td><td><small>通信費では 2025-12 の二重計上の取消 (▲295万円) が入っているためマイナス</small></td></tr>
+<tr><td class="item">その他 8件 (少額)</td><td>有限会社テルミー、社会福祉法人千成会、和橋、花門フラワーゲート、日本リージャスホールディングス、セブン-イレブン・ジャパン、フレンドリーサービス、GMOペイメントサービス</td><td><small></small></td><td class="num">1万円</td><td><small></small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+</tbody></table></div>
+<details><summary>来期予算と実績の差 (区分別・部門別)</summary>
+<div class="tw"><table><thead><tr><th>区分</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>管理本部/コーポレート</td><td class="num">2,964万円</td><td class="num">5,667万円</td><td class="num"><span class="up">+2,703万円</span></td></tr>
+<tr><td>事業推進本部/MC</td><td class="num">642万円</td><td class="num">0万円</td><td class="num"><span class="down">−642万円</span></td></tr>
+<tr><td>事業本部/SC</td><td class="num">3,215万円</td><td class="num">2,774万円</td><td class="num"><span class="down">−441万円</span></td></tr>
+<tr><td>(来期に無い)</td><td class="num">125万円</td><td class="num">0万円</td><td class="num"><span class="down">−125万円</span></td></tr>
+<tr><td>事業本部/SW</td><td class="num">194万円</td><td class="num">303万円</td><td class="num"><span class="up">+109万円</span></td></tr>
+<tr><td>事業推進本部</td><td class="num">54万円</td><td class="num">0万円</td><td class="num"><span class="down">−54万円</span></td></tr>
+<tr><td>ジョブコラボ</td><td class="num">45万円</td><td class="num">0万円</td><td class="num"><span class="down">−45万円</span></td></tr>
+<tr><td>管理本部</td><td class="num">55万円</td><td class="num">84万円</td><td class="num"><span class="up">+29万円</span></td></tr>
+<tr><td>事業本部</td><td class="num">40万円</td><td class="num">12万円</td><td class="num"><span class="down">−28万円</span></td></tr>
+<tr><td>内部監査室</td><td class="num">14万円</td><td class="num">18万円</td><td class="num"><span class="up">+4万円</span></td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>部門 (差の大きい順)</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>A038 情報システム課</td><td class="num">2,129万円</td><td class="num">4,515万円</td><td class="num"><span class="up">+2,386万円</span></td></tr>
+<tr><td>C030 シニアケアDiv</td><td class="num">933万円</td><td class="num">0万円</td><td class="num"><span class="down">−933万円</span></td></tr>
+<tr><td>A044 総務グループ</td><td class="num">0万円</td><td class="num">425万円</td><td class="num"><span class="up">+425万円</span></td></tr>
+<tr><td>E206 人材開発課</td><td class="num">0万円</td><td class="num">420万円</td><td class="num"><span class="up">+420万円</span></td></tr>
+<tr><td>A044 総務G</td><td class="num">411万円</td><td class="num">0万円</td><td class="num"><span class="down">−411万円</span></td></tr>
+<tr><td>C026 SC横浜</td><td class="num">299万円</td><td class="num">0万円</td><td class="num"><span class="down">−299万円</span></td></tr>
+<tr><td>C008 SC関東</td><td class="num">0万円</td><td class="num">246万円</td><td class="num"><span class="up">+246万円</span></td></tr>
+<tr><td>C918 SC甲信越</td><td class="num">0万円</td><td class="num">240万円</td><td class="num"><span class="up">+240万円</span></td></tr>
+<tr><td>C033 SC関東第四</td><td class="num">0万円</td><td class="num">240万円</td><td class="num"><span class="up">+240万円</span></td></tr>
+<tr><td>C925 SC関東第五</td><td class="num">0万円</td><td class="num">240万円</td><td class="num"><span class="up">+240万円</span></td></tr>
+<tr><td>E202 事務センター1課（仮称）</td><td class="num">0万円</td><td class="num">222万円</td><td class="num"><span class="up">+222万円</span></td></tr>
+<tr><td>C821 SC下越</td><td class="num">214万円</td><td class="num">0万円</td><td class="num"><span class="down">−214万円</span></td></tr>
+</tbody></table></div></details>
+
+<h2 id="facility"><span class="n">03</span>設備・投資関連費</h2>
+<p class="sub">勘定科目: 739 地代家賃 / 734 水道光熱費 / 740 賃借料 / 747 減価償却費 / 749 長期前払費用償却 / 733 修繕費(参考)</p>
+<div class="kpis">
+  <div class="kpi"><div class="k">実績 (年換算)</div><div class="v">23,405万円</div></div>
+  <div class="kpi"><div class="k">来期予算 (年)</div><div class="v">16,161万円</div><div class="d">実績比 <span class="down">−7,244万円</span></div></div>
+  <div class="kpi"><div class="k">削減の目安 (年)</div><div class="v">1,740〜5,340万円</div></div>
+</div>
+<div class="note"><b>要点</b><ul class="pts"><li>地代家賃が年約1.9億円で大半。渋谷支店 (年約6,400万円) と本社 三軒茶屋 (年約2,800万円) の都内2拠点が最大の論点。</li><li>減価償却費 (年約2,400万円) は IRUCA 追加開発・リスキリング管理システム等の過去投資で、今期は削減不可。2026-07 から IRUCA の償却が月150万円に増加。</li><li>リライフ湘南平塚店は 2026-05 以降 賃料の計上なし (閉店・退去か)。広島は移転 (違約金・移転工事が支払手数料側に計上)。</li><li>来期予算は 地代家賃 1.05億円 + SC の賃借料 約3,400万円 (SC の12部門に各284万円。家賃を賃借料に入れている可能性) で、実績の年換算 2.3億円より約7,200万円少ない。MC 部門の家賃予算が0 (SC 側に含むか) — 家賃の予算漏れか、拠点縮小の前提かを要確認。</li></ul></div>
+<h3>取引先別 (実績の年換算の大きい順)</h3>
+<div class="tw"><table class="v"><thead><tr><th>取引先</th><th>何の費用か</th><th>部門</th><th class="num">実績 (年)</th><th>推移</th><th>判定</th><th>代替・見直し案</th><th class="num">削減の目安</th><th>確認すること</th></tr></thead><tbody>
+<tr><td class="item">渋谷支店 (MFPR渋谷ビル)</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 282万 / 地代家賃 6125万)</td><td><small>事業本部/SC 22% / 事業推進本部/MC 22% / 管理本部/コーポレート 16%</small></td><td class="num">6,407万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>本社 (三軒茶屋) との統合、在宅・フリーアドレス前提で床を縮小</td><td class="num">500〜1,500万円</td><td><small>座席稼働率・人数。契約期間・解約予告期間・原状回復費。本社と2拠点を都内に持つ必要性</small></td></tr>
+<tr><td class="item">本社 (三軒茶屋 キャロットタワー)</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 81万 / 地代家賃 2706万)</td><td><small>管理本部/コーポレート 79% / 内部監査室 16% / 管理本部 6%</small></td><td class="num">2,787万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>渋谷支店への集約 (管理本部・内部監査室が主な利用者)</td><td class="num">1,000〜2,800万円</td><td><small>渋谷に管理部門が入る余地があるか。契約満了時期。移転費用 (R-concept 等の工事・原状回復) との差し引き</small></td></tr>
+<tr><td class="item">大阪支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 68万 / 地代家賃 1419万)</td><td><small>事業推進本部/MC 39% / 事業本部/SC 35% / 管理本部/コーポレート 13%</small></td><td class="num">1,487万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>賃料相場との比較、面積の見直し</td><td class="num">0〜200万円</td><td><small>大阪駅前第3ビル。家賃+共益費 月約125万円</small></td></tr>
+<tr><td class="item">札幌支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 78万 / 地代家賃 1038万)</td><td><small>事業本部/SC 60% / 事業本部/SW 40%</small></td><td class="num">1,117万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>JR タワー (駅直結の高グレード) から近隣の中規模ビルへ</td><td class="num">100〜300万円</td><td><small>月約93万円。拠点人数に対して面積・グレードが過大でないか</small></td></tr>
+<tr><td class="item">IRUCA (イルカ) 追加開発</td><td>ソフトウェア (自社開発) の減価償却</td><td><small>(来期に無い) 98% / 管理本部/コーポレート 2%</small></td><td class="num">900万円</td><td><small>増加 (後半/前半 1.6倍)</small></td><td><span class="j ok">必須</span></td><td>償却は過去投資の費用化で削減不可。今後の追加開発の投資判断 (費用対効果) で抑える</td><td class="num">-</td><td><small>2026-07 から月約150万円に増加 (加速償却 207万円含む)。追加開発の継続予定</small></td></tr>
+<tr><td class="item">福岡支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 44万 / 地代家賃 731万)</td><td><small>事業本部/SC 50% / 事業推進本部/MC 15% / 事業推進本部 15%</small></td><td class="num">775万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>面積見直し</td><td class="num">0〜100万円</td><td><small>2026-03 から月約70万円→58万円に減少済み</small></td></tr>
+<tr><td class="item">横浜支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 45万 / 地代家賃 552万)</td><td><small>事業本部/SC 76% / 事業推進本部/MC 24%</small></td><td class="num">597万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">名古屋支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 48万 / 地代家賃 509万)</td><td><small>事業本部/SC 78% / 事業推進本部/MC 22%</small></td><td class="num">558万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">神戸支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 73万 / 地代家賃 478万)</td><td><small>事業本部/SC 100%</small></td><td class="num">551万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">熊本支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 43万 / 地代家賃 428万)</td><td><small>事業本部/SC 62% / 事業本部/SW 38%</small></td><td class="num">471万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">仙台支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 11万 / 地代家賃 459万)</td><td><small>事業本部/SC 50% / 事業本部/SW 27% / 事業推進本部/MC 23%</small></td><td class="num">470万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">駐車場 (各支店)</td><td>社用車の月極駐車場</td><td><small>事業本部/SC 85% / 事業本部/SW 10% / 事業推進本部/MC 5%</small></td><td class="num">404万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>社用車の台数見直しとカーシェア (タイムズカー法人等) の併用</td><td class="num">50〜150万円</td><td><small>社用車の稼働率。リース車と駐車場のひも付け</small></td></tr>
+<tr><td class="item">リスキリング管理用システム</td><td>ソフトウェア (自社開発) の減価償却</td><td><small>(来期に無い) 100%</small></td><td class="num">400万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>過去投資の償却 (削減不可)</td><td class="num">-</td><td><small>事業終了・縮小時は除却 (一時費用) の検討</small></td></tr>
+<tr><td class="item">船橋支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 36万 / 地代家賃 360万)</td><td><small>事業本部/SC 67% / 事業本部/SW 33%</small></td><td class="num">396万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>—</td><td class="num">-</td><td><small>2026-02 に月約28万円→37万円に増加 (増床か)</small></td></tr>
+<tr><td class="item">日本カーソリューションズ</td><td>社用車リース</td><td><small>事業本部/SC 76% / 事業推進本部/MC 14% / 事業本部/SW 10%</small></td><td class="num">391万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>カーシェア・レンタカーへの切替 (稼働の低い車両から)。期中解約は解約金に注意</td><td class="num">50〜150万円</td><td><small>車両ごとの走行距離・稼働日数。MA浜松では解約金 48.5万円・56.5万円が発生済み</small></td></tr>
+<tr><td class="item">大宮支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 36万 / 地代家賃 306万)</td><td><small>事業本部/SC 100%</small></td><td class="num">343万円</td><td><small>増加 (後半/前半 1.6倍)</small></td><td><span class="j ok">必須</span></td><td>—</td><td class="num">-</td><td><small>2026-01 に月約12万円→39万円に増加 (移転・増床か)</small></td></tr>
+<tr><td class="item">店舗 湘南</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 4万 / 地代家賃 336万)</td><td><small>事業本部/SC 100%</small></td><td class="num">340万円</td><td><small>減少 (後半/前半 0.4倍)</small></td><td><span class="j dim">(単発)</span></td><td>リライフ湘南平塚店は 2026-05 以降 賃料の計上なし (閉店・退去か)</td><td class="num">-</td><td><small>退去済みなら来期は発生しない。残る減価償却・原状回復の有無</small></td></tr>
+<tr><td class="item">松本支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 36万 / 地代家賃 280万)</td><td><small>事業推進本部/MC 100%</small></td><td class="num">316万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">金沢支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 15万 / 地代家賃 296万)</td><td><small>事業本部/SC 100%</small></td><td class="num">311万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">奈良支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 36万 / 地代家賃 216万)</td><td><small>事業本部/SC 90% / 事業推進本部/MC 10%</small></td><td class="num">252万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">京都支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 59万 / 地代家賃 190万)</td><td><small>事業本部/SC 100%</small></td><td class="num">249万円</td><td><small>増加 (後半/前半 1.4倍)</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">岡山支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 34万 / 地代家賃 209万)</td><td><small>事業本部/SC 100%</small></td><td class="num">242万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">新潟支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 21万 / 地代家賃 220万)</td><td><small>事業本部/SC 50% / 事業推進本部/MC 50%</small></td><td class="num">241万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">鹿児島支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 10万 / 地代家賃 214万)</td><td><small>事業本部/SC 100%</small></td><td class="num">224万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">水戸支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 24万 / 地代家賃 197万)</td><td><small>事業本部/SC 100%</small></td><td class="num">221万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">羽田 (リージャス)</td><td>レンタルオフィス 家賃・共益費・光熱費</td><td><small>事業本部/SW 100%</small></td><td class="num">218万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>レンタルオフィスの席数・プラン見直し</td><td class="num">20〜60万円</td><td><small>SW 羽田の利用人数</small></td></tr>
+<tr><td class="item">広島支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 24万 / 地代家賃 183万)</td><td><small>事業本部/SC 100%</small></td><td class="num">207万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">PC レンタル (ソフトクリエイト / SMFLレンタル 等)</td><td>社員用 PC のレンタル</td><td><small>管理本部/コーポレート 98% / (来期に無い) 2%</small></td><td class="num">202万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>購入+3〜4年償却との比較、中古リファービッシュ PC</td><td class="num">20〜50万円</td><td><small>台数と単価。レンタル継続か買取か</small></td></tr>
+<tr><td class="item">静岡支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 17万 / 地代家賃 184万)</td><td><small>事業本部/SC 100%</small></td><td class="num">201万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">社宅・マンスリー</td><td>社宅・短期住居 (水道光熱費 8万 / 地代家賃 186万)</td><td><small>事業本部/SC 82% / 事業推進本部/MC 18%</small></td><td class="num">194万円</td><td><small>減少 (後半/前半 0.6倍)</small></td><td><span class="j ok">必須</span></td><td>社宅規程の見直し</td><td class="num">0〜30万円</td><td><small>対象者と期間</small></td></tr>
+<tr><td class="item">松山支店</td><td>オフィス 家賃・共益費・光熱費 (水道光熱費 14万 / 地代家賃 159万)</td><td><small>事業本部/SC 100%</small></td><td class="num">173万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">本社 (キャロットタワー) 内装・設備</td><td>建物附属設備・内装の減価償却</td><td><small>管理本部/コーポレート 85% / 内部監査室 12% / 事業推進本部/MC 1%</small></td><td class="num">173万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>過去投資の償却 (削減不可)</td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ORDIA / 旧キューボ引継システム</td><td>ソフトウェア (自社開発) の減価償却</td><td><small>(来期に無い) 76% / 管理本部/コーポレート 24%</small></td><td class="num">159万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>過去投資の償却 (削減不可)</td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">その他</td><td>家賃・共益費・光熱費 (水道光熱費 7万 / 地代家賃 147万)</td><td><small>事業本部/SC 100% / 事業推進本部/MC 3% / 事業本部/SW -3%</small></td><td class="num">153万円</td><td><small>増加 (期中に開始)</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">その他ソフトウェア</td><td>ソフトウェア (自社開発) の減価償却</td><td><small>(来期に無い) 61% / 事業推進本部 19% / ジョブコラボ 14%</small></td><td class="num">145万円</td><td><small>増加 (後半/前半 1.4倍)</small></td><td><span class="j ok">必須</span></td><td>過去投資の償却 (削減不可)</td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">タイムシート OCR システム</td><td>ソフトウェア (自社開発) の減価償却</td><td><small>事業本部/SC 92% / 管理本部/コーポレート 8%</small></td><td class="num">132万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>過去投資の償却 (削減不可)</td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">リライフ湘南平塚店 内装・設備</td><td>建物附属設備・内装の減価償却</td><td><small>事業本部/SC 100%</small></td><td class="num">110万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>過去投資の償却 (削減不可)</td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">修繕 (社用車・店舗・レイアウト)</td><td>修繕費 (単発)</td><td><small>事業本部/SC 81% / 事業本部/SW 13% / 事業推進本部/MC 2%</small></td><td class="num">95万円</td><td><small>減少 (後半/前半 0.3倍)</small></td><td><span class="j ok">必須</span></td><td>拠点人数・座席稼働に応じた面積縮小、更新時の賃料交渉</td><td class="num">-</td><td><small>座席稼働率・契約満了時期</small></td></tr>
+<tr><td class="item">その他 27件 (少額)</td><td>その他設備、高崎支店、各システム追加開発 (pluszero)、宇都宮支店、大宮支店 内装・設備、Photosynth (Akerun)、沖縄支店、千葉支店 等</td><td><small></small></td><td class="num">741万円</td><td><small></small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+</tbody></table></div>
+<details><summary>来期予算と実績の差 (区分別・部門別)</summary>
+<div class="tw"><table><thead><tr><th>区分</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>事業推進本部/MC</td><td class="num">3,117万円</td><td class="num">0万円</td><td class="num"><span class="down">−3,117万円</span></td></tr>
+<tr><td>事業本部/SC</td><td class="num">9,821万円</td><td class="num">7,261万円</td><td class="num"><span class="down">−2,560万円</span></td></tr>
+<tr><td>(来期に無い)</td><td class="num">2,481万円</td><td class="num">0万円</td><td class="num"><span class="down">−2,481万円</span></td></tr>
+<tr><td>事業本部</td><td class="num">296万円</td><td class="num">1,274万円</td><td class="num"><span class="up">+978万円</span></td></tr>
+<tr><td>事業推進本部</td><td class="num">862万円</td><td class="num">0万円</td><td class="num"><span class="down">−862万円</span></td></tr>
+<tr><td>管理本部/コーポレート</td><td class="num">4,046万円</td><td class="num">4,775万円</td><td class="num"><span class="up">+729万円</span></td></tr>
+<tr><td>事業本部/SW</td><td class="num">2,154万円</td><td class="num">2,428万円</td><td class="num"><span class="up">+274万円</span></td></tr>
+<tr><td>管理本部</td><td class="num">145万円</td><td class="num">0万円</td><td class="num"><span class="down">−145万円</span></td></tr>
+<tr><td>内部監査室</td><td class="num">463万円</td><td class="num">424万円</td><td class="num"><span class="down">−39万円</span></td></tr>
+<tr><td>ジョブコラボ</td><td class="num">20万円</td><td class="num">0万円</td><td class="num"><span class="down">−20万円</span></td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>部門 (差の大きい順)</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>C915 ラインサポート課</td><td class="num">1,076万円</td><td class="num">0万円</td><td class="num"><span class="down">−1,076万円</span></td></tr>
+<tr><td>E202 事務センター1課（仮称）</td><td class="num">0万円</td><td class="num">804万円</td><td class="num"><span class="up">+804万円</span></td></tr>
+<tr><td>A040 事務センター2課（仮称）</td><td class="num">0万円</td><td class="num">804万円</td><td class="num"><span class="up">+804万円</span></td></tr>
+<tr><td>F003 リライフ湘南平塚店</td><td class="num">766万円</td><td class="num">0万円</td><td class="num"><span class="down">−766万円</span></td></tr>
+<tr><td>E202 事務センター課</td><td class="num">734万円</td><td class="num">0万円</td><td class="num"><span class="down">−734万円</span></td></tr>
+<tr><td>A021 事業本部</td><td class="num">0万円</td><td class="num">720万円</td><td class="num"><span class="up">+720万円</span></td></tr>
+<tr><td>A672 未定(旧スクール課)</td><td class="num">0万円</td><td class="num">714万円</td><td class="num"><span class="up">+714万円</span></td></tr>
+<tr><td>C008 SC関東</td><td class="num">0万円</td><td class="num">565万円</td><td class="num"><span class="up">+565万円</span></td></tr>
+<tr><td>H001 セールスサポート課</td><td class="num">0万円</td><td class="num">554万円</td><td class="num"><span class="up">+554万円</span></td></tr>
+<tr><td>A044 総務グループ</td><td class="num">0万円</td><td class="num">466万円</td><td class="num"><span class="up">+466万円</span></td></tr>
+<tr><td>E200 業務管理G</td><td class="num">0万円</td><td class="num">464万円</td><td class="num"><span class="up">+464万円</span></td></tr>
+<tr><td>A045 労務課</td><td class="num">461万円</td><td class="num">0万円</td><td class="num"><span class="down">−461万円</span></td></tr>
+</tbody></table></div></details>
+
+<h2 id="outsourcing"><span class="n">04</span>業務委託費</h2>
+<p class="sub">勘定科目: 719 業務委託費</p>
+<div class="kpis">
+  <div class="kpi"><div class="k">実績 (年換算)</div><div class="v">17,815万円</div></div>
+  <div class="kpi"><div class="k">来期予算 (年)</div><div class="v">13,993万円</div><div class="d">実績比 <span class="down">−3,822万円</span></div></div>
+  <div class="kpi"><div class="k">削減の目安 (年)</div><div class="v">1,510〜4,922万円</div></div>
+</div>
+<div class="note"><b>要点</b><ul class="pts"><li>管理本部 (A022) への委託が年約9,600万円 (ウェルネスキャリアサポート・アスター・ケアラボ・思考合同会社・旧EKC の個人委託)。予算 7,370万円に対し実績が約2,300万円多い。</li><li>グループ会社 (ウェルネスキャリアサポート・ジョブコラボ・プレニチュード) 分は 年約6,100万円で、連結では削減にならない (単体 PL と料金根拠の問題)。</li><li>コンサル・Web 系 (Lien・フルスピード) が年約2,100万円で、成果が見えなければ最大の削減候補。</li><li>ORDIA (NSD/旧ステラス) は 業務委託 (改修) + 支払手数料 (保守) で年約1,850万円。2026-07・08 に改修が増加。</li></ul></div>
+<h3>取引先別 (実績の年換算の大きい順)</h3>
+<div class="tw"><table class="v"><thead><tr><th>取引先</th><th>何の費用か</th><th>部門</th><th class="num">実績 (年)</th><th>推移</th><th>判定</th><th>代替・見直し案</th><th class="num">削減の目安</th><th>確認すること</th></tr></thead><tbody>
+<tr><td class="item">ウェルネスキャリアサポート (グループ会社)</td><td>管理本部への業務委託 (グループ会社)</td><td><small>管理本部 100%</small></td><td class="num">3,072万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td>グループ内取引のため連結では削減にならない。委託料の根拠 (工数・人件費実費) の妥当性確認</td><td class="num">-</td><td><small>月246万円 (2026-07 は346万円)。キャリア単体の PL には効くので、委託範囲と料金根拠を契約で確認</small></td></tr>
+<tr><td class="item">ジョブコラボ (グループ会社)</td><td>売上総利益に連動する業務委託 (SW 事業)</td><td><small>ジョブコラボ 62% / 事業本部/SW 38%</small></td><td class="num">1,850万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>売上総利益に連動する委託 (グループ内)</td><td class="num">-</td><td><small>連動率が妥当か</small></td></tr>
+<tr><td class="item">アスター</td><td>管理本部への業務委託 (+交通費等の実費)</td><td><small>管理本部 100%</small></td><td class="num">1,691万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>管理本部の委託業務を棚卸しし、内製化・一本化 (ケアラボ・思考合同会社・個人委託と業務が重ならないか)</td><td class="num">200〜500万円</td><td><small>月約150万円+実費。成果物・稼働報告の有無。関連当事者に当たるか</small></td></tr>
+<tr><td class="item">NSDデジタルソリューションズ (旧ステラス)</td><td>ORDIA (基幹・スタッフ管理) の保守・ライセンス・改修</td><td><small>管理本部 94% / (来期に無い) 6%</small></td><td class="num">1,163万円</td><td><small>増加 (後半/前半 59.6倍)</small></td><td><span class="j ok">必須</span></td><td>ORDIA は基幹。改修は要件を絞って見積競争</td><td class="num">100〜300万円</td><td><small>業務委託 (改修) と支払手数料 (保守・ライセンス) を合わせ年約1,850万円。2026-07・08 に改修が月350万円超</small></td></tr>
+<tr><td class="item">プレニチュード (親会社)</td><td>情シス部門代行・研究開発支援・アカウント管理</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">1,140万円</td><td><small>増加 (後半/前半 1.4倍)</small></td><td><span class="j un">要確認</span></td><td>グループ内取引。情シス代行の範囲を明確化</td><td class="num">-</td><td><small>2026-05 から月80万円→130万円に増額。増額理由</small></td></tr>
+<tr><td class="item">ケアラボ</td><td>管理本部への業務委託 (+YouTube 動画制作)</td><td><small>管理本部 100%</small></td><td class="num">1,089万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>アスター等と同様に委託業務の棚卸し</td><td class="num">100〜300万円</td><td><small>月90万円固定。成果物と稼働</small></td></tr>
+<tr><td class="item">Lien</td><td>事業・マーケティングのコンサルティング</td><td><small>(来期に無い) 44% / 事業本部 29% / 事業推進本部 27%</small></td><td class="num">1,088万円</td><td><small>増加 (後半/前半 2.3倍)</small></td><td><span class="j ng">削減候補</span></td><td>コンサルは成果・期間を区切った契約に。不要なら終了</td><td class="num">300〜1,000万円</td><td><small>業務委託 (年約1,090万円) と支払手数料 (年約130万円) の両方。事業企画G・メディア戦略課。成果物</small></td></tr>
+<tr><td class="item">フルスピード</td><td>Web コンサルティング・サイト制作</td><td><small>(来期に無い) 100%</small></td><td class="num">1,009万円</td><td><small>横ばい</small></td><td><span class="j ng">削減候補</span></td><td>Web コンサル (月84万円) は成果報酬型 SEO・内製化へ</td><td class="num">300〜600万円</td><td><small>2026-02 にサイト制作 169万円。成果指標 (流入・応募) を確認</small></td></tr>
+<tr><td class="item">宝印刷</td><td>開示書類作成 (WIZLABO)・決算開示アウトソーシング・株主総会資料</td><td><small>管理本部 88% / 管理本部/コーポレート 12%</small></td><td class="num">913万円</td><td><small>減少 (後半/前半 0.0倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>開示書類作成・総会支援はプロネクサス等と相見積</td><td class="num">100〜200万円</td><td><small>業務委託 (年約910万円) + WIZLABO (年約220万円)。12月の総会関連 720万円</small></td></tr>
+<tr><td class="item">思考合同会社</td><td>管理本部への業務委託</td><td><small>管理本部 104% / 管理本部/コーポレート -4%</small></td><td class="num">905万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>管理本部の委託業務の棚卸し</td><td class="num">100〜300万円</td><td><small>月ごとの額が不定 (0〜270万円)。二重計上の訂正あり</small></td></tr>
+<tr><td class="item">個人 (委託・旧法人名義)</td><td>管理本部への業務委託 (営業戦略推進)</td><td><small>管理本部 100%</small></td><td class="num">723万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>管理本部の委託業務の棚卸し (営業戦略推進)</td><td class="num">100〜300万円</td><td><small>月60万円。成果物と稼働</small></td></tr>
+<tr><td class="item">ソフトクリエイト (Azure 運用支援)</td><td>Azure サーバーの運用支援サービス</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">437万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>Azure 自体を AWS/GCP に集約できれば不要。残すならマネージド監視の相見積</td><td class="num">100〜400万円</td><td><small>月36万円固定。Azure 上で何が動いているか</small></td></tr>
+<tr><td class="item">個人 (委託)</td><td>個人への業務委託 (カスタマーサクセスU)</td><td><small>(来期に無い) 71% / 事業推進本部/MC 29%</small></td><td class="num">383万円</td><td><small>増加 (後半/前半 3.1倍)</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜100万円</td><td><small>複数の個人へのスポット委託。契約書・成果物</small></td></tr>
+<tr><td class="item">個人事業 (委託)</td><td>シェアワーク事業推進の業務委託</td><td><small>(来期に無い) 100%</small></td><td class="num">360万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜150万円</td><td><small>シェアワーク事業推進G への個人委託。事業縮小なら終了</small></td></tr>
+<tr><td class="item">アコルデ・コンサルティング</td><td>経理・J-SOX 支援</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">360万円</td><td><small>増加 (後半/前半 1.5倍)</small></td><td><span class="j ok">必須</span></td><td>J-SOX 対応は上場会社として必要。範囲の見直し</td><td class="num">0〜60万円</td><td><small>支払手数料から業務委託費への振替あり</small></td></tr>
+<tr><td class="item">フロッグ (HRogリスト)</td><td>営業リスト (求人企業リスト) 利用料</td><td><small>事業推進本部 90% / (来期に無い) 10%</small></td><td class="num">331万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>バクリスと営業リストが重複。1社に絞る</td><td class="num">70〜200万円</td><td><small>月27.6万円固定。リストの利用件数</small></td></tr>
+<tr><td class="item">ファースト労務サービス</td><td>労務顧問 (社労士)・社保手続</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">199万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>社労士顧問の相場並み</td><td class="num">0〜30万円</td><td><small>—</small></td></tr>
+<tr><td class="item">Bamos</td><td>シェアワーク事業推進の業務委託</td><td><small>(来期に無い) 100%</small></td><td class="num">180万円</td><td><small>増加 (期中に開始)</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜180万円</td><td><small>シェアワーク事業推進の委託。事業の継続性</small></td></tr>
+<tr><td class="item">AdEra</td><td>業務支援・常駐支援</td><td><small>(来期に無い) 90% / 事業本部 10%</small></td><td class="num">160万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜160万円</td><td><small>2026-05 以降計上なし (終了か)</small></td></tr>
+<tr><td class="item">robottte (HRモンスター)</td><td>応募者対応の自動化 SaaS (通信費用・利用料)</td><td><small>事業推進本部 84% / (来期に無い) 16%</small></td><td class="num">113万円</td><td><small>減少 (後半/前半 0.6倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>通信費・業務委託費・支払手数料の3科目に分散 (合計 年約320万円) し月々増加中。SMS 削減と相殺できているか</small></td></tr>
+<tr><td class="item">TJプランナーズ</td><td>訪問介護 (アイリス竹ノ塚) の業務委託</td><td><small>事業本部/SC 100%</small></td><td class="num">72万円</td><td><small>減少 (期中に終了)</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ギブリー (LIBERO)</td><td>プラットフォーム利用料 (内容要確認)</td><td><small>(来期に無い) 83% / 事業本部/SC 17%</small></td><td class="num">72万円</td><td><small>減少 (後半/前半 0.2倍)</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜72万円</td><td><small>2026-04 以降計上なし (解約済みか)</small></td></tr>
+<tr><td class="item">バクリス (BlueHeats)</td><td>営業リスト・Web マーケティング用リスト</td><td><small>(来期に無い) 100%</small></td><td class="num">71万円</td><td><small>減少 (後半/前半 0.5倍)</small></td><td><span class="j ng">削減候補</span></td><td>HRog リストと重複</td><td class="num">40〜70万円</td><td><small>2026-04 以降は計上なし (解約済みか)</small></td></tr>
+<tr><td class="item">トーイングウーマン</td><td>給与計算の業務委託</td><td><small>管理本部 100%</small></td><td class="num">67万円</td><td><small>増加 (後半/前半 2.2倍)</small></td><td><span class="j ok">必須</span></td><td>給与計算代行は相場並み</td><td class="num">-</td><td><small>—</small></td></tr>
+<tr><td class="item">AthReebo</td><td>アスリート画像使用料</td><td><small>(来期に無い) 100%</small></td><td class="num">51万円</td><td><small>単発</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">その他 12件 (少額)</td><td>pluszero、ソレカラ、VLCセキュリティコンサルティング、テレアポ・フォーム営業代行、コリアーズ・インターナショナル、sow and grow、ランサーズ / ラクスル、ソフトクリエイト (IIJ Omnibus / IIJモバイル) 等</td><td><small></small></td><td class="num">256万円</td><td><small></small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+</tbody></table></div>
+<details><summary>来期予算と実績の差 (区分別・部門別)</summary>
+<div class="tw"><table><thead><tr><th>区分</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>(来期に無い)</td><td class="num">2,718万円</td><td class="num">0万円</td><td class="num"><span class="down">−2,718万円</span></td></tr>
+<tr><td>管理本部</td><td class="num">9,635万円</td><td class="num">7,372万円</td><td class="num"><span class="down">−2,263万円</span></td></tr>
+<tr><td>管理本部/コーポレート</td><td class="num">2,283万円</td><td class="num">3,753万円</td><td class="num"><span class="up">+1,470万円</span></td></tr>
+<tr><td>ジョブコラボ</td><td class="num">1,140万円</td><td class="num">0万円</td><td class="num"><span class="down">−1,140万円</span></td></tr>
+<tr><td>事業本部</td><td class="num">394万円</td><td class="num">1,248万円</td><td class="num"><span class="up">+854万円</span></td></tr>
+<tr><td>事業推進本部</td><td class="num">688万円</td><td class="num">0万円</td><td class="num"><span class="down">−688万円</span></td></tr>
+<tr><td>事業本部/SW</td><td class="num">726万円</td><td class="num">1,380万円</td><td class="num"><span class="up">+654万円</span></td></tr>
+<tr><td>事業本部/SC</td><td class="num">110万円</td><td class="num">240万円</td><td class="num"><span class="up">+130万円</span></td></tr>
+<tr><td>事業推進本部/MC</td><td class="num">121万円</td><td class="num">0万円</td><td class="num"><span class="down">−121万円</span></td></tr>
+<tr><td>内部監査室</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>部門 (差の大きい順)</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>A022 管理本部</td><td class="num">9,635万円</td><td class="num">7,372万円</td><td class="num"><span class="down">−2,263万円</span></td></tr>
+<tr><td>A039 DX推進課</td><td class="num">0万円</td><td class="num">2,040万円</td><td class="num"><span class="up">+2,040万円</span></td></tr>
+<tr><td>A650 事業企画G</td><td class="num">1,485万円</td><td class="num">0万円</td><td class="num"><span class="down">−1,485万円</span></td></tr>
+<tr><td>H001 セールスサポート課</td><td class="num">0万円</td><td class="num">1,248万円</td><td class="num"><span class="up">+1,248万円</span></td></tr>
+<tr><td>B001 SWディビジョン</td><td class="num">0万円</td><td class="num">1,140万円</td><td class="num"><span class="up">+1,140万円</span></td></tr>
+<tr><td>B001 シニアワークDiv</td><td class="num">1,140万円</td><td class="num">0万円</td><td class="num"><span class="down">−1,140万円</span></td></tr>
+<tr><td>A673 シェアワーク事業推進G</td><td class="num">838万円</td><td class="num">0万円</td><td class="num"><span class="down">−838万円</span></td></tr>
+<tr><td>A038 情報システム課</td><td class="num">1,664万円</td><td class="num">959万円</td><td class="num"><span class="down">−705万円</span></td></tr>
+<tr><td>A503 メディア戦略課</td><td class="num">686万円</td><td class="num">0万円</td><td class="num"><span class="down">−686万円</span></td></tr>
+<tr><td>A021 事業本部</td><td class="num">376万円</td><td class="num">0万円</td><td class="num"><span class="down">−376万円</span></td></tr>
+<tr><td>A044 総務グループ</td><td class="num">0万円</td><td class="num">281万円</td><td class="num"><span class="up">+281万円</span></td></tr>
+<tr><td>B955 OS沖縄</td><td class="num">362万円</td><td class="num">105万円</td><td class="num"><span class="down">−257万円</span></td></tr>
+</tbody></table></div></details>
+
+<h2 id="fees"><span class="n">05</span>支払報酬</h2>
+<p class="sub">勘定科目: 744 支払報酬</p>
+<div class="kpis">
+  <div class="kpi"><div class="k">実績 (年換算)</div><div class="v">3,905万円</div></div>
+  <div class="kpi"><div class="k">来期予算 (年)</div><div class="v">3,403万円</div><div class="d">実績比 <span class="down">−502万円</span></div></div>
+  <div class="kpi"><div class="k">削減の目安 (年)</div><div class="v">50〜350万円</div></div>
+</div>
+<div class="note"><b>要点</b><ul class="pts"><li>監査報酬 (かがやき監査法人) が年約2,760万円で約7割。上場会社として必須。</li><li>弁護士費用は顧問料+スタッフ関連の訴訟・労働審判がスポットで発生。</li><li>予算 3,403万円に対し実績年換算 約3,900万円 — 訴訟費用分が予算に無い可能性。</li></ul></div>
+<h3>取引先別 (実績の年換算の大きい順)</h3>
+<div class="tw"><table class="v"><thead><tr><th>取引先</th><th>何の費用か</th><th>部門</th><th class="num">実績 (年)</th><th>推移</th><th>判定</th><th>代替・見直し案</th><th class="num">削減の目安</th><th>確認すること</th></tr></thead><tbody>
+<tr><td class="item">かがやき監査法人</td><td>会計監査 (金商法・会社法)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">2,755万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>上場会社の法定監査。監査法人の変更は負担が大きいので報酬交渉が中心</td><td class="num">0〜200万円</td><td><small>2026-01 に月221万円→233万円へ増額。監査時間の見積と根拠</small></td></tr>
+<tr><td class="item">マーキュリー・ジェネラル (弁護士法人)</td><td>顧問弁護士・訴訟/労働審判の着手金・報酬</td><td><small>管理本部 48% / 管理本部/コーポレート 28% / 事業本部/SC 24%</small></td><td class="num">769万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>顧問契約の範囲 (顧問内で対応できる件) の見直し。スタッフとの紛争は予防 (労務管理) で件数を減らす</td><td class="num">50〜150万円</td><td><small>顧問料+訴訟・労働審判の着手金がスポットで発生 (2026-01 に着手金 245万円)</small></td></tr>
+<tr><td class="item">顧問税理士 (個人事務所)</td><td>税務顧問・決算税務・四半期レビュー</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">299万円</td><td><small>減少 (後半/前半 0.3倍)</small></td><td><span class="j ok">必須</span></td><td>相場並み</td><td class="num">-</td><td><small>—</small></td></tr>
+<tr><td class="item">個人 (産業医)</td><td>産業医報酬・面談</td><td><small>管理本部 100%</small></td><td class="num">146万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>法定 (50人以上の事業場)</td><td class="num">-</td><td><small>—</small></td></tr>
+<tr><td class="item">司法書士法人</td><td>登記手続</td><td><small>管理本部 100%</small></td><td class="num">7万円</td><td><small>単発</small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+</tbody></table></div>
+<details><summary>来期予算と実績の差 (区分別・部門別)</summary>
+<div class="tw"><table><thead><tr><th>区分</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>管理本部</td><td class="num">489万円</td><td class="num">8万円</td><td class="num"><span class="down">−481万円</span></td></tr>
+<tr><td>事業本部/SC</td><td class="num">166万円</td><td class="num">0万円</td><td class="num"><span class="down">−166万円</span></td></tr>
+<tr><td>管理本部/コーポレート</td><td class="num">3,249万円</td><td class="num">3,395万円</td><td class="num"><span class="up">+146万円</span></td></tr>
+<tr><td>内部監査室</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>事業本部</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>事業本部/SW</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>部門 (差の大きい順)</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>A022 管理本部</td><td class="num">489万円</td><td class="num">8万円</td><td class="num"><span class="down">−481万円</span></td></tr>
+<tr><td>A044 総務グループ</td><td class="num">0万円</td><td class="num">335万円</td><td class="num"><span class="up">+335万円</span></td></tr>
+<tr><td>A044 総務G</td><td class="num">213万円</td><td class="num">0万円</td><td class="num"><span class="down">−213万円</span></td></tr>
+<tr><td>C033 SC船橋</td><td class="num">100万円</td><td class="num">0万円</td><td class="num"><span class="down">−100万円</span></td></tr>
+<tr><td>C030 シニアケアDiv</td><td class="num">66万円</td><td class="num">0万円</td><td class="num"><span class="down">−66万円</span></td></tr>
+<tr><td>A036 経営管理G</td><td class="num">3,036万円</td><td class="num">3,060万円</td><td class="num"><span class="up">+24万円</span></td></tr>
+<tr><td>D001 内部監査室</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>A023 コーポレートディビジョン</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>A037 技術戦略G</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>A038 情報システム課</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>A039 DX推進課</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+<tr><td>E200 業務管理G</td><td class="num">0万円</td><td class="num">0万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+</tbody></table></div></details>
+
+<h2 id="charges"><span class="n">06</span>支払手数料</h2>
+<p class="sub">勘定科目: 737 支払手数料</p>
+<div class="kpis">
+  <div class="kpi"><div class="k">実績 (年換算)</div><div class="v">13,525万円</div></div>
+  <div class="kpi"><div class="k">来期予算 (年)</div><div class="v">10,077万円</div><div class="d">実績比 <span class="down">−3,448万円</span></div></div>
+  <div class="kpi"><div class="k">削減の目安 (年)</div><div class="v">1,810〜4,795万円</div></div>
+</div>
+<div class="note"><b>要点</b><ul class="pts"><li>ネクスウェイ (FAX 送信、シニアケアDiv) が年約2,340万円で最大。2026-08 は急減しており、送信停止か請求未計上かの確認が必要。</li><li>IT 系 (Google Workspace・GCP・Azure・Cloud One・pluszero・ORDIA 保守・勘定奉行・MF 等) が年約6,000万円超。</li><li>スタッフ給与の前払い手数料の回収 (▲年約1,610万円。スタッフ負担分を原価へ振替) が費用のマイナスとして入っており、支払手数料の純額は実態より小さく見える。</li><li>LINE 運用ツールが4〜5社 (ラクーンフィナンシャル・Liny・CATS・クラブネッツ・HRモンスター)、営業リストが2社、日経テレコンが2契約、AI ツールは個人カード決済で散在 — 重複の整理余地。</li><li>人材紹介手数料 (MS-Japan・インディード) や移転工事 (R-concept)・違約金等の単発分が年約1,000万円含まれる。</li></ul></div>
+<h3>取引先別 (実績の年換算の大きい順)</h3>
+<div class="tw"><table class="v"><thead><tr><th>取引先</th><th>何の費用か</th><th>部門</th><th class="num">実績 (年)</th><th>推移</th><th>判定</th><th>代替・見直し案</th><th class="num">削減の目安</th><th>確認すること</th></tr></thead><tbody>
+<tr><td class="item">ネクスウェイ</td><td>FAX 一斉送信 / e-急便 (FAX・DM 配信) / SMS 認証</td><td><small>事業本部/SC 93% / 管理本部/コーポレート 6% / (来期に無い) 1%</small></td><td class="num">2,344万円</td><td><small>横ばい</small></td><td><span class="j ng">削減候補</span></td><td>FAX 一斉送信は単価 3〜5円の FAXDM 業者と相見積、または メール・LINE への切替</td><td class="num">500〜1,000万円</td><td><small>シニアケアDiv の FAX 送信料が月約200万円 (求人・案件の FAX 送信か)。送信枚数×単価。2026-08 は 3.5万円に急減 (送信停止か請求の未計上か)。通信費側で二重計上の取消あり</small></td></tr>
+<tr><td class="item">サテライトオフィス (Google Workspace)</td><td>Google Workspace ライセンス (約400名分・代理店経由)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">1,301万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>Enterprise Standard は定価 年払い 3,060円/人・月 (税抜)。約400ライセンス。退職者・共有アカウントの棚卸しでライセンス削減、代理店の再見積</td><td class="num">100〜300万円</td><td><small>ライセンス数と在籍人数の差。Microsoft 365 Apps (年約50万円) と Zoom との重複</small></td></tr>
+<tr><td class="item">Google Cloud</td><td>クラウド基盤 (GCP)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">882万円</td><td><small>減少 (後半/前半 0.6倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>確約利用割引 (CUD)・不要リソース削除。AWS/Azure と集約</td><td class="num">150〜300万円</td><td><small>何が載っているか。2026-03 はほぼ0円 (カード決済の計上ずれか)</small></td></tr>
+<tr><td class="item">ソフトクリエイト (Microsoft Azure)</td><td>クラウド基盤 (Azure CSP)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">860万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>リザーブドインスタンス、または AWS/GCP への集約 (運用支援費も不要になる)</td><td class="num">200〜400万円</td><td><small>月約70万円+運用支援 月36万円。移行コストとの比較</small></td></tr>
+<tr><td class="item">pluszero</td><td>社内システム (IRUCA 等) の運用保守・追加開発</td><td><small>(来期に無い) 75% / 管理本部/コーポレート 25%</small></td><td class="num">785万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>運用保守 (月60万円) の範囲と稼働の見直し。保守の相見積</td><td class="num">100〜200万円</td><td><small>減価償却 (各システム追加開発) と合わせて評価</small></td></tr>
+<tr><td class="item">NSDデジタルソリューションズ (旧ステラス)</td><td>ORDIA (基幹・スタッフ管理) の保守・ライセンス・改修</td><td><small>管理本部/コーポレート 56% / (来期に無い) 24% / 事業本部/SC 13%</small></td><td class="num">693万円</td><td><small>減少 (後半/前半 0.5倍)</small></td><td><span class="j ok">必須</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>業務委託 (改修) と支払手数料 (保守・ライセンス) を合わせ年約1,850万円。2026-07・08 に改修が月350万円超</small></td></tr>
+<tr><td class="item">銀行 (振込・EB・口座振替代行 手数料)</td><td>振込手数料・給与振込・EB 基本料・口座振替 (受取) 代行</td><td><small>管理本部/コーポレート 88% / 管理本部 7% / 事業本部/SC 3%</small></td><td class="num">693万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>ネット銀行 (GMOあおぞら・住信SBI: 他行宛 143円〜) への振込集約、給与振込の同行化</td><td class="num">100〜250万円</td><td><small>2026-02 に振込手数料 152万円 (通常 月8〜9万円) の突出あり。内容を確認</small></td></tr>
+<tr><td class="item">R-concept</td><td>支店の移転・レイアウト変更・残置物撤去工事</td><td><small>事業本部/SC 83% / ジョブコラボ 17%</small></td><td class="num">460万円</td><td><small>増加 (後半/前半 5.6倍)</small></td><td><span class="j dim">(単発)</span></td><td>移転・撤去工事は相見積</td><td class="num">0〜100万円</td><td><small>広島支店移転 191万円・高崎/金沢の残置物撤去。拠点の移転・閉鎖に伴う単発費用</small></td></tr>
+<tr><td class="item">Wunderbar</td><td>タレント画像の使用料 (広告素材)</td><td><small>事業推進本部 73% / (来期に無い) 27%</small></td><td class="num">450万円</td><td><small>増加 (期中に開始)</small></td><td><span class="j ng">削減候補</span></td><td>タレント画像の使用料 (月75万円) は広告効果で判断。自社素材・ストックフォトへ</td><td class="num">200〜450万円</td><td><small>2026-03 開始。前払費用からの振替。契約期間と広告効果 (応募・問合せ数)</small></td></tr>
+<tr><td class="item">給与前払い (きゃり払い) の振込手数料</td><td>スタッフ給与前払いの都度振込手数料</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">401万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>スタッフ負担で回収 (下の「回収」行) しているので実質の持ち出しは無い</td><td class="num">-</td><td><small>回収 (年換算 約1,610万円) が支払 (年約400万円) を上回る。差額の扱いと原価側の計上を確認</small></td></tr>
+<tr><td class="item">マネーフォワード</td><td>MF クラウド (経費・債務支払 等)</td><td><small>管理本部/コーポレート 64% / ジョブコラボ 18% / 事業本部/SC 18%</small></td><td class="num">398万円</td><td><small>横ばい</small></td><td><span class="j ok">必須</span></td><td>勘定奉行クラウドと会計システムが2本立て。MF は経費・債務のみなら妥当</td><td class="num">0〜50万円</td><td><small>使っている MF のプランと ID 数</small></td></tr>
+<tr><td class="item">MS-Japan</td><td>人材紹介手数料 (管理部門の採用)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">358万円</td><td><small>単発</small></td><td><span class="j dim">(単発)</span></td><td>人材紹介手数料 (年収の3割前後が相場)。ダイレクトリクルーティング (ビズリーチ) と使い分け</td><td class="num">-</td><td><small>2026-02 の1件</small></td></tr>
+<tr><td class="item">OBC 勘定奉行クラウド (アクタスIT 経由含む)</td><td>会計システム (勘定奉行クラウド) 年額・保守</td><td><small>管理本部/コーポレート 96% / (来期に無い) 4%</small></td><td class="num">331万円</td><td><small>増加 (後半/前半 1.5倍)</small></td><td><span class="j ok">必須</span></td><td>販売店 (アクタスIT) 経由と OBC 保守の二重払いが無いか</td><td class="num">0〜50万円</td><td><small>訂正仕訳が多い (二重計上の修正あり)</small></td></tr>
+<tr><td class="item">リスクモンスター</td><td>与信管理・企業情報検索</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">316万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>月26万円固定。利用件数が少なければ帝国データバンク等の都度課金 (既に別契約あり) に一本化</td><td class="num">100〜200万円</td><td><small>月の検索件数。与信管理の対象社数</small></td></tr>
+<tr><td class="item">ソフトクリエイト (Trend Micro Cloud One)</td><td>サーバーセキュリティ (Cloud One)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">308万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>サーバー台数に応じた最適化。クラウド集約で台数が減れば減る</td><td class="num">30〜100万円</td><td><small>保護対象サーバー数</small></td></tr>
+<tr><td class="item">ビズリーチ</td><td>ダイレクトリクルーティング (社員採用) 利用料</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">277万円</td><td><small>減少 (後半/前半 0.4倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>採用計画に応じて契約期間を調整。HRクラウド (採用管理) と重複</td><td class="num">0〜150万円</td><td><small>年額契約 (2025/9〜2026/9)。採用実績</small></td></tr>
+<tr><td class="item">Tria</td><td>Meta 広告の運用代行手数料・クリエイティブ制作</td><td><small>管理本部 100%</small></td><td class="num">243万円</td><td><small>増加 (後半/前半 2.4倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>Meta 広告の運用代行手数料 (広告費の20%前後が相場)。内製化</td><td class="num">50〜120万円</td><td><small>広告費と手数料率</small></td></tr>
+<tr><td class="item">ゼクウ (RPM)</td><td>RPM 利用料 (業務システム。内容要確認)</td><td><small>ジョブコラボ 100%</small></td><td class="num">222万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">-</td><td><small>ジョブコラボ (SW) の業務システム利用料 月18〜19万円。内容</small></td></tr>
+<tr><td class="item">宝印刷</td><td>開示書類作成 (WIZLABO)・決算開示アウトソーシング・株主総会資料</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">217万円</td><td><small>減少 (後半/前半 0.3倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>業務委託 (年約910万円) + WIZLABO (年約220万円)。12月の総会関連 720万円</small></td></tr>
+<tr><td class="item">GMOあおぞらネット銀行</td><td>API 振込 (承認省略機能) 利用料</td><td><small>管理本部/コーポレート 82% / 事業本部 18%</small></td><td class="num">198万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>API 振込 (承認省略機能) 月15万円の必要性</td><td class="num">50〜180万円</td><td><small>どの業務で使っているか (スタッフ給与振込か)</small></td></tr>
+<tr><td class="item">インディードリクルートパートナーズ</td><td>人材紹介手数料 (社員採用)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">190万円</td><td><small>単発</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ICJ</td><td>バーチャル株主総会 (VSM) プラットフォーム・ヘルプデスク</td><td><small>管理本部 100%</small></td><td class="num">186万円</td><td><small>単発</small></td><td><span class="j pt">見直し余地あり</span></td><td>バーチャル株主総会の方式・業者を見直し</td><td class="num">50〜100万円</td><td><small>2025-12 に 155万円</small></td></tr>
+<tr><td class="item">ウィルビー (jobMAKER)</td><td>求人サイト作成・運用システム</td><td><small>事業本部/SC 53% / ジョブコラボ 46% / 事業推進本部 1%</small></td><td class="num">185万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">みずほ信託銀行</td><td>株主名簿管理 (証券代行)</td><td><small>管理本部 100%</small></td><td class="num">169万円</td><td><small>減少 (後半/前半 0.1倍)</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">アルファテクノロジー (WinActor)</td><td>RPA ライセンス (WinActor)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">161万円</td><td><small>増加 (後半/前半 1.5倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>RPA は Power Automate (Microsoft 365 付属) 等へ</td><td class="num">50〜150万円</td><td><small>動いているロボット数と効果</small></td></tr>
+<tr><td class="item">UPWARD</td><td>営業支援・訪問管理 SaaS (年額)</td><td><small>(来期に無い) 100%</small></td><td class="num">159万円</td><td><small>単発</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜160万円</td><td><small>2026-07 開始の年額契約。利用実態</small></td></tr>
+<tr><td class="item">少額 SaaS (AI・開発ツール等のカード決済)</td><td>ChatGPT / Claude / Cursor / Notion / Figma 等</td><td><small>管理本部 34% / 事業本部 25% / (来期に無い) 16%</small></td><td class="num">134万円</td><td><small>増加 (後半/前半 1.6倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>ChatGPT / Claude / Cursor 等の個別契約を法人プランに集約</td><td class="num">20〜60万円</td><td><small>部署・個人カードでの重複契約</small></td></tr>
+<tr><td class="item">Lien</td><td>事業・マーケティングのコンサルティング</td><td><small>(来期に無い) 100%</small></td><td class="num">132万円</td><td><small>単発</small></td><td><span class="j ng">削減候補</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>業務委託 (年約1,090万円) と支払手数料 (年約130万円) の両方。事業企画G・メディア戦略課。成果物</small></td></tr>
+<tr><td class="item">ライトアップ</td><td>AI 活用コンサルティング</td><td><small>事業推進本部/MC 100%</small></td><td class="num">120万円</td><td><small>単発</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">0〜120万円</td><td><small>AI コンサル (2026-07〜)。成果物</small></td></tr>
+<tr><td class="item">イー・スタッフィング</td><td>e-staffing (派遣の契約・勤怠 Web サービス)</td><td><small>事業本部/SW 67% / 事業本部/SC 29% / 事業推進本部/MC 4%</small></td><td class="num">105万円</td><td><small>増加 (後半/前半 1.3倍)</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">損保ジャパンキャリアビューロー</td><td>情報提供料 (求職者の送客・紹介。内容要確認)</td><td><small>事業本部/SC 97% / 事業推進本部/MC 3%</small></td><td class="num">100万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">賃貸契約の更新料・違約金・保証料</td><td>拠点の賃貸契約に伴う手数料 (単発)</td><td><small>事業本部/SC 66% / 事業推進本部/MC 19% / (来期に無い) 14%</small></td><td class="num">91万円</td><td><small>増加 (後半/前半 1.7倍)</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">NTT / クロスチェック 等 (光回線)</td><td>光回線・ひかり電話 (各拠点)</td><td><small>管理本部/コーポレート 97% / 事業本部/SC 3%</small></td><td class="num">91万円</td><td><small>減少 (後半/前半 0.2倍)</small></td><td><span class="j ok">必須</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>2026-03 から月3万円→20万円に増加 (支払手数料にも同種あり)。移転・新拠点か</small></td></tr>
+<tr><td class="item">ラクーンフィナンシャル</td><td>LINE 有料オプション (各拠点)</td><td><small>事業本部/SC 69% / 事業推進本部/MC 29% / (来期に無い) 1%</small></td><td class="num">86万円</td><td><small>増加 (後半/前半 4.3倍)</small></td><td><span class="j pt">見直し余地あり</span></td><td>LINE ツールの重複 (Liny / CATS / クラブネッツ / HRモンスター)。1つに寄せる</td><td class="num">30〜80万円</td><td><small>月1.5万円→14.7万円に増加中</small></td></tr>
+<tr><td class="item">スタジアム</td><td>システム使用料 (内容要確認)</td><td><small>(来期に無い) 100%</small></td><td class="num">77万円</td><td><small>減少 (期中に終了)</small></td><td><span class="j un">要確認</span></td><td>—</td><td class="num">-</td><td><small>2025-10 以降ほぼ計上なし (解約済みか)</small></td></tr>
+<tr><td class="item">証券保管振替機構</td><td>株式振替制度の利用料 (上場会社として必須)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">76万円</td><td><small>単発</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ソフトクリエイト (IIJ Omnibus / IIJモバイル)</td><td>ネットワーク・セキュアアクセス / モバイル回線 (IIJ 経由)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">75万円</td><td><small>単発</small></td><td><span class="j ok">必須</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>回線・拠点数と契約単価。販売店経由の上乗せ。2026-03 に移行作業 60万円 (単発)</small></td></tr>
+<tr><td class="item">カナミックネットワーク</td><td>介護記録・請求システム (訪問介護)</td><td><small>事業本部/SC 100%</small></td><td class="num">72万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">東京証券取引所</td><td>年間上場料・TDnet</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">72万円</td><td><small>単発</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">robottte (HRモンスター)</td><td>応募者対応の自動化 SaaS (通信費用・利用料)</td><td><small>(来期に無い) 56% / 事業本部/SC 44%</small></td><td class="num">72万円</td><td><small>横ばい</small></td><td><span class="j pt">見直し余地あり</span></td><td>(主科目側を参照)</td><td class="num">-</td><td><small>通信費・業務委託費・支払手数料の3科目に分散 (合計 年約320万円) し月々増加中。SMS 削減と相殺できているか</small></td></tr>
+<tr><td class="item">日本カーソリューションズ</td><td>社用車リース (解約金含む)</td><td><small>事業推進本部/MC 100%</small></td><td class="num">68万円</td><td><small>単発</small></td><td><span class="j pt">見直し余地あり</span></td><td>カーシェア・レンタカーへの切替 (稼働の低い車両から)。期中解約は解約金に注意</td><td class="num">50〜150万円</td><td><small>車両ごとの走行距離・稼働日数。MA浜松では解約金 48.5万円・56.5万円が発生済み</small></td></tr>
+<tr><td class="item">アール・アンド・エー・シー</td><td>内容不明 (月額)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">65万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td>内容不明 (月5.4万円固定)</td><td class="num">0〜65万円</td><td><small>何の契約か</small></td></tr>
+<tr><td class="item">ソーシャルデータバンク (Liny)</td><td>公式 LINE 運用ツール</td><td><small>(来期に無い) 100%</small></td><td class="num">60万円</td><td><small>増加 (期中に開始)</small></td><td><span class="j ng">削減候補</span></td><td>LINE ツールの重複</td><td class="num">30〜60万円</td><td><small>—</small></td></tr>
+<tr><td class="item">アルティウスリンク (HRstation)</td><td>応募受付・一次対応代行 (各拠点)</td><td><small>事業本部/SW 100%</small></td><td class="num">59万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">ゼスト (ZEST)</td><td>訪問介護のスケジュール管理システム</td><td><small>事業本部/SC 100%</small></td><td class="num">56万円</td><td><small>横ばい</small></td><td><span class="j un">要確認</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+<tr><td class="item">スタッフ給与前払い手数料の回収</td><td>スタッフ負担の前払い手数料を原価側へ振替 (費用のマイナス)</td><td><small>管理本部/コーポレート 100%</small></td><td class="num">-1,614万円</td><td><small>取消・回収 (マイナス)</small></td><td><span class="j un">要確認</span></td><td>費用のマイナス (スタッフ負担分を原価へ振替)</td><td class="num">-</td><td><small>販管費の支払手数料が実態より小さく見える要因</small></td></tr>
+<tr><td class="item">その他 81件 (少額)</td><td>レオパレスリーシング、アイリスプラザユニディカンパニー、ソフトクリエイト (Microsoft 365 等)、セコム / ビル警備・防災点検、SceneLive、Pマーク・ISMS 審査料、複合機 (富士フイルムBI / リコーリース)、HRマネージドサービス 等</td><td><small></small></td><td class="num">729万円</td><td><small></small></td><td><span class="j dim">少額</span></td><td></td><td class="num">-</td><td><small></small></td></tr>
+</tbody></table></div>
+<details><summary>来期予算と実績の差 (区分別・部門別)</summary>
+<div class="tw"><table><thead><tr><th>区分</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>事業本部/SC</td><td class="num">3,470万円</td><td class="num">668万円</td><td class="num"><span class="down">−2,802万円</span></td></tr>
+<tr><td>(来期に無い)</td><td class="num">1,647万円</td><td class="num">0万円</td><td class="num"><span class="down">−1,647万円</span></td></tr>
+<tr><td>管理本部/コーポレート</td><td class="num">6,728万円</td><td class="num">7,756万円</td><td class="num"><span class="up">+1,028万円</span></td></tr>
+<tr><td>ジョブコラボ</td><td class="num">495万円</td><td class="num">0万円</td><td class="num"><span class="down">−495万円</span></td></tr>
+<tr><td>事業本部/SW</td><td class="num">180万円</td><td class="num">657万円</td><td class="num"><span class="up">+477万円</span></td></tr>
+<tr><td>事業推進本部</td><td class="num">376万円</td><td class="num">0万円</td><td class="num"><span class="down">−376万円</span></td></tr>
+<tr><td>管理本部</td><td class="num">640万円</td><td class="num">934万円</td><td class="num"><span class="up">+295万円</span></td></tr>
+<tr><td>事業推進本部/MC</td><td class="num">-96万円</td><td class="num">0万円</td><td class="num"><span class="up">+96万円</span></td></tr>
+<tr><td>事業本部</td><td class="num">84万円</td><td class="num">60万円</td><td class="num"><span class="down">−24万円</span></td></tr>
+<tr><td>内部監査室</td><td class="num">1万円</td><td class="num">1万円</td><td class="num"><span class="down">−0万円</span></td></tr>
+</tbody></table></div>
+<div class="tw"><table><thead><tr><th>部門 (差の大きい順)</th><th class="num">実績 (年換算)</th><th class="num">予算 (年)</th><th class="num">差</th></tr></thead><tbody>
+<tr><td>C030 シニアケアDiv</td><td class="num">2,968万円</td><td class="num">0万円</td><td class="num"><span class="down">−2,968万円</span></td></tr>
+<tr><td>A039 DX推進課</td><td class="num">0万円</td><td class="num">1,500万円</td><td class="num"><span class="up">+1,500万円</span></td></tr>
+<tr><td>A036 経営管理G</td><td class="num">1,410万円</td><td class="num">379万円</td><td class="num"><span class="down">−1,031万円</span></td></tr>
+<tr><td>A044 総務グループ</td><td class="num">0万円</td><td class="num">980万円</td><td class="num"><span class="up">+980万円</span></td></tr>
+<tr><td>G001 サービス推進U</td><td class="num">966万円</td><td class="num">0万円</td><td class="num"><span class="down">−966万円</span></td></tr>
+<tr><td>A044 総務G</td><td class="num">531万円</td><td class="num">0万円</td><td class="num"><span class="down">−531万円</span></td></tr>
+<tr><td>B001 シニアワークDiv</td><td class="num">495万円</td><td class="num">0万円</td><td class="num"><span class="down">−495万円</span></td></tr>
+<tr><td>A038 情報システム課</td><td class="num">4,211万円</td><td class="num">4,647万円</td><td class="num"><span class="up">+436万円</span></td></tr>
+<tr><td>B001 SWディビジョン</td><td class="num">0万円</td><td class="num">432万円</td><td class="num"><span class="up">+432万円</span></td></tr>
+<tr><td>A706 リスキリング補助金</td><td class="num">-380万円</td><td class="num">0万円</td><td class="num"><span class="up">+380万円</span></td></tr>
+<tr><td>A503 メディア戦略課</td><td class="num">373万円</td><td class="num">0万円</td><td class="num"><span class="down">−373万円</span></td></tr>
+<tr><td>A022 管理本部</td><td class="num">640万円</td><td class="num">934万円</td><td class="num"><span class="up">+295万円</span></td></tr>
+</tbody></table></div></details>
+
+<h2 id="limits"><span class="n">07</span>データの限界</h2>
+<ul class="pts"><li>2026-06 のキャリア仕訳が未着のため、取引先別は10か月からの年換算 (季節性・年払いのずれが残る)。</li><li>2026-08 は請求書の未着・未計上が混じっている可能性 (ネクスウェイ・アクリート等の急減)。</li><li>カード (UC・Visa デビット・JCB) 決済分は摘要の加盟店名からサービスを判断。個人立替の少額は「その他」に寄せた。</li><li>0000 (その他) 部門に一括計上→各部門へ按分される費用 (電話・郵便等) は按分後の部門で表示。</li><li>取引先名寄せは摘要の文字列ルールによる。同じ取引先が複数科目にまたがる場合、削減見込は主科目側だけに付けた。</li><li>代替サービスの相場は 2026-09 時点の公開情報 (Google Workspace Enterprise Standard 3,060円/人・月、SMS 1通6〜15円、FAXDM 1通3〜10円 等) による目安で、見積ではない。</li><li>個人名の取引先は「個人 (委託)」等に伏せた。</li><li>取引先別は仕訳 10か月 (2026-06 は仕訳未着のため除外) ×12/10。科目合計 (actual_annual) は PL 11か月 ×12/11。予算は来期 (26/10〜27/09) の年計。金額は円・税抜。</li></ul>
+<footer>社内検討用。金額は税抜。削減の目安は公開相場からの概算で、見積ではありません。個人名の取引先は伏せています。</footer>
+</div></body></html>
