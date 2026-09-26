@@ -92,6 +92,10 @@ tr:hover .dot:not([data-c]){border-color:var(--line2)}
 .pal{position:fixed;z-index:210;display:none;gap:7px;flex-wrap:wrap;width:188px;padding:10px;background:#20252d;border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45)}
 .pal button{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
 .pal button:hover,.pal button:focus-visible{border-color:var(--wh);outline:none}
+td.memo{min-width:300px} table.v td.item[data-k]{min-width:13em}
+.cpbar{display:flex;justify-content:flex-end;margin:0 0 -4px}
+.cpbtn{font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:3px 10px;cursor:pointer}
+.cpbtn:hover,.cpbtn:focus-visible{color:var(--wh);border-color:var(--grn-d);outline:none}
 .pal .clr{width:auto;height:24px;border-radius:12px;padding:0 10px;font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel2);border:1px solid var(--line2)}
 </style>
 <script>
@@ -118,11 +122,59 @@ document.addEventListener('DOMContentLoaded',function(){
     var seen={};
     tb.querySelectorAll('tbody tr').forEach(function(tr){
       var td=tr.querySelector('td');if(!td)return;
-      var k=ti+'|'+(td.getAttribute('data-k')||td.textContent.trim()).slice(0,80);seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
+      var k=ti+'|'+(td.getAttribute('data-k')||td.textContent).trim().slice(0,80);seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
       var d=document.createElement('span');d.className='dot';d.tabIndex=0;d.setAttribute('role','button');d.setAttribute('aria-label','行の色を選ぶ');d.dataset.k=k;
       if(saved[k])paint(d,saved[k]);td.insertBefore(d,td.firstChild);
     });
   });
+  // 表をコピー (スプレッドシートに貼れる形) 2026-09-27
+  // ●の色は番号 01〜10 (COLORS の順) に置き換え、貼り付け先のセルにも同じ背景色を付ける。
+  // 親の略称は「所属」列に分ける。金額は単位がそろった列だけ数値にして、単位を見出しに移す (計算できるように)
+  function num2(c){var i=COLORS.indexOf(c);return i<0?'':(i<9?'0':'')+(i+1);}
+  var UNIT=/^([+\-−]?)([\d,]+(?:\.\d+)?)(万円|千円|円)$/;
+  function grid(tb){
+    var hasPar=!!tb.querySelector('tbody .par');
+    var head=[].map.call(tb.querySelectorAll('thead th'),function(th){return th.textContent.trim();});
+    var rows=[].map.call(tb.querySelectorAll('tbody tr'),function(tr){
+      var tds=tr.querySelectorAll('td');if(!tds.length)return null;
+      var d=tr.querySelector('.dot'),c=(d&&d.getAttribute('data-c'))||'';
+      var r=[{t:num2(c),bg:c}];
+      [].forEach.call(tds,function(td,i){
+        var s=td.textContent;
+        if(i===0&&hasPar){var p=td.querySelector('.par'),pt=p?p.textContent:'';r.push({t:pt.replace(/\s*／\s*$/,'').trim()});s=s.replace(pt,'');}
+        r.push({t:s.replace(/\s+/g,' ').trim()});
+      });
+      return r;
+    }).filter(Boolean);
+    head=['色'].concat(hasPar?['所属']:[]).concat(head);
+    for(var j=1;j<head.length;j++){
+      var u=null,ok=true,any=false;
+      rows.forEach(function(r){var x=r[j]&&r[j].t;if(!x||x==='-')return;var m=x.match(UNIT);if(!m){ok=false;return;}any=true;if(u&&u!==m[3])ok=false;u=m[3];});
+      if(!ok||!any)continue;
+      head[j]+=' ('+u+')';
+      rows.forEach(function(r){var m=r[j]&&r[j].t.match(UNIT);if(m)r[j].t=(m[1]&&m[1]!=='+'?'-':'')+m[2].replace(/,/g,'');});
+    }
+    return {head:head,rows:rows};
+  }
+  function escH(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function copyTable(tb,btn){
+    var g=grid(tb);
+    var text=[g.head.join('\t')].concat(g.rows.map(function(r){return r.map(function(c){return c.t.replace(/\t/g,' ');}).join('\t');})).join('\n');
+    var html='<meta charset="utf-8"><table><tr>'+g.head.map(function(h){return '<th>'+escH(h)+'</th>';}).join('')+'</tr>'
+      +g.rows.map(function(r){return '<tr>'+r.map(function(c){return '<td'+(c.bg?' style="background:'+c.bg+'"':'')+'>'+escH(c.t)+'</td>';}).join('')+'</tr>';}).join('')+'</table>';
+    function done(){var o='表をコピー';btn.textContent='コピーしました ('+g.rows.length+'行)';setTimeout(function(){btn.textContent=o;},1800);}
+    // file:// や http では clipboard API が無いので copy イベントで渡す
+    function fallback(){var h=function(e){e.clipboardData.setData('text/html',html);e.clipboardData.setData('text/plain',text);e.preventDefault();};document.addEventListener('copy',h);try{document.execCommand('copy');done();}finally{document.removeEventListener('copy',h);}}
+    if(window.isSecureContext&&navigator.clipboard&&window.ClipboardItem){navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]).then(done,fallback);}else fallback();
+  }
+  // ボタンは表の外に置く (表の数・順は●の色のキーに使うので変えない)
+  document.querySelectorAll('table').forEach(function(tb){
+    var box=tb.closest('.tw')||tb;var bar=document.createElement('div');bar.className='cpbar';
+    var b=document.createElement('button');b.type='button';b.className='cpbtn';b.textContent='表をコピー';b.setAttribute('aria-label','この表をスプレッドシート用にコピー');
+    b.addEventListener('click',function(ev){ev.stopPropagation();copyTable(tb,b);});
+    bar.appendChild(b);box.parentNode.insertBefore(bar,box);
+  });
+
   function open(d){cur=d;var r=d.getBoundingClientRect();pal.style.display='flex';var x=r.left,y=r.bottom+6;if(x+pal.offsetWidth>innerWidth-8)x=innerWidth-pal.offsetWidth-8;if(y+pal.offsetHeight>innerHeight-8)y=r.top-pal.offsetHeight-6;pal.style.left=x+'px';pal.style.top=y+'px';}
   document.addEventListener('click',function(ev){
     var d=ev.target.closest&&ev.target.closest('.dot');if(d){ev.stopPropagation();open(d);return;}
@@ -154,7 +206,7 @@ document.addEventListener('DOMContentLoaded',function(){
 
 
 <h2 id="gap"><span class="n">01</span>差の説明 — 販管費 直近ペース 79,871万円 → 予算 84,877万円</h2>
-<p class="sub">部門 × 科目。部門は組織の順 (薄い字は親の略称。技戦 = 技術戦略G、業管 = 業務管理G、コーポ = コーポレートDiv)、同じ部門の中は差の大きい順。</p>
+<p class="sub">部門 × 科目。部門は組織の順、同じ部門の中は差の大きい順。薄い字は親の略称 (直下 = 本部そのもの、コーポ = コーポレートDiv、技戦 = 技術戦略G、業管 = 業務管理G)。</p>
 <div class="tw"><table class="v"><thead><tr><th>部門</th><th>科目</th><th class="num">直近ペース</th><th class="num">11か月換算</th><th class="num">予算</th><th class="num">直近差</th><th>理由</th></tr></thead><tbody>
 <tr><td class="item h" data-k="A022 管理本部(直下)"><span class="par">直下 ／</span>A022 管理本部(直下)</td><td>業務委託費</td><td class="num">11,116万円</td><td class="num">9,635万円</td><td class="num">7,372万円</td><td class="num"><span class="down">−3,744万円</span></td><td>直近3か月は ORDIA 改修 (NSDデジタル、7〜8月に月3.6百万円・単発) と WCS 委託の7月増額 (+1.0) で膨らんでいる。経常分は WCS (グループ会社) 月2.46・アスター 月約1.55・ケアラボ 月0.9・思考合同会社 月約0.8・個人 (委託) 月0.6 ≒ 月6.3百万円。予算は 月5.56 + 12月 7.0 (株主総会・招集通知等の宝印刷分) なので、経常分を月約0.8百万円 (年約9百万円) 減らす前提。どの委託先を減らすかは予算シートに記載が無い (アスターは 2026-08 の計上が無い)</td></tr>
 <tr><td class="item h" data-k="A022 管理本部(直下)"><span class="par">直下 ／</span>A022 管理本部(直下)</td><td>株式報酬費用</td><td class="num">5,295万円</td><td class="num">5,295万円</td><td class="num">1,765万円</td><td class="num"><span class="down">−3,530万円</span></td><td>役員の株式報酬 月4.41百万円が 2027-01 で償却終了 (予算は 26/10〜27/1 の4か月分のみ)。削減努力ではなく制度上の減少</td></tr>
@@ -198,19 +250,20 @@ document.addEventListener('DOMContentLoaded',function(){
 あわせて、DX推進課の委託 (年20.4) と プレニチュードの情シス代行・研究開発支援 (年約16 ペース)・ORDIA 改修 (NSD)・A022 の外部委託 の発注範囲が重ならないよう窓口を一本化すること。</div>
 
 <h2 id="dept"><span class="n">02</span>部門と人員</h2>
+<p class="sub">組織の順。薄い字は親の略称 (直下 = 本部そのもの、コーポ = コーポレートDiv、技戦 = 技術戦略G、業管 = 業務管理G)。</p>
 <div class="tw"><table class="v"><thead><tr><th>部門</th><th class="num">販管費 直近ペース</th><th class="num">販管費 予算</th><th class="num">直近差</th><th class="num">8月在籍</th><th class="num">10/1 組織図</th><th class="num">予算人員</th><th class="num">人件費予算</th><th class="num">1人あたり</th><th>メモ</th></tr></thead><tbody>
-<tr><td class="item">A022 管理本部(直下)</td><td class="num">30,083万円</td><td class="num">22,524万円</td><td class="num"><span class="down">−7,558万円</span></td><td class="num">9</td><td class="num">2</td><td class="num">9</td><td class="num">11,395万円</td><td class="num">1,266万円</td><td><small>8月給与 9人 = 役員7 (うち社外取締役4)・執行役員1・担当1。組織図 (10/1) は取締役を載せないので2人。予算人員は役員8・担当1。差の主因は株式報酬の終了 (−35.3) と外部委託の縮小 (経常分で年約9百万円、単発の ORDIA 改修が消える)。外部委託 (WCS・アスター・ケアラボ・思考・個人) が集中している</small></td></tr>
-<tr><td class="item">A023 コーポレートDiv</td><td class="num">0万円</td><td class="num">129万円</td><td class="num"><span class="up">+129万円</span></td><td class="num">0</td><td class="num">0</td><td class="num">9</td><td class="num">0万円</td><td class="num">-</td><td><small>実績なし。予算は家賃 3か月分 1.2 のみ。予算人員に A022 と同じ 役員8・担当1 (9人) が重複して入っている (人件費は0) ので、本部合計の人数を数えるときは除く</small></td></tr>
-<tr><td class="item">A036 経営管理G</td><td class="num">12,828万円</td><td class="num">9,829万円</td><td class="num"><span class="down">−2,999万円</span></td><td class="num">6</td><td class="num">4</td><td class="num">4</td><td class="num">2,363万円</td><td class="num">591万円</td><td><small>8月給与 6人 → 組織図・予算 4人 (2人減)。組織図ではディビジョン直下 (グループ欄空) の チーフ1・担当2 を経営管理G として数えた。派遣 (マンパワー) は 6月で終了。支払手数料の減少は単発の人材紹介料が消えるため。租税公課 (事業所税) の予算増 +7.3 は障害者雇用納付金の月割りと推定</small></td></tr>
-<tr><td class="item">A044 総務G</td><td class="num">8,385万円</td><td class="num">7,233万円</td><td class="num"><span class="down">−1,152万円</span></td><td class="num">5</td><td class="num">6</td><td class="num">6.1</td><td class="num">3,364万円</td><td class="num">553万円</td><td><small>来期は 総務課・労務課 を統合した総務G。8月給与の在籍 23人のうち 18人は総務G 籍の出向者 (グループ会社へ付け替え)、自部門は5人 (労務課4・総務課1)。組織図 6人 (うち産休1)。出向者扱いのアルバイト 8人の雑給 (前期 年13.1) が予算0</small></td></tr>
-<tr><td class="item">A037 技術戦略G</td><td class="num">1,322万円</td><td class="num">1,486万円</td><td class="num"><span class="up">+164万円</span></td><td class="num">1</td><td class="num">1</td><td class="num">-</td><td class="num">1,241万円</td><td class="num">-</td><td><small>8月給与 GM 1人 → 組織図 1人。予算人員の行が無い (技術戦略G 3部門とも)</small></td></tr>
-<tr><td class="item">A038 情報システム課</td><td class="num">9,804万円</td><td class="num">11,297万円</td><td class="num"><span class="up">+1,493万円</span></td><td class="num">1</td><td class="num">2</td><td class="num">-</td><td class="num">249万円</td><td class="num">-</td><td><small>8月給与 契約社員 1人 → 組織図 2人 (シェアワーク課から担当1人が異動)。契約社員の雑給が予算0。通信費の 26/11 一時計上 約15百万円・支払手数料の毎月増・PC レンタルの毎月増 (台数増) が DX 投資の中身</small></td></tr>
-<tr><td class="item">A039 DX推進課</td><td class="num">0万円</td><td class="num">4,748万円</td><td class="num"><span class="up">+4,748万円</span></td><td class="num">0</td><td class="num">0</td><td class="num">-</td><td class="num">1,178万円</td><td class="num">-</td><td><small>新設。組織図に人がいないが人件費予算 11.8 (1人分)。業務委託 20.4・支払手数料 15.0 が新規</small></td></tr>
-<tr><td class="item">E200 業務管理G</td><td class="num">1,743万円</td><td class="num">1,993万円</td><td class="num"><span class="up">+250万円</span></td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">1,118万円</td><td class="num">1,118万円</td><td><small>GM 1人のまま</small></td></tr>
-<tr><td class="item">E202 事務センター1課</td><td class="num">9,466万円</td><td class="num">10,283万円</td><td class="num"><span class="up">+817万円</span></td><td class="num">17</td><td class="num">17</td><td class="num">20</td><td class="num">8,820万円</td><td class="num">441万円</td><td><small>8月給与 17人 (正社員9・アルバイト8) + ジョブコラボ派遣 3〜4人 → 組織図 1課 17人 (正社員7・アルバイト7・派遣3)。予算は 20人 (アルバイト10)。組織図よりアルバイトが3人多い。2課と合わせた事務センターの人件費は 年85.9 → 113.7 (+27.8)</small></td></tr>
-<tr><td class="item">A040 事務センター2課</td><td class="num">0万円</td><td class="num">3,458万円</td><td class="num"><span class="up">+3,458万円</span></td><td class="num">0</td><td class="num">5</td><td class="num">4.8</td><td class="num">2,552万円</td><td class="num">537万円</td><td><small>新設。組織図 5人 (課長1・担当3 うち産休1・派遣1)。2人は事務センター課、1人はサービス推進U から。家賃 7.6 が 1課と同額</small></td></tr>
-<tr><td class="item">E210 コンプライアンス課</td><td class="num">3,324万円</td><td class="num">2,970万円</td><td class="num"><span class="down">−354万円</span></td><td class="num">5</td><td class="num">4</td><td class="num">4</td><td class="num">2,177万円</td><td class="num">544万円</td><td><small>8月給与 5人 → 組織図・予算 4人。社宅 (年1.2) あり</small></td></tr>
-<tr><td class="item">E206 人材開発課</td><td class="num">2,917万円</td><td class="num">8,928万円</td><td class="num"><span class="up">+6,010万円</span></td><td class="num">3</td><td class="num">3</td><td class="num">9</td><td class="num">4,579万円</td><td class="num">509万円</td><td><small>8月給与 3人 → 組織図 3人・予算 4人 + 新卒 20人 (27/4〜6)。来期から管理本部へ移る課 (Ichiro 確認済み)。採用費 21.5・教育研修 9.8・新卒研修の人件費 17.6 が増加分の大半</small></td></tr>
+<tr><td class="item" data-k="A022 管理本部(直下)"><span class="par">直下 ／</span>A022 管理本部(直下)</td><td class="num">30,083万円</td><td class="num">22,524万円</td><td class="num"><span class="down">−7,558万円</span></td><td class="num">9</td><td class="num">2</td><td class="num">9</td><td class="num">11,395万円</td><td class="num">1,266万円</td><td class="memo"><small>8月給与 9人 = 役員7 (うち社外取締役4)・執行役員1・担当1。組織図 (10/1) は取締役を載せないので2人。予算人員は役員8・担当1。差の主因は株式報酬の終了 (−35.3) と外部委託の縮小 (経常分で年約9百万円、単発の ORDIA 改修が消える)。外部委託 (WCS・アスター・ケアラボ・思考・個人) が集中している</small></td></tr>
+<tr><td class="item" data-k="A023 コーポレートDiv"><span class="par">コーポ ／</span>A023 コーポレートDiv</td><td class="num">0万円</td><td class="num">129万円</td><td class="num"><span class="up">+129万円</span></td><td class="num">0</td><td class="num">0</td><td class="num">9</td><td class="num">0万円</td><td class="num">-</td><td class="memo"><small>実績なし。予算は家賃 3か月分 1.2 のみ。予算人員に A022 と同じ 役員8・担当1 (9人) が重複して入っている (人件費は0) ので、本部合計の人数を数えるときは除く</small></td></tr>
+<tr><td class="item" data-k="A036 経営管理G"><span class="par">コーポ ／</span>A036 経営管理G</td><td class="num">12,828万円</td><td class="num">9,829万円</td><td class="num"><span class="down">−2,999万円</span></td><td class="num">6</td><td class="num">4</td><td class="num">4</td><td class="num">2,363万円</td><td class="num">591万円</td><td class="memo"><small>8月給与 6人 → 組織図・予算 4人 (2人減)。組織図ではディビジョン直下 (グループ欄空) の チーフ1・担当2 を経営管理G として数えた。派遣 (マンパワー) は 6月で終了。支払手数料の減少は単発の人材紹介料が消えるため。租税公課 (事業所税) の予算増 +7.3 は障害者雇用納付金の月割りと推定</small></td></tr>
+<tr><td class="item" data-k="A044 総務G"><span class="par">コーポ ／</span>A044 総務G</td><td class="num">8,385万円</td><td class="num">7,233万円</td><td class="num"><span class="down">−1,152万円</span></td><td class="num">5</td><td class="num">6</td><td class="num">6.1</td><td class="num">3,364万円</td><td class="num">553万円</td><td class="memo"><small>来期は 総務課・労務課 を統合した総務G。8月給与の在籍 23人のうち 18人は総務G 籍の出向者 (グループ会社へ付け替え)、自部門は5人 (労務課4・総務課1)。組織図 6人 (うち産休1)。出向者扱いのアルバイト 8人の雑給 (前期 年13.1) が予算0</small></td></tr>
+<tr><td class="item" data-k="A037 技術戦略G"><span class="par">コーポ ／</span>A037 技術戦略G</td><td class="num">1,322万円</td><td class="num">1,486万円</td><td class="num"><span class="up">+164万円</span></td><td class="num">1</td><td class="num">1</td><td class="num">-</td><td class="num">1,241万円</td><td class="num">-</td><td class="memo"><small>8月給与 GM 1人 → 組織図 1人。予算人員の行が無い (技術戦略G 3部門とも)</small></td></tr>
+<tr><td class="item" data-k="A038 情報システム課"><span class="par">技戦 ／</span>A038 情報システム課</td><td class="num">9,804万円</td><td class="num">11,297万円</td><td class="num"><span class="up">+1,493万円</span></td><td class="num">1</td><td class="num">2</td><td class="num">-</td><td class="num">249万円</td><td class="num">-</td><td class="memo"><small>8月給与 契約社員 1人 → 組織図 2人 (シェアワーク課から担当1人が異動)。契約社員の雑給が予算0。通信費の 26/11 一時計上 約15百万円・支払手数料の毎月増・PC レンタルの毎月増 (台数増) が DX 投資の中身</small></td></tr>
+<tr><td class="item" data-k="A039 DX推進課"><span class="par">技戦 ／</span>A039 DX推進課</td><td class="num">0万円</td><td class="num">4,748万円</td><td class="num"><span class="up">+4,748万円</span></td><td class="num">0</td><td class="num">0</td><td class="num">-</td><td class="num">1,178万円</td><td class="num">-</td><td class="memo"><small>新設。組織図に人がいないが人件費予算 11.8 (1人分)。業務委託 20.4・支払手数料 15.0 が新規</small></td></tr>
+<tr><td class="item" data-k="E200 業務管理G"><span class="par">コーポ ／</span>E200 業務管理G</td><td class="num">1,743万円</td><td class="num">1,993万円</td><td class="num"><span class="up">+250万円</span></td><td class="num">1</td><td class="num">1</td><td class="num">1</td><td class="num">1,118万円</td><td class="num">1,118万円</td><td class="memo"><small>GM 1人のまま</small></td></tr>
+<tr><td class="item" data-k="E202 事務センター1課"><span class="par">業管 ／</span>E202 事務センター1課</td><td class="num">9,466万円</td><td class="num">10,283万円</td><td class="num"><span class="up">+817万円</span></td><td class="num">17</td><td class="num">17</td><td class="num">20</td><td class="num">8,820万円</td><td class="num">441万円</td><td class="memo"><small>8月給与 17人 (正社員9・アルバイト8) + ジョブコラボ派遣 3〜4人 → 組織図 1課 17人 (正社員7・アルバイト7・派遣3)。予算は 20人 (アルバイト10)。組織図よりアルバイトが3人多い。2課と合わせた事務センターの人件費は 年85.9 → 113.7 (+27.8)</small></td></tr>
+<tr><td class="item" data-k="A040 事務センター2課"><span class="par">業管 ／</span>A040 事務センター2課</td><td class="num">0万円</td><td class="num">3,458万円</td><td class="num"><span class="up">+3,458万円</span></td><td class="num">0</td><td class="num">5</td><td class="num">4.8</td><td class="num">2,552万円</td><td class="num">537万円</td><td class="memo"><small>新設。組織図 5人 (課長1・担当3 うち産休1・派遣1)。2人は事務センター課、1人はサービス推進U から。家賃 7.6 が 1課と同額</small></td></tr>
+<tr><td class="item" data-k="E210 コンプライアンス課"><span class="par">業管 ／</span>E210 コンプライアンス課</td><td class="num">3,324万円</td><td class="num">2,970万円</td><td class="num"><span class="down">−354万円</span></td><td class="num">5</td><td class="num">4</td><td class="num">4</td><td class="num">2,177万円</td><td class="num">544万円</td><td class="memo"><small>8月給与 5人 → 組織図・予算 4人。社宅 (年1.2) あり</small></td></tr>
+<tr><td class="item" data-k="E206 人材開発課"><span class="par">コーポ ／</span>E206 人材開発課</td><td class="num">2,917万円</td><td class="num">8,928万円</td><td class="num"><span class="up">+6,010万円</span></td><td class="num">3</td><td class="num">3</td><td class="num">9</td><td class="num">4,579万円</td><td class="num">509万円</td><td class="memo"><small>8月給与 3人 → 組織図 3人・予算 4人 + 新卒 20人 (27/4〜6)。来期から管理本部へ移る課 (Ichiro 確認済み)。採用費 21.5・教育研修 9.8・新卒研修の人件費 17.6 が増加分の大半</small></td></tr>
 </tbody></table></div>
 
 

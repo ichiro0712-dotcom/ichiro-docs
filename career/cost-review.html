@@ -71,7 +71,7 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 .j.dim{background:var(--panel2);color:var(--mut);border:1px solid var(--line2)}
 .up{color:var(--red);font-weight:650} .down{color:var(--grn);font-weight:650}
 td.num,th.num{text-align:right;white-space:nowrap;font-feature-settings:"tnum" 1}
-table.v{min-width:1080px} table.v td{font-size:13px} table.v td.item{width:17%}
+table.v{min-width:1080px} .par{font-size:11px;color:var(--dim);margin-right:5px;white-space:nowrap} table.v td{font-size:13px} table.v td.item{width:17%} table.v td.item.h{width:auto;white-space:nowrap} table.v td.item.h+td{min-width:7em}
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px;margin:22px 0 8px}
 .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
 .kpi .k{font-size:11px;color:var(--dim);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
@@ -92,6 +92,10 @@ tr:hover .dot:not([data-c]){border-color:var(--line2)}
 .pal{position:fixed;z-index:210;display:none;gap:7px;flex-wrap:wrap;width:188px;padding:10px;background:#20252d;border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45)}
 .pal button{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
 .pal button:hover,.pal button:focus-visible{border-color:var(--wh);outline:none}
+td.memo{min-width:300px} table.v td.item[data-k]{min-width:13em}
+.cpbar{display:flex;justify-content:flex-end;margin:0 0 -4px}
+.cpbtn{font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:3px 10px;cursor:pointer}
+.cpbtn:hover,.cpbtn:focus-visible{color:var(--wh);border-color:var(--grn-d);outline:none}
 .pal .clr{width:auto;height:24px;border-radius:12px;padding:0 10px;font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel2);border:1px solid var(--line2)}
 </style>
 <script>
@@ -118,11 +122,59 @@ document.addEventListener('DOMContentLoaded',function(){
     var seen={};
     tb.querySelectorAll('tbody tr').forEach(function(tr){
       var td=tr.querySelector('td');if(!td)return;
-      var k=ti+'|'+td.textContent.trim().slice(0,80);seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
+      var k=ti+'|'+(td.getAttribute('data-k')||td.textContent).trim().slice(0,80);seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
       var d=document.createElement('span');d.className='dot';d.tabIndex=0;d.setAttribute('role','button');d.setAttribute('aria-label','行の色を選ぶ');d.dataset.k=k;
       if(saved[k])paint(d,saved[k]);td.insertBefore(d,td.firstChild);
     });
   });
+  // 表をコピー (スプレッドシートに貼れる形) 2026-09-27
+  // ●の色は番号 01〜10 (COLORS の順) に置き換え、貼り付け先のセルにも同じ背景色を付ける。
+  // 親の略称は「所属」列に分ける。金額は単位がそろった列だけ数値にして、単位を見出しに移す (計算できるように)
+  function num2(c){var i=COLORS.indexOf(c);return i<0?'':(i<9?'0':'')+(i+1);}
+  var UNIT=/^([+\-−]?)([\d,]+(?:\.\d+)?)(万円|千円|円)$/;
+  function grid(tb){
+    var hasPar=!!tb.querySelector('tbody .par');
+    var head=[].map.call(tb.querySelectorAll('thead th'),function(th){return th.textContent.trim();});
+    var rows=[].map.call(tb.querySelectorAll('tbody tr'),function(tr){
+      var tds=tr.querySelectorAll('td');if(!tds.length)return null;
+      var d=tr.querySelector('.dot'),c=(d&&d.getAttribute('data-c'))||'';
+      var r=[{t:num2(c),bg:c}];
+      [].forEach.call(tds,function(td,i){
+        var s=td.textContent;
+        if(i===0&&hasPar){var p=td.querySelector('.par'),pt=p?p.textContent:'';r.push({t:pt.replace(/\s*／\s*$/,'').trim()});s=s.replace(pt,'');}
+        r.push({t:s.replace(/\s+/g,' ').trim()});
+      });
+      return r;
+    }).filter(Boolean);
+    head=['色'].concat(hasPar?['所属']:[]).concat(head);
+    for(var j=1;j<head.length;j++){
+      var u=null,ok=true,any=false;
+      rows.forEach(function(r){var x=r[j]&&r[j].t;if(!x||x==='-')return;var m=x.match(UNIT);if(!m){ok=false;return;}any=true;if(u&&u!==m[3])ok=false;u=m[3];});
+      if(!ok||!any)continue;
+      head[j]+=' ('+u+')';
+      rows.forEach(function(r){var m=r[j]&&r[j].t.match(UNIT);if(m)r[j].t=(m[1]&&m[1]!=='+'?'-':'')+m[2].replace(/,/g,'');});
+    }
+    return {head:head,rows:rows};
+  }
+  function escH(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function copyTable(tb,btn){
+    var g=grid(tb);
+    var text=[g.head.join('\t')].concat(g.rows.map(function(r){return r.map(function(c){return c.t.replace(/\t/g,' ');}).join('\t');})).join('\n');
+    var html='<meta charset="utf-8"><table><tr>'+g.head.map(function(h){return '<th>'+escH(h)+'</th>';}).join('')+'</tr>'
+      +g.rows.map(function(r){return '<tr>'+r.map(function(c){return '<td'+(c.bg?' style="background:'+c.bg+'"':'')+'>'+escH(c.t)+'</td>';}).join('')+'</tr>';}).join('')+'</table>';
+    function done(){var o='表をコピー';btn.textContent='コピーしました ('+g.rows.length+'行)';setTimeout(function(){btn.textContent=o;},1800);}
+    // file:// や http では clipboard API が無いので copy イベントで渡す
+    function fallback(){var h=function(e){e.clipboardData.setData('text/html',html);e.clipboardData.setData('text/plain',text);e.preventDefault();};document.addEventListener('copy',h);try{document.execCommand('copy');done();}finally{document.removeEventListener('copy',h);}}
+    if(window.isSecureContext&&navigator.clipboard&&window.ClipboardItem){navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]).then(done,fallback);}else fallback();
+  }
+  // ボタンは表の外に置く (表の数・順は●の色のキーに使うので変えない)
+  document.querySelectorAll('table').forEach(function(tb){
+    var box=tb.closest('.tw')||tb;var bar=document.createElement('div');bar.className='cpbar';
+    var b=document.createElement('button');b.type='button';b.className='cpbtn';b.textContent='表をコピー';b.setAttribute('aria-label','この表をスプレッドシート用にコピー');
+    b.addEventListener('click',function(ev){ev.stopPropagation();copyTable(tb,b);});
+    bar.appendChild(b);box.parentNode.insertBefore(bar,box);
+  });
+
   function open(d){cur=d;var r=d.getBoundingClientRect();pal.style.display='flex';var x=r.left,y=r.bottom+6;if(x+pal.offsetWidth>innerWidth-8)x=innerWidth-pal.offsetWidth-8;if(y+pal.offsetHeight>innerHeight-8)y=r.top-pal.offsetHeight-6;pal.style.left=x+'px';pal.style.top=y+'px';}
   document.addEventListener('click',function(ev){
     var d=ev.target.closest&&ev.target.closest('.dot');if(d){ev.stopPropagation();open(d);return;}
