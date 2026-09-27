@@ -204,10 +204,12 @@ document.addEventListener('DOMContentLoaded',function(){
       return r;
     }).filter(Boolean);
     head=['色'].concat(hasPar?['所属']:[]).concat(head);
+    // 2026-09-27 Ichiro「スプシで計算しやすいよう万円は数値に」: 「？」「+ ?」など形の合わないセルが1つあっても列ごと文字にしない。
+    // 金額の形のセルが列の半分以上で単位が1つなら、合うセルだけ数値にする (合わないセルは文字のまま残す)。幅 (〜) の列は文字のまま
     for(var j=1;j<head.length;j++){
-      var u=null,ok=true,any=false;
-      rows.forEach(function(r){var x=r[j]&&r[j].t;if(!x||x==='-'||x==='?')return;var m=x.match(UNIT);if(!m){ok=false;return;}any=true;if(u&&u!==m[3])ok=false;u=m[3];});
-      if(!ok||!any)continue;
+      var u=null,ok=true,hit=0,n=0;
+      rows.forEach(function(r){var x=r[j]&&r[j].t;if(!x||x==='-'||x==='?'||x==='？')return;n++;var m=x.match(UNIT);if(!m)return;hit++;if(u&&u!==m[3])ok=false;u=m[3];});
+      if(!ok||!hit||hit*2<n)continue;
       head[j]+=' ('+u+')';
       rows.forEach(function(r){var m=r[j]&&r[j].t.match(UNIT);if(m)r[j].t=(m[1]&&m[1]!=='+'?'-':'')+m[2].replace(/,/g,'');});
     }
