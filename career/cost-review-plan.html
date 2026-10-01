@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>来期予算の修正方針｜キャリア単体</title>
+<style>
+:root{--bg:#0e1013;--panel:#15181d;--panel2:#1b1f26;--line:#272c34;--line2:#333a44;
+ --tx:#d7dce3;--mut:#8b95a3;--dim:#5d6776;--wh:#f4f6f9;--grn:#34d399;--grn-d:#0f8f6b;--grn-soft:#16241f;
+ --red:#f87171;--red-soft:#241618;--amb:#fbbf24;--amb-soft:#241f14;--blu:#60a5fa;--blu-soft:#141d2b;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Hiragino Kaku Gothic ProN","Yu Gothic Medium",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-feature-settings:"tnum" 1,"lnum" 1;-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px 90px}
+.navbar{position:sticky;top:0;z-index:50;background:rgba(14,16,19,.92);border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.navbar-in{max-width:1180px;margin:0 auto;padding:0 26px;height:54px;display:flex;align-items:center;gap:22px}
+.brand{font-size:13px;font-weight:700;color:var(--wh);white-space:nowrap}
+.brand span{color:var(--dim);font-weight:500;margin-left:6px}
+.navbar nav{margin-left:auto;display:flex;gap:18px;overflow-x:auto}
+.navbar nav a{font-size:12.5px;color:var(--mut);text-decoration:none;font-weight:600;white-space:nowrap;padding:18px 0}
+.navbar nav a:hover{color:var(--wh)}
+header.hero{padding:44px 0 26px;border-bottom:1px solid var(--line)}
+h1{font-size:27px;line-height:1.35;margin:0 0 12px;color:var(--wh);letter-spacing:.01em}
+.lede{font-size:14.5px;color:var(--mut);max-width:78ch;margin:0 0 18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:4px 11px}
+h2{font-size:18.5px;color:var(--wh);margin:52px 0 6px;letter-spacing:.01em}
+h2 .n{color:var(--grn);font-size:13px;font-weight:700;margin-right:9px;font-feature-settings:"tnum" 1}
+h3{font-size:15px;color:var(--wh);margin:30px 0 8px}
+.sub{font-size:13.5px;color:var(--mut);margin:0 0 16px;max-width:82ch}
+p{font-size:14px;max-width:82ch}
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--blu);border-radius:8px;padding:14px 17px;margin:18px 0;font-size:13.5px;color:var(--mut)}
+.note.warn{border-left-color:var(--amb)}
+.note.good{border-left-color:var(--grn)}
+.note b{color:var(--wh);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:13px;margin:22px 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 17px}
+.card .k{font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--dim);font-weight:700;margin-bottom:7px}
+.card .v{font-size:14.5px;color:var(--wh);font-weight:600;line-height:1.5;margin-bottom:6px}
+.card .d{font-size:12.5px;color:var(--mut);line-height:1.55}
+.tw{overflow-x:auto;margin:14px 0 6px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:13.5px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+/* thead は sticky にしない。overflow-x:auto のラッパー内だと
+   スクロールコンテナが .tw になり、ヘッダーが下にずれて本文行に重なるため */
+thead th{background:var(--panel2);color:var(--wh);font-size:12px;font-weight:700;border-bottom:2px solid var(--line2)}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#181c22}
+td.item{color:var(--wh);font-weight:600}
+td small{display:block;color:var(--dim);font-size:11.5px;font-weight:400;margin-top:3px;line-height:1.5}
+/* ○△× マーク */
+.m{display:inline-block;width:22px;text-align:center;font-size:15px;font-weight:700;line-height:1}
+.m.o{color:var(--grn)} .m.t{color:var(--amb)} .m.x{color:var(--red)}
+table.auto{min-width:840px}
+table.auto td.mk{width:7%;text-align:center;white-space:nowrap}
+table.auto td.item{width:26%}
+.j{display:inline-block;font-size:11.5px;font-weight:700;border-radius:5px;padding:2px 7px;margin-right:7px;white-space:nowrap;vertical-align:1px}
+.j.ok{background:var(--grn-soft);color:var(--grn);border:1px solid #1d4d3d}
+.j.pt{background:var(--amb-soft);color:var(--amb);border:1px solid #4a3a16}
+.j.ng{background:var(--red-soft);color:var(--red);border:1px solid #4d2226}
+.j.un{background:var(--blu-soft);color:var(--blu);border:1px solid #1e3a5c}
+.legend{display:flex;flex-wrap:wrap;gap:16px;margin:12px 0 0;font-size:12.5px;color:var(--mut)}
+ol.src{font-size:13px;color:var(--mut);padding-left:20px;max-width:88ch}
+ol.src li{margin-bottom:7px}
+a{color:var(--grn);text-decoration:none;border-bottom:1px solid rgba(52,211,153,.3)}
+a:hover{border-bottom-color:var(--grn)}
+ul.pts{font-size:14px;max-width:82ch;padding-left:20px}
+ul.pts li{margin-bottom:9px}
+ul.pts b{color:var(--wh);font-weight:600}
+pre.q{background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:16px 18px;overflow-x:auto;font-size:12.5px;line-height:1.75;color:var(--tx);white-space:pre-wrap;font-family:"SFMono-Regular",Consolas,"Hiragino Kaku Gothic ProN",monospace}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:12.5px;color:var(--dim)}
+@media(max-width:700px){.wrap,.navbar-in{padding-left:16px;padding-right:16px}h1{font-size:21px}.navbar nav{display:none}}
+
+.j.dim{background:var(--panel2);color:var(--mut);border:1px solid var(--line2)}
+.up{color:var(--red);font-weight:650} .down{color:var(--grn);font-weight:650}
+td.num,th.num{text-align:right;white-space:nowrap;font-feature-settings:"tnum" 1}
+/* 表は画面幅に押し込まない (列幅は table-layout.js が中身の文字数で決める。はみ出しは .tw の横スクロール) */
+table{width:auto;min-width:100%}
+/* 表の枠の中で横スクロールさせると、長い表ではスクロールバーが表の一番下にしか出ない → 枠を表に合わせて伸ばし、ページ (ブラウザ) の横スクロールで見る 2026-09-27 */
+.tw{overflow-x:visible;width:max-content;min-width:100%} .par{font-size:11px;color:var(--dim);margin-right:5px;white-space:nowrap} table.v td{font-size:13px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:13px;margin:22px 0 8px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:15px 17px}
+.kpi .k{font-size:11px;color:var(--dim);font-weight:700;letter-spacing:.06em;margin-bottom:6px}
+.kpi .v{font-size:22px;color:var(--wh);font-weight:700;font-feature-settings:"tnum" 1}
+.kpi .d{font-size:12px;color:var(--mut);margin-top:4px}
+details{margin:10px 0} summary{cursor:pointer;color:var(--mut);font-size:13px}
+.scope{font:inherit;font-size:12.5px;font-weight:600;color:var(--wh);background:var(--panel);border:1px solid var(--line2);border-radius:8px;padding:6px 28px 6px 10px;margin-left:8px;cursor:pointer;
+ appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path d='M1 1l4 4 4-4' stroke='%238b95a3' stroke-width='1.6' fill='none'/></svg>");background-repeat:no-repeat;background-position:right 10px center}
+.scope:hover{border-color:var(--grn-d)} .scope option{background:#0f1419;color:var(--wh)}
+@media(max-width:700px){.brand{display:flex;align-items:center}}
+/* 用語の説明 (マウスオーバー) */
+.tip{text-decoration:underline dotted var(--dim);text-underline-offset:3px;cursor:help}
+.tipbox{position:fixed;z-index:200;max-width:340px;background:#20252d;color:var(--tx);border:1px solid var(--line2);border-radius:8px;padding:9px 12px;font-size:12.5px;line-height:1.6;font-weight:400;box-shadow:0 6px 24px rgba(0,0,0,.45);pointer-events:none;display:none;white-space:normal;text-align:left}
+/* 行頭の● (クリックで色を選ぶ。既定は行の背景と同じ色) */
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:8px;vertical-align:1px;cursor:pointer;background:var(--panel);border:1px solid transparent;flex:none}
+tr:hover .dot:not([data-c]){border-color:var(--line2)}
+.dot:focus-visible{outline:2px solid var(--grn);outline-offset:2px}
+.pal{position:fixed;z-index:210;display:none;gap:7px;flex-wrap:wrap;width:188px;padding:10px;background:#20252d;border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.45)}
+.pal button{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.pal button:hover,.pal button:focus-visible{border-color:var(--wh);outline:none}
+td.num small{white-space:normal;text-align:left;min-width:12em}
+.dotstat{margin-top:6px;font-size:11.5px;color:var(--dim)}
+.cpbar{display:flex;justify-content:flex-end;margin:0 0 -4px}
+.cpbtn{font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:3px 10px;cursor:pointer}
+.cpbtn:hover,.cpbtn:focus-visible{color:var(--wh);border-color:var(--grn-d);outline:none}
+.pal .clr{width:auto;height:24px;border-radius:12px;padding:0 10px;font:inherit;font-size:11.5px;color:var(--mut);background:var(--panel2);border:1px solid var(--line2)}
+</style>
+<script>
+(function(){
+var G=[["支出 (12か月)","MF 債務 (請求書の支払) に計上された 2025-09〜2026-08 の12か月の税抜の合計。カード払い・社員の立替精算 (MF 経費)・仕訳だけのもの (未払の計上・振替) は入らない。"],["実績 (12か月)","勘定奉行の PL の 2025-09〜2026-08 の12か月の合計 (キャリア単体)。"],["うち MF 債務","実績のうち、MF 債務 (請求書の支払) で取引先が分かる分。"],["計上部門","MF 債務で費用を計上した部門 (前期)。% は金額の割合。「各部門」は各拠点に配賦した支払。"],["来期予算の部門","今の計上部門と同じ部門コードが来期の予算にあれば、その部門。来期に無い部門・部門が変わるものは予算の場所が分からない。各部門に配賦しているものは全社。"],["来期予算 (推定)","来期予算は部門×科目の単位で、取引先ごとの内訳は無い。その部門のその科目の来期予算 × (この取引先の支出 ÷ その部門のその科目の前期実績) で按分した推定。来期に無い部門・予算が前期の3倍を超える部門の分は分からないので ?。"],["直近差","予算 − 直近ペース (年額)。赤 = 予算で増える / 緑 = 予算で減る。「同じ範囲の前期」がある表では、予算 − 同じ範囲の前期。"],["同じ範囲の前期","前期の実績を、来期の組織の範囲にそろえ直した直近ペース。来期は看護・保育が事業推進本部、介護が事業本部に分かれるため、前期の支店の数字を売上の比率で振り分け、コードの取り違え (C821・B001) も直した推定値。"],["直近ペース","前期の直近3か月 (26/06〜08) の月平均 × 12。最近の水準を1年分に延ばした値。直近3か月に一時的な費用 (6月の賞与など) があると引っ張られる。"],["11か月換算","前期11か月 (25/10〜26/08) の合計 ÷ 11 × 12。季節の波や一時的な費用をならした水準。年の途中の組織・人数の変化は薄まる。"],["実績比","来期予算 − 前期実績の年換算。"],["削減の目安 (来期予算比","来期予算から減らせる年額の目安 = 削減の目安 (今の支出から) + (来期予算 − 今の支出)。目指す水準は同じで、起点を来期予算にしたもの。0 未満は 0。候補どうしで重なるものがある。"],["来期予算","来期 (26/10〜27/09) の予算のうち、この候補が対象にしている費用の分。取引先ごとの予算は、部門×科目の予算を前期の取引先の比率で按分した推定。"],["削減の目安","年額の概算の幅。公開相場・前期実績からの目安で見積ではない。候補どうしで重なるものがある。"],["今の支出","直近の実績を年額にした値。"],["実績 (年","前期実績の年額。科目の合計は PL 11か月 × 12/11、取引先別は仕訳10か月 (2026-06 は仕訳未着) × 12/10。"],["支出 (11か月)","勘定奉行の仕訳の広告宣伝費 (取引先別、25/10〜26/08)。"],["新規稼働1人あたり","広告費 ÷ 新規稼働 (応募から60日以内に初めて勤務した人)。広告の効率の目安。"],["1人あたり","人件費予算 ÷ 人数。"],["FIX率","FIX した人 ÷ 応募人数。応募から30日以内に FIX した人で数える。"],["応募単価","広告費 ÷ 応募人数。"],["新規稼働","応募から60日以内に初めて勤務した人数 (ORDIA の勤怠)。26/07・08 の応募はまだ60日たっておらず今後増える。"],["8月在籍","2026年8月に給与が出た人数 (給与奉行)。派遣は含まない。"],["10/1 組織図","20261001_組織図 (人員配置表) に載っている人数。取締役は載っていない。"],["うち管理職","10/1 組織図の支店長・課長・UM・GM・DM の人数。"],["予算人員","予算シートの予算人員 (12か月の平均)。SC・SW などは元シートが未入力。"],["人件費予算","来期予算の人員関連費 (年)。"],["営業利益率","来期予算の営業利益 ÷ 来期予算の売上。"],["判定","必須 = 削れない / 見直し余地あり = 単価・契約の見直し / 削減候補 = やめる・大きく減らす / 要確認 = 中身の確認が先 / 少額 = 対象外。"],["推移","前期の月別の動き (前半と後半の比べなど)。"],["予算","来期予算 (26/10〜27/09) の12か月の合計。"],["差","来期予算 − 前期実績の年換算。赤 = 予算で増える / 緑 = 予算で減る。"]];
+var COLORS=['#f87171','#fb923c','#fbbf24','#a3e635','#34d399','#2dd4bf','#60a5fa','#818cf8','#c084fc','#f472b6'];
+// 色の保存先 (2026-09-27 作り替え): ページ名から .html を外した名前で1つ (GitHub Pages は .html なしの URL でも開けるため)。
+// 旧形式 cost-review-dots:<ファイル名> は読むだけで消さない (初回に新しいキーへ写す)
+var PAGE=(location.pathname.split('/').pop()||'').replace('.html','');
+var KEY='cost-review-colors:'+PAGE;
+var SYNC="https://script.google.com/macros/s/AKfycbwftKcGwvgCBMJ3GIUoPtx2u9hf61ni7eOheqA9B20J7DGdU1Emj_ByjuziE-Vgt7NG/exec";
+function load(k){try{return JSON.parse(localStorage.getItem(k)||'{}')||{};}catch(e){return {};}}
+var saved=load(KEY);
+var old=Object.assign({},load('cost-review-dots:'+PAGE),load('cost-review-dots:'+PAGE+'.html'));
+function save(){try{localStorage.setItem(KEY,JSON.stringify(saved));}catch(e){}}
+document.addEventListener('DOMContentLoaded',function(){
+  var box=document.createElement('div');box.className='tipbox';document.body.appendChild(box);
+  document.querySelectorAll('th, .kpi .k').forEach(function(el){
+    var t=el.textContent;for(var i=0;i<G.length;i++){if(t.indexOf(G[i][0])>=0){el.classList.add('tip');el.setAttribute('data-tip',G[i][1]);el.setAttribute('aria-label',t+' — '+G[i][1]);break;}}
+  });
+  function place(ev){var x=ev.clientX+14,y=ev.clientY+16,w=box.offsetWidth,h=box.offsetHeight;if(x+w>innerWidth-8)x=innerWidth-w-8;if(y+h>innerHeight-8)y=ev.clientY-h-12;box.style.left=x+'px';box.style.top=y+'px';}
+  document.addEventListener('mouseover',function(ev){var el=ev.target.closest&&ev.target.closest('.tip');if(!el){box.style.display='none';return;}box.textContent=el.getAttribute('data-tip');box.style.display='block';place(ev);});
+  document.addEventListener('mousemove',function(ev){if(box.style.display==='block')place(ev);});
+  var pal=document.createElement('div');pal.className='pal';pal.setAttribute('role','dialog');pal.setAttribute('aria-label','色を選ぶ');
+  COLORS.forEach(function(c){var b=document.createElement('button');b.type='button';b.style.background=c;b.setAttribute('aria-label',c);b.dataset.c=c;pal.appendChild(b);});
+  var clr=document.createElement('button');clr.type='button';clr.className='clr';clr.textContent='色を消す';clr.dataset.c='';pal.appendChild(clr);
+  document.body.appendChild(pal);var cur=null;
+  function paint(d,c){if(c){d.style.background=c;d.setAttribute('data-c',c);}else{d.style.background='';d.removeAttribute('data-c');}}
+  // 行のキー = 表の見出し (直前の h2/h3/summary。id があれば id、無ければ数字を除いた文字) + 同じ見出しの中で何番目の表
+  //   + 先頭セル (data-k があればそれ) + 最初の文字の欄 (科目・何の費用か など。更新で変わるメモ欄は使わない)。同じものが複数あれば #n。
+  // 旧キー (表の番号|先頭セル#n) は表の追加・行の並べ替えでずれるので使わない。旧キーで保存された色は初回に写す
+  var heads=[].slice.call(document.querySelectorAll('h2,h3,summary'));var hn={};var moved=0,shown=0;
+  document.querySelectorAll('table').forEach(function(tb,ti){
+    var h='';for(var i=heads.length-1;i>=0;i--){if(heads[i].compareDocumentPosition(tb)&4){h=heads[i].id||heads[i].textContent.replace(/[0-9,.]/g,'').trim().slice(0,40);break;}}
+    hn[h]=(hn[h]||0)+1;var tid=h+'#'+hn[h];
+    var seen={},seen2={};
+    tb.querySelectorAll('tbody tr').forEach(function(tr){
+      var tds=tr.querySelectorAll('td');var td=tds[0];if(!td)return;
+      var first=(td.getAttribute('data-k')||td.textContent).trim().slice(0,80);
+      var k=ti+'|'+first;seen[k]=(seen[k]||0)+1;if(seen[k]>1)k+='#'+seen[k];
+      var sub='';for(var j=1;j<tds.length;j++){if(!tds[j].classList.contains('num')&&!tds[j].classList.contains('memo')){sub=tds[j].textContent.trim().slice(0,40);break;}}
+      var k2=tid+'|'+first+'|'+sub;seen2[k2]=(seen2[k2]||0)+1;if(seen2[k2]>1)k2+='#'+seen2[k2];
+      if(!saved[k2]&&old[k]){saved[k2]=old[k];moved++;}
+      var d=document.createElement('span');d.className='dot';d.tabIndex=0;d.setAttribute('role','button');d.setAttribute('aria-label','行の色を選ぶ');d.dataset.k=k2;
+      if(saved[k2]){paint(d,saved[k2]);shown++;}td.insertBefore(d,td.firstChild);
+    });
+  });
+  if(moved)save();
+  var push=function(){};
+  // 色の件数 (このブラウザ)。「保存」より「表示」が少なければ、どこかの行と対応が取れていない
+  var ft=document.querySelector('footer');
+  if(ft){var st=document.createElement('div');st.className='dotstat';st.textContent='行の色 (このブラウザに保存): 表示 '+shown+'件 / 保存 '+Object.keys(saved).length+'件'+(Object.keys(old).length?' (旧形式 '+Object.keys(old).length+'件から引き継ぎ)':'');ft.appendChild(st);}
+  // 行の色の共有 (Google スプレッドシート。gas/Code.gs) 2026-09-27
+  // ・開いたらシートの色を読んで表示する (シートを正とする)
+  // ・このブラウザで初めて共有につないだときだけ、ブラウザにしか無い色をシートへ送る (今までの色の引き継ぎ)。
+  //   2回目からは送らない (他の人が消した色を、古いブラウザの保存で戻さないため)
+  // ・色を変えるたびに、その1件を送る。送れなくてもブラウザには保存してある
+  if(SYNC){
+    var SYNCED='cost-review-synced:'+PAGE;
+    // 件数は今の表示から数える (シートを読む前の件数のままにしない)
+    var setSync=function(t){if(st)st.textContent='行の色 (共有): 表示 '+document.querySelectorAll('.dot[data-c]').length+'件 / 共有: '+t;};
+    var dots={};[].forEach.call(document.querySelectorAll('.dot'),function(d){dots[d.dataset.k]=d;});
+    push=function(items){
+      if(!items.length)return Promise.resolve(true);
+      return fetch(SYNC,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({page:PAGE,items:items})})
+        .then(function(r){return r.json();}).then(function(j){if(!j.ok)setSync('保存に失敗 (このブラウザには保存済み)');return !!j.ok;})
+        .catch(function(){setSync('保存に失敗 (このブラウザには保存済み)');return false;});
+    };
+    setSync('読み込み中…');
+    fetch(SYNC+'?page='+encodeURIComponent(PAGE)).then(function(r){return r.json();}).then(function(j){
+      var m=j.marks||{};var first=true;try{first=!localStorage.getItem(SYNCED);}catch(e){}
+      // 初めてつなぐ前の色の控え (万一のときに戻せるように。消さない)
+      if(first){try{if(!localStorage.getItem('cost-review-backup:'+PAGE))localStorage.setItem('cost-review-backup:'+PAGE,JSON.stringify(saved));}catch(e){}}
+      var up=[],n=0;
+      for(var k in dots){
+        if(m[k]){paint(dots[k],m[k]);saved[k]=m[k];n++;}
+        else if(saved[k]){if(first){up.push({key:k,color:saved[k]});n++;}else{paint(dots[k],'');delete saved[k];}}
+      }
+      save();setSync(n+'件'+(up.length?' (このブラウザの '+up.length+'件を引き継ぎ中…)':''));
+      // 引き継ぎ済みの印は、送れたのを確かめてから付ける (送れないまま印を付けると、次に開いたとき自分の色が消える)
+      push(up).then(function(ok){if(!ok)return;try{localStorage.setItem(SYNCED,'1');}catch(e){}setSync(n+'件'+(up.length?' (このブラウザの '+up.length+'件を引き継いだ)':''));});
+    }).catch(function(){setSync('読めなかった (このブラウザの色を表示)');});
+  }
+
+  // 表をコピー (スプレッドシートに貼れる形) 2026-09-27
+  // ●の色は番号 01〜10 (COLORS の順) に置き換え、貼り付け先のセルにも同じ背景色を付ける。
+  // 親の略称は「所属」列に分ける。金額は単位がそろった列だけ数値にして、単位を見出しに移す (計算できるように)
+  function num2(c){var i=COLORS.indexOf(c);return i<0?'':(i<9?'0':'')+(i+1);}
+  var UNIT=/^([+\-−]?)([\d,]+(?:\.\d+)?)(万円|千円|円)$/;
+  function grid(tb){
+    var hasPar=!!tb.querySelector('tbody .par');
+    var head=[].map.call(tb.querySelectorAll('thead th'),function(th){return th.textContent.trim();});
+    var rows=[].map.call(tb.querySelectorAll('tbody tr'),function(tr){
+      var tds=tr.querySelectorAll('td');if(!tds.length)return null;
+      var d=tr.querySelector('.dot'),c=(d&&d.getAttribute('data-c'))||'';
+      var r=[{t:num2(c),bg:c}];
+      [].forEach.call(tds,function(td,i){
+        var s=td.textContent;
+        if(i===0&&hasPar){var p=td.querySelector('.par'),pt=p?p.textContent:'';r.push({t:pt.replace(/\s*／\s*$/,'').trim()});s=s.replace(pt,'');}
+        r.push({t:s.replace(/\s+/g,' ').trim()});
+      });
+      return r;
+    }).filter(Boolean);
+    head=['色'].concat(hasPar?['所属']:[]).concat(head);
+    // 2026-09-27 Ichiro「スプシで計算しやすいよう万円は数値に」: 「？」「+ ?」など形の合わないセルが1つあっても列ごと文字にしない。
+    // 金額の形のセルが列の半分以上で単位が1つなら、合うセルだけ数値にする (合わないセルは文字のまま残す)。幅 (〜) の列は文字のまま
+    for(var j=1;j<head.length;j++){
+      var u=null,ok=true,hit=0,n=0;
+      rows.forEach(function(r){var x=r[j]&&r[j].t;if(!x||x==='-'||x==='?'||x==='？')return;n++;var m=x.match(UNIT);if(!m)return;hit++;if(u&&u!==m[3])ok=false;u=m[3];});
+      if(!ok||!hit||hit*2<n)continue;
+      head[j]+=' ('+u+')';
+      rows.forEach(function(r){var m=r[j]&&r[j].t.match(UNIT);if(m)r[j].t=(m[1]&&m[1]!=='+'?'-':'')+m[2].replace(/,/g,'');});
+    }
+    return {head:head,rows:rows};
+  }
+  function escH(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function copyTable(tb,btn){
+    var g=grid(tb);
+    var text=[g.head.join('\t')].concat(g.rows.map(function(r){return r.map(function(c){return c.t.replace(/\t/g,' ');}).join('\t');})).join('\n');
+    var html='<meta charset="utf-8"><table><tr>'+g.head.map(function(h){return '<th>'+escH(h)+'</th>';}).join('')+'</tr>'
+      +g.rows.map(function(r){return '<tr>'+r.map(function(c){return '<td'+(c.bg?' style="background:'+c.bg+'"':'')+'>'+escH(c.t)+'</td>';}).join('')+'</tr>';}).join('')+'</table>';
+    function done(){var o='表をコピー';btn.textContent='コピーしました ('+g.rows.length+'行)';setTimeout(function(){btn.textContent=o;},1800);}
+    // file:// や http では clipboard API が無いので copy イベントで渡す
+    function fallback(){var h=function(e){e.clipboardData.setData('text/html',html);e.clipboardData.setData('text/plain',text);e.preventDefault();};document.addEventListener('copy',h);try{document.execCommand('copy');done();}finally{document.removeEventListener('copy',h);}}
+    if(window.isSecureContext&&navigator.clipboard&&window.ClipboardItem){navigator.clipboard.write([new ClipboardItem({'text/html':new Blob([html],{type:'text/html'}),'text/plain':new Blob([text],{type:'text/plain'})})]).then(done,fallback);}else fallback();
+  }
+  // ボタンは表の外に置く (表の数・順は●の色のキーに使うので変えない)
+  document.querySelectorAll('table').forEach(function(tb){
+    var box=tb.closest('.tw')||tb;var bar=document.createElement('div');bar.className='cpbar';
+    var b=document.createElement('button');b.type='button';b.className='cpbtn';b.textContent='表をコピー';b.setAttribute('aria-label','この表をスプレッドシート用にコピー');
+    b.addEventListener('click',function(ev){ev.stopPropagation();copyTable(tb,b);});
+    bar.appendChild(b);box.parentNode.insertBefore(bar,box);
+  });
+
+  // 表の列幅を中身の文字数で決める (2026-09-27 Ichiro「無理に横幅をそろえず横に伸ばす。表としてきれいなほうが大事」)
+  // 画面幅に押し込むと 理由・メモの列が細くなり、行が縦に長くなる → 短い列は折り返さず、
+  // 長い文の列は 90% の行が2〜3行・いちばん長い行も5行前後に収まる幅を確保する (上限 42em)。取引先名など32文字までの列は折り返さない。はみ出した分は .tw の横スクロールで見る
+  document.querySelectorAll('table').forEach(function(tb){
+    var ths=tb.querySelectorAll('thead th');if(!ths.length)return;
+    var rows=[].map.call(tb.querySelectorAll('tbody tr'),function(tr){return tr.querySelectorAll('td');});
+    [].forEach.call(ths,function(th,j){
+      var lens=rows.map(function(tds){return tds[j]?tds[j].textContent.replace(/\s+/g,' ').trim().length:0;}).sort(function(a,b){return a-b;});
+      var mx=lens.length?lens[lens.length-1]:0,p90=lens.length?lens[Math.floor((lens.length-1)*0.9)]:0;
+      if(mx<=32){th.style.whiteSpace='nowrap';rows.forEach(function(tds){if(tds[j])tds[j].style.whiteSpace='nowrap';});return;}
+      var em=Math.max(12,Math.min(42,Math.max(Math.round(p90/2.5),Math.round(mx/5))));
+      th.style.width=em+'em';th.style.minWidth=em+'em';
+    });
+  });
+
+  function open(d){cur=d;var r=d.getBoundingClientRect();pal.style.display='flex';var x=r.left,y=r.bottom+6;if(x+pal.offsetWidth>innerWidth-8)x=innerWidth-pal.offsetWidth-8;if(y+pal.offsetHeight>innerHeight-8)y=r.top-pal.offsetHeight-6;pal.style.left=x+'px';pal.style.top=y+'px';}
+  document.addEventListener('click',function(ev){
+    var d=ev.target.closest&&ev.target.closest('.dot');if(d){ev.stopPropagation();open(d);return;}
+    var b=ev.target.closest&&ev.target.closest('.pal button');if(b&&cur){var c=b.dataset.c;paint(cur,c);if(c)saved[cur.dataset.k]=c;else delete saved[cur.dataset.k];save();push([{key:cur.dataset.k,color:c||''}]);pal.style.display='none';cur=null;return;}
+    if(!(ev.target.closest&&ev.target.closest('.pal'))){pal.style.display='none';cur=null;}
+  });
+  document.addEventListener('keydown',function(ev){var d=ev.target.closest&&ev.target.closest('.dot');if(d&&(ev.key==='Enter'||ev.key===' ')){ev.preventDefault();open(d);}if(ev.key==='Escape'){pal.style.display='none';cur=null;}});
+});
+})();
+</script></head>
+<body>
+<div class="navbar"><div class="navbar-in">
+  <div class="brand">販管費レビュー<select class="scope" aria-label="範囲を切り替える" onchange="location.href=this.value"><option value="cost-review.html">キャリア単体</option><option value="cost-review-kanri.html">管理本部</option><option value="cost-review-jigyo.html">事業本部</option><option value="cost-review-suishin.html">事業推進本部</option><option value="cost-review-scmc.html">SC+MC (Div)</option><option value="cost-review-chokkatsu.html">本部直轄 (Div)</option><option value="cost-review-haishi-1b0c6e656b.html">廃止部門</option><option value="cost-review-itaku.html">委託コスト分析</option><option value="cost-review-plan.html" selected>予算修正案</option></select></div>
+  <nav><a href="#policy">方針</a><a href="#cuts">予算に反映する修正</a><a href="#keep">予算外で進めること</a><a href="#rules">運用のルール</a><a href="#checks">確かめたこと</a></nav>
+</div></div>
+<div class="wrap">
+<header class="hero">
+  <h1>来期予算の修正方針 (案) — 取締役のみなさんへ</h1>
+  <p class="lede">来期 (26/10〜27/09) の予算を、以下の方針で修正します。2027年2月までに安定して黒字を出せる会社にするため、売上を作らない間接部門と撤退した事業のコストを先に落とし、浮いた人員は売上を作る部門へ回します。各本部はこの方針に沿って、部門の予算と採用計画を直してください。</p>
+  <div class="meta"><span class="chip">キャリア単体</span><span class="chip">予算 26/10〜27/09</span><span class="chip">作成 2026-10-02 社長</span></div>
+  <div class="kpis">
+    <div class="kpi"><div class="k">予算に反映する削減 (年)</div><div class="v">18,961万円</div><div class="d">7項目。販管費予算 308,746万円 の 6.1%</div></div>
+    <div class="kpi"><div class="k">営業利益 (修正前の予算 → 修正後)</div><div class="v">−3,106万円 → 15,855万円</div><div class="d">前期の実績は −26,656万円</div></div>
+    <div class="kpi"><div class="k">予算外で進める削減の目安 (年)</div><div class="v">1,100〜2,800万円</div><div class="d">クラウドの集約・外部委託の見直し。達成した分は上振れ</div></div>
+  </div>
+</header>
+
+<h2 id="policy"><span class="n">01</span>方針</h2>
+<ul class="pts">
+<li><b>間接部門は DX で小さくする。</b>管理本部の定型業務を自動化し、27/1 から段階的に人員を減らす (または売上部門へ異動する)。</li>
+<li><b>撤退した事業の人員は、売上を作る部門へ。</b>セールスサポート課・スクール課は廃止し、メンバーは支店へ異動するか減らす。異動した人数分、支店の新規採用を減らす。</li>
+<li><b>経費は前期並みに戻す。</b>旅費は前期の実績まで、社内の飲食・懇親会は予算に入れず都度承認にする。</li>
+<li><b>予算は「使い切る枠」ではなく「上限」。</b>広告費と人員は毎月の数字を見て、効果が出ていないものはその月に止める。</li>
+</ul>
+
+<h2 id="cuts"><span class="n">02</span>予算に反映する修正</h2>
+<p class="sub">この表の修正額を来期予算から差し引きます。「確認結果」は、各項目の金額を予算シート・実績で確かめた結果です (数字にマウスを重ねると根拠)。</p>
+<div class="tw"><table class="v"><thead><tr><th>#</th><th>本部</th><th>項目</th><th class="num">修正額 (年)</th><th>内容・進め方</th><th>確認結果</th><th>根拠</th></tr></thead><tbody>
+<tr><td>1</td><td>管理本部</td><td class="item" data-k="DX による管理本部の人員の削減・異動">DX による管理本部の人員の削減・異動</td><td class="num"><span class="tip" data-tip="質問表「各部門人件費」タブの管理本部の本部計 (削減額 4,419.1万) と一致。">−4,419万円</span></td><td class="memo"><small>事務・総務・コンプライアンス・経営管理の定型業務を DX で減らし、人員を売上部門へ異動するか減らす。27/1 から 20%、4月から 30%、7月以降は最大 50% (部門別は下の表)。</small></td><td><span class="j ok">確認済み</span></td><td class="memo"><small>質問表「各部門人件費」タブの管理本部の本部計 (削減額 4,419.1万) と一致。</small></td></tr>
+<tr><td>2</td><td>管理本部</td><td class="item" data-k="人材開発課の見直し">人材開発課の見直し</td><td class="num"><span class="tip" data-tip="人材開発課の来期予算は 8,928万 (人件費 4,579万・採用費 2,150万・教育研修費 982万 など)。−1,500万は目標値で、内訳 (採用費と人件費の配分) はこれから決める。">−1,500万円</span></td><td class="memo"><small>新卒を含む採用のやり方とコストを見直す (人材紹介・ダイレクト採用の手数料、媒体)。業務を棚卸しし、自動化で人員を最適化する。</small></td><td><span class="j un">要判断</span></td><td class="memo"><small>人材開発課の来期予算は 8,928万 (人件費 4,579万・採用費 2,150万・教育研修費 982万 など)。−1,500万は目標値で、内訳 (採用費と人件費の配分) はこれから決める。</small></td></tr>
+<tr><td>3</td><td>事業本部</td><td class="item" data-k="セールスサポート課の廃止">セールスサポート課の廃止</td><td class="num"><span class="tip" data-tip="ご提示の −4,205万は 9/25 版の集計。今の予算シート (【27_9期予算】事業本部 › H001) では販管費 4,282.8万 (社宅が 87万 → 165万)。売上予算は 0。ほかの部門・タブにセールスサポート課の費用は無い。">−4,283万円</span></td><td class="memo"><small>撤退した新規事業 (シェアワーク) から移ってきたメンバーの課。メンバーは支店など売上を作れる部門へ異動するか減らし、支店の新規採用の代わりにする。</small></td><td><span class="j pt">金額を修正</span></td><td class="memo"><small>ご提示の −4,205万は 9/25 版の集計。今の予算シート (【27_9期予算】事業本部 › H001) では販管費 4,282.8万 (社宅が 87万 → 165万)。売上予算は 0。ほかの部門・タブにセールスサポート課の費用は無い。</small></td></tr>
+<tr><td>4</td><td>事業本部</td><td class="item" data-k="スクール課 (A672 未定) の廃止">スクール課 (A672 未定) の廃止</td><td class="num"><span class="tip" data-tip="今の予算シート (【27_9期予算】SCディビジョン › A672) で販管費 2,277.9万 (人件費 1,002万・家賃 651万・広告 150万・手数料 180万 など)。売上予算は 0。">−2,278万円</span></td><td class="memo"><small>売上予算 0 で課長1人と家賃が残っている課。メンバーは売上部門へ異動するか減らし、新規採用の代わりにする。</small></td><td><span class="j ok">確認済み</span></td><td class="memo"><small>今の予算シート (【27_9期予算】SCディビジョン › A672) で販管費 2,277.9万 (人件費 1,002万・家賃 651万・広告 150万・手数料 180万 など)。売上予算は 0。</small></td></tr>
+<tr><td>5</td><td>事業推進本部</td><td class="item" data-k="データ管理課の業務の自動化">データ管理課の業務の自動化</td><td class="num"><span class="tip" data-tip="質問表「各部門人件費」タブのデータ管理課 (人件費 1,045万 × 50%) = 438.4万と一致。同課の支払手数料 2,016万 (中身不明) は別に確認する。">−438万円</span></td><td class="memo"><small>BigQuery のデータを整え、分析する AI bot を作って集計業務を自動化し、人員を半分にする (26/12 から)。</small></td><td><span class="j ok">確認済み</span></td><td class="memo"><small>質問表「各部門人件費」タブのデータ管理課 (人件費 1,045万 × 50%) = 438.4万と一致。同課の支払手数料 2,016万 (中身不明) は別に確認する。</small></td></tr>
+<tr><td>6</td><td>全社</td><td class="item" data-k="旅費交通費を前期と同じ額に">旅費交通費を前期と同じ額に</td><td class="num"><span class="tip" data-tip="来期予算 7,387万 − 前期 5,148万 (25/10〜26/09、9月は8月と同額とみなす) = 2,239万。廃止する2課の旅費 (34万) は上の行で減るので除き −2,205万。ご提示の −2,300万は 25/09〜26/08 の12か月との差 (2,340万) に近い。">−2,205万円</span></td><td class="memo"><small>旅費交通費・出張旅費の予算を前期の実績 (5,148万) まで戻す。増えているのは間接部門 (MCディビジョン +1,200万、SC東日本 +414万、事業推進本部 +300万 など) なので、そこから削る。</small></td><td><span class="j pt">金額を修正</span></td><td class="memo"><small>来期予算 7,387万 − 前期 5,148万 (25/10〜26/09、9月は8月と同額とみなす) = 2,239万。廃止する2課の旅費 (34万) は上の行で減るので除き −2,205万。ご提示の −2,300万は 25/09〜26/08 の12か月との差 (2,340万) に近い。</small></td></tr>
+<tr><td>7</td><td>全社</td><td class="item" data-k="福利厚生費 (社内飲食代) を予算から外す">福利厚生費 (社内飲食代) を予算から外す</td><td class="num"><span class="tip" data-tip="来期予算 4,120万 (前期の実績 3,237万)。前期の中身は 社内の飲食・懇親会 約1,330万 / 福利厚生サービス (リロクラブ等) 約310万 / 健康診断・予防接種 約210万 / その他 約760万 (仕訳10か月分)。廃止する2課の分 (32万) と健康診断 250万を除いて −3,838万。リロクラブなどの契約を続けるなら、その分 (年 約370万) 小さくなる。">−3,838万円</span></td><td class="memo"><small>前期と同じく、社内の飲食・懇親会などは予算に入れず、使う場合はその都度承認する。法定の健康診断・予防接種 (年 約250万) は残す。</small></td><td><span class="j un">要判断</span></td><td class="memo"><small>来期予算 4,120万 (前期の実績 3,237万)。前期の中身は 社内の飲食・懇親会 約1,330万 / 福利厚生サービス (リロクラブ等) 約310万 / 健康診断・予防接種 約210万 / その他 約760万 (仕訳10か月分)。廃止する2課の分 (32万) と健康診断 250万を除いて −3,838万。リロクラブなどの契約を続けるなら、その分 (年 約370万) 小さくなる。</small></td></tr>
+<tr><td></td><td></td><td class="item" data-k="合計"><b>合計</b></td><td class="num"><b>−18,961万円</b></td><td class="memo"><small>営業利益は −3,106万円 → 15,855万円</small></td><td></td><td class="memo"></td></tr>
+</tbody></table></div>
+<div class="legend"><span><span class="j ok">確認済み</span> ご提示の金額どおり</span><span><span class="j pt">金額を修正</span> 今の予算・実績に合わせて直した</span><span><span class="j un">要判断</span> 前提を決める必要がある</span></div>
+
+<h3>管理本部の DX による削減 (部門別)</h3>
+<p class="sub">質問表「各部門人件費」タブの削減率から計算 (人員関連費 × 月ごとの削減率)。27/1〜3 は 20%、4〜6月は 30%、7〜9月は 30〜50%。</p>
+<div class="tw"><table><thead><tr><th>部門</th><th class="num">人員関連費の予算 (年)</th><th class="num">削減額 (年)</th></tr></thead><tbody>
+<tr><td class="item" data-k="事務センター1課">事務センター1課</td><td class="num">8,820万円</td><td class="num">−2,074万円</td></tr>
+<tr><td class="item" data-k="総務グループ">総務グループ</td><td class="num">3,364万円</td><td class="num">−725万円</td></tr>
+<tr><td class="item" data-k="事務センター2課">事務センター2課</td><td class="num">2,552万円</td><td class="num">−624万円</td></tr>
+<tr><td class="item" data-k="コンプライアンス課">コンプライアンス課</td><td class="num">2,177万円</td><td class="num">−516万円</td></tr>
+<tr><td class="item" data-k="経営管理G">経営管理G</td><td class="num">2,363万円</td><td class="num">−481万円</td></tr>
+<tr><td class="item" data-k="計"><b>計</b></td><td class="num">19,276万円</td><td class="num"><b>−4,419万円</b></td></tr>
+</tbody></table></div>
+
+<h2 id="keep"><span class="n">03</span>予算に反映しないが、削減・最適化を進めること</h2>
+<p class="sub">金額が読み切れないため予算は直さず、達成した分を上振れとして積み上げます。</p>
+<div class="tw"><table class="v"><thead><tr><th>#</th><th>本部</th><th>項目</th><th class="num">目安 (年)</th><th>補足</th></tr></thead><tbody>
+<tr><td>1</td><td>管理本部</td><td class="item" data-k="クラウド4社 (AWS・GCP・Azure・さくら) の集約と割引プラン、Azure 運用支援の解約">クラウド4社 (AWS・GCP・Azure・さくら) の集約と割引プラン、Azure 運用支援の解約</td><td class="num">500〜1,000万円</td><td class="memo"><small>管理本部ページの削減候補5。Azure で動いているものを一覧にし、AWS か GCP に寄せる。</small></td></tr>
+<tr><td>2</td><td>管理本部</td><td class="item" data-k="外注・外部委託費の見直しと値下げ交渉">外注・外部委託費の見直しと値下げ交渉</td><td class="num">600〜1,800万円</td><td class="memo"><small>管理本部直下の外部委託 (4社で年 約4,050万) の業務の棚卸し。委託コスト分析ページの候補4・7・10。</small></td></tr>
+<tr><td>3</td><td>事業本部・事業推進本部</td><td class="item" data-k="広告費と人員数を毎月見て、その月に最適化する">広告費と人員数を毎月見て、その月に最適化する</td><td class="num">(金額ではなくリスク回避)</td><td class="memo"><small>下の「運用のルール」。</small></td></tr>
+</tbody></table></div>
+
+<h2 id="rules"><span class="n">04</span>運用のルール — 広告費と人員は毎月見る</h2>
+<ul class="pts">
+<li>事業本部・事業推進本部の<b>広告費と人員数は、毎月の経営会議で実績と効果を確認</b>する (広告は代理店・媒体ごとの応募・FIX・入職の単価、人員は支店ごとの売上・粗利)。</li>
+<li>予算に決めた金額を、各部門がそのまま使い切る運用にしない。<b>全社で見て効果の低いところは、その月に止める・回す</b>判断ができる状態にしておく。</li>
+<li>目的は金額の削減よりも、<b>いざというときに止められないリスクを防ぎ、全社で最適化する</b>こと。</li>
+<li>新しい契約 (システム・委託・広告) は、予算に入っていても<b>発注の前に担当取締役の承認</b>を取る。</li>
+</ul>
+
+<h2 id="checks"><span class="n">05</span>確かめたこと・残る論点</h2>
+<div class="tw"><table class="v"><thead><tr><th>論点</th><th>確かめた結果・対応</th></tr></thead><tbody>
+<tr><td class="item" data-k="FAX 送信料 (株式会社ネクスウェイ) は来期予算に無い。付け忘れではないか">FAX 送信料 (株式会社ネクスウェイ) は来期予算に無い。付け忘れではないか</td><td class="memo"><small>予算はシニアケアディビジョンの支払手数料が 0 で、止める前提になっている。前期にシニアケアDiv の支払手数料は 2,773万あり、うちネクスウェイの FAX 送信料が 約2,100万。月額は 7月 174万 → 8月 19万に減っていて、送信を止めつつあるとみられる。ほかの部門に付け替えた形跡はない。9月の請求は MF の取り込みが 9/9 で止まっているため未確認 → 経理で9月の請求書を確認する。止まっていなければ年 約2,000万が予算に無い。</small></td></tr>
+<tr><td class="item" data-k="異動は「採用の代わり」にして初めて削減になる">異動は「採用の代わり」にして初めて削減になる</td><td class="memo"><small>セールスサポート課・スクール課・管理本部の人員を支店へ異動する場合、支店の新規採用をその人数分減らさないと、人件費は移るだけで減らない。異動先の部門の採用計画 (人件費予算) を同時に直す。</small></td></tr>
+<tr><td class="item" data-k="廃止する2課の家賃 (計 約1,180万) は床を返して初めて減る">廃止する2課の家賃 (計 約1,180万) は床を返して初めて減る</td><td class="memo"><small>セールスサポート課 527万・スクール課 651万は渋谷 (MFPR渋谷ビル) の按分。床を返す・他部門で使うことにしないと、按分先が変わるだけ。</small></td></tr>
+<tr><td class="item" data-k="人件費タブの事業本部 (−4,500万)・事業推進本部 (−3,024万) の削減率は今回の修正に入れていない">人件費タブの事業本部 (−4,500万)・事業推進本部 (−3,024万) の削減率は今回の修正に入れていない</td><td class="memo"><small>質問表「各部門人件費」タブには両本部にも削減率が入っている。修正案に入れるかは両本部の取締役と決める。</small></td></tr>
+<tr><td class="item" data-k="予算に無いコストが残っている (修正の効果を食う)">予算に無いコストが残っている (修正の効果を食う)</td><td class="memo"><small>①10/1 の組織図に載っていないが 8月も給与が出ている18人 (うち受け皿が無い8人で年 約3,540万)。②来期に無い部門の契約が続いているもの (Lien の SNS 広告・シェアワークの Web 広告など、予算に無い可能性が高いもの 年 約8,100万)。どちらも 10月中に止めるか、受け皿の予算を決める。詳細は質問表「予算にないコスト」タブ。</small></td></tr>
+</tbody></table></div>
+<footer>社内検討用 (取締役向け)。金額は税抜・万円。予算は「予算2610-2709」と各部門の予算シート (2026-10-02 時点)、実績は勘定奉行・MF 債務。</footer>
+</div></body></html>
