@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5年後、AIを使わない会社はどうなるか</title>
+<style>
+:root{
+  --bg:#07111f;
+  --panel:#0b1728;
+  --panel2:#0f2035;
+  --text:#f5f9ff;
+  --muted:#9fb0c6;
+  --line:#213753;
+  --red:#39d7ff;
+  --orange:#7c8cff;
+  --green:#4ee6b0;
+  --blue:#67a7ff;
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  linear-gradient(rgba(103,167,255,.025) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(103,167,255,.025) 1px, transparent 1px),
+  radial-gradient(circle at 85% 5%, rgba(57,215,255,.13), transparent 28%),
+  radial-gradient(circle at 15% 32%, rgba(124,140,255,.10), transparent 30%),
+  var(--bg);
+  background-size:48px 48px,48px 48px,auto,auto,auto;
+  color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans",
+  "Yu Gothic UI","Noto Sans JP",sans-serif;line-height:1.75;
+}
+a{color:#a9c8ff}
+.wrap{width:min(var(--max),calc(100% - 40px));margin:auto}
+.hero{min-height:88vh;display:flex;align-items:center;padding:88px 0 72px}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.12em;color:#a8efff;border:1px solid #245875;
+padding:5px 10px;border-radius:999px;background:#0b2233;margin-bottom:22px}
+h1{font-size:clamp(44px,7vw,84px);line-height:1.08;letter-spacing:-.04em;margin:0 0 28px}
+h1 em{font-style:normal;color:var(--red)}
+.lead{font-size:clamp(20px,2.4vw,30px);line-height:1.55;color:#dde5ef;max-width:980px;margin:0}
+.hero-note{margin-top:34px;border-left:4px solid var(--red);padding:18px 22px;background:rgba(57,215,255,.07);
+font-size:20px;max-width:930px}
+nav{position:sticky;top:0;z-index:20;background:rgba(7,17,31,.90);backdrop-filter:blur(14px);
+border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:8px;overflow:auto;padding:10px 0}
+nav a{white-space:nowrap;text-decoration:none;color:#d6deea;font-size:13px;padding:7px 10px;border-radius:8px}
+nav a:hover{background:#10243b}
+section{padding:92px 0;border-bottom:1px solid rgba(40,50,67,.55)}
+.kicker{color:var(--orange);font-size:14px;letter-spacing:.14em;font-weight:700;text-transform:uppercase}
+h2{font-size:clamp(32px,4.3vw,58px);line-height:1.2;letter-spacing:-.025em;margin:8px 0 22px}
+h3{font-size:24px;margin:0 0 10px}
+p.big{font-size:23px;line-height:1.65;color:#e3e9f1;max-width:980px}
+.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;margin-top:34px}
+.card{grid-column:span 3;background:linear-gradient(180deg,rgba(15,32,53,.94),rgba(9,22,38,.94));border:1px solid var(--line);box-shadow:0 14px 40px rgba(0,0,0,.12);
+border-radius:18px;padding:24px;min-height:190px}
+.card.wide{grid-column:span 6}
+.card.full{grid-column:1/-1}
+.stat{font-size:52px;line-height:1;font-weight:800;letter-spacing:-.04em;margin:8px 0 12px}
+.stat.red{color:#62e5ff}.stat.orange{color:#98a5ff}.stat.green{color:#67e9bd}.stat.blue{color:#82b8ff}
+.source{font-size:12px;color:#8290a2;margin-top:12px}
+.callout{margin:34px 0;padding:26px;border:1px solid #24506a;border-radius:18px;background:linear-gradient(135deg,rgba(57,215,255,.09),rgba(124,140,255,.07))}
+.callout strong{font-size:26px;line-height:1.5}
+.flow{display:flex;align-items:stretch;gap:10px;flex-wrap:wrap;margin:34px 0}
+.flow .step{flex:1;min-width:155px;background:#131a25;border:1px solid var(--line);border-radius:15px;padding:18px}
+.flow .arrow{align-self:center;color:#69768a;font-size:26px}
+.step b{display:block;color:#fff;margin-bottom:5px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;margin-top:28px}
+table{width:100%;border-collapse:collapse;min-width:760px;background:#0f151e}
+th,td{padding:15px 16px;border-bottom:1px solid #222c3b;text-align:left}
+th{position:sticky;top:49px;background:#151d28;color:#dce5f2;font-size:13px;z-index:2}
+td:last-child{font-weight:800;color:#aeb7ff}
+.tag{display:inline-block;padding:3px 8px;border-radius:999px;border:1px solid #3a4658;color:#cbd6e5;font-size:12px}
+.bar{height:9px;background:#222d3c;border-radius:20px;overflow:hidden;margin-top:8px}
+.bar > i{display:block;height:100%;background:linear-gradient(90deg,#39d7ff,#7c8cff);border-radius:20px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px}
+.good,.bad{border-radius:18px;padding:28px;border:1px solid var(--line)}
+.good{background:rgba(78,230,176,.06)} .bad{background:rgba(57,215,255,.05)}
+.good h3{color:#67e9bd}.bad h3{color:#67ddff}
+ul.clean{padding:0;margin:18px 0 0;list-style:none}
+ul.clean li{padding:11px 0 11px 28px;border-bottom:1px solid rgba(40,50,67,.55);position:relative}
+ul.clean li:before{content:"→";position:absolute;left:0;color:var(--orange);font-weight:800}
+.number-list{display:grid;gap:14px;margin-top:30px}
+.num{display:grid;grid-template-columns:64px 1fr;gap:18px;background:#111722;border:1px solid var(--line);border-radius:16px;padding:18px 22px}
+.num .n{font-size:34px;font-weight:800;color:#7f92ff}
+.num p{margin:3px 0;color:#d9e1eb}
+.quote{font-size:clamp(28px,4vw,50px);line-height:1.35;letter-spacing:-.025em;margin:45px 0;font-weight:800}
+.quote span{color:var(--red)}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}
+.year{background:#121925;border:1px solid var(--line);border-radius:16px;padding:18px}
+.year b{display:block;color:#8fb9ff;font-size:22px;margin-bottom:8px}
+.warning{border:1px solid #274a70;background:#0b1c2f;border-radius:18px;padding:24px;margin-top:24px}
+strong.key{color:#67ddff}
+.actions{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+.action{background:#131a25;border:1px solid var(--line);border-radius:16px;padding:22px}
+.action b{font-size:20px}
+.footer{padding:70px 0 100px;color:#aab5c4}
+.refs{font-size:13px}
+.refs li{margin:10px 0}
+.small{font-size:13px;color:#8d9aab}
+.badge{display:inline-block;background:#273245;border:1px solid #36445a;color:#dbe5f3;padding:4px 9px;border-radius:999px;font-size:12px}
+@media(max-width:900px){
+  .card,.card.wide{grid-column:span 6}
+  .split,.actions{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .wrap{width:min(var(--max),calc(100% - 24px))}
+  .card,.card.wide{grid-column:1/-1}
+  .hero{min-height:auto;padding:72px 0 54px}
+  section{padding:66px 0}
+}
+@media print{
+  nav{display:none} body{background:#fff;color:#111} .card,.step,.num,.good,.bad,.action,.year,.table-wrap{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">EXECUTIVE BRIEFING / 2026 → 2031</div>
+    <h1>5年後、<em>AIを使わない会社</em>は<br>どうなるか。</h1>
+    <p class="lead">
+      AI企業になる必要はない。<br>
+      しかし、すべての企業が<strong>「AIを大量に働かせる企業」</strong>になる。
+    </p>
+    <div class="hero-note">
+      <strong>AIが会社のデータを読み、判断し、実行できる構造になっているか。</strong><br>
+      その準備ができていない会社は、AIが十分に賢くなってから動いても遅い。
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#reality">いま起きていること</a>
+    <a href="#fiveyears">5年後の会社</a>
+    <a href="#competition">競争コスト</a>
+    <a href="#package">パッケージ待ちの罠</a>
+    <a href="#org">AI最適化組織</a>
+    <a href="#action">何をするか</a>
+  </div>
+</nav>
+
+<section id="reality">
+  <div class="wrap">
+    <div class="kicker">01 / Reality</div>
+    <h2>これは「いつか来る未来」ではない。<br>すでに始まっている。</h2>
+    <p class="big">
+      AIの導入率は急上昇している。一方で、AIエージェントを前提に業務プロセスまで作り直せている会社はごく少数。
+      つまり今は、<strong class="key">「ツール導入競争」から「会社の構造を作り替える競争」へ切り替わった直後</strong>にいる。
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="badge">企業AI利用</span>
+        <div class="stat blue">88%</div>
+        <div>2025年、調査対象組織の88%が少なくとも1つの業務でAIを利用。</div>
+        <div class="source">Stanford AI Index 2026 / McKinsey survey</div>
+      </div>
+      <div class="card">
+        <span class="badge">2030年の仕事</span>
+        <div class="stat orange">約1/3</div>
+        <div>人だけで行う仕事は、現在の47%から2030年には約3分の1へ。</div>
+        <div class="source">WEF Future of Jobs 2025</div>
+      </div>
+      <div class="card">
+        <span class="badge">Agent Ready</span>
+        <div class="stat red">5%</div>
+        <div>AIエージェントに対して「業務プロセスが高度に準備できている」と答えた企業は5%だけ。</div>
+        <div class="source">Deloitte, Aug 2026</div>
+      </div>
+      <div class="card">
+        <span class="badge">4年以内</span>
+        <div class="stat green">74%</div>
+        <div>経営者の74%が、約半分の業務プロセスをAIエージェント中心に再設計すると予想。</div>
+        <div class="source">Deloitte, Aug 2026</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>AIの性能向上を待つことがリスクなのではない。<br>
+      AIが賢くなった瞬間に使える会社になっていないことがリスク。</strong>
+    </div>
+
+    <div class="grid">
+      <div class="card wide">
+        <span class="badge">能力の伸び方</span>
+        <div class="stat red">約7か月で2倍</div>
+        <p>METRのソフトウェア・研究系タスクでは、AIが自律的に完遂できる「仕事の長さ」が長期的に約6〜7か月で倍増してきた。</p>
+        <div class="source">METR Time Horizon research — 対象は主にソフトウェア/研究タスクであり、全職種への単純外挿ではない。</div>
+      </div>
+      <div class="card wide">
+        <span class="badge">重要な意味</span>
+        <div class="stat orange">「できない」が短命化</div>
+        <p>今日できない業務でも、半年〜1年後には実用圏に入る可能性がある。だから「今できる仕事だけ」を見てAI化を判断すると、常に遅れる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fiveyears">
+  <div class="wrap">
+    <div class="kicker">02 / 2031 Model</div>
+    <h2>5年後の先端企業では、<br>AIが「補助」ではなく主担当になる。</h2>
+    <p class="big">
+      以下は公的な確定予測ではなく、現在の技術進歩・企業調査を踏まえた<strong>当社の2030〜2031年シナリオ</strong>。
+      ポイントは「職種が消えるか」ではなく、<strong class="key">職種の中の実務を誰が主担当するか</strong>。
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>領域</th><th>業務</th><th>AIが主担当になる割合の想定</th><th>イメージ</th></tr></thead>
+        <tbody>
+          <tr><td>経営</td><td>リサーチ・情報収集</td><td>95〜100%</td><td><div class="bar"><i style="width:98%"></i></div></td></tr>
+          <tr><td>経営</td><td>分析・シミュレーション</td><td>80〜95%</td><td><div class="bar"><i style="width:88%"></i></div></td></tr>
+          <tr><td>経営</td><td>判断案・選択肢作成</td><td>70〜90%</td><td><div class="bar"><i style="width:82%"></i></div></td></tr>
+          <tr><td>経営</td><td>最終判断・責任</td><td>20〜50%</td><td><div class="bar"><i style="width:35%"></i></div></td></tr>
+          <tr><td>管理</td><td>定型手続き</td><td>90〜100%</td><td><div class="bar"><i style="width:96%"></i></div></td></tr>
+          <tr><td>管理</td><td>監査・チェック</td><td>80〜95%</td><td><div class="bar"><i style="width:90%"></i></div></td></tr>
+          <tr><td>管理</td><td>社内問い合わせ</td><td>80〜95%</td><td><div class="bar"><i style="width:90%"></i></div></td></tr>
+          <tr><td>人事</td><td>手続き</td><td>90〜100%</td><td><div class="bar"><i style="width:96%"></i></div></td></tr>
+          <tr><td>人事</td><td>採用候補抽出・評価補助</td><td>70〜90%</td><td><div class="bar"><i style="width:82%"></i></div></td></tr>
+          <tr><td>人事</td><td>配置・組織設計</td><td>50〜80%</td><td><div class="bar"><i style="width:67%"></i></div></td></tr>
+          <tr><td>営業</td><td>企業・人物リサーチ</td><td>95〜100%</td><td><div class="bar"><i style="width:98%"></i></div></td></tr>
+          <tr><td>営業</td><td>見込み客抽出・アプローチ準備</td><td>80〜95%</td><td><div class="bar"><i style="width:90%"></i></div></td></tr>
+          <tr><td>営業</td><td>初期接触</td><td>50〜80%</td><td><div class="bar"><i style="width:66%"></i></div></td></tr>
+          <tr><td>営業</td><td>商談・交渉</td><td>30〜60%</td><td><div class="bar"><i style="width:46%"></i></div></td></tr>
+          <tr><td>営業</td><td>継続フォロー</td><td>60〜90%</td><td><div class="bar"><i style="width:78%"></i></div></td></tr>
+          <tr><td>マーケ</td><td>分析</td><td>80〜95%</td><td><div class="bar"><i style="width:90%"></i></div></td></tr>
+          <tr><td>マーケ</td><td>広告・コンテンツ制作</td><td>80〜95%</td><td><div class="bar"><i style="width:90%"></i></div></td></tr>
+          <tr><td>制作</td><td>PC上の定型制作</td><td>95〜100%</td><td><div class="bar"><i style="width:98%"></i></div></td></tr>
+          <tr><td>制作</td><td>高度で個人性の強い制作</td><td>50〜80%</td><td><div class="bar"><i style="width:67%"></i></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="small">
+      ※AIが「主担当」とは、人間が完全に不要という意味ではない。AIが実行の中心となり、人間は目的設定・承認・例外対応・責任を担う状態を指す。
+    </p>
+  </div>
+</section>
+
+<section id="competition">
+  <div class="wrap">
+    <div class="kicker">03 / Competition</div>
+    <h2>AIで浮いたコストは、<br>競争相手をさらに強くする。</h2>
+    <p class="big">
+      AI企業の強さは「人件費が安くなる」だけではない。
+      <strong class="key">同じ売上をより少ないコストで作り、その差額を価格・商品・広告・人材・開発へ再投資できる。</strong>
+      ここから競争差が複利で広がる。
+    </p>
+
+    <div class="flow">
+      <div class="step"><b>① AIで生産性上昇</b>同じ仕事を少ない時間・人数で処理</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>② 利益余力が増える</b>限界利益・LTV・許容CACが上がる</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>③ より高く買える</b>広告、人材、仕入、開発に多く払える</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>④ 市場価格が上がる</b>非AI企業の採算ラインを超える</div>
+      <div class="arrow">→</div>
+      <div class="step"><b>⑤ さらに差が開く</b>売上とデータが増え、再びAIへ投資</div>
+    </div>
+
+    <div class="split">
+      <div class="good">
+        <h3>AI活用企業</h3>
+        <ul class="clean">
+          <li>広告1件により高く払える</li>
+          <li>優秀な人材により高い給与を払える</li>
+          <li>商品・サービスの原価を上げられる</li>
+          <li>価格を下げても利益を残せる</li>
+          <li>開発速度・顧客対応量を増やせる</li>
+          <li>得たデータを次のAI改善に使える</li>
+        </ul>
+      </div>
+      <div class="bad">
+        <h3>AI非対応企業</h3>
+        <ul class="clean">
+          <li>同じ広告枠を買うだけで採算が悪化</li>
+          <li>優秀な人材の採用競争で負ける</li>
+          <li>価格競争と品質競争を同時に受ける</li>
+          <li>利益が減り、AI投資余力も減る</li>
+          <li>改善速度が落ち、さらに差がつく</li>
+          <li>最終的にビジネスモデル自体が成立しなくなる</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>広告単価の上昇は仮説だけではない。</strong><br>
+      2025年の米国Google / Microsoft検索広告ベンチマークでは、<strong>87%の業種でCPCが上昇し、全体平均CPCは前年比12.88%上昇</strong>。
+      広告単価は景気、媒体仕様、競合数など複数要因で動くが、競合の許容CACが上がれば、オークション価格を押し上げる方向に働く。
+      <div class="source">WordStream / LocaliQ, 16,446 campaigns, Apr 2024–Mar 2025. 2026年はCPLが5年ぶりに低下しており、すべての広告指標が毎年一方向に上がるわけではない。</div>
+    </div>
+
+    <div class="quote">
+      競争相手がAIを使うと、<span>こちらのコストまで上がる。</span><br>
+      AI導入は「社内効率化」ではなく、市場で生き残るための条件になる。
+    </div>
+  </div>
+</section>
+
+<section id="package">
+  <div class="wrap">
+    <div class="kicker">04 / Package Trap</div>
+    <h2>「そのうち良いAIパッケージを入れればいい」<br>では追いつけない。</h2>
+    <p class="big">
+      理由は、製品の問題ではなく<strong class="key">会社側の受け皿</strong>にある。
+      AIが高性能になればなるほど、データ・権限・業務フロー・組織・評価方法まで接続する必要がある。
+    </p>
+
+    <div class="number-list">
+      <div class="num">
+        <div class="n">01</div>
+        <div><h3>パッケージ化された時点で、先端企業は次へ進んでいる</h3>
+        <p>新モデル → APIで自社実装 → 業務ノウハウ蓄積 → パッケージ化 → 一般企業へ普及。待つ会社は構造的に1〜2周遅れになる。</p></div>
+      </div>
+      <div class="num">
+        <div class="n">02</div>
+        <div><h3>データがつながっていなければ、AIは仕事ができない</h3>
+        <p>売上、応募、顧客、契約、勤怠、会計、広告、会議、社内文書。AIが必要なデータを読めない会社では、どれだけ高性能なAIでも「答えるだけ」で終わる。</p></div>
+      </div>
+      <div class="num">
+        <div class="n">03</div>
+        <div><h3>古い承認・分業・入力フローを残したままでは、生産性が出ない</h3>
+        <p>AIが作る → 人が転記 → 上司が確認 → 会議 → 承認 → 別の人が入力、ではAIの速度を人間のフローが止める。</p></div>
+      </div>
+      <div class="num">
+        <div class="n">04</div>
+        <div><h3>AI最適化されていない会社は、高性能なAIパッケージすら使いこなせなくなる</h3>
+        <p>将来の高効率な製品ほど「データがAPIで取れる」「AIへ権限を渡せる」「業務を自動実行できる」「人の役割を変えられる」ことを前提にする。前提を満たせない会社は、既存業務を温存した“AI付き従来ソフト”しか選べず、生産性差が残る。</p></div>
+      </div>
+    </div>
+
+    <div class="warning">
+      <strong>これはすでに組織論として表面化している。</strong><br>
+      McKinsey（2026）は、AIで高い成果を出す企業の約4分の3がワークフローを根本的に再設計している一方、その他企業では約4分の1。
+      また、ワークフローを再設計した企業は、変更しなかった企業より「企業価値を獲得できた」と答える確率が大幅に高い。
+      BCGもAI変革の労力を「10%アルゴリズム、20%データ/技術、70%人・プロセス・組織」と整理している。
+    </div>
+
+    <div class="quote">
+      5年後に必要なのは、<span>AIを買える会社</span>ではない。<br>
+      <span>AIが働ける会社</span>である。
+    </div>
+  </div>
+</section>
+
+<section id="org">
+  <div class="wrap">
+    <div class="kicker">05 / AI-Optimized Organization</div>
+    <h2>AI最適化組織とは、<br>会社の前提そのものを変えること。</h2>
+    <p class="big">
+      ツール導入では足りない。<strong class="key">会社のデータ、権限、業務、人員配置、判断方法をAI前提に作り直す。</strong>
+      ここには時間がかかる。だから今から始める必要がある。
+    </p>
+
+    <div class="grid">
+      <div class="card wide">
+        <h3>1. 全データを残す</h3>
+        <p>売上だけではない。会話、判断、案件履歴、失注理由、作業ログ、会議、問い合わせまで、後からAIが使える形で残す。</p>
+      </div>
+      <div class="card wide">
+        <h3>2. AIがアクセスできる状態にする</h3>
+        <p>人間が画面を開けば見える、では足りない。API、権限、ID、データ構造を整え、AIが必要な情報へ安全に到達できるようにする。</p>
+      </div>
+      <div class="card wide">
+        <h3>3. 「人がやる」をデフォルトにしない</h3>
+        <p>新しい作業が発生したら、まず「システム・AIでできないか」を考える。人に渡すのは、その後。</p>
+      </div>
+      <div class="card wide">
+        <h3>4. AIに判断させることに慣れる</h3>
+        <p>AIは資料作成係ではない。分析、選択肢作成、優先順位、異常検知、一次判断まで任せ、人は重要判断と責任に集中する。</p>
+      </div>
+      <div class="card wide">
+        <h3>5. 人・役割・部署を廃止できる体制</h3>
+        <p><strong>AIで仕事量が減った部署は、すぐに統合・縮小・配置転換する。</strong>「今の組織を守る」ことを前提にAI化すると、コスト構造は変わらない。</p>
+      </div>
+      <div class="card wide">
+        <h3>6. 業務フロー自体を壊して作り直す</h3>
+        <p>既存業務を少し速くするのではなく、承認、転記、会議、チェック、引き継ぎそのものが必要かを問い直す。</p>
+      </div>
+      <div class="card wide">
+        <h3>7. AIを評価・監視する</h3>
+        <p>精度、失敗パターン、例外、コスト、処理時間、ROIを計測する。人を管理するのと同じように、AIの仕事も管理する。</p>
+      </div>
+      <div class="card wide">
+        <h3>8. 経営陣がAIを使いこなす</h3>
+        <p>社長・役員・マネジャー自身がAIを使えなければ、どこまで任せられるかを判断できない。AI理解はIT知識ではなく、経営能力になる。</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>「人員を減らすことを目的にAIを使う」のではない。<br>
+      しかし、AIで不要になった仕事・役割・組織を残すなら、AI導入の経済効果は出ない。</strong>
+    </div>
+  </div>
+</section>
+
+<section id="action">
+  <div class="wrap">
+    <div class="kicker">06 / What We Do</div>
+    <h2>では、今から何をするか。</h2>
+
+    <div class="actions">
+      <div class="action">
+        <b>経営陣がAIの解像度を上げる</b>
+        <p>「AIに何ができるか」を部下やAIチーム任せにしない。自分の仕事で日常的に使い、業務をAIに分解できる状態にする。</p>
+      </div>
+      <div class="action">
+        <b>中央AI開発チームを持つ</b>
+        <p>最新モデル、共通基盤、セキュリティ、API、データ接続、共通エージェントを高速で整備する。</p>
+      </div>
+      <div class="action">
+        <b>AIは全部署の仕事にする</b>
+        <p>AI部門だけがAIを作るのではない。各部門が自分たちの業務を分解し、自動化候補を出し、実装と検証を回す。</p>
+      </div>
+      <div class="action">
+        <b>データを「会社の資産」として貯める</b>
+        <p>今すぐAIで使わなくても残す。後から作れない履歴データこそ、数年後のAI差別化になる。</p>
+      </div>
+      <div class="action">
+        <b>「システムでできることを人がしない」文化へ</b>
+        <p>Excel転記、集計、確認、定型連絡、一次判断などを人間の仕事として固定しない。</p>
+      </div>
+      <div class="action">
+        <b>成果を「削減した作業」で測る</b>
+        <p>AI利用者数ではなく、消滅した作業時間、削減した処理、処理速度、粗利、売上/人、AIが完了した業務比率で測る。</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="year">
+        <b>2026</b>
+        <ul class="clean">
+          <li>AI活用・DX推進チームをつくり、バイブコーディングで定型業務の自動化を進める</li>
+          <li>社内データの全てをAIがアクセスできる状態へ</li>
+          <li>会話や行動など、今までデータ化していなかったものをデータ化。容量は気にしない</li>
+        </ul>
+      </div>
+      <div class="year">
+        <b>2027</b>
+        <ul class="clean">
+          <li>AIが実務を担当</li>
+          <li>定型業務のほとんどを自動化する</li>
+          <li>組織の再設計</li>
+          <li>AI前提の会社と従来型企業の差が大きく出始める</li>
+        </ul>
+      </div>
+      <div class="year">
+        <b>2028</b>
+        <ul class="clean">
+          <li>複数AIエージェントが業務を横断</li>
+          <li>AIによる人事異動、経営判断に従う組織にする</li>
+          <li>対応できていない従来型企業の利益が大きく圧迫される</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quote">
+      AI企業になる必要はない。<br>
+      しかし、<span>AIが働けない会社のままではいられない。</span>
+    </div>
+
+    <div class="warning">
+      <strong>結論</strong><br>
+      5年後にAIを導入するのでは遅い。5年後に「AIが働ける会社」になっているために、今からデータ・業務・組織・人材・権限を作り替える。
+      AIの進化は外部で起きる。しかし、そのAIを利益に変えられる会社を作るのは、経営の仕事である。
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <h3>参考資料</h3>
+    <ol class="refs">
+      <li>Stanford HAI, <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">The 2026 AI Index Report</a></li>
+      <li>World Economic Forum, <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/2-jobs-outlook/" target="_blank" rel="noopener">Future of Jobs Report 2025 — Jobs Outlook</a></li>
+      <li>McKinsey Global Institute, <a href="https://www.mckinsey.com/mgi/our-research/a-new-future-of-work-the-race-to-deploy-ai-and-raise-skills-in-europe-and-beyond" target="_blank" rel="noopener">A new future of work</a></li>
+      <li>METR, <a href="https://metr.org/time-horizons/" target="_blank" rel="noopener">Task-Completion Time Horizons of Frontier AI Models</a></li>
+      <li>Deloitte, <a href="https://www.deloitte.com/us/en/about/press-room/deloitte-survey-examines-ai-readiness-agentic-ai-success.html" target="_blank" rel="noopener">AI readiness / agentic AI survey, Aug 2026</a></li>
+      <li>McKinsey, <a href="https://www.mckinsey.com/capabilities/people-and-organization/our-insights/the-key-to-ai-value-is-hiding-in-plain-sight-your-operating-model" target="_blank" rel="noopener">The key to AI value is hiding in plain sight: Your operating model, Sep 2026</a></li>
+      <li>McKinsey, <a href="https://www.mckinsey.com/capabilities/people-and-organization/our-insights/from-adoption-to-impact-three-horizons-of-ai-transformation" target="_blank" rel="noopener">From adoption to impact: Three horizons of AI transformation, 2026</a></li>
+      <li>BCG, <a href="https://www.bcg.com/publications/2025/closing-the-ai-impact-gap" target="_blank" rel="noopener">From Potential to Profit: Closing the AI Impact Gap</a></li>
+      <li>WordStream / LocaliQ, <a href="https://www.wordstream.com/blog/2025-google-ads-benchmarks" target="_blank" rel="noopener">Google Ads Benchmarks 2025</a></li>
+      <li>WordStream / LocaliQ, <a href="https://www.wordstream.com/blog/2026-google-ads-benchmarks" target="_blank" rel="noopener">Google Ads Benchmarks 2026</a></li>
+    </ol>
+    <p class="small">
+      注：本資料の「2030〜2031年にAIが主担当になる割合」は、外部機関の確定予測ではなく、公開調査・技術進歩をもとにした経営シナリオです。
+      外部データと当社の予測を混同しないよう区別して記載しています。
+    </p>
+  </div>
+</footer>
+</body>
+</html>
