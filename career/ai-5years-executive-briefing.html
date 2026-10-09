@@ -100,6 +100,11 @@ strong.key{color:#67ddff}
 .refs li{margin:10px 0}
 .small{font-size:13px;color:#8d9aab}
 .badge{display:inline-block;background:#273245;border:1px solid #36445a;color:#dbe5f3;padding:4px 9px;border-radius:999px;font-size:12px}
+/* 04: 相手もAIになる */
+table.cp-table th{position:static}
+.key-inline{color:#67ddff;font-weight:800}
+table.cp-table td:first-child{white-space:nowrap;font-weight:700}
+table.cp-table td:last-child,table.cp-table th:last-child{white-space:nowrap;width:120px}
 /* 02: 年次推計（2026〜2030）活用企業と当社の表とグラフ */
 .ai-charts{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
 .ai-chart{margin:0;background:linear-gradient(180deg,rgba(15,32,53,.94),rgba(9,22,38,.94));border:1px solid var(--line);border-radius:18px;padding:20px 20px 8px}
@@ -185,6 +190,7 @@ table.ai-years td:last-child{font-weight:400;color:inherit}
     <a href="#reality">いま起きていること</a>
     <a href="#fiveyears">5年後の会社</a>
     <a href="#competition">競争コスト</a>
+    <a href="#counterpart">相手もAIに</a>
     <a href="#package">パッケージ待ちの罠</a>
     <a href="#org">AI最適化組織</a>
     <a href="#action">何をするか</a>
@@ -364,9 +370,134 @@ table.ai-years td:last-child{font-weight:400;color:inherit}
   </div>
 </section>
 
+<section id="counterpart">
+  <div class="wrap">
+    <div class="kicker">04 / Counterpart AI</div>
+    <h2>顧客の窓口も、AIになる。<br>人が人に向けて働く前提が崩れる。</h2>
+    <p class="big">
+      AI活用企業とAI活用が遅れている企業の差は、社内の生産性だけでは終わらない。
+      買い手・求職者・取引先の側も、<strong class="key">「まずAIが選び、最後に人が決める」</strong>形に変わり始めている。
+      相手がAIそのものでなくても、問い合わせの受け方・受付の時間・処理できる量がAIで変わり、倍増する。
+    </p>
+
+    <div class="grid">
+      <div class="card">
+        <span class="badge">買い物</span>
+        <div class="stat blue">24.6%</div>
+        <div>日本の20〜69歳のうち、買い物に生成AIを使う人。使う人の60%は「最終的に商品を決める場面もAIに任せたい」と回答。</div>
+        <div class="source">博報堂買物研究所 AIショッパー調査, 2026年6月</div>
+      </div>
+      <div class="card">
+        <span class="badge">採用</span>
+        <div class="stat orange">一次はAI</div>
+        <div>キリンは2026年卒から一次面接をAIに。サカイ引越センターはアルバイトのAI面接を全国展開。面接にAIを使う企業は前年の2倍超（8.8%）。</div>
+        <div class="source">Business Insider Japan, 2026年3月 / LOGI-TODAY, 2026年4月 / 学情, 2026年9月</div>
+      </div>
+      <div class="card">
+        <span class="badge">営業を受ける側</span>
+        <div class="stat red">86%</div>
+        <div>知らない番号からの着信のうち、応答されない割合。iPhoneはAIが先に用件を聞く通話スクリーニングを日本語でも提供（2025年9月〜）。</div>
+        <div class="source">Hiya State of the Call 2026（6か国、日本は対象外）/ Apple</div>
+      </div>
+      <div class="card">
+        <span class="badge">企業間の購買</span>
+        <div class="stat green">90%</div>
+        <div>2028年までに、企業間（B2B）の購買の90%がAIエージェントを介するようになるという予測。</div>
+        <div class="source">Gartner, 2025年10月（予測）</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:46px">5年以内（〜2031年）に、どこまで起きるか</h3>
+    <div class="table-wrap">
+      <table class="cp-table">
+        <thead><tr><th>場面</th><th>2026年の現在地</th><th>2031年までに起きること</th><th>実現性</th></tr></thead>
+        <tbody>
+          <tr><td>買い物</td><td>米国の消費者の30〜45%が調べ物・比較にAIを使う。日本は20〜69歳の24.6%</td><td>AIが候補を選び、人が最後に決めるのが普通になる。AIエージェント経由の購入は、2030年に米国EC売上の10〜25%という予測</td><td>選ぶ：高<br>購入まで：中</td></tr>
+          <tr><td>採用（企業側）</td><td>大手企業が新卒の一次面接をAI化。アルバイト採用でも全国展開が始まった</td><td>一次面接はAI、最終面接は人が標準になる</td><td>高</td></tr>
+          <tr><td>求職（個人側）</td><td>就活生の85〜90%が生成AIを使い、約7割がAIの回答を判断材料にする。応募まで代行する機能は米国で始まり、日本の大手サイトではまだない</td><td>AIが求人を選び、応募書類を作り、本人が最後に決めて応募する</td><td>中</td></tr>
+          <tr><td>営業を受ける側</td><td>スマートフォンの通話スクリーニング、メールのAI仕分け、企業のAI電話受付（IVRyは3.5万アカウント超）</td><td>電話・メール・問い合わせの一次対応はAIが受け、本人は残ったものだけを見る</td><td>高</td></tr>
+          <tr><td>企業間の購買</td><td>買い手の94%が購買の過程でAIを使い、95%が最初の候補リストにあった業者から買う</td><td>調査・比較・候補選びをAIが担う。交渉・発注までのAI化は始まったばかり</td><td>中〜高</td></tr>
+          <tr><td>広告</td><td>AI要約が出る検索では、リンクのクリックが15%から8%に減った。Metaは広告制作の完全自動化を目指す</td><td>広告もAIが作り、まずAIが読んで選び、人はAIが選んだものだけを見る</td><td>中〜高</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small">実現性は、2025〜2026年の実データと公開されている予測をもとにした当社の判定。高＝すでに一部で起きており、5年以内に一般化する可能性が高い／中＝始まっているが、規制・信頼・仕組みの整備しだい。</p>
+
+    <div class="flow">
+      <div class="step"><b>① 受付・ふるい分け</b>電話・メール・応募の一次対応をAIが受ける。<br><span class="muted">すでに起きている</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>② 調査・比較・候補選び</b>AIが候補を絞り、人は残ったものだけを見る。<br><span class="muted">急速に広がっている</span></div>
+      <div class="arrow">→</div>
+      <div class="step"><b>③ 交渉・発注・購入</b>AI同士で条件をすり合わせ、決済まで進む。<br><span class="muted">始まったばかり</span></div>
+    </div>
+
+    <div class="split">
+      <div class="bad">
+        <h3>人が1次・2次の対応を続ける会社</h3>
+        <ul class="clean">
+          <li>営業電話・営業メールは、相手に届く前にAIにふるい分けられる</li>
+          <li>買い手は最初の候補リストから選ぶ。AIの候補に入らなければ、人が会う機会すらない</li>
+          <li>人が時間をかけて作った提案書・求人・広告を、最初に読むのは相手のAI</li>
+          <li>相手のAIは24時間、同時に大量に対応する。人の受付時間と処理量では追いつかない</li>
+          <li>1件にかける人件費は同じでも、届く率と成約率が下がり、営業効率が落ちていく</li>
+        </ul>
+      </div>
+      <div class="good">
+        <h3>AIで1次・2次を担う会社</h3>
+        <ul class="clean">
+          <li>商品・求人・実績・価格の情報を、AIが読み取れる形で整え、AIの候補に入る</li>
+          <li>相手がまだ人のところには、AIで接触して1件あたりのコストを下げる（例：アポ獲得単価が3〜4万円から1.5〜2万円に）</li>
+          <li>受付と一次対応をAIで24時間にし、対応できる量を増やす</li>
+          <li>人は、最終判断・交渉・関係づくりなど、人が出る価値のある場面に集中する</li>
+          <li>相手のAIの変化に合わせて、人とAIの分担を見直し続ける</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>ただし「AIで営業すれば勝てる」わけではない。</strong><br>
+      AIで1件あたりのコストは大きく下がるが、相手側のAIのふるい分けも強くなる。Gartnerは、2028年にAIエージェントの数が営業担当者の10倍になる一方、生産性が上がったと答える営業担当者は40%未満にとどまると予測している。
+      AI同士のいたちごっこでは、効果は長く続かない。差がつくのは、<b class="key-inline">どこで人が出るかの設計</b>である。
+      <div class="source">Gartner, 2025年11月（予測）/ BizPlatformのAIテレアポ導入事例（Rabona AI, 2026年）</div>
+    </div>
+
+    <h3 style="margin-top:46px">人が本当にやった方がいい部分は、動き続ける</h3>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">減っている</span>
+        <div class="stat blue">67%</div>
+        <div>営業担当者を介さない購買を好む企業の買い手（前年は61%）。</div>
+        <div class="source">Gartner, 2026年3月</div>
+      </div>
+      <div class="card">
+        <span class="badge">確かめたい</span>
+        <div class="stat orange">69%</div>
+        <div>AIで得た情報を、営業担当者に確かめたい企業の買い手。</div>
+        <div class="source">Gartner, 2026年5月</div>
+      </div>
+      <div class="card wide">
+        <span class="badge">日本の買い手</span>
+        <div class="stat green">81.2%</div>
+        <div>営業担当者ならではの価値（個別の事情を汲んだ提案、潜在的なニーズの引き出し、共感・気配り）に期待している。一方で、提案に営業担当者が必要という人は3年で46.4%から39.0%に減った。</div>
+        <div class="source">HubSpot Japan, 2025年10月調査</div>
+      </div>
+    </div>
+    <div class="warning">
+      <strong>人材ビジネスへの示唆</strong><br>
+      企業も求職者も、AIで一次の選別を始めている。求人をAIが読み取れる形にすること、AI面接・AIによる求人探しを前提に接点を作り直すことが必要になる。
+      なお、AIが求人を選り分けて求職者に出す仕組みは、職業安定法上の「職業紹介」に当たる可能性がある（厚生労働省の資料、2026年2月）。
+    </div>
+
+    <div class="quote">
+      相手がAIになったとき、<span>人が人に向けて作った営業・求人・広告は、まずAIに読まれる。</span><br>
+      人が出るべき場面を見極め続けることが、競争力になる。
+    </div>
+  </div>
+</section>
+
 <section id="package">
   <div class="wrap">
-    <div class="kicker">04 / Package Trap</div>
+    <div class="kicker">05 / Package Trap</div>
     <h2>「そのうち良いAIパッケージを入れればいい」<br>では追いつけない。</h2>
     <p class="big">
       理由は、製品の問題ではなく<strong class="key">会社側の受け皿</strong>にある。
@@ -412,7 +543,7 @@ table.ai-years td:last-child{font-weight:400;color:inherit}
 
 <section id="org">
   <div class="wrap">
-    <div class="kicker">05 / AI-Optimized Organization</div>
+    <div class="kicker">06 / AI-Optimized Organization</div>
     <h2>AI最適化組織とは、<br>会社の前提そのものを変えること。</h2>
     <p class="big">
       ツール導入では足りない。<strong class="key">会社のデータ、権限、業務、人員配置、判断方法をAI前提に作り直す。</strong>
@@ -463,7 +594,7 @@ table.ai-years td:last-child{font-weight:400;color:inherit}
 
 <section id="action">
   <div class="wrap">
-    <div class="kicker">06 / What We Do</div>
+    <div class="kicker">07 / What We Do</div>
     <h2>では、今から何をするか。</h2>
 
     <div class="actions">
@@ -548,6 +679,27 @@ table.ai-years td:last-child{font-weight:400;color:inherit}
       <li>BCG, <a href="https://www.bcg.com/publications/2025/closing-the-ai-impact-gap" target="_blank" rel="noopener">From Potential to Profit: Closing the AI Impact Gap</a></li>
       <li>WordStream / LocaliQ, <a href="https://www.wordstream.com/blog/2025-google-ads-benchmarks" target="_blank" rel="noopener">Google Ads Benchmarks 2025</a></li>
       <li>WordStream / LocaliQ, <a href="https://www.wordstream.com/blog/2026-google-ads-benchmarks" target="_blank" rel="noopener">Google Ads Benchmarks 2026</a></li>
+      <li>博報堂買物研究所, <a href="https://www.hakuhodo.co.jp/news/newsrelease/267248/" target="_blank" rel="noopener">AIショッパー調査, 2026年6月</a></li>
+      <li>Bain & Company, <a href="https://www.bain.com/insights/2030-forecast-how-agentic-ai-will-reshape-us-retail-snap-chart/" target="_blank" rel="noopener">2030 Forecast: How Agentic AI Will Reshape US Retail, Dec 2025</a></li>
+      <li>Digital Commerce 360, <a href="https://www.digitalcommerce360.com/2025/12/09/morgan-stanley-ai-agentic-shoppers-385-billion-online-sales/amp/" target="_blank" rel="noopener">Morgan Stanley: agentic shoppers could drive up to $385B in online sales by 2030, Dec 2025</a></li>
+      <li>Business Insider Japan, <a href="https://www.businessinsider.jp/article/2603-beyond-efficiency-ai-hiring-case-studies/" target="_blank" rel="noopener">AI面接の導入事例（キリン、ローソンほか）, 2026年3月</a></li>
+      <li>LOGI-TODAY, <a href="https://www.logi-today.com/937675" target="_blank" rel="noopener">サカイ引越センター、アルバイト採用のAI面接を全国展開, 2026年4月</a></li>
+      <li>学情, <a href="https://service.gakujo.ne.jp/wp-content/uploads/2026/08/260901-navienq.pdf" target="_blank" rel="noopener">企業・学生の採用活動における生成AI利用調査, 2026年9月</a></li>
+      <li>マイナビキャリアリサーチLab, <a href="https://career-research.mynavi.jp/reserch/20260526_110798/" target="_blank" rel="noopener">2027年卒 就活生のAI利用, 2026年5月</a></li>
+      <li>Hiya, <a href="https://www.hiya.com/state-of-the-call" target="_blank" rel="noopener">State of the Call 2026</a></li>
+      <li>Apple, <a href="https://www.apple.com/newsroom/2025/06/apple-elevates-the-iphone-experience-with-ios-26/" target="_blank" rel="noopener">iOS 26（Call Screening）, Jun 2025</a></li>
+      <li>Google, <a href="https://blog.google/products-and-platforms/products/gmail/gmail-is-entering-the-gemini-era/" target="_blank" rel="noopener">Gmail is entering the Gemini era（AI Inbox）, Jan 2026</a></li>
+      <li>ASCII, <a href="https://ascii.jp/elem/000/004/293/4293234/" target="_blank" rel="noopener">IVRy 累計3.5万アカウント超, 2025年6月</a></li>
+      <li>Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2025-10-21-gartner-unveils-top-predictions-for-it-organizations-and-users-in-2026-and-beyond" target="_blank" rel="noopener">Top Predictions for 2026 and Beyond（B2B購買の90%がAIエージェント経由）, Oct 2025</a></li>
+      <li>6sense, <a href="https://6sense.com/report/buyer-experience/" target="_blank" rel="noopener">2025 B2B Buyer Experience Report</a></li>
+      <li>Pew Research Center, <a href="https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/" target="_blank" rel="noopener">Google users are less likely to click on links when an AI summary appears, Jul 2025</a></li>
+      <li>MediaPost, <a href="https://www.mediapost.com/publications/article/406315/" target="_blank" rel="noopener">Meta aims to fully automate ad creation by 2026（WSJ報道）, Jun 2025</a></li>
+      <li>Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2025-11-18-gartner-predicts-by-2028-ai-agents-will-outnumber-sellers-by-10x-yet-fewer-than-40-percent-of-sellers-will-report-ai-agents-improved-productivity" target="_blank" rel="noopener">AI agents will outnumber sellers by 10x by 2028, Nov 2025</a></li>
+      <li>PR TIMES, <a href="https://prtimes.jp/main/html/rd/p/000000008.000181893.html" target="_blank" rel="noopener">Rabona AI 導入事例（アポ獲得単価の低下）, 2026年</a></li>
+      <li>Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2026-03-09-gartner-sales-survey-finds-67-percent-of-b2b-buyers-prefer-a-rep-free-experience" target="_blank" rel="noopener">67% of B2B buyers prefer a rep-free experience, Mar 2026</a></li>
+      <li>Gartner, <a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-20-gartner-survey-finds-sixty-nine-percent-of-b-two-b-buyers-turn-to-sales-reps-to-validate-ai-generated-insights" target="_blank" rel="noopener">69% of B2B buyers turn to sales reps to validate AI-generated insights, May 2026</a></li>
+      <li>HubSpot Japan, <a href="https://www.hubspot.jp/hubfs/APAC_JAPAN/6.%20press%20release/Press%20Release_20260227_state_of_sales_2026%20%281%29.pdf" target="_blank" rel="noopener">日本の営業に関する意識・実態調査 2026</a></li>
+      <li>内閣府 規制改革推進会議（厚生労働省提出資料）, <a href="https://www8.cao.go.jp/kisei-kaikaku/kisei/meeting/wg/2501_06ai/260213/ai07_0203.pdf" target="_blank" rel="noopener">AIを活用した採用関連サービスと職業安定法, 2026年2月</a></li>
     </ol>
     <p class="small">
       注：本資料の「2026〜2030年の各年にAIが主担当になる割合」は、外部機関の確定予測ではなく、公開調査・技術進歩をもとにした経営シナリオです。
