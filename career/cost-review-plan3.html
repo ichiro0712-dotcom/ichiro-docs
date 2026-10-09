@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <body>
 <div class="navbar"><div class="navbar-in">
   <div class="brand">販管費レビュー<select class="scope" aria-label="範囲を切り替える" onchange="location.href=this.value"><option value="cost-review.html">キャリア単体</option><option value="cost-review-kanri.html">管理本部</option><option value="cost-review-jigyo.html">事業本部</option><option value="cost-review-suishin.html">事業推進本部</option><option value="cost-review-scmc.html">SC+MC (Div)</option><option value="cost-review-chokkatsu.html">本部直轄 (Div)</option><option value="cost-review-haishi-1b0c6e656b.html">廃止部門</option><option value="cost-review-itaku.html">委託コスト分析</option><option value="cost-review-plan.html">予算修正案1</option><option value="cost-review-plan2.html">予算修正案2</option><option value="cost-review-plan3.html" selected>予算修正案3</option></select></div>
-  <nav><a href="#resp">指摘への対応</a><a href="#realize">修正案1 の実現度</a><a href="#others">修正項目以外の変化</a><a href="#summary">前回からの変化</a><a href="#changes">科目別の主な変更</a><a href="#monthly">月別の予算</a><a href="#notes">注記</a></nav>
+  <nav><a href="#resp">指摘への対応</a><a href="#offscope">指摘外の変動</a><a href="#policy">修正方針に対する比較</a><a href="#realize">修正案1 の実現度</a><a href="#others">修正項目以外の変化</a><a href="#summary">前回からの変化</a><a href="#changes">科目別の主な変更</a><a href="#monthly">月別の予算</a><a href="#notes">注記</a></nav>
 </div></div>
 <div class="wrap">
 <style>td.up{color:#f87171} td.down{color:#34d399} b.ok{color:#34d399} b.part{color:#fbbf24} b.ng{color:#f87171}
@@ -281,7 +281,7 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <h2 id="resp"><span class="n">01</span>修正案2 の指摘への対応</h2>
 <p class="sub">修正案2 で各本部に出した指摘ごとに、直した予算 (10/9) で数字を確かめた。差は 9/25 の部門シート (修正案1 の前提) との差。<b>○ 対応済み / △ 一部 / ✕ 未対応・回答なし</b>。</p>
 <div class="tw"><table><thead><tr><th>#</th><th>指摘 (修正案2)</th><th>対応</th><th>今回の予算で確かめたこと</th><th>本部のコメント (要旨)</th></tr></thead><tbody>
-<tr><td>1</td><td class="item" data-k="1 セールスサポート課の廃止 (人件費を採用予定の枠に充てる・業務委託費や家賃を止める)">セールスサポート課の廃止 (人件費を採用予定の枠に充てる・業務委託費や家賃を止める)</td><td><b class="ng">✕ 未対応</b></td><td class="memo"><small>課の人件費・業務委託費は 26/11 から 0 になった。<b>しかし同じ 26/11 から A021 事業本部 (予算人員 0人) に、人件費 +1,663万円・業務委託費 +1,167万円・社宅 +146万円 (計 +2,976万円、9/25 との差) が載っている</b>。修正案2 の時点 (27/1 から 2,440万円) より、移す時期が早まっただけ。ほかの部門の新規採用の枠を減らした形跡は無い (10/8 → 今回で人件費が減った部門は無い)。家賃は 26/12 まで残る (月 44万円)。</small></td><td class="memo"><small>事業本部長: 「修正しました」</small></td></tr>
+<tr><td>1</td><td class="item" data-k="1 セールスサポート課の廃止 (人件費を採用予定の枠に充てる・業務委託費や家賃を止める)">セールスサポート課の廃止 (人件費を採用予定の枠に充てる・業務委託費や家賃を止める)</td><td><b class="ng">✕ 未対応</b></td><td class="memo"><small>課の人件費・業務委託費は 26/11 から 0 になった。<b>しかし同じ 26/11 から A021 事業本部 (予算人員 0人) に、人件費 +1,663万円・業務委託費 +1,167万円・社宅 +146万円 (計 +2,976万円、9/25 との差) が載っている</b>。修正案2 の時点 (27/1 から 2,440万円) より、移す時期が早まっただけ。ほかの部門の新規採用の枠を減らした形跡は無い (10/8 → 今回で人件費が減った部門は無い)。家賃は 26/12 まで残る (月 44万円)。<b>事業本部の支店の採用枠は 27/07 からの 8支店 (月 計 272万円。SC関東・SC関東第二・SC東海・SC近畿・SC近畿第二・SC近畿第三・SC北陸・SC九州) だけ</b> (9/25 から同じ。人材開発課の 27/4〜6 の増員とあわせて新卒の配属とみられる)。<b>26/11〜27/06 はメンバーの行き場が無く</b>、27/7 からの枠も減らしていないので、人件費が A021 と支店の枠で二重に入っている。</small></td><td class="memo"><small>事業本部長: 「修正しました」</small></td></tr>
 <tr><td>2</td><td class="item" data-k="2 スクール課の廃止 (広告・業務委託を止める、11月から移す)">スクール課の廃止 (広告・業務委託を止める、11月から移す)</td><td><b class="part">△ 一部</b></td><td class="memo"><small>人件費は 26/10 だけ (26/11 から 0)。11月から増えた部門は無いので、2人は予算から外した形。広告費は 無くなった。業務委託費は 32万円 残る (26/10 まで)。家賃は 26/12 まで残る (月 54万円)。</small></td><td class="memo"><small>事業本部長: 「修正しました」</small></td></tr>
 <tr><td>3</td><td class="item" data-k="3 旅費交通費 (MD は −600〜800万、ほかの部門は前期と同じ額。前回より 1,000万以上減るはず)">旅費交通費 (MD は −600〜800万、ほかの部門は前期と同じ額。前回より 1,000万以上減るはず)</td><td><b class="part">△ 一部</b></td><td class="memo"><small>合計 7,378万円 → 6,444万円 (<b>−934万円</b>、9/25 との差。修正案2 の時点は −343万円)。本部ごと: MD (MCディビジョン+MD各支社) −512万円・CC +67万円・事業推進本部の本部直下 −60万円・事業本部 −74万円・管理本部 −277万円・内部監査室 −78万円。事業本部はほぼ前回のまま。</small></td><td class="memo"><small>事業推進本部長: 「こちらのミス。前回議論した当時と比べて −580万強で着地する予定」 / 管理本部長: 「全部門完了」</small></td></tr>
 <tr><td>4a</td><td class="item" data-k="4a MD中国の人件費 +2,047万 (予算人員 1.7人 → 5.9人)">MD中国の人件費 +2,047万 (予算人員 1.7人 → 5.9人)</td><td><b class="part">△ 一部</b></td><td class="memo"><small>人件費は 1,136万円 → 3,143万円 (+2,006万円) のまま。<b>一方、売上は 36,491万円 → 36,434万円・粗利は 7,798万円 → 7,811万円 と、今回の版では 9/25 とほぼ同じに戻っている</b>。人件費 ÷ 粗利は 14.6% → 40.2%。「売上も上がっている」という説明と、今回の数字が合わない。</small></td><td class="memo"><small>事業推進本部長: 「人件費率でみるとエラーは無く、正しい。エリア拡大で売上・売上総利益も上がっていた」</small></td></tr>
@@ -295,13 +295,46 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <h3 id="resp-ver">「前回」はどの版か</h3>
 <p class="sub">事業推進本部長から「前回に前々回も混ざっていないか」と質問があったので、比べている版を書いておく。<b>修正案2・修正案3 の「前回」は、すべて修正案1 の前提の版</b> (表の合計は 9/26 の比較表、部門ごとの差は 9/25 の部門シート) で、それより前の版は使っていない。9/26 の比較表と 9/25 の部門シートの差は、9/26 に差し替えた事業本部 R01・SC/SW の部門シート・事業推進本部の地代家賃の分だけ (販管費 2,103万円)。例外は、セールスサポート課・スクール課の基準 (修正案1 を作った 10/02 に読んだ部門シート)。</p>
 <div class="tw"><table><thead><tr><th>版</th><th>いつ</th><th>このページでの使い方</th></tr></thead><tbody>
-<tr><td class="item" data-k="9/25 の部門シート">9/25 の部門シート</td><td>2026-09-25</td><td class="memo"><small>修正案1 の前提。部門ごとの差 (02・03) の基準</small></td></tr>
-<tr><td class="item" data-k="9/26 の比較表">9/26 の比較表 (予算比較（部門別）)</td><td>2026-09-26</td><td class="memo"><small>修正案1 の前提。合計 (04) と営業利益の基準 (修正前 −3,106万円)</small></td></tr>
+<tr><td class="item" data-k="9/25 の部門シート">9/25 の部門シート</td><td>2026-09-25</td><td class="memo"><small>修正案1 の前提。部門ごとの差 (03〜05) の基準</small></td></tr>
+<tr><td class="item" data-k="9/26 の比較表">9/26 の比較表 (予算比較（部門別）)</td><td>2026-09-26</td><td class="memo"><small>修正案1 の前提。合計 (06) と営業利益の基準 (修正前 −3,106万円)</small></td></tr>
 <tr><td class="item" data-k="10/8 の部門シート">10/8 の部門シート</td><td>2026-10-08</td><td class="memo"><small>修正案2。事業推進本部は無効 (本部長)。01 の対応の確認にだけ使う</small></td></tr>
 <tr><td class="item" data-k="10/9 の部門シート">10/9 の部門シート (今回)</td><td>2026-10-09</td><td class="memo"><small>修正案3。このページの「今回」</small></td></tr>
 </tbody></table></div>
 
-<h2 id="realize"><span class="n">02</span>予算修正案1 の修正項目は、どれくらい予算に入ったか</h2>
+<h2 id="offscope"><span class="n">02</span>指摘外の変動 (修正案2 → 今回)</h2>
+<p class="sub">10/8 (修正案2) → 今回 (10/9) で動いたところのうち、01 の指摘で見た部門・科目 (旅費・セールスサポート課・スクール課・A021・MD東海・MD関西) を除いたもの。<b>これ以外の部門・科目は 10/8 から変わっていない</b> (年 20万円未満の動きは除く)。</p>
+<div class="tw"><table><thead><tr><th>部門</th><th>本部</th><th class="num">売上の差</th><th class="num">原価の差</th><th class="num">粗利の差</th><th class="num">販管費の差</th><th>主な科目</th></tr></thead><tbody>
+<tr><td class="item" data-k="C824 MD北日本">C824 MD北日本</td><td>事業推進本部</td><td class="num">−954万円</td><td class="num">−1,288万円</td><td class="num down">+334万円</td><td class="num ">±0</td><td class="memo"><small>売上高(派遣看護師) −1,076万円、原価給与 −1,004万円、原価福利費 −213万円、売上高(派遣保育) +122万円、有給手当 −66万円</small></td></tr>
+<tr><td class="item" data-k="C825 MD関東">C825 MD関東</td><td>事業推進本部</td><td class="num">−4,172万円</td><td class="num">−3,703万円</td><td class="num up">−468万円</td><td class="num ">±0</td><td class="memo"><small>売上高(派遣看護師) −4,172万円、原価給与 −2,858万円、原価福利費 −647万円、有給手当 −208万円</small></td></tr>
+<tr><td class="item" data-k="C826 MD首都圏">C826 MD首都圏</td><td>事業推進本部</td><td class="num">−792万円</td><td class="num">−1,348万円</td><td class="num down">+556万円</td><td class="num up">+88万円</td><td class="memo"><small>原価給与 −1,923万円、売上高(派遣看護師) −792万円、原価福利費 +635万円、有給手当 −68万円、福利厚生費(社宅) +51万円</small></td></tr>
+<tr><td class="item" data-k="C827 MD北陸甲信越">C827 MD北陸甲信越</td><td>事業推進本部</td><td class="num">+3,684万円</td><td class="num">+3,242万円</td><td class="num down">+442万円</td><td class="num up">+58万円</td><td class="memo"><small>原価給与 +2,753万円、売上高(派遣介護士) +2,285万円、売上高(派遣看護師) +1,450万円、原価福利費 +459万円、水道光熱費 +58万円</small></td></tr>
+<tr><td class="item" data-k="C828 MD静岡">C828 MD静岡</td><td>事業推進本部</td><td class="num">−3,331万円</td><td class="num">−2,495万円</td><td class="num up">−836万円</td><td class="num up">+17万円</td><td class="memo"><small>売上高(派遣看護師) −3,331万円、原価給与 −2,158万円、原価福利費 −227万円、有給手当 −105万円</small></td></tr>
+<tr><td class="item" data-k="C831 MD中国">C831 MD中国</td><td>事業推進本部</td><td class="num">−912万円</td><td class="num">−687万円</td><td class="num up">−225万円</td><td class="num up">+59万円</td><td class="memo"><small>売上高(派遣看護師) −2,622万円、売上高(派遣介護士) +1,710万円、原価給与 −655万円、有給手当 −110万円、原価福利費 +78万円</small></td></tr>
+<tr><td class="item" data-k="C832 MD九州">C832 MD九州</td><td>事業推進本部</td><td class="num">−1,966万円</td><td class="num">−1,429万円</td><td class="num up">−538万円</td><td class="num ">±0</td><td class="memo"><small>売上高(派遣看護師) −1,966万円、原価給与 −1,381万円、有給手当 −174万円、原価福利費 +96万円、現場諸経費 +30万円</small></td></tr>
+<tr><td class="item" data-k="計"><b>計</b></td><td></td><td class="num"><b>−8,444万円</b></td><td class="num"><b>−7,707万円</b></td><td class="num"><b>−736万円</b></td><td class="num"><b>+221万円</b></td><td></td></tr>
+</tbody></table></div>
+<ul class="pts">
+<li>どれも事業推進本部の MD 各支社の売上・原価の直し (10/8 に「社内目標予算に合わせて伸ばした」分を戻したもの)。計で 売上 −8,444万円・粗利 −736万円。</li>
+<li>MD北陸甲信越は逆に 売上 +3,684万円 と増やしている。MD首都圏は売上 −792万円 に対し原価給与を大きく減らしたが、原価福利費だけ +635万円 増えている (原価給与と合わない動き)。</li>
+</ul>
+
+<h2 id="policy"><span class="n">03</span>修正方針に対する比較 (何が減って、何が増えたか)</h2>
+<p class="sub">修正案1 の前提 (9/25 の部門シート) と今回を、本部ごとに「修正方針で減らした販管費」「それ以外の販管費の増減」「粗利の増減」に分けた。販管費は 減った = 緑 / 増えた = 赤、粗利・営業利益は 増えた = 緑 / 減った = 赤。明細の足し上げなので、04 の営業利益の内訳 (前回の基準 9/26 とのずれを含む) とは少し合わない。</p>
+<div class="tw"><table><thead><tr><th>本部・会社</th><th class="num">修正方針で減らした販管費 (実質)</th><th class="num">それ以外の販管費の増減</th><th class="num">粗利の増減</th><th class="num">営業利益への効き</th><th>主な中身</th></tr></thead><tbody>
+<tr><td class="item" data-k="内部監査室">内部監査室</td><td class="num down">−84万円</td><td class="num down">−3万円</td><td class="num ">±0</td><td class="num down"><b>+87万円</b></td><td class="memo"><small>旅費・社内飲食代</small></td></tr>
+<tr><td class="item" data-k="管理本部">管理本部</td><td class="num down">−6,257万円</td><td class="num up">+250万円</td><td class="num ">±0</td><td class="num down"><b>+6,007万円</b></td><td class="memo"><small>DX (事務センター1課ほか)・人材開発課の採用費・福利厚生費 (社内飲食代)・旅費。修正方針どおり</small></td></tr>
+<tr><td class="item" data-k="事業本部">事業本部</td><td class="num down">−4,338万円</td><td class="num down">−2,022万円</td><td class="num up">−5,841万円</td><td class="num down"><b>+519万円</b></td><td class="memo"><small>減らした: セールスサポート課・スクール課 (A021 への移し替え 2,976万円 は戻して数えた)・社内飲食代。悪くなった: SC中国第二が無くなった (粗利 −4,329万円)・SC関東の紹介売上 −1,400万円・SC九州/SC近畿第三の人件費 各 +451万円</small></td></tr>
+<tr><td class="item" data-k="事業推進本部">事業推進本部</td><td class="num down">−2,356万円</td><td class="num up">+2,936万円</td><td class="num up">−829万円</td><td class="num up"><b>−1,410万円</b></td><td class="memo"><small>減らした: 旅費・社内飲食代・データ管理課。増えた: MD中国の人件費 +2,047万円・地代家賃・メディア戦略課など。粗利: 売上 −1,972万円</small></td></tr>
+<tr><td class="item" data-k="ジョブコラボ">ジョブコラボ</td><td class="num ">±0</td><td class="num up">+144万円</td><td class="num ">±0</td><td class="num up"><b>−144万円</b></td><td class="memo"><small>地代家賃など</small></td></tr>
+<tr><td class="item" data-k="プレニチュード">プレニチュード</td><td class="num ">±0</td><td class="num down">−120万円</td><td class="num up">−600万円</td><td class="num up"><b>−480万円</b></td><td class="memo"><small>広告の売上 −3,000万</small></td></tr>
+</tbody></table></div>
+<ul class="pts">
+<li><b>キャリア単体では、修正方針で販管費を 13,034万円 減らしたが、それ以外の販管費が +1,160万円、粗利が −6,671万円 動き、営業利益への効きは +5,204万円 にとどまった</b> (修正案1 の想定は 7項目で 18,961万円)。</li>
+<li><b>管理本部</b>は修正方針どおりに減らした (+6,007万円)。<b>事業本部</b>はセールスサポート課・スクール課などで減らしたが、SC中国第二が無くなった分と SC関東の売上の減で粗利が 5,841万円 減り、効きは +519万円。<b>事業推進本部</b>は減らした分 (−2,356万円) より、MD中国の人件費などの増 (+2,936万円) と粗利の減 (829万円) が大きく、−1,410万円。</li>
+<li>つまり、管理本部と廃止した部門のコストは下がったが、事業部門 (特に事業推進本部と SC中国第二) の悪化がそれを打ち消している。</li>
+</ul>
+
+<h2 id="realize"><span class="n">04</span>予算修正案1 の修正項目は、どれくらい予算に入ったか</h2>
 <p class="sub">予算修正案1 (10/02) で「予算に反映する」とした7項目について、今回 (10/9) の予算で実際に減った額を見た。<b>目標 −18,961万円 のうち、実質で予算に入ったのは −13,185万円 (70%)</b>。見かけの減少は −16,161万円 (85%) だが、うち 2,976万円 は廃止した課の費用をほかの部門へ移しただけだった (下の「廃止した課の費用は、ほかの部門に移っていないか」)。前回の基準は項目ごとに、修正案1 を作ったときの数字にそろえた (人員・部門の項目は 9/25 の部門シート、セールスサポート課・スクール課は 10/02 に読んだ部門シート、旅費・福利厚生は前回の比較表)。実現率が 95% 以上を緑、50% 未満を赤にした。</p>
 <div class="tw"><table><thead><tr><th>修正項目 (予算修正案1)</th><th class="num">目標</th><th>前回の基準</th><th class="num">前回</th><th class="num">今回</th><th class="num">減った額 (見かけ)</th><th class="num">ほかの部門へ移した額</th><th class="num">実質の削減</th><th class="num">実現率 (実質)</th><th>内訳・残っているもの</th></tr></thead><tbody>
 <tr><td class="item" data-k="DX による管理本部の人員の削減・異動">DX による管理本部の人員の削減・異動</td><td class="num">−4,419万円</td><td>9/25 の部門シート</td><td class="num">19,276万円</td><td class="num">15,800万円</td><td class="num">−3,475万円</td><td class="num">-</td><td class="num"><b>−3,475万円</b></td><td class="num "><b>79%</b></td><td class="memo"><small>部門ごとは下の表</small></td></tr>
@@ -320,7 +353,7 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <li><b>旅費は 43%</b> (−943万円)。本部ごと (9/25 → 今回): MD (MCディビジョン+MD各支社) −512万円・CC +67万円・事業推進本部の本部直下 −60万円・事業本部 −74万円・管理本部 −277万円・内部監査室 −78万円。前期の実績 5,148万円 より、まだ 1,296万円 多い。</li>
 <li><b>管理本部 DX は 79%</b>: 事務センター2課 (22%)・コンプライアンス課 (25%) がほとんど減っていない。総務グループは 72%、経営管理Gは 93%。</li>
 <li>データ管理課は人件費 −336万円 (77%)。ただし地代家賃 +79万円 で、販管費では −257万円。</li>
-<li>予算外で進める4項目 (クラウドの集約・外部委託の見直し・広告費と人員の月次の見直し・事業部門 DX) は、想定どおり予算には入っていない。事業部門 DX の分は、事業本部・事業推進本部の人件費がむしろ増えている (03)。</li>
+<li>予算外で進める4項目 (クラウドの集約・外部委託の見直し・広告費と人員の月次の見直し・事業部門 DX) は、想定どおり予算には入っていない。事業部門 DX の分は、事業本部・事業推進本部の人件費がむしろ増えている (05)。</li>
 </ul>
 <h3 id="realize-moved">廃止した課の費用は、ほかの部門に移っていないか</h3>
 <p class="sub">人員関連費・業務委託費・社宅が 9/25 より年100万円以上増えた部門を全部並べた (修正項目の分と SC中国第二を除く)。部門シートには人ごとの内訳が無いので、<b>増え始めた月・科目・月額</b>が廃止した課の減り方と合うかで見立てた。</p>
@@ -353,9 +386,9 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <tr><td class="item" data-k="修正項目の未達">修正項目の未達</td><td class="num up">−5,776万円</td><td class="memo"><small>上の表の合計の未達 (実質)。うち 2,976万円 は廃止した課の費用をほかの部門へ移した分</small></td></tr>
 <tr><td class="item" data-k="予定外に増えた人件費など">予定外に増えた人件費など</td><td class="num up">−3,314万円</td><td class="memo"><small>上の「廃止した課の費用は、ほかの部門に移っていないか」の表で、移し替えではないもの (MD中国・SC九州・SC近畿第三・メディア戦略課・MD九州・SC西日本)</small></td></tr>
 <tr><td class="item" data-k="SC中国第二が予算から無くなった">SC中国第二が予算から無くなった</td><td class="num up">−1,572万円</td><td class="memo"><small>粗利 −4,329万円・販管費 −2,756万円 (9/25 は黒字の支店だった)</small></td></tr>
-<tr><td class="item" data-k="そのほかの粗利の増減">そのほかの粗利の増減</td><td class="num up">−2,403万円</td><td class="memo"><small>SC関東の紹介売上の減・事業推進本部の粗利の減など (03)</small></td></tr>
+<tr><td class="item" data-k="そのほかの粗利の増減">そのほかの粗利の増減</td><td class="num up">−2,403万円</td><td class="memo"><small>SC関東の紹介売上の減・事業推進本部の粗利の減など (05)</small></td></tr>
 <tr><td class="item" data-k="前回の基準 (9/26) と 9/25 の差">前回の基準 (9/26) と 9/25 の差</td><td class="num down">+2,103万円</td><td class="memo"><small>修正案1 の前提 (9/26 の比較表) は、9/26 に差し替えた事業本部 R01・SC/SW の部門シート・事業推進本部の地代家賃の分だけ、9/25 の部門シートより販管費が 2,103万円 多かった。今回の版ではその差し替え分が置き換わっている (上の各行は 9/25 との差で数えているので、ここで戻す)</small></td></tr>
-<tr><td class="item" data-k="そのほかの販管費の増減">そのほかの販管費の増減</td><td class="num up">−1,037万円</td><td class="memo"><small>地代家賃の配分 (年 79万円 × 10部門)・広告費・部門タブの小計と明細のずれ・修正項目の基準の違い (10/02 と 9/25) などの残り (03)</small></td></tr>
+<tr><td class="item" data-k="そのほかの販管費の増減">そのほかの販管費の増減</td><td class="num up">−1,037万円</td><td class="memo"><small>地代家賃の配分 (年 79万円 × 10部門)・広告費・部門タブの小計と明細のずれ・修正項目の基準の違い (10/02 と 9/25) などの残り (05)</small></td></tr>
 <tr><td class="item" data-k="今回の予算の営業利益"><b>今回の予算の営業利益</b></td><td class="num "><b>3,857万円</b></td><td class="memo"><small>今回 (10/9) の部門シートの足し上げ</small></td></tr>
 </tbody></table></div>
 <h3 id="realize-cmp">修正案1 との比較 (会社ごと)</h3>
@@ -366,13 +399,13 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <tr><td class="item" data-k="キャリア合計 (連結)">キャリア合計 (連結)</td><td class="num">-</td><td class="num">11,184万円</td><td class="num ">-</td></tr>
 </tbody></table></div>
 
-<h2 id="others"><span class="n">03</span>修正項目には無いが変わったところ</h2>
-<p class="sub">修正案1 の7項目 (02 の表の部門・科目) を除いた変化。<b>差はすべて 9/25 の部門シートとの差</b> (9/26 に差し替えた事業本部 R01・SC/SW の部門シート・事業推進本部の地代家賃の分 = 事業本部の販管費 +1,707万円 などは、前回の側に入っていない)。粗利の差は 増えた = 緑 / 減った = 赤、粗利率は下がった部門を赤、販管費は 増えた = 赤 / 減った = 緑。</p>
+<h2 id="others"><span class="n">05</span>修正項目には無いが変わったところ</h2>
+<p class="sub">修正案1 の7項目 (04 の表の部門・科目) を除いた変化。<b>差はすべて 9/25 の部門シートとの差</b> (9/26 に差し替えた事業本部 R01・SC/SW の部門シート・事業推進本部の地代家賃の分 = 事業本部の販管費 +1,707万円 などは、前回の側に入っていない)。粗利の差は 増えた = 緑 / 減った = 赤、粗利率は下がった部門を赤、販管費は 増えた = 赤 / 減った = 緑。</p>
 <ul class="pts">
 <li><b>SC中国第二 (C047) が予算から無くなった</b> (部門シートのタブ名が「【なし】C047_SC中国第二」)。9/25 は 売上 19,302万円・原価 14,974万円・販管費 2,823万円 (営業利益 1,505万円)。事業本部の売上の差 −20,702万円 のほとんどがこれ。</li>
 <li><b>事業推進本部</b>: 売上 −1,972万円・原価 −1,142万円・粗利 −829万円 (粗利率 22.1% → 22.0%)。粗利率が下がった部門: MD東海 (22.4% → 21.7%)。</li>
 <li>事業推進本部の広告宣伝費は、合計は前回と 同じ (30,293万円) で、各支社から MCディビジョン (+21,005万円)・CCグループ (+7,681万円) へ付け替えただけ (支社の側は計 −28,685万円)。支社の販管費が大きく減って見えるのはこのため。</li>
-<li><b>修正項目以外で人件費などが増えた部門</b>は 02 の「廃止した課の費用は、ほかの部門に移っていないか」の表。事業部門 DX (予算外で進める) は予算に入っておらず、修正項目と SC中国第二を除いた人員関連費は 事業本部 +2,579万円・事業推進本部 +1,737万円 と、むしろ増えている (事業本部の分の多くはセールスサポート課からの移し替え)。</li>
+<li><b>修正項目以外で人件費などが増えた部門</b>は 04 の「廃止した課の費用は、ほかの部門に移っていないか」の表。事業部門 DX (予算外で進める) は予算に入っておらず、修正項目と SC中国第二を除いた人員関連費は 事業本部 +2,579万円・事業推進本部 +1,737万円 と、むしろ増えている (事業本部の分の多くはセールスサポート課からの移し替え)。</li>
 <li>SC関東の売上 −1,400万円 (売上高(紹介) −1,400万円。原価は 同じ なので粗利率 22.9% → 21.3%)。OS札幌の原価 +113万円 (粗利率 12.7% → 12.2%)。</li>
 <li>プレニチュード (グループDX) の売上 −3,000万円・原価 −2,400万円 (粗利 −600万円)。ジョブコラボは販管費 +144万円 (地代家賃など)。</li>
 <li>地代家賃が 同じ額 (年 79万円) ずつ増えた部門が 10 ある (E202 事務センター1課・A040 事務センター2課・C008 SC関東・B934 SW新宿・C993 CC関東・C994 CCメディア・C826 MD首都圏・A501 データ管理課・A503 メディア戦略課・B003 JC新宿)。共通の家賃の配分を変えたとみられる (理由は部門シートからは分からない)。</li>
@@ -424,7 +457,7 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <tr><td class="item" data-k="0002 グループDX">0002 グループDX</td><td class="num">5,400万円</td><td class="num">2,400万円</td><td class="num">−3,000万円</td><td class="num up">−600万円</td><td class="num">50.6%</td><td class="num">88.9%</td><td class="num down">−120万円</td><td class="memo"><small>売上高(広告) −3,000万円、原価(広告) −2,400万円、福利厚生費(社内飲食代) −120万円</small></td></tr>
 </tbody></table></div>
 
-<h2 id="summary"><span class="n">04</span>前回からの変化</h2>
+<h2 id="summary"><span class="n">06</span>前回からの変化</h2>
 <p class="sub">前回 = 予算比較（部門別） の予算の列 (9/26 の差し替え込み = 修正案1 の前提)。今回 = 各部門の予算シート (10/9 時点) の足し上げ。区分は比較表のタブと同じ (本部直轄は前回と同じく子会社3社を含む)。<b>差が赤 = 増えた / 緑 = 減った</b> (費用も利益も同じ色の付け方)。</p>
 <div class="tw"><table><thead><tr><th>区分</th><th class="num">純売上高 前回</th><th class="num">今回</th><th class="num">差</th><th class="num">売上総利益 前回</th><th class="num">今回</th><th class="num">差</th><th class="num">販管費 前回</th><th class="num">今回</th><th class="num">差</th><th class="num">営業利益 前回</th><th class="num">今回</th><th class="num">差</th></tr></thead><tbody>
 <tr><td class="item" data-k="会社 キャリア単体">会社 キャリア単体</td><td class="num">1,416,760万円</td><td class="num">1,393,858万円</td><td class="num down">−22,902万円</td><td class="num">305,640万円</td><td class="num">298,909万円</td><td class="num down">−6,731万円</td><td class="num">308,746万円</td><td class="num">295,052万円</td><td class="num down">−13,694万円</td><td class="num">−3,106万円</td><td class="num">3,857万円</td><td class="num up">+6,963万円</td></tr>
@@ -441,7 +474,7 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <tr><td class="item" data-k="会社 WCS">会社 WCS</td><td class="num">38,020万円</td><td class="num">38,020万円</td><td class="num ">±0</td><td class="num">11,509万円</td><td class="num">11,509万円</td><td class="num ">±0</td><td class="num">6,225万円</td><td class="num">6,225万円</td><td class="num ">±0</td><td class="num">5,284万円</td><td class="num">5,284万円</td><td class="num ">±0</td></tr>
 </tbody></table></div>
 
-<h2 id="changes"><span class="n">05</span>科目別の主な変更</h2>
+<h2 id="changes"><span class="n">07</span>科目別の主な変更</h2>
 <p class="sub">本部・子会社ごとに、科目の年計の差が 100万円以上のもの。「主な部門」は部門ごとの差 (今回 − 9/25 の部門別の予算) の大きい順で、9/26 に差し替えた分 (事業本部 R01 など) はここでは前回の側に入っていないことがある。</p>
 <h3 id="ch-管理本部">管理本部</h3><div class="tw"><table><thead><tr><th>科目</th><th class="num">前回</th><th class="num">今回</th><th class="num">差</th><th>主な部門 (差)</th></tr></thead><tbody>
 <tr><td class="item" data-k="販売費及び一般管理費計"><b>販売費及び一般管理費計</b></td><td class="num">84,877万円</td><td class="num">78,869万円</td><td class="num down">−6,007万円</td><td class="memo">E202 事務センター1課（仮称） −2,304万円、E206 人材開発課 −1,949万円、A044 総務グループ −525万円、A036 経営管理G −489万円</td></tr>
@@ -557,7 +590,7 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <tr><td class="item" data-k="売上高（WCS農園管理料） (新しい科目)">売上高（WCS農園管理料） (新しい科目)</td><td class="num">0万円</td><td class="num">16,815万円</td><td class="num up">+16,815万円</td><td class="memo">第二ファーム 第二ファーム +16,815万円</td></tr>
 </tbody></table></div>
 
-<h2 id="monthly"><span class="n">06</span>月別の予算 (今回の予算)</h2>
+<h2 id="monthly"><span class="n">08</span>月別の予算 (今回の予算)</h2>
 <p class="sub">予算修正案2 の「05 月別の予算」と同じ形。今回の予算そのもの (予算修正案1 の修正額は足し引きしていない)。キャリア合計は連結 (連結_R04.xlsx の消去を当てた。注記を参照)。MC は MCディビジョンから CCグループを除いた分 (MD 各支社を含む)。本部の合計には、内訳に出していない本部直下・ディビジョン直下の部門も入る。</p>
 <h3 class="lv0" id="キャリア合計 (社の単純合計)">キャリア合計 (連結)</h3><div class="tw"><table><thead><tr><th>科目</th><th class="num">26/10</th><th class="num">26/11</th><th class="num">26/12</th><th class="num">27/01</th><th class="num">27/02</th><th class="num">27/03</th><th class="num">27/04</th><th class="num">27/05</th><th class="num">27/06</th><th class="num">27/07</th><th class="num">27/08</th><th class="num">27/09</th><th class="num">年計</th></tr></thead><tbody>
 <tr><td class="item" data-k="純売上高">純売上高</td><td class="num">112,683万円</td><td class="num">111,609万円</td><td class="num">118,650万円</td><td class="num">119,083万円</td><td class="num">114,262万円</td><td class="num">127,224万円</td><td class="num">125,545万円</td><td class="num">126,816万円</td><td class="num">130,435万円</td><td class="num">136,517万円</td><td class="num">139,651万円</td><td class="num">139,204万円</td><td class="num"><b>1,501,678万円</b></td></tr><tr><td class="item" data-k="売上総利益">売上総利益</td><td class="num">23,331万円</td><td class="num">23,011万円</td><td class="num">24,563万円</td><td class="num">24,824万円</td><td class="num">23,968万円</td><td class="num">26,546万円</td><td class="num">28,361万円</td><td class="num">27,166万円</td><td class="num">27,908万円</td><td class="num">29,189万円</td><td class="num">29,810万円</td><td class="num">30,122万円</td><td class="num"><b>318,798万円</b></td></tr><tr><td class="item" data-k="販管費">販管費</td><td class="num">26,371万円</td><td class="num">26,805万円</td><td class="num">25,112万円</td><td class="num">24,802万円</td><td class="num">24,685万円</td><td class="num">26,266万円</td><td class="num">26,115万円</td><td class="num">26,123万円</td><td class="num">27,048万円</td><td class="num">25,806万円</td><td class="num">23,770万円</td><td class="num">24,710万円</td><td class="num"><b>307,614万円</b></td></tr><tr><td class="item" data-k="営業利益"><b>営業利益</b></td><td class="num"><b>−3,040万円</b></td><td class="num"><b>−3,794万円</b></td><td class="num"><b>−549万円</b></td><td class="num"><b>21万円</b></td><td class="num"><b>−717万円</b></td><td class="num"><b>280万円</b></td><td class="num"><b>2,246万円</b></td><td class="num"><b>1,043万円</b></td><td class="num"><b>859万円</b></td><td class="num"><b>3,383万円</b></td><td class="num"><b>6,040万円</b></td><td class="num"><b>5,412万円</b></td><td class="num"><b>11,184万円</b></td></tr>
@@ -623,7 +656,7 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <tr><td class="item" data-k="純売上高">純売上高</td><td class="num">2,650万円</td><td class="num">2,675万円</td><td class="num">2,600万円</td><td class="num">2,744万円</td><td class="num">2,897万円</td><td class="num">3,113万円</td><td class="num">3,258万円</td><td class="num">3,350万円</td><td class="num">3,476万円</td><td class="num">3,574万円</td><td class="num">3,608万円</td><td class="num">3,642万円</td><td class="num"><b>37,588万円</b></td></tr><tr><td class="item" data-k="売上総利益">売上総利益</td><td class="num">819万円</td><td class="num">826万円</td><td class="num">806万円</td><td class="num">844万円</td><td class="num">884万円</td><td class="num">936万円</td><td class="num">974万円</td><td class="num">998万円</td><td class="num">1,025万円</td><td class="num">1,051万円</td><td class="num">1,060万円</td><td class="num">1,060万円</td><td class="num"><b>11,283万円</b></td></tr><tr><td class="item" data-k="販管費">販管費</td><td class="num">802万円</td><td class="num">846万円</td><td class="num">824万円</td><td class="num">856万円</td><td class="num">871万円</td><td class="num">913万円</td><td class="num">897万円</td><td class="num">900万円</td><td class="num">906万円</td><td class="num">910万円</td><td class="num">911万円</td><td class="num">913万円</td><td class="num"><b>10,550万円</b></td></tr><tr><td class="item" data-k="営業利益"><b>営業利益</b></td><td class="num"><b>17万円</b></td><td class="num"><b>−20万円</b></td><td class="num"><b>−17万円</b></td><td class="num"><b>−12万円</b></td><td class="num"><b>12万円</b></td><td class="num"><b>23万円</b></td><td class="num"><b>77万円</b></td><td class="num"><b>97万円</b></td><td class="num"><b>120万円</b></td><td class="num"><b>141万円</b></td><td class="num"><b>148万円</b></td><td class="num"><b>147万円</b></td><td class="num"><b>733万円</b></td></tr>
 </tbody></table></div>
 
-<h2 id="notes"><span class="n">07</span>注記</h2>
+<h2 id="notes"><span class="n">09</span>注記</h2>
 <ul class="pts">
 <li>各部門の予算シート (2026-10-09 15:00 に読んだもの) の足し上げを、本部・会社の集計シートと照合した。内部監査室・ジョブコラボ・WCS・プレニチュードは1円まで一致。</li>
 <li><b>本部の集計シート (管理本部 R03・事業本部_R04・事業推進本部 R02・キャリア単体_R04・連結_R04) は 10/8 までの版のままで、10/9 の修正は入っていない</b>。このため事業推進本部などは集計シートと合わない (事業推進本部: 純売上高 シート 623,486万 / 足し上げ 598,647万、販管費 シート 88,341万 / 足し上げ 87,981万 / 事業本部: 純売上高 シート 794,251万 / 足し上げ 794,251万、販管費 シート 126,535万 / 足し上げ 126,769万 / 管理本部: 純売上高 シート 240万 / 足し上げ 960万、販管費 シート 79,086万 / 足し上げ 78,869万)。このページは部門シートの足し上げを使っている。</li>
