@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded',function(){
 <body>
 <div class="navbar"><div class="navbar-in">
   <div class="brand">販管費レビュー<select class="scope" aria-label="範囲を切り替える" onchange="location.href=this.value"><option value="cost-review.html">キャリア単体</option><option value="cost-review-kanri.html">管理本部</option><option value="cost-review-jigyo.html">事業本部</option><option value="cost-review-suishin.html">事業推進本部</option><option value="cost-review-scmc.html">SC+MC (Div)</option><option value="cost-review-chokkatsu.html">本部直轄 (Div)</option><option value="cost-review-haishi-1b0c6e656b.html">廃止部門</option><option value="cost-review-itaku.html">委託コスト分析</option><option value="cost-review-plan.html">予算修正案1</option><option value="cost-review-plan2.html">予算修正案2</option><option value="cost-review-plan3.html">予算修正案3</option><option value="cost-review-plan4.html" selected>予算修正案4</option></select></div>
-  <nav><a href="#policy">修正方針に対する比較</a><a href="#realize">修正案1 の実現度</a><a href="#others">修正項目以外の変化</a><a href="#summary">前回からの変化</a><a href="#changes">科目別の主な変更</a><a href="#monthly">月別の予算</a><a href="#notes">注記</a></nav>
+  <nav><a href="#policy">修正方針に対する比較</a><a href="#realize">修正案1 の実現度</a><a href="#others">修正項目以外の変化</a><a href="#summary">前回からの変化</a><a href="#changes">科目別の主な変更</a><a href="#monthly">月別の予算</a><a href="#notes">注記</a><a href="#measures">さらにできる利益対策</a></nav>
 </div></div>
 <div class="wrap">
 <style>td.up{color:#f87171} td.down{color:#34d399}
@@ -624,5 +624,26 @@ h3.lv0{margin-top:28px} h3.lv1{margin-top:22px} h4.lv2{margin:16px 0 6px 18px;fo
 <li>WCS の第一・第二ファームに、前回の比較表に無い売上の科目 (農園管理料・人材紹介料、年3.8億円) がある。比較表の行には無いので、純売上高にだけ入る。</li>
 <li>キャリア合計 (連結) は、10/8 の 連結_R04.xlsx から出した連結の消去 (売上 月 −855万・原価 月 −61万・販管費 月 −855万。年でサマリの連結仕訳と一致) を、今回の4社の単純合計に当てたもの。連結_R04 は今回の修正の前の版なので、グループ間の取引が変わっていれば合わない。</li>
 </ul>
+<h2 id="measures"><span class="n">08</span>さらにできる可能性のある利益対策</h2>
+<p class="sub"><b>目標: 第2Q (27/1〜3) のキャリア単体の営業利益を 500万円 以上にする</b> (今回の予算では −1,539万円)。期中に予算どおりいかなかったときの打ち手を、使う場面で3つに分けた。対象の規模は今回の予算の年額の目安。</p>
+<h3 id="measures-1">予算外だが常に行う</h3>
+<div class="tw"><table><thead><tr><th>対策</th><th>何をするか</th><th>対象 (年の規模の目安)</th></tr></thead><tbody>
+<tr><td class="item" data-k="広告費と人員数を常に確かめる">広告費と人員数を常に確かめる</td><td class="memo">広告費 (応募・成約の単価) と人員数を毎月確かめ、必要以上の出稿・採用をしない。</td><td class="memo"><small>広告宣伝費 年 約6億 (支店 約3億・MC/CC にまとめた分 約3億)</small></td></tr>
+<tr><td class="item" data-k="セールスサポート課を方針どおりに">セールスサポート課を方針どおりに</td><td class="memo">12月から管理本部に移した人員を、支店など売上を作る部門の新規採用の代わりにする (または減らす)。費用を本部の間で移すだけにしない。</td><td class="memo"><small>年 約2,700万 (管理本部に移した分)</small></td></tr>
+<tr><td class="item" data-k="支払手数料の棚卸し・解約">支払手数料の棚卸し・解約</td><td class="memo">システム・SaaS などの契約を全部並べ、使っていないもの・重なっているものを解約する。</td><td class="memo"><small>支払手数料 年 約1.4億 (情報システム課・データ管理課・営業企画課・DX推進課 など)</small></td></tr>
+</tbody></table></div>
+<h3 id="measures-2">業績を見ながら行う</h3>
+<div class="tw"><table><thead><tr><th>対策</th><th>何をするか</th><th>対象 (年の規模の目安)</th></tr></thead><tbody>
+<tr><td class="item" data-k="採用を止める・欠員を補充しない">採用を止める・欠員を補充しない</td><td class="memo">月次の業績が予算を下回ったら、新規採用を止め、退職者の欠員を補充しない。修正項目以外で増えた人件費 (MD中国・SC九州・SC近畿第三) も見直す。</td><td class="memo"><small>修正項目以外で増えた人件費 年 約2,900万</small></td></tr>
+<tr><td class="item" data-k="事務センターを BPO に委託し、徐々に内製化">事務センターを BPO に委託し、徐々に内製化</td><td class="memo">自動化を専門にする BPO の会社に事務センターの業務を委託し、仕組みができたら徐々に内製に戻す。移行の間は費用が重なるので、効くのは第3Q 以降。</td><td class="memo"><small>事務センター1課・2課 年 約1.1億</small></td></tr>
+</tbody></table></div>
+<h3 id="measures-3">このままだとまずい、というときに行う</h3>
+<div class="tw"><table><thead><tr><th>対策</th><th>何をするか</th><th>対象 (年の規模の目安)</th></tr></thead><tbody>
+<tr><td class="item" data-k="広告費の削減と支店の統合 (必ずセットで)">広告費の削減と支店の統合 (必ずセットで)</td><td class="memo">広告費を落とす。ただし落とすだけだと売上が少しずつ下がり、先の赤字を招くので、<b>必ず同時に収益の悪い支店を統合する</b>。</td><td class="memo"><small>本部費を配る前の営業利益が小さい支店</small></td></tr>
+<tr><td class="item" data-k="メディア戦略課・営業企画課の縮小">メディア戦略課・営業企画課の縮小</td><td class="memo">売上を持たない部門の人員・業務委託・支払手数料を縮める。</td><td class="memo"><small>2課で 年 約8,700万</small></td></tr>
+<tr><td class="item" data-k="中間組織の統合とマネジャーの選別">中間組織の統合とマネジャーの選別</td><td class="memo">ディビジョン・グループを統合し、あわせてマネジャーを選ぶ (統合だけでは、何が変わるのかが伝わりにくい)。</td><td class="memo"><small>SC東日本・SC西日本・SWディビジョン・OS・BM の本部費 年 約8,700万、管理本部のグループ・課</small></td></tr>
+<tr><td class="item" data-k="家賃・通信費">家賃・通信費</td><td class="memo">拠点を集約する。回線・携帯を見直す。家賃は解約の予告期間があるので早めに決める。</td><td class="memo"><small>地代家賃 年 約1.5億・通信費 年 約1億</small></td></tr>
+</tbody></table></div>
+
 <footer>社内検討用。金額は税抜・万円。予算は【Version2】来期予算作成概要の「各部門担当者一覧(子会社含)」から各部門の予算シートを読んで足し上げ、10/11 の指示を当てたもの。</footer>
 </div></body></html>
