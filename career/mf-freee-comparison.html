@@ -124,14 +124,15 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
   <div class="card">
     <div class="k">内部統制（J-SOX）</div>
     <div class="v">子会社のプランに注意</div>
-    <div class="d">freee の操作ログ（イベントログ）・自己承認の禁止・IP制限は<b>エンタープライズだけ</b>。子会社をアドバンスにする構成では、子会社にこれらがない。MF会計Plus は仕訳承認・操作ログ・SOC1 Type2 がある。</div>
+    <div class="d">freee の操作ログ（イベントログ）・画面の承認／変更履歴・自己承認の禁止・IP制限は<b>エンタープライズだけ</b>。子会社をアドバンスにする構成では、子会社に残る証跡は仕訳帳 CSV の作成者・承認者の列と、優良電子帳簿の操作履歴に限られる。MF会計Plus は仕訳承認・操作ログ・SOC1 Type2 がある。</div>
   </div>
 </div>
 
 <ul class="pts">
   <li><b>推奨は freee（初版から変わらず）。</b>MF に残る優位点（FBデータ作成の API）は月1回程度の業務で、画面操作で代わりがきく。対して MF会計Plus の制約（マスタ・証憑を API で作れない、仕訳を修正できない、人事・給与に公開 API がない）は日常業務に毎日効く。</li>
   <li><b>管理会計の3階層は、freee はアドバンスでも組める。</b>部門の階層はアドバンス・エンタープライズとも5階層、セグメントは3つ。「事業＞部門＞支店」は子会社のアドバンスでもそのまま持てる。MF会計Plus は部門10階層だが、部門は画面でしか作れない。</li>
-  <li><b>子会社を J-SOX の対象に含めるなら、freee のプラン構成を見直す。</b>操作ログや自己承認の禁止が子会社でも必要なら、子会社もエンタープライズにするか、別の統制で補う必要がある。どの会社が評価範囲に入るかを先に確認する。</li>
+  <li><b>子会社を J-SOX の対象に含めるなら、freee のプラン構成を見直す。</b>操作ログや自己承認の禁止が子会社でも必要なら、子会社もエンタープライズにするか、別の統制で補う必要がある。どの会社が評価範囲に入るかを先に監査法人と確認する。</li>
+  <li><b>freee では、IP 制限と AI 連携（リモート版 MCP）が両立しない。</b>エンタープライズで IP 制限をかけると、リモート版の MCP は使えない（freee 回答）。AI から使うなら、固定 IP の自社環境でローカル版を動かせるかの確認が要る。</li>
   <li><b>グループ5社は freee の上限ちょうど。</b>freee の外部連携アプリ（プライベート）は5事業所まで。6社目ができると作り直しになるため、増える見込みがあるなら最初からパブリックアプリ（20事業所まで審査なし）で作る。アプリの種類は後から変えられない。</li>
   <li><b>費用は、経費精算を使う人数で結論が変わる。</b>freee は経費精算・各種申請を使った人数に応じて従量課金がかかる。見積額を使った比較は社内資料にまとめた。</li>
 </ul>
@@ -184,20 +185,25 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 <div class="tw"><table>
 <thead><tr><th style="width:22%">項目</th><th style="width:30%">MF クラウド会計Plus</th><th style="width:24%">freee エンタープライズ</th><th>freee アドバンス</th></tr></thead>
 <tbody>
-<tr><td class="item">仕訳承認</td><td><span class="j ok">あり</span>申請・承認・一括承認。API で登録時に「申請前／承認済み」を指定できる</td><td><span class="j ok">あり</span>一段階</td><td><span class="j ok">あり</span>一段階</td></tr>
-<tr><td class="item">自己承認の禁止</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>承認設定の変更履歴も残る</td><td><span class="j ng">なし</span></td></tr>
-<tr><td class="item">操作ログ</td><td><span class="j ok">あり</span>ユーザー・ロール・マスタ・会計処理設定・仕訳削除のログを CSV 出力</td><td><span class="j ok">あり</span>イベントログ・各種の変更履歴</td><td><span class="j ng">なし</span></td></tr>
-<tr><td class="item">IPアドレス制限</td><td><span class="j un">要確認</span>MF 全体では「一部のプロダクトで提供」</td><td><span class="j ok">あり</span>API にも適用される</td><td><span class="j ng">なし</span></td></tr>
-<tr><td class="item">二要素認証の必須化</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span></td><td><span class="j pt">任意設定のみ</span></td></tr>
+<tr><td class="item">仕訳承認</td><td><span class="j ok">あり</span>申請・承認・一括承認。API で登録時に「申請前／承認済み」を指定できる</td><td><span class="j ok">あり</span>一段階。API で登録した仕訳も承認フローに乗る（freee 回答）</td><td><span class="j ok">あり</span>一段階。起票者が承認経路に入っていると、作成した時点で「承認済み」になる</td></tr>
+<tr><td class="item">自己承認の禁止</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>承認設定の変更履歴も残る</td><td><span class="j ng">なし</span>起票者を承認経路から外す運用で牽制する。ただし管理者は経路外でも代理承認できる</td></tr>
+<tr><td class="item">操作ログ</td><td><span class="j ok">あり</span>ユーザー・ロール・マスタ・会計処理設定・仕訳削除のログを CSV 出力</td><td><span class="j ok">あり</span>イベントログ。API・MCP 経由の操作も「いつ・だれが申請・承認したか」が残る（freee 回答）。画面からダウンロード（取得する API はない）</td><td><span class="j ng">なし</span>イベントログはない</td></tr>
+<tr><td class="item">仕訳ごとの承認履歴・変更履歴</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>画面の［履歴］から承認者・日時と更新の履歴をたどれる</td><td><span class="j pt">一部のみ</span>画面の承認履歴・変更履歴はない。<b>仕訳帳 CSV の作成者・作成日時・更新日時・申請者・承認者・承認日時の列</b>と、<b>優良電子帳簿の操作履歴</b>（訂正・削除の前後の内容・日時・担当者 ID を自動記録。期初から ON が必要で、さかのぼれない）で残せる<span class="fix">追記</span><small>CSV に「更新者」の列はない。API 経由の操作がこれらにどう記録されるかは要確認</small></td></tr>
+<tr><td class="item">権限・ユーザーの変更履歴</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>CSV 出力も可</td><td><span class="j ng">なし</span></td></tr>
+<tr><td class="item">ログイン履歴</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>エクスポート可</td><td><span class="j pt">最新20件の閲覧のみ</span></td></tr>
+<tr><td class="item">IPアドレス制限</td><td><span class="j un">要確認</span>MF 全体では「一部のプロダクトで提供」</td><td><span class="j ok">あり</span>API にも適用される。<b>有効にするとリモート版の MCP は使えない</b>（freee 回答）</td><td><span class="j ng">なし</span></td></tr>
+<tr><td class="item">二要素認証の必須化</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>全員に設定を強制できる</td><td><span class="j pt">任意設定のみ</span>各自が設定しなければ、ID・パスワードだけでログインできる</td></tr>
 <tr><td class="item">SSO・SAML</td><td><span class="j pt">有料オプション</span>「アカウント統制」で設定</td><td colspan="2"><span class="j pt">有料オプション</span>SAML オプションプラン（別契約・営業経由）</td></tr>
-<tr><td class="item">SOC 報告書</td><td><span class="j ok">SOC1 Type2</span>会計Plus が対象（2025年分を 2026-04-30 受領）。経費・債務支払・固定資産・給与・連結会計も対象</td><td colspan="2"><span class="j ok">SOC1 Type1/Type2</span>freee会計として取得済み</td></tr>
-<tr><td class="item">固定資産の減損・複数台帳</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span></td><td><span class="j ng">なし</span></td></tr>
+<tr><td class="item">SOC 報告書</td><td><span class="j ok">SOC1 Type2</span>会計Plus が対象（2025年分を 2026-04-30 受領）。経費・債務支払・固定資産・給与・連結会計も対象</td><td><span class="j ok">SOC1 Type2</span>エンタープライズ向けとして案内（基本料金に含む）</td><td><span class="j un">要確認</span>アドバンスへの提供は公式に書かれていない<span class="fix">訂正</span></td></tr>
+<tr><td class="item">固定資産の減損・複数台帳</td><td><span class="j un">要確認</span></td><td><span class="j ok">あり</span>固定資産 API もエンタープライズのみ</td><td><span class="j ng">なし</span></td></tr>
 </tbody></table></div>
 
 <div class="note warn">
   <b>freee で子会社をアドバンスにする場合。</b>
-  子会社には操作ログ・自己承認の禁止・IP制限がない。子会社が J-SOX の評価範囲（重要な事業拠点）に入るなら、子会社もエンタープライズにするか、承認手続きなど別の統制で補う必要がある。
-  評価範囲に入らない子会社だけをアドバンスにするのが自然な分け方になる。
+  freee 自身の資料でも「J-SOX対応」はエンタープライズとされている。アドバンスの子会社には、イベントログ・画面の承認履歴と変更履歴・権限の変更履歴・自己承認の禁止・IP制限・SOC1 報告書（提供は要確認）がない。
+  残せるのは、仕訳帳 CSV の作成者・申請者・承認者の列と、優良電子帳簿の操作履歴（期初から ON にする）。<br>
+  子会社が J-SOX の評価範囲（重要な事業拠点）に入るなら、その会社はエンタープライズにするか、親会社による毎月の仕訳確認など別の統制で補う必要がある。どちらで足りるかは監査法人の判断になる。
+  なお、取得できる仕訳データ（API）には作成者・承認者の項目がないため、API だけで証跡を組み立てるプログラムは作れない（仕訳帳 CSV を使えば一部は可能）。
 </div>
 
 <h2 id="mf-only"><span class="n">04</span>MF でしかできないこと</h2>
@@ -206,7 +212,7 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 <div class="tw"><table>
 <thead><tr><th style="width:26%">項目</th><th>内容</th></tr></thead>
 <tbody>
-<tr><td class="item">支払〜FBデータ作成のAPI</td><td>MF は請求書受領システムとクラウド債務支払 API で、受領から FB データ作成まで対応できると回答（債務支払 API には承認・差戻しの API もある）。freee は<b>受取請求書が API 非対応</b>とヘルプに明記されており、一括振込ファイルを作る API もない。FB ファイルの出力は画面（支払管理レポート）から行う<small>月1回の業務であり、画面出力で代替可能</small></td></tr>
+<tr><td class="item">支払〜FBデータ作成のAPI</td><td>MF は請求書受領システムとクラウド債務支払 API で、受領から FB データ作成まで対応できると回答（債務支払 API には承認・差戻しの API もある）。freee は<b>受取請求書が API 非対応</b>とヘルプに明記されており、一括振込ファイルを作る API もない。API の提供予定も未定（freee 回答）。FB ファイルの出力は画面（支払管理レポート）から行う<small>月1回の業務であり、画面出力で代替可能</small></td></tr>
 <tr><td class="item">部門の階層数</td><td>MF会計Plus は10階層、freee はアドバンス・エンタープライズとも5階層<small>「事業＞部門＞支店」の3階層ならどちらも足りる。MF は API で部門を作れない点に注意</small></td></tr>
 <tr><td class="item">（訂正）総勘定元帳の API</td><td>初版では「MF は安定版で取得できる」としたが、<b>会計Plus の公式API仕様書に総勘定元帳の API はない</b>（帳票は残高試算表と部門別集計表だけ）。担当者回答との食い違いは確認事項に入れた。freee はβ版（アドバンス・エンタープライズのみ）</td></tr>
 <tr><td class="item">（訂正）金融機関の連携数</td><td>初版の「MF 約2,400／freee 約1,000」は公式の数字ではなかった。MF の公表値は「2,300以上の金融関連サービス」（2024-02-29 時点、自社調べ）。freee会計は連携数を公表していない（「1,000社以上」は別製品 freee入出金管理の表記）</td></tr>
@@ -226,7 +232,7 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 <tr><td class="item">仕訳の登録・取得・検索</td><td><span class="j ok">可</span>登録は<b>1回1仕訳</b>（一括登録なし）。検索は1回1,000件まで、期間・承認状態・科目・部門・取引先・タグなどで絞り込み</td><td><span class="j ok">可</span>取引（deals）と振替伝票（manual_journals）の2系統</td></tr>
 <tr><td class="item">仕訳の修正</td><td><span class="j ng">不可</span>更新の API がない<small>担当者回答は「可」。公式仕様書と食い違う<span class="fix">訂正</span></small></td><td><span class="j ok">可</span>PUT</td></tr>
 <tr><td class="item">仕訳の削除・取消</td><td><span class="j ok">可</span>削除と、逆仕訳の作成が別々の API</td><td><span class="j ok">可</span>DELETE</td></tr>
-<tr><td class="item">仕訳の承認状態</td><td><span class="j ok">可</span>登録時に「申請前／承認済み」を指定。一覧で状態の絞り込み</td><td><span class="j un">要確認</span>API で登録した仕訳が承認フローに乗るか</td></tr>
+<tr><td class="item">仕訳の承認状態</td><td><span class="j ok">可</span>登録時に「申請前／承認済み」を指定。一覧で状態の絞り込み</td><td><span class="j ok">可</span>API で登録した仕訳も承認フローに乗る（freee 回答）</td></tr>
 <tr><td class="item">取引先</td><td><span class="j ok">可</span>登録・修正・削除・取得</td><td><span class="j ok">可</span>CRUD＋コードによる upsert</td></tr>
 <tr><td class="item">勘定科目・補助科目</td><td><span class="j pt">取得のみ</span>新規登録は非対応</td><td><span class="j ok">可</span>CRUD＋コードによる upsert</td></tr>
 <tr><td class="item">部門・プロジェクト</td><td><span class="j pt">取得のみ</span>部門の親子関係（parent_id）は取得できる</td><td><span class="j ok">可</span>CRUD。部門階層（parent_id）はアドバンス・エンタープライズで5階層</td></tr>
@@ -235,8 +241,9 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 <tr><td class="item">証憑</td><td><span class="j pt">取得のみ</span>ファイル取得</td><td><span class="j ok">可</span>登録・取得・更新・削除・ダウンロード<small>1ファイル64MB、月10GB、1分300ファイルまで</small></td></tr>
 <tr><td class="item">入出金・口座・口座振替</td><td><span class="j ng">なし</span>銀行連携は製品機能として提供</td><td><span class="j ok">可</span>口座・口座振替は CRUD。入出金明細は取得・作成・削除（更新なし）</td></tr>
 <tr><td class="item">申請・承認ワークフロー</td><td><span class="j ng">なし</span></td><td><span class="j ok">可</span>経費申請・支払依頼・各種申請・購買申請の作成・更新・削除と承認操作</td></tr>
-<tr><td class="item">帳票</td><td><span class="j ok">可</span>残高試算表（BS/PL）、部門別集計表（BS/PL）、会計期間</td><td><span class="j ok">可</span>BS・PL・製造原価報告書（前年／3期間比較）、部門別・セグメント別のPL<small>部門比較は一度に5部門まで。PL を部門内訳つきで取れば全部門を1回で取得できる（部門5,000件未満）</small></td></tr>
-<tr><td class="item">総勘定元帳</td><td><span class="j ng">なし</span>公式仕様書に API がない<small>担当者回答は「可」<span class="fix">訂正</span></small></td><td><span class="j pt">β版</span>アドバンス・エンタープライズのみ。本番利用は非推奨</td></tr>
+<tr><td class="item">帳票</td><td><span class="j ok">可</span>残高試算表（BS/PL）、部門別集計表（BS/PL）、会計期間</td><td><span class="j ok">可</span>BS・PL・製造原価報告書（前年／3期間比較）、部門別・セグメント別のPL<small>部門比較は一度に5部門まで。親部門を指定すると配下の子部門は合算される（配下すべての部門の権限が必要）。PL を部門内訳つきで取れば全部門を1回で取得できるが、末端の部門がフラットに返るため、支店などの集計は部門一覧の階層から自前で組む（freee 回答）</small></td></tr>
+<tr><td class="item">総勘定元帳</td><td><span class="j ng">なし</span>公式仕様書に API がない<small>担当者回答は「可」<span class="fix">訂正</span></small></td><td><span class="j pt">β版</span>アドバンス・エンタープライズのみ。本番利用は非推奨。安定版への移行予定は未定（freee 回答）</td></tr>
+<tr><td class="item">固定資産</td><td><span class="j un">要確認</span>別製品（クラウド固定資産）</td><td><span class="j pt">エンタープライズのみ</span>会計APIの固定資産 API は、エンタープライズの事業所だけが使える<span class="fix">追記</span></td></tr>
 <tr><td class="item">請求書・見積書</td><td><span class="j pt">別製品</span>請求書受領・債務支払 API、board との API 連携（2026-08）</td><td><span class="j ok">可</span>会計APIは参照のみ。発行・更新は freee請求書 API（取消方式）</td></tr>
 </tbody></table></div>
 
@@ -262,11 +269,14 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 <tbody>
 <tr><td class="item">API の利用条件</td><td>連携先の外部システムがあることが前提。担当者への問い合わせが必要</td><td>開発者登録をしてアプリを作成</td></tr>
 <tr><td class="item">認証</td><td>OAuth／APIキー<small>APIキー認証（2026-09）の告知は小規模向けクラウド会計が対象。会計Plus での対応は要確認</small></td><td>OAuth 2.0。推奨方式では<b>1トークン＝1事業所</b>（グループ5社なら5本）。全事業所アクセス方式は将来廃止予定（時期未定）</td></tr>
-<tr><td class="item">レート制限</td><td><span class="j un">非公開</span>超えると 429。エンドポイントごとに独立し、状況により変わる</td><td>秒あたり：<code>/reports</code> 1秒10回、証憑DL 1秒3回。<b>1日あたり：事業所×アプリごとにエンタープライズ1万回・アドバンス5千回</b><span class="fix">追記</span><br>人事労務：1時間1万回</td></tr>
+<tr><td class="item">レート制限</td><td><span class="j un">非公開</span>超えると 429。エンドポイントごとに独立し、状況により変わる</td><td>秒あたり：<code>/reports</code> 1秒10回、証憑DL 1秒3回。<b>1日あたり：事業所×アプリごとにエンタープライズ1万回・アドバンス5千回</b><span class="fix">追記</span>。短期間に過度なアクセスがあると制限される（数値は非公開）<br>人事労務：1時間1万回<small>freee 回答：1日数千件に分けて登録してほしい。数日で数万件を入れる必要がある場合は別途相談。当社の今の仕訳量（7・8月）では、月末でもキャリアで1日約360回、子会社は50回未満</small></td></tr>
+<tr><td class="item">IP制限とMCP</td><td><span class="j un">要確認</span></td><td>エンタープライズで IP 制限を有効にすると API にも効く（API を動かす環境の IP を登録する。範囲指定も可）。<b>IP 制限を有効にすると、リモート版の MCP は使えない</b>（接続元 IP が非公開のため。freee 回答）<span class="fix">追記</span></td></tr>
+<tr><td class="item">無人バッチの認可</td><td><span class="j un">要確認</span></td><td>リフレッシュトークンの有効期限は90日。人の操作が要るのは、初回の認可・リフレッシュトークンの期限切れ・アプリの権限範囲を変えたときだけ（freee 回答）</td></tr>
+<tr><td class="item">API の変更告知</td><td><span class="j un">要確認</span></td><td>動かなくなる変更や廃止は、最低3か月前に告知（対応が大きいものは6か月前）。β版は予告なく変わる（freee 回答）</td></tr>
 <tr><td class="item">Webhook</td><td><span class="j ng">なし</span>仕様書・開発者サイトに記載なし</td><td>β提供。通知されるのは経費精算・各種申請・支払依頼の作成・承認・差戻しのみ（取引・仕訳の変更は対象外）</td></tr>
 <tr><td class="item">検証環境</td><td><span class="j un">要確認</span>仕様書には本番環境のみ記載</td><td>開発用テスト事業所を無料で作成可。作成から90日以上たち、直近90日 API を実行していないと自動削除</td></tr>
 <tr><td class="item">アプリの事業所数制限</td><td>—</td><td>プライベートアプリは5事業所まで。6事業所以上はパブリックアプリ（20事業所までは審査なし）<span class="fix">訂正</span><small>グループ5社で上限ちょうど。アプリの種類は後から変えられない</small></td></tr>
-<tr><td class="item">プラン依存の機能</td><td><span class="j un">要確認</span></td><td>部門階層・セグメント・総勘定元帳API（β）はアドバンス以上。イベントログ・IP制限・自己承認の禁止はエンタープライズのみ</td></tr>
+<tr><td class="item">プラン依存の機能</td><td><span class="j un">要確認</span></td><td>部門階層（5階層）・セグメント（3つ）・総勘定元帳API（β）はアドバンス以上。<b>固定資産 API・イベントログ・画面の承認／変更履歴・IP制限・自己承認の禁止・二要素認証の必須化はエンタープライズのみ</b><small>API 仕様の一部の注意書きに「アドバンスはセグメント1つ」とあるが、旧プラン時代の文言。ヘルプのプラン比較と API 仕様のパラメータ表ではアドバンスも3つ</small></td></tr>
 <tr><td class="item">β版APIの扱い</td><td>—</td><td>β版は事前予告なく破壊的変更あり。<code>freee-using-beta: true</code> ヘッダが必須</td></tr>
 <tr><td class="item">MCP</td><td>小規模向けクラウド会計は 2026-03-26 から全プランで提供（2026-08 から Claude の公式コネクタ）。<b>会計Plus は未提供</b></td><td>OSS（2026-03-02）とリモート版（2026-03-27〜、<code>mcp.freee.co.jp/mcp</code>）。12種のAPI・557操作に対応（v0.36.6、2026-10-13）</td></tr>
 <tr><td class="item">実装サポート</td><td>API・MCPの仕様や実装に関する問い合わせは原則対応なし</td><td>OSSのため自己解決前提。開発者コミュニティあり</td></tr>
@@ -276,24 +286,20 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
 <p class="sub">公式資料では分からず、回答によって判断が変わるものだけに絞った。初版の質問のうち、資料で答えが出たもの（freee の部門階層・総勘定元帳・支出管理の API）は外した。</p>
 
 <h3>freee への確認事項</h3>
-<pre class="q">1. 仕訳承認フローを有効にした事業所で、APIから仕訳を登録した場合、その仕訳も承認フローに乗りますか。
-   それともAPI経由の登録は承認を経ずに確定しますか
+<p class="sub">2026-09-25 に送った8問には 2026-10-02 に回答があり、このページに反映した（承認フロー、イベントログ、IP制限と MCP、呼び出し上限、総勘定元帳、変更告知、リフレッシュトークン、受取請求書 API）。残りは子会社をアドバンスにする場合の確認。</p>
+<pre class="q">1. アドバンスで、APIアプリ経由で登録・承認した仕訳は、仕訳帳CSVの「作成者」「申請者」「承認者」の列にどう記録されますか
+   （アプリ名か、認可したユーザーか）。優良電子帳簿の操作履歴にも同じように残りますか
 
-2. エンタープライズのイベントログに、API/MCP経由の登録・更新・削除は残りますか。実行者（アプリ・ユーザー）を特定できますか。
-   アドバンスの子会社で J-SOX の証跡を残す方法として推奨されるものはありますか
+2. アドバンスの画面で「仕訳承認履歴」（作成・一次承認・最終承認・差し戻し）は表示されますか。
+   ヘルプには、エンタープライズのみとする記述と、プランの条件なしの記述があります
 
-3. エンタープライズのIP制限をAPIにも適用する場合の運用方法を教えてください。
-   リモートMCP（mcp.freee.co.jp）を利用する場合、接続元IPはどう扱われますか
+3. アドバンスで、承認経路に入っていない管理者が、自分で起票した仕訳を代理承認できますか
 
-4. 1日の呼び出し上限（エンタープライズ 1万回／アドバンス 5千回）について。
-   月次で数万件規模の仕訳を投入する場合の推奨方式（CSVインポートとの併用など）と、上限の引き上げ可否を教えてください
+4. SOC1 Type2報告書は、アドバンスの事業所（子会社）にも提供されますか
 
-5. 総勘定元帳API（β版）の安定版への移行予定と、安定版APIを廃止する場合の事前告知期間を教えてください
+5. 契約期間の途中でアドバンスからエンタープライズに上げられますか
 
-6. 無人バッチでの連携を想定しています。リフレッシュトークンの有効期限と、
-   再認可（人の操作）が必要になる条件を教えてください
-
-7. 受取請求書と一括振込ファイル（FBデータ）の作成について、API提供の予定はありますか</pre>
+6. IP制限を有効にした場合、自社の固定IPの環境でローカル版のMCPを動かせば利用できますか</pre>
 
 <h3>MF への確認事項</h3>
 <pre class="q">1. 以前のご回答では「仕訳の修正」と「総勘定元帳の取得」がAPIで可能とのことでしたが、
@@ -318,6 +324,7 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
   <li><b>内部統制（J-SOX）の章を追加した。</b>freee の操作ログ・自己承認の禁止・IP制限はエンタープライズのみ。</li>
   <li><b>freee の1日の呼び出し上限と、アプリの事業所数の上限（5社で上限ちょうど）を追記した。</b></li>
   <li><b>前提を「グループ4社」から「グループ5社（親会社＋子会社4社）」に直した。</b>両社の見積の構成に合わせた。</li>
+  <li><b>同日夜：freee の回答（2026-10-02）とヘルプの確認を反映した。</b>API で登録した仕訳も承認フローに乗る、IP 制限を有効にするとリモート版 MCP は使えない、固定資産 API はエンタープライズのみ、アドバンスで残る証跡（仕訳帳 CSV の列・優良電子帳簿の操作履歴）と残らない証跡、SOC1 報告書はエンタープライズ向け。</li>
 </ul>
 
 <h2><span class="n">10</span>出典</h2>
@@ -342,7 +349,10 @@ footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-si
   <li>freee API リリースノート（2026年7月・9月） — <a href="https://developer.freee.co.jp/release-note/8184" target="_blank" rel="noopener">8184</a>／<a href="https://developer.freee.co.jp/release-note/8476" target="_blank" rel="noopener">8476</a></li>
   <li>freee-mcp を OSS として公開（2026-03-02） — <a href="https://corp.freee.co.jp/news/20260302freee_mcp.html" target="_blank" rel="noopener">corp.freee.co.jp</a>／リモート版（2026-03-27） — <a href="https://digitalpr.jp/r/131610" target="_blank" rel="noopener">digitalpr.jp</a>／リポジトリ（v0.36.6、2026-10-13） — <a href="https://github.com/freee/freee-mcp" target="_blank" rel="noopener">github.com/freee/freee-mcp</a></li>
   <li>freee連結会計 — <a href="https://www.freee.co.jp/consolidated-accounting/" target="_blank" rel="noopener">freee.co.jp/consolidated-accounting</a></li>
-  <li>freee SOC 報告書 — <a href="https://corp.freee.co.jp/sustainability/governance/" target="_blank" rel="noopener">corp.freee.co.jp/sustainability/governance</a></li>
+  <li>freee SOC 報告書 — <a href="https://corp.freee.co.jp/sustainability/governance/" target="_blank" rel="noopener">corp.freee.co.jp/sustainability/governance</a>／エンタープライズ向けの案内 — <a href="https://www.freee.co.jp/solution/ipo/internal-control/" target="_blank" rel="noopener">freee.co.jp/solution/ipo/internal-control</a></li>
+  <li>freee エンタープライズプランの概要（2026-10-13） — <a href="https://support.freee.co.jp/hc/ja/articles/115000551746" target="_blank" rel="noopener">support.freee.co.jp</a>／仕訳承認フロー（2026-07-27） — <a href="https://support.freee.co.jp/hc/ja/articles/210315243" target="_blank" rel="noopener">210315243</a>／仕訳の承認履歴・変更履歴（2025-12-16） — <a href="https://support.freee.co.jp/hc/ja/articles/115001581363" target="_blank" rel="noopener">115001581363</a></li>
+  <li>freee 仕訳帳 CSV の項目（2026-08-04） — <a href="https://support.freee.co.jp/hc/ja/articles/204615564" target="_blank" rel="noopener">204615564</a>／優良電子帳簿の操作履歴（2026-06-29） — <a href="https://support.freee.co.jp/hc/ja/articles/59356267701273" target="_blank" rel="noopener">59356267701273</a>／イベントログ（2026-08-24） — <a href="https://support.freee.co.jp/hc/ja/articles/115000551766" target="_blank" rel="noopener">115000551766</a>／二要素認証の必須化（2026-09-15） — <a href="https://support.freee.co.jp/hc/ja/articles/360001200143" target="_blank" rel="noopener">360001200143</a></li>
+  <li>freee からの回答（2026-10-02、当社の質問表への回答。非公開資料）</li>
 </ol>
 
 <footer>
